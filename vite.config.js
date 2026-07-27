@@ -10,10 +10,11 @@ const root = fileURLToPath(new URL('.', import.meta.url))
 // string literal, so a future rename touches one line, not several.
 const SITE_NAME = 'CarVista'
 
-// TODO: replace once the production domain is decided -- every
-// canonical/OGP URL below is built from this one constant, so that's
-// the only place a real domain needs to land.
-const SITE_ORIGIN = 'https://carvista.example.com'
+// Temporary production origin -- the Vercel-assigned domain until a
+// custom domain is purchased, at which point this is the only place
+// that needs to change. Every canonical/OGP URL below is built from
+// this one constant.
+const SITE_ORIGIN = 'https://car-evolution-sigma.vercel.app'
 
 // Every file in cars/*.html, plus every other *.html at the project
 // root (editorial-policy.html, and whatever site-wide page comes next),

@@ -73,7 +73,7 @@ Same-maker is not the only place two vehicles compete for the same identity. Car
 | Cluster | Members | Notes |
 |---|---|---|
 | Mainstream family minivan | VOXY, NOAH, SERENA, STEPWGN | The real-world competitive set these four nameplates are actually cross-shopped within, spanning all three of CarVista's current makers. A future addition in this class (e.g. a Toyota Estima) checks against all four, not just same-maker VOXY/NOAH. |
-| Luxury minivan | Alphard | Alone in this cluster today. A future addition here (e.g. a Vellfire, an Elgrand) checks against Alphard specifically, regardless of maker. |
+| Luxury minivan | Alphard, Vellfire | Vellfire (added 2026-07) is Alphard's own platform-sharing sibling -- the real-world case this row was written for. A future addition here (e.g. an Elgrand) checks against both. |
 
 A vehicle belongs to a cluster by what it actually competes against in the real market, not by category label alone — add a new cluster row when a genuinely different segment is added, rather than forcing every future vehicle into one of these two.
 
@@ -95,8 +95,9 @@ A vehicle belongs to a cluster by what it actually competes against in the real 
 | NOAH | Toyota | The composed standard. | Composed, Horizontal, Substantial | Aggressive, Sporty, Edgy | Twin of VOXY by platform and silhouette; the fascia is the one real difference, and official comparison copy names it directly (see below). |
 | SERENA | Nissan | The open family choice. | Family, Friendly, Open | Aggressive, Luxury, Intimidating | Nissan's own long-running family-minivan positioning; first non-Toyota vehicle on the site, and a same-cluster (not same-maker) check against VOXY/NOAH/STEPWGN. |
 | STEPWGN | Honda | The functional essential. | Simple, Clean, Functional | Flashy, Aggressive, Luxury | Sourced directly from Honda's own stated concept for the nameplate — "家族みんなの使い勝手 = ユーティリティをデザインするクルマ造り" (designing a car around everyday family usability). |
+| Vellfire | Toyota | The bold alternative. | Bold, Aggressive, Individual | Elegant, Dignified, Formal | Toyota's own official contrast against its platform-sharing sibling: "ヴェルファイアが掲げるコンセプトは、上質さとアグレッシブさの追求...アルファードは、真のラグジュアリー追求をコンセプト" — the same strength of sourcing as the NOAH/VOXY pair, this time for the Luxury minivan cluster. |
 
-No two vehicles share a Design Identity keyword — checked across the whole Mainstream family minivan cluster (VOXY/NOAH/SERENA/STEPWGN), not only within Toyota — and every Avoid list either mirrors a cluster-mate's own keywords (catching collisions structurally, not just at review time) or is sourced from an official contrast.
+No two vehicles share a Design Identity keyword within the same cluster — checked across the whole Mainstream family minivan cluster (VOXY/NOAH/SERENA/STEPWGN) and the Luxury minivan cluster (Alphard/Vellfire) separately, not only within one maker — and every Avoid list either mirrors a cluster-mate's own keywords (catching collisions structurally, not just at review time) or is sourced from an official contrast. (Vellfire's "Aggressive" is not a collision with VOXY's own "Aggressive" — they sit in different clusters, per the cluster-scoped check this document itself defines.)
 
 | Vehicle | Representative Grade | Representative Color | Why |
 |---|---|---|---|
@@ -105,10 +106,12 @@ No two vehicles share a Design Identity keyword — checked across the whole Mai
 | NOAH | Standard model | White Pearl Crystal Shine | The standard grade is the one this vehicle's whole Design Identity revision is grounded in (see above). White is sourced as softening/calming a body's read — the color equivalent of "Composed." |
 | SERENA | Standard model | White Pearl | Base "X" grade, not the sportier Highway STAR trim, matching the Family/Friendly register; white avoids the heavier, more formal impression black carries on this vehicle. |
 | STEPWGN | AIR | Platinum White Pearl | "AIR" is this generation's own standard nameplate, distinct from the sportier SPADA trim already ruled out by this vehicle's Avoid list. Platinum White Pearl is sourced as this nameplate's most popular color, described in terms of reassuring, standard-choice confidence — matching Simple/Clean directly. |
+| Vellfire | Z Premier | Black | The current (40系) generation ships in only two colors, Black (standard/no-cost) and Platinum White Pearl Mica (paid) — Black is sourced as conveying "力強さと高級感" (boldness), matching Bold/Aggressive better than the white option. Z Premier is the mainstream signature-face grade, distinct from the cabin-focused Executive Lounge halo trim — same reasoning as Alphard's own Z choice. |
 
 | Vehicle | Reference Length (current gen, approx.) | Cluster position |
 |---|---|---|
-| Alphard | ~4945mm | Luxury minivan — largest on the roster; should read ~5-10% bigger in frame than the Mainstream cluster below, camera/floor held identical. |
+| Vellfire | ~4995mm | Luxury minivan — Toyota's own current-gen spec figure; slightly longer than Alphard due to a deeper front bumper/grille, otherwise shares Alphard's platform. |
+| Alphard | ~4945mm | Luxury minivan — should read ~5-10% bigger in frame than the Mainstream cluster below, camera/floor held identical. |
 | VOXY | ~4695mm | Mainstream family minivan — same platform/length as NOAH. |
 | NOAH | ~4695mm | Mainstream family minivan — same platform/length as VOXY. |
 | SERENA | ~4765mm | Mainstream family minivan — Nissan's own nameplate, close to but not identical to the Toyota pair; the small real difference is fine to show, not something to force to exact parity. |
