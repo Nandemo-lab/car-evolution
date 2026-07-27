@@ -1,0 +1,178 @@
+// Pure data. No imports, no logic, no DOM -- this file describes one
+// vehicle and nothing else. All rendering/interaction lives in
+// src/car-page.js; the bootstrap that wires this data into it lives
+// in src/entries/stepwgn.js.
+//
+// All facts below (periods, model codes, design/facelift content) are
+// cross-checked against Honda's official vehicle archive plus
+// independent catalog sources -- no invented specs. Six generations
+// run from 1996 to today, same as serena.js -- comparePairs has five
+// pairs, not three.
+//
+// IMPORTANT: annotation x/y/labelX coordinates are placeholders. VOXY's
+// coordinates were tuned against its actual generated photos; StepWGN
+// has no photos yet (to be generated separately). These values are a
+// reasonable starting guess modeled on VOXY's front-3/4 composition
+// (grille lower-center, headlight/greenhouse upper area) and MUST be
+// re-checked once real images land in public/images/cars/stepwgn/.
+const generations = [
+  {
+    numeral: 'I',
+    era: '初代',
+    title: 'RF1/2型',
+    code: 'RF1',
+    startYear: '1996',
+    yearRange: '1996–2001',
+    period: '1996年〜2001年',
+    image: '/images/cars/stepwgn/gen1-1996.png',
+    annotations: [
+      { x: 30, y: 48, label: '無骨で実用的なフロントグリル', dir: 'bottom', labelX: 30 },
+      { x: 60, y: 10, label: '背の高いウォークスルー・ボディ', dir: 'top', labelX: 62 },
+    ],
+    facelift: {
+      fromYear: '1996', toYear: '1999',
+      points: ['マルチリフレクター式ヘッドランプへ変更', 'フロントバンパーのデザインを刷新'],
+    },
+  },
+  {
+    numeral: 'II',
+    era: '2代目',
+    title: 'RF3-8型',
+    code: 'RF3',
+    startYear: '2001',
+    yearRange: '2001–2005',
+    period: '2001年〜2005年',
+    image: '/images/cars/stepwgn/gen2-2001.png',
+    annotations: [
+      { x: 31, y: 46, label: 'キープコンセプトの台形グリル', dir: 'bottom', labelX: 31 },
+      { x: 58, y: 16, label: '張り出したフェンダーアーチ（SPADA）', dir: 'top', labelX: 62 },
+    ],
+    facelift: {
+      fromYear: '2001', toYear: '2003',
+      note: '2003年、フロント・リアの意匠を全面刷新し、スポーティな派生モデル「SPADA」を追加。',
+      points: ['フロント・リアのデザインを一新', 'スポーツグレード「SPADA」を追加'],
+    },
+  },
+  {
+    numeral: 'III',
+    era: '3代目',
+    title: 'RG1-4型',
+    code: 'RG1',
+    startYear: '2005',
+    yearRange: '2005–2009',
+    period: '2005年〜2009年',
+    image: '/images/cars/stepwgn/gen3-2005.png',
+    annotations: [
+      { x: 30, y: 44, label: '低められた車高と大型グリル', dir: 'bottom', labelX: 30 },
+      { x: 56, y: 20, label: '両側スライドドアの採用', dir: 'top', labelX: 60 },
+    ],
+    facelift: {
+      fromYear: '2005', toYear: '2007',
+      note: '2007年、内外装を刷新するとともに「SPADA」を復活。',
+      points: ['フロントまわりのデザインを刷新', 'スポーツグレード「SPADA」が復活'],
+    },
+  },
+  {
+    numeral: 'IV',
+    era: '4代目',
+    title: 'RK1-7型',
+    code: 'RK1',
+    startYear: '2009',
+    yearRange: '2009–2015',
+    period: '2009年〜2015年',
+    image: '/images/cars/stepwgn/gen4-2009.png',
+    annotations: [
+      { x: 31, y: 46, label: '角度のついたメッキグリル', dir: 'bottom', labelX: 31 },
+      { x: 58, y: 22, label: '丸みを帯びた親しみやすいフェイス', dir: 'top', labelX: 62 },
+    ],
+    facelift: {
+      fromYear: '2012', toYear: '2012',
+      points: ['フロントデザインをより立体的な造形に変更', 'ヘッドライト・テールランプのグラフィックを一新'],
+    },
+  },
+  {
+    numeral: 'V',
+    era: '5代目',
+    title: 'RP1-5型',
+    code: 'RP1',
+    startYear: '2015',
+    yearRange: '2015–2022',
+    period: '2015年〜2022年',
+    image: '/images/cars/stepwgn/gen5-2015.png',
+    annotations: [
+      { x: 32, y: 48, label: '水平基調に広がるフロントフェイス', dir: 'bottom', labelX: 32 },
+      { x: 60, y: 24, label: 'スリムなヘッドライト', dir: 'top', labelX: 64 },
+    ],
+    facelift: {
+      fromYear: '2017', toYear: '2017',
+      note: '2017年、フロントフェイスを大きく変更するとともにハイブリッド「e:HEV」を追加。',
+      points: ['フロントフェイスのデザインを大幅に変更', 'ハイブリッドモデル「e:HEV」を追加'],
+    },
+  },
+  {
+    numeral: 'VI',
+    era: '現行モデル',
+    title: 'RP6-8型',
+    code: 'RP6',
+    startYear: '2022',
+    yearRange: '2022–現在',
+    period: '2022年〜現在',
+    image: '/images/cars/stepwgn/gen6-2022.png',
+    annotations: [
+      { x: 39, y: 30, label: '大型化した一体感のあるフロント', dir: 'top', labelX: 36 },
+      { x: 55, y: 52, label: '存在感のある水平グリル', dir: 'bottom', labelX: 66 },
+    ],
+    facelift: null,
+  },
+]
+
+export default {
+  eyebrow: 'CARVISTA',
+  vehicleName: 'STEPWGN',
+  brand: 'ホンダ', // used only for JSON-LD ("ホンダ STEPWGN RP6-8型" etc.)
+  maker: 'Honda', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
+  order: 5, // Home page display order across Featured Cars + All Cars -- lower shows first
+  // Featured Cards is a curated "start here" set, not every vehicle --
+  // All Cars is the complete catalog regardless of this flag. Flip to
+  // false to drop a vehicle from Featured without removing it from the
+  // site; this is an editorial call, not automatic.
+  featured: true,
+  // CarVista Design Identity -- see docs/brand/design-identity.md. The
+  // standing reference for Hero copy, annotation vocabulary, and SEO
+  // tone for this vehicle; check new copy against these words before
+  // writing it, don't invent tone per-page.
+  designRole: 'The functional essential.', // one-line "what is this vehicle" -- read first, before Identity/Avoid
+  designIdentity: ['Simple', 'Clean', 'Functional'],
+  // Words this vehicle's copy must not reach for -- Flashy/Aggressive/
+  // Luxury would contradict Honda's own stated utility-first concept
+  // for this nameplate.
+  designAvoid: ['Flashy', 'Aggressive', 'Luxury'],
+  // Fixed across every generation's image so Hero/Compare/Timeline
+  // never accidentally mix grades or colors -- see
+  // docs/brand/design-identity.md. "AIR" is the current generation's
+  // own standard nameplate (distinct from the sportier SPADA trim,
+  // which this vehicle's Avoid list rules out anyway). Platinum White
+  // Pearl is sourced as this nameplate's #1 color, described as
+  // conveying reassuring, standard-choice confidence -- matches Simple/
+  // Clean directly, not just popularity.
+  representativeGrade: 'AIR',
+  representativeColor: 'Platinum White Pearl',
+  // Current (RP6-8) generation's approx. overall length -- see
+  // docs/brand/design-identity.md's "What Reference Length is". Anchors
+  // this vehicle's apparent body scale relative to every other vehicle
+  // on the site once images are (re)generated with scale in mind; not
+  // retroactive to already-published photos. Internal production
+  // metadata only -- never render this as a spec on the page.
+  referenceLengthMm: 4800,
+  tagline: 'かたちは、時代を語る。',
+  heroImage: '/images/cars/stepwgn/hero-gen6-3q.png',
+  // Drives <title>/description/canonical/OGP/Twitter -- see the
+  // seo-inject plugin in vite.config.js. Nothing else in this page's
+  // <head> is hand-written.
+  seo: {
+    title: 'STEPWGN 歴代モデル一覧 — CarVista',
+    description: 'ホンダ ステップワゴン全6世代を画像で比較。型式・販売期間・デザインの進化が一目でわかる。',
+  },
+  defaultIndex: 5,
+  generations,
+}

@@ -19,3 +19,9 @@ desktop.ini
 # Environment secrets
 .env
 .env.*
+
+# Internal production/design-process material (Blender scripts, AI
+# benchmark renders, reference collection) -- not needed to build or
+# run the site, kept out of the public repo for size/scope reasons.
+production/
+__pycache__/

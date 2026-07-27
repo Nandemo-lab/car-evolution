@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+/* CarVista -- Home page styles ------------------------------------
+   The brand's entry point, not a vehicle page: no product photo in the
+   hero (that also keeps the hero's LCP path trivially fast -- text and
+   a gradient only). Photography becomes the star starting at Featured
+   Cars, one scroll below. Same dark palette and two-family type system
+   as car-page.css, duplicated here rather than shared, since this page
+   never loads car-page.css's bundle (compare slider, timeline, etc. --
+   none of it applies here). */
+:root { color: #f4f3f0; background: #0b0c0e; font-family: 'Noto Sans JP', 'Inter', sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0b0c0e; }
+
+#home { max-width: 1080px; margin: 0 auto; }
+
+.fade-in { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+.fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+.section-eyebrow {
+  /* .55 matches car-page.css's .eyebrow -- not a new value, just brought
+     in line with it. On editorial-policy.html (fewer total audits than
+     Home) this single low-contrast label was enough to pull the page's
+     accessibility score below the site's established 95+ bar. */
+  margin: 0 0 18px; font: 500 10.5px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .55;
+}
+
+/* Hero -- centered brand statement. No photo: the gradient carries the
+   atmosphere, the wordmark and tagline carry the meaning. */
+.home-hero {
+  position: relative;
+  /* calc() rather than a vh percentage -- guarantees a fixed ~64px peek
+     of Featured Cars at the bottom of the viewport on first load,
+     regardless of device height, instead of a peek that only appears on
+     tall screens and vanishes on short ones. Tuned to surface the
+     "FEATURED CARS" label only, not the card photo itself -- an earlier
+     110px version pulled the first card's image into the initial
+     viewport, which made it LCP-eligible and undid the hero's fast,
+     photo-free LCP path (dropped Performance from 97 to 86 in testing).
+     Text-only peek keeps both the "there's more" cue and the score. */
+  min-height: calc(100vh - 64px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 100px 22px 80px;
+  background: radial-gradient(ellipse 90% 60% at 50% 38%, #17181b 0%, #0d0e10 62%, #0b0c0e 100%);
+  overflow: hidden;
+}
+/* I / II / III / IV, extremely faint, spanning the full width behind
+   the copy -- the same numeral language as the timeline, the Featured
+   Card badge, and the heritage strip, but here it's pure atmosphere:
+   "generation" and "time" as a felt background, not a legible label.
+   aria-hidden since it carries no information a reader needs -- it's
+   decoration, not content (also keeps it out of the color-contrast
+   audit, which otherwise flags near-invisible text as a failure even
+   when that's the deliberate intent). */
+.home-hero-motif {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 4vw;
+  pointer-events: none; user-select: none;
+}
+.home-hero-motif span {
+  font-family: 'Inter', sans-serif; font-weight: 600;
+  /* Capped at 72px -- an earlier 210px cap made "IV" alone larger than
+     the H1 text, which made the browser treat it as the page's Largest
+     Contentful Paint element (adding its own font-render delay); even
+     after fixing that, the 4 large glyphs were still measurably slower
+     to paint in the same frame as the hero text. Smaller glyphs cost
+     less to rasterize regardless of which element LCP picks. */
+  font-size: clamp(36px, 5.5vw, 72px); letter-spacing: -.02em; line-height: 1;
+  /* rgba alpha, not `opacity` -- opacity < 1 promotes each span to its
+     own compositing layer (offscreen render + composite), real paint
+     cost repeated across 4 elements. Baked-in alpha gets the same
+     faintness with a normal paint, no extra layers. */
+  color: rgba(244, 243, 240, .035);
+}
+/* Nudged down from dead-center within the hero box -- purely a breathing-
+   room adjustment (the hero's min-height/flex-centering is unchanged),
+   requested to loosen the page's overall vertical rhythm at the very top. */
+.home-hero-copy { position: relative; z-index: 1; max-width: 560px; text-align: center; margin-top: 26px; }
+.home-eyebrow { margin: 0 0 18px; font: 500 11px/1 'Inter', sans-serif; letter-spacing: .28em; opacity: .5; }
+/* Sits directly above "CarVista" (the H1) -- without this, the same
+   word reads twice in a row as if repeating itself. Shrunk further and
+   pushed quieter so it registers as a small brand mark/kicker above the
+   wordmark, not a second announcement of the same name. */
+.home-eyebrow--mark { font-size: 9.5px; letter-spacing: .34em; opacity: .38; margin-bottom: 12px; }
+.home-hero-title {
+  margin: 0; font-family: 'Inter', sans-serif; font-weight: 600;
+  font-size: clamp(37px, 9.2vw, 56px); letter-spacing: -.03em; line-height: 1.08;
+}
+.home-hero-tagline {
+  margin: 18px 0 0; font-weight: 500; font-size: clamp(19px, 4.6vw, 25px);
+  letter-spacing: .01em; line-height: 1.5; opacity: .95;
+  /* Short enough to always fit one line down to 320px (verified) --
+     nowrap guarantees it stays that way rather than leaving the break
+     to whatever the browser's default line-breaking picks. */
+  white-space: nowrap;
+}
+.home-hero-desc {
+  margin: 18px auto 0; max-width: 420px; font-weight: 300; font-size: 14.5px;
+  line-height: 1.85; opacity: .68; letter-spacing: .01em;
+}
+.home-hero-desc .line { white-space: nowrap; }
+.home-cta {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 40px;
+  color: inherit; text-decoration: none; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 500; letter-spacing: .12em;
+  opacity: .8; transition: opacity .3s;
+}
+.home-cta:hover, .home-cta:focus-visible { opacity: 1; }
+.home-cta-arrow { display: inline-block; font-size: 13px; transform: translateY(1px); animation: cta-bob 2.2s ease-in-out infinite; }
+@keyframes cta-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+/* Featured Cars -- large, photo-first cards. Just enough text to name
+   what's there; the photo does the rest. Wider than a generic product-
+   card ratio (16:9, close to the source photos' own ~1.78:1 crop) and a
+   quiet Roman-numeral plate in place of a "全N世代" spec line -- reads
+   closer to a catalog plate than an e-commerce listing. */
+.featured { padding: 40px 22px 30px; }
+.featured-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.car-card {
+  display: flex; flex-direction: column; color: inherit; text-decoration: none;
+  border-radius: 18px; overflow: hidden; background: #111316;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05);
+  transition: box-shadow .35s, transform .35s;
+}
+/* A restrained Apple/Rivian-style response, not a bounce: a small lift,
+   a touch brighter, and the car's own reflections read very slightly
+   stronger -- via brightness/contrast on the photo itself, not an
+   overlay -- so the feedback feels like the car responding, not a UI
+   layer on top of it. */
+.car-card:hover, .car-card:focus-visible { box-shadow: 0 0 0 1px rgba(255,255,255,.14); transform: translateY(-3px); }
+.car-card:hover .car-card-photo img, .car-card:focus-visible .car-card-photo img { filter: brightness(1.07) contrast(1.03); }
+/* Taller than the source photos' native ~1.78:1 crop (9:8, not 16:9)
+   and the meta block below tightened -- together these push the
+   card's photo-to-info balance well past 80%, so the car is the star
+   of the card and the name/heritage strip reads as a caption beneath
+   it, not a co-equal panel competing with it for space. */
+.car-card-photo { position: relative; display: block; aspect-ratio: 9 / 8; background: #0d0e10; }
+/* transform-origin biased toward the top (32% rather than the default
+   50%) so the zoom crops more from the floor/shadow margin and less
+   from the roofline -- verified by simulating the actual cover+scale
+   crop against the source photos (this box's aspect is narrower than
+   the source, so object-fit:cover alone already matches height exactly
+   with zero vertical crop; the top-of-frame headlight/roof clipping
+   was coming entirely from the scale() below zooming from box-center). */
+.car-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 58%; transform: scale(1.16); transform-origin: 50% 20%; transition: filter .35s; }
+.car-card-gen-badge {
+  position: absolute; top: 14px; left: 14px; z-index: 1;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .07em;
+  color: #f4f3f0; opacity: .75;
+  text-shadow: 0 1px 5px rgba(0,0,0,.5), 0 0 12px rgba(0,0,0,.3);
+}
+.car-card-meta { display: flex; flex-direction: column; gap: 7px; padding: 12px 18px 14px; }
+/* Hierarchy is car -> name -> timeline strip: name bumped up in size/
+   weight, heritage strip below it dialed back a touch further, so the
+   two never compete for the same glance. */
+.car-card-name { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -.015em; }
+/* Mini heritage strip -- scaled-down clone of .heritage/.heritage-point/
+   .heritage-line (see car-page.css). Deliberately the same visual
+   language at a smaller size rather than a new pattern. */
+.car-card-heritage { display: flex; align-items: center; gap: 6px; }
+.mini-heritage-point { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: -.005em; opacity: .34; white-space: nowrap; }
+.mini-heritage-point.is-current { opacity: .82; font-weight: 600; }
+.mini-heritage-line { flex: 1 1 auto; height: 1px; min-width: 6px; background: rgba(255,255,255,.14); }
+
+/* All Cars -- quieter than Featured on purpose: smaller thumbnails,
+   grouped by maker, no per-card description. Coming Soon tiles sit in
+   the same grid at reduced opacity, un-linked. */
+.all-cars { padding: 52px 22px 30px; }
+/* A real heading + a live model count, not just the eyebrow label --
+   gives the section its own sense of scale/momentum instead of
+   dropping straight into a grid of small thumbnails. */
+.all-cars-header { margin-bottom: 28px; }
+.all-cars-heading {
+  margin: 0; font-family: 'Inter', sans-serif; font-size: clamp(22px, 4.5vw, 28px);
+  font-weight: 600; letter-spacing: -.015em;
+}
+.all-cars-count {
+  margin: 8px 0 0; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
+  letter-spacing: .04em; opacity: .45;
+}
+.maker-groups { display: flex; flex-direction: column; gap: 40px; }
+.maker-name {
+  margin: 0 0 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; opacity: .6;
+}
+.maker-cars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.mini-card {
+  display: flex; flex-direction: column; gap: 10px; color: inherit; text-decoration: none;
+  border-radius: 12px; overflow: hidden; background: #111316;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04);
+  transition: box-shadow .3s, transform .3s;
+}
+.mini-card:not(.mini-card--soon):hover, .mini-card:not(.mini-card--soon):focus-visible { box-shadow: 0 0 0 1px rgba(255,255,255,.12); transform: translateY(-2px); }
+.mini-card:not(.mini-card--soon):hover .mini-card-photo img, .mini-card:not(.mini-card--soon):focus-visible .mini-card-photo img { filter: brightness(1.08); }
+.mini-card-photo { display: block; aspect-ratio: 4 / 3; background: #0d0e10; }
+.mini-card-photo img { width: 100%; height: 100%; object-fit: cover; transition: filter .3s; }
+.mini-card-name { padding: 0 12px 12px; font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500; letter-spacing: -.005em; }
+.mini-card--soon { opacity: .38; cursor: default; }
+.mini-card--soon .mini-card-photo { display: flex; align-items: center; justify-content: center; }
+.mini-card-soon-label {
+  padding: 0 12px 12px; margin-top: -6px;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .1em; opacity: .7;
+}
+
+/* About -- three or four quiet lines, same register as everything
+   below the fold on a vehicle page. No card, no heading beyond the
+   eyebrow. Padding tightened from an earlier 70px/70px -- the run from
+   Featured Cars to Footer was measured (2026-07-26) at ~330px of pure
+   inter-section gap across 3 transitions, which read as scroll fatigue
+   more than breathing room; trimmed to ~264px total while keeping each
+   individual gap generous enough to still read as a section break. */
+.about { padding: 52px 22px; max-width: 560px; }
+.about-text { margin: 0 0 14px; font-weight: 300; font-size: 14.5px; line-height: 1.9; opacity: .62; letter-spacing: .01em; }
+.about-text:last-child { margin-bottom: 0; }
+
+/* Policy footer -- same base styles as every vehicle page (car-page.css).
+   Home shows only the single most important summary line plus a link to
+   the full editorial-policy.html page -- a real page now exists for the
+   detail, so there's nothing left to collapse inline. */
+.policy { padding: 48px 22px 54px; display: flex; flex-direction: column; gap: 17px; }
+/* Apple-Legal register: smaller, tighter-set, lower-contrast than a
+   paragraph meant to be read start to finish -- kept identical to
+   car-page.css's own copy of these rules (see that file's comment). */
+.policy-text { margin: 0; max-width: 460px; font-size: 11px; font-weight: 300; line-height: 1.75; opacity: .34; letter-spacing: .015em; }
+.policy-text--invite { opacity: .4; }
+.policy-link { color: inherit; opacity: .55; }
+/* The one standalone policy-link (linking out to editorial-policy.html,
+   not the inline X link inside a paragraph) reads as its own quiet row,
+   same size/weight as the old inline toggle it replaced. */
+.policy > .policy-link { align-self: flex-start; font-family: 'Inter', sans-serif; font-size: 11px; opacity: .4; text-decoration: none; }
+.policy > .policy-link:hover, .policy > .policy-link:focus-visible { opacity: .65; }
+.policy-meta { margin: 6px 0 0; font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 400; opacity: .22; letter-spacing: .02em; }
+.brand-note { margin: 14px 0 0; max-width: 420px; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; line-height: 1.8; opacity: .2; letter-spacing: .01em; font-style: italic; }
+
+/* Editorial Policy page -- reuses Home's shared tokens (colors, fonts,
+   .section-eyebrow, .about-text, .policy-text, .policy-meta) since it's
+   a sibling brand-level page, not a vehicle page. Only this page's own
+   layout (header/back-link/section headings) is new. */
+#editorial-policy { max-width: 640px; margin: 0 auto; padding: 0 22px; }
+.policy-page-header { padding: 50px 0 40px; }
+.policy-page-back {
+  display: inline-block; margin-bottom: 40px;
+  color: inherit; text-decoration: none;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: .04em;
+  opacity: .5; transition: opacity .3s;
+}
+.policy-page-back:hover, .policy-page-back:focus-visible { opacity: .85; }
+.policy-page-title { margin: 10px 0 0; font-family: 'Noto Sans JP', sans-serif; font-size: clamp(26px, 6vw, 34px); font-weight: 700; letter-spacing: -.01em; }
+.policy-page-section { padding: 34px 0; border-top: 1px solid rgba(255,255,255,.08); }
+.policy-page-section:first-of-type { border-top: none; }
+.policy-page-heading { margin: 0 0 14px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -.005em; opacity: .9; }
+.policy-page-footer { padding: 30px 0 70px; }
+/* A direct child of its section, not nested inside .about-text -- opacity
+   compounds through ancestors, so a link inside a .62-opacity paragraph
+   can't be brightened back up by its own opacity alone. Its own color
+   (not inherited opacity) keeps this readable independent of context. */
+.policy-page-link { display: inline-block; margin-top: 10px; color: rgba(244, 243, 240, .75); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+.policy-page-link:hover, .policy-page-link:focus-visible { color: #f4f3f0; }
+
+@media (min-width: 700px) {
+  .home-hero-copy, .featured, .all-cars, .about, .policy { padding-left: 8vw; padding-right: 8vw; }
+  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+  .maker-cars { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

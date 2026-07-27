@@ -3,29 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#08090b" />
-    <title>VOXY — Car Evolution</title>
+    <meta name="theme-color" content="#0b0c0e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- title/description/canonical/OGP/Twitter/JSON-LD are injected at
+         build+dev time by the seo-inject Vite plugin (see vite.config.js),
+         which aggregates every src/cars/*.js file for the JSON-LD list of
+         published vehicles. Do not hand-add SEO tags here. -->
   </head>
   <body>
-    <main id="app">
-      <section class="stage" aria-label="VOXY の時間をたどる体験">
-        <div class="grain"></div>
-        <div class="halo"></div>
-        <p class="brand">CAR EVOLUTION</p>
-        <div class="car-wrap" aria-hidden="true">
-          <div class="car" id="car">
-            <div class="roof"></div><div class="windshield"></div><div class="side-window"></div>
-            <div class="body"></div><div class="grille"></div><div class="light left"></div><div class="light right"></div>
-            <div class="wheel rear"></div><div class="wheel front"></div>
-          </div>
+    <main id="home">
+      <header class="home-hero">
+        <div class="home-hero-motif" aria-hidden="true">
+          <span>I</span><span>II</span><span>III</span><span>IV</span>
         </div>
-        <div class="intro" id="intro"><h1>VOXY</h1><p>2001 — NOW</p></div>
-        <div class="time" aria-live="polite"><span id="year"></span><span class="year-rule"></span></div>
-        <div class="prompt" id="prompt"><i></i><span>時間を戻す</span></div>
-        <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+        <div class="home-hero-copy">
+          <p class="home-eyebrow home-eyebrow--mark">CARVISTA</p>
+          <h1 class="home-hero-title">CarVista</h1>
+          <p class="home-hero-tagline">見るだけで、進化がわかる。</p>
+          <!-- Manual break points, not left to the browser -- verified
+               (2026-07-26) that unconstrained wrapping put the break in
+               a different, sometimes mid-word spot at 320/390/1280px
+               (e.g. splitting "進化" or "できる" across lines). Each
+               .line span is nowrap so it can never internally re-wrap;
+               the <br> is what forces the break, at the same phrase
+               boundary regardless of viewport. -->
+          <p class="home-hero-desc"><span class="line">同じ視点・同じ条件で、</span><br /><span class="line">歴代モデルの進化を比較できる</span><br /><span class="line">ビジュアル図鑑。</span></p>
+          <a class="home-cta" href="#featured" id="home-cta">
+            <span>Explore Cars</span>
+            <span class="home-cta-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </header>
+
+      <section class="featured" id="featured" aria-label="公開中の車種">
+        <p class="section-eyebrow fade-in">FEATURED CARS</p>
+        <div class="featured-grid" id="featured-grid"></div>
       </section>
-      <div class="journey" aria-hidden="true"></div>
+
+      <section class="all-cars" aria-label="すべての車種">
+        <div class="all-cars-header fade-in">
+          <p class="section-eyebrow">ALL CARS</p>
+          <h2 class="all-cars-heading">Browse All Models</h2>
+          <p class="all-cars-count" id="all-cars-count"></p>
+        </div>
+        <div class="maker-groups" id="maker-groups"></div>
+      </section>
+
+      <section class="about fade-in" aria-label="CarVistaについて">
+        <p class="section-eyebrow">ABOUT</p>
+        <p class="about-text">CarVistaは、ひとつの考え方からできています。文章を読むより先に、見てわかること。同じ条件で歴代モデルを並べ、かたちの変化がひと目で伝わるようにしています。</p>
+      </section>
+
+      <!-- CarVista common policy footer. On vehicle pages (see
+           cars/*.html) the full disclaimer text stays always-visible,
+           copied verbatim. Home keeps only the single most important
+           summary line visible and links out to editorial-policy.html
+           for the full text -- a real, indexable page now exists for
+           it, so there's no need to duplicate or collapse it inline. -->
+      <footer class="policy" aria-label="CarVistaについて">
+        <p class="policy-text">CarVistaは、各自動車メーカーとは無関係の独立したアーカイブサイトです。掲載画像は実車ではなく、公開資料をもとにCarVistaが独自に制作したビジュアル表現です。メーカー名・車種名等の商標は、各権利者に帰属します。</p>
+        <a class="policy-link" href="/editorial-policy.html">制作方針・免責事項の詳細を見る</a>
+        <p class="policy-text policy-text--invite">CarVistaは、みなさんと一緒により正確なアーカイブへ育てていきたいと考えています。気づいた点があれば、ぜひお聞かせください。<br /><a class="policy-link" href="#" target="_blank" rel="noopener noreferrer">X (Twitter) でお問い合わせ</a><!-- placeholder href pending the real account handle --></p>
+        <p class="policy-meta">最終更新：2026年7月</p>
+        <!-- Quiet brand-story aside, English on purpose -- the site's
+             other English moments (eyebrow labels, "Explore Cars") are
+             all brand-voice, not functional copy, and this is the same
+             register. Deliberately not "the star": smallest, quietest
+             text on the page, no heading treatment, sitting right after
+             the last-updated line as one more quiet fact. -->
+        <p class="brand-note">Why CarVista? Vista means a view — a way of taking something in all at once. Not specifications, not words: just the shape of a car, seen clearly, generation after generation. Sometimes seeing tells the story better than words do.</p>
+      </footer>
     </main>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/home.js"></script>
   </body>
 </html>

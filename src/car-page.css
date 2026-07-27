@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+/* CarVista -- shared vehicle-page engine styles ------------------
+   Used by every vehicle page (VOXY, Alphard, ...). Nothing in this
+   file names a specific vehicle; per-vehicle content comes entirely
+   from each page's data file (src/vehicles/*.js) via car-page.js.
+   Do not add vehicle-specific rules here -- if a generation needs a
+   one-off visual treatment, that's a sign the data model needs a new
+   field, not a CSS override.
+
+   Typography system: one grotesk (Inter) carries every number, label,
+   and piece of Latin text -- including the model code, which used to
+   be set in a monospace face; that read as spec-sheet/template-y at
+   this density and the user disliked it on sight, so the page now
+   uses exactly two families total. Noto Sans JP carries Japanese copy
+   and the kanji/numeral generation names ("90系" etc, which can't be
+   split across fonts mid-string). */
+:root { color: #f4f3f0; background: #0b0c0e; font-family: 'Noto Sans JP', 'Inter', sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0b0c0e; }
+
+#car-page { max-width: 720px; margin: 0 auto; }
+
+/* Hero -- an atmosphere shot, not a comparison shot: tighter, more
+   dramatic crop with a vignette, deliberately different in character
+   from the neutral detail image below even when the same source file
+   is behind both. */
+.hero {
+  position: relative; overflow: hidden;
+  height: 64vh; min-height: 380px; max-height: 620px;
+  background: radial-gradient(ellipse 90% 65% at 50% 42%, #17181b 0%, #0d0e10 65%, #0b0c0e 100%);
+}
+/* Scale eased back from an earlier 1.28 -- verified via crop simulation
+   (2026-07-26) that at both the mobile-portrait and desktop-landscape
+   hero box aspect ratios, 1.28 cropped the roofline right at the top
+   edge with zero breathing room. 1.15 leaves visible margin above the
+   roof and below the wheels at both aspects while keeping the car the
+   dominant subject. */
+.hero-image { width: 100%; height: 100%; object-fit: cover; object-position: 52% 58%; transform: scale(1.15); }
+.hero-vignette {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 75% 60% at 50% 40%, rgba(0,0,0,0) 45%, rgba(11,12,14,.75) 100%),
+    linear-gradient(180deg, rgba(11,12,14,.15) 0%, rgba(11,12,14,0) 24%, rgba(11,12,14,0) 55%, rgba(11,12,14,.9) 100%);
+}
+.hero-copy { position: absolute; left: 22px; right: 22px; bottom: 26px; z-index: 2; }
+.eyebrow { margin: 0; font: 500 10.5px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .55; }
+.hero-copy h1 { margin: 14px 0 0; font-family: 'Inter', sans-serif; font-size: clamp(30px, 9vw, 48px); font-weight: 600; letter-spacing: -.035em; white-space: nowrap; }
+/* nowrap -- verified (2026-07-26) this always fits one line down to
+   320px; forcing it guarantees the browser never picks a different
+   wrap point at some in-between width instead of leaving it to chance. */
+.tagline { margin: 10px 0 0; font-weight: 300; font-size: 15.5px; line-height: 1.65; opacity: .78; letter-spacing: .015em; white-space: nowrap; }
+
+/* Heritage -- a quiet four-point timeline of the model's own years,
+   sitting between the hero and the interactive selector. No labels,
+   no explanation: the numbers alone carry the sense of history. */
+.heritage { display: flex; align-items: center; gap: 8px; padding: 24px 22px 4px; }
+.heritage-point { flex: 0 0 auto; }
+.heritage-year { font: 500 14px/1 'Inter', sans-serif; letter-spacing: -.01em; opacity: .45; }
+.heritage-point:last-child .heritage-year { opacity: 1; font-weight: 600; }
+.heritage-line { flex: 1 1 auto; height: 1px; background: rgba(255,255,255,.14); }
+
+/* Timeline -- gallery-strip cards: the photo is the exhibit, the
+   caption a small plate beneath it. Sized up and given more air per
+   card so scrolling through feels like walking a wall of frames, not
+   scanning a picker. */
+.timeline { position: relative; display: flex; gap: 16px; overflow-x: auto; padding: 34px 22px 30px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+.timeline::-webkit-scrollbar { display: none; }
+.timeline-rail { position: absolute; left: 22px; right: 22px; top: 50%; height: 1px; background: rgba(255,255,255,.1); z-index: 0; }
+.timeline-item {
+  position: relative; z-index: 1; flex: 0 0 auto; scroll-snap-align: start;
+  width: 152px; padding: 0; border: none; border-radius: 14px;
+  overflow: hidden; cursor: pointer; background: #101114;
+  display: flex; flex-direction: column;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05);
+  transition: box-shadow .35s, transform .35s;
+}
+/* Selected state: a restrained, Apple-comparison-style lift rather than
+   a loud highlight -- slightly larger, brighter, a touch more
+   saturated, and a thin glow, while non-selected cards stay
+   recognizable (dimmed, not desaturated to near-monochrome) rather
+   than reading as disabled. */
+.timeline-item[aria-current="true"] {
+  box-shadow: 0 0 0 1.5px rgba(244,243,240,.85), 0 10px 24px rgba(0,0,0,.45), 0 0 20px rgba(244,243,240,.16);
+  transform: translateY(-3px) scale(1.07);
+}
+/* A quiet preview on hover for a not-yet-selected card -- a small lift
+   and a step back toward full color/brightness, short of the selected
+   state's full intensity, so hovering reads as "you could pick this"
+   without pre-empting the click. */
+.timeline-item:not([aria-current="true"]):hover, .timeline-item:not([aria-current="true"]):focus-visible {
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12); transform: translateY(-2px);
+}
+.timeline-item:not([aria-current="true"]):hover .timeline-thumb img, .timeline-item:not([aria-current="true"]):focus-visible .timeline-thumb img {
+  filter: grayscale(.15) brightness(.85);
+}
+.timeline-thumb { display: block; width: 100%; height: 108px; flex: 0 0 auto; }
+.timeline-thumb img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 40% 55%; transform: scale(1.55);
+  filter: grayscale(.4) brightness(.68); transition: filter .35s;
+}
+.timeline-item[aria-current="true"] .timeline-thumb img { filter: grayscale(0) brightness(1.05) saturate(1.15); }
+.timeline-tag {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 12px 0 13px;
+  opacity: .42; transition: opacity .35s;
+}
+.timeline-item[aria-current="true"] .timeline-tag { opacity: 1; }
+.timeline-numeral { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; letter-spacing: -.005em; line-height: 1.1; }
+.timeline-year { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 9.5px; letter-spacing: .02em; opacity: .65; }
+
+/* Detail -- the image stays neutral and comparison-ready (no text
+   overlay on it); the generation name is the dominant element of the
+   info block, with model code / sales period deliberately quieter. */
+.detail { padding: 6px 22px 60px; }
+/* .detail-visual is a taller virtual canvas (1408 x 903) than the
+   photo itself (1408 x 668): a fixed proportion of margin above and
+   below where callout captions live, so they sit in true open space
+   next to the frame -- not on the last few % of sky/floor inside it.
+   Because the margin is baked into the SAME aspect-ratio box (not
+   separate padding), it scales with the photo at every breakpoint
+   without any JS measurement; 13% top/bottom (widened from an earlier
+   10%, see car-page.js) keeps real pixel margin usable for a label
+   even on small phones, including generations with two labels sharing
+   one margin row. */
+.detail-visual { position: relative; aspect-ratio: 1408 / 903; }
+.detail-image-wrap {
+  position: absolute; left: 0; width: 100%;
+  top: 13%; height: 74%;
+  border-radius: 18px; overflow: hidden; background: #111316;
+}
+.detail-image {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 1; transform: translateX(0); transition: opacity .18s ease, transform .18s ease;
+}
+.detail-dots { position: absolute; inset: 0; pointer-events: none; opacity: 1; transform: translateX(0); transition: opacity .18s ease .04s, transform .18s ease .04s; }
+.annotation-dot {
+  position: absolute; width: 3.5px; height: 3.5px; margin: -1.75px 0 0 -1.75px;
+  border-radius: 50%; background: #f4f3f0; box-shadow: 0 0 0 2px rgba(244,243,240,.07);
+}
+
+/* Evolution-point callouts -- the dot marks the exact spot on the car;
+   the leader line and caption live entirely in the margin above/below
+   the photo (see .detail-visual), never over the car body. Discover
+   the shape first, read the footnote after. Current values are a
+   working balance, not a fixed floor -- revisit if it stops reading
+   as connected (line) or legible (label) at real viewing sizes. */
+.detail-callouts { position: absolute; inset: 0; pointer-events: none; opacity: 1; transform: translateX(0); transition: opacity .18s ease .04s, transform .18s ease .04s; }
+.annotation-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.annotation-lines line { stroke: rgba(244,243,240,.22); stroke-width: .65; }
+.annotation-label {
+  position: absolute; transform: translateX(-50%);
+  font: 400 9px/1.3 'Inter', sans-serif; letter-spacing: .02em;
+  color: rgba(244,243,240,.33);
+  /* Wraps rather than forcing one long line -- a generation with two
+     labels sharing the same margin row needs each one narrow enough
+     not to reach its neighbor; center-aligned so a wrapped second line
+     stays under the same anchor point as the first. */
+  max-width: 34%; white-space: normal; text-align: center;
+}
+.annotation-label--top { top: 0; }
+.annotation-label--bottom { bottom: 0; }
+
+@media (max-width: 420px) {
+  .annotation-label { font-size: 8.5px; max-width: 30%; }
+}
+
+.detail-info { margin-top: 32px; }
+
+/* Image, annotations, and the title block settle at slightly
+   staggered times (0 / .04s / .08s) so a generation switch reads as
+   one composed motion rather than everything snapping at once. */
+.detail-text { opacity: 1; transform: translateX(0); transition: opacity .18s ease .08s, transform .18s ease .08s; }
+
+.detail-eyebrow { margin: 0; display: flex; align-items: baseline; gap: 8px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .1em; opacity: .5; }
+.detail-eyebrow .detail-dot { opacity: .55; }
+/* Eyebrow/title/meta read as one identity block -- tightened from an
+   earlier 8px/12px so the numeral+era line, the generation title, and
+   the model code+period sit close enough to parse as a single unit,
+   not three loosely related lines. */
+.detail-title, #detail-title { margin: 4px 0 8px; font-size: clamp(34px, 8vw, 46px); font-weight: 700; letter-spacing: -.025em; line-height: 1.03; }
+.detail-meta { margin: 0; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 12px; letter-spacing: .015em; opacity: .42; }
+.detail-meta .detail-dot { margin: 0 3px; opacity: .65; }
+
+/* Facelift -- the generation's own sub-story, told only if asked.
+   Collapsed by default so it never competes with the full-model-change
+   hierarchy above. Styled to read exactly like a line out of .heritage
+   above (same quiet Inter numerals, no chevron, no button chrome) --
+   it should look like a fact of history sitting on the page, and only
+   reveal that it's tappable through the same discovery a reader
+   already extends to everything else here, not through an icon
+   announcing "this is a control." */
+.facelift { margin-top: 22px; }
+.facelift-toggle {
+  display: flex; align-items: baseline; gap: 7px;
+  background: none; border: none; padding: 0; margin: 0; cursor: pointer; color: inherit;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; opacity: .38;
+  transition: opacity .3s;
+}
+.facelift-toggle[aria-expanded="true"] { opacity: .55; }
+.facelift-arrow { font-size: 10px; opacity: .6; }
+/* Not every generation gets the same shape of story -- a year that
+   changed mostly under the skin says so in a line of its own, rather
+   than padding out three bullets to match years that changed the face.
+   Present only when a generation's data actually calls for it. */
+.facelift-note {
+  margin: 0; font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 300; line-height: 1.75; opacity: 0;
+  max-height: 0; overflow: hidden;
+  transition: opacity .35s ease, max-height .4s ease, margin-top .4s ease;
+}
+.facelift-note.is-open { opacity: .6; max-height: 60px; margin-top: 13px; }
+.facelift-list {
+  list-style: none; margin: 0; padding: 0;
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height .4s ease, opacity .35s ease, margin-top .4s ease;
+}
+.facelift-list.is-open { max-height: 220px; opacity: 1; margin-top: 13px; }
+.facelift-note.is-open + .facelift-list.is-open { margin-top: 8px; }
+.facelift-list li {
+  font-size: 12px; font-weight: 300; opacity: .55; line-height: 1.9; padding-left: 13px; position: relative;
+}
+.facelift-list li::before { content: '–'; position: absolute; left: 0; opacity: .45; }
+
+/* Compare -- a drag-reveal slider, not a swap. Both generations sit
+   in the same frame at once so the difference is visible without
+   needing to hold the earlier photo in memory. No instruction copy --
+   a brief auto-sweep on first view (see voxy.js) invites the drag
+   instead of a caption explaining it; discovery before explanation. */
+.compare { padding: 34px 22px 80px; }
+/* Default state is plain text -- "80系 ⇄ 90系" -- not a control at all;
+   CarVista is something to look through, not configure, so the picker
+   itself (the same tappable numeral chips as before, one row for the
+   older/left side and one for the newer/right) only exists while
+   actually being used, tucked away behind this toggle the rest of the
+   time. Left stays constrained to older, right to newer (see
+   initCompare in car-page.js): a chip that would break that convention
+   is disabled rather than silently reassigning the other side. */
+.compare-tabs { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
+.compare-pair-toggle {
+  border: none; background: none; color: inherit; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: .02em;
+  padding: 5px 9px; margin: 0; opacity: .6; transition: opacity .3s;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.compare-pair-toggle:hover, .compare-pair-toggle:focus-visible, .compare-pair-toggle[aria-expanded="true"] { opacity: .95; }
+/* A slightly stronger chevron than a purely decorative dot/line would
+   be -- enough on its own to read as "this can be tapped," without
+   needing a persistent instruction label. Paired with the button's own
+   title="" attribute (native tooltip on hover) in car-page.js. */
+.compare-pair-toggle::after {
+  content: ''; width: 6px; height: 6px; margin-top: -2px;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg); opacity: .6; transition: transform .3s, margin-top .3s;
+}
+.compare-pair-toggle[aria-expanded="true"]::after { transform: rotate(-135deg); margin-top: 4px; }
+/* Collapsed by default (max-height 0) -- opens downward into normal
+   document flow rather than as an overlay, so it never floats on top
+   of the photo below it. */
+.compare-picker {
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  max-height: 0; opacity: 0; overflow: hidden; margin-top: 0;
+  transition: max-height .35s ease, opacity .3s ease, margin-top .35s ease;
+}
+.compare-picker.is-open { max-height: 160px; opacity: 1; margin-top: 6px; }
+.compare-picker-row { display: flex; align-items: center; gap: 9px; }
+.compare-picker-label {
+  flex: 0 0 auto; width: 16px; text-align: right;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .1em; opacity: .35;
+}
+.compare-picker-chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.compare-picker-chips::-webkit-scrollbar { display: none; }
+.compare-chip {
+  flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%;
+  border: none; background: rgba(244,243,240,.05); color: inherit; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 11.5px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  opacity: .45; transition: opacity .3s, transform .3s, background-color .3s, box-shadow .3s;
+}
+.compare-chip:hover:not(:disabled):not([aria-current="true"]) { opacity: .75; transform: translateY(-1px); }
+.compare-chip[aria-current="true"] {
+  opacity: 1; background: rgba(244,243,240,.14); transform: scale(1.14);
+  box-shadow: 0 0 0 1px rgba(244,243,240,.55), 0 0 12px rgba(244,243,240,.18);
+}
+.compare-chip:disabled { opacity: .12; cursor: not-allowed; }
+.compare-image-wrap {
+  position: relative; border-radius: 18px; overflow: hidden; background: #111316; aspect-ratio: 1408 / 668;
+  cursor: ew-resize; touch-action: none; user-select: none;
+}
+.compare-base, .compare-overlay img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.compare-overlay { position: absolute; inset: 0; overflow: hidden; }
+/* Each side's own evolution-point annotations ride along with its
+   photo -- the overlay's are clipped together with its image, and the
+   base's are naturally covered wherever the overlay sits on top, so
+   only the annotations for the currently-visible side ever show. */
+.compare-annotations { position: absolute; inset: 0; pointer-events: none; }
+/* No labels here (see voxy.js) -- the detail section above already
+   named these points, so a bare dot is legible on its own. A very
+   slow breathing pulse is the only thing added: just enough for the
+   eye to register "this is marked" without reaching for a caption. */
+.compare-annotations .annotation-dot { animation: dot-breathe 3.2s ease-in-out infinite; }
+@keyframes dot-breathe {
+  0%, 100% { box-shadow: 0 0 0 2.5px rgba(244,243,240,.1); }
+  50% { box-shadow: 0 0 0 5px rgba(244,243,240,.22); }
+}
+.compare-side-label {
+  position: absolute; top: 14px; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .08em; opacity: .34;
+  color: #f4f3f0; text-shadow: 0 1px 5px rgba(0,0,0,.5), 0 0 12px rgba(0,0,0,.3);
+  pointer-events: none;
+}
+.compare-side-label--left { left: 14px; }
+.compare-side-label--right { right: 14px; }
+/* Kept deliberately close to invisible at rest -- the photo itself is
+   the interface here. A hairline and a faint ring are enough for a
+   finger already on the glass to find the edge; nothing this quiet
+   competes with the car for attention. */
+.compare-divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 0; pointer-events: none; }
+.compare-divider::before {
+  content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 1px;
+  background: rgba(244,243,240,.22);
+}
+.compare-handle {
+  position: absolute; top: 50%; left: 0; transform: translate(-50%, -50%);
+  width: 14px; height: 14px; border-radius: 50%;
+  background: transparent; border: 1px solid rgba(244,243,240,.3);
+}
+/* Quiet, temporary discoverability label -- present only until a
+   reader actually drags the divider or the auto-sweep hint has played
+   once, then fades for good. Deliberately no card/arrow/border: a
+   single small line of text is enough for first-time clarity without
+   turning the photo into something with a UI label permanently glued
+   to it. */
+.compare-hint {
+  position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .1em;
+  color: #f4f3f0; opacity: .4; text-transform: uppercase;
+  text-shadow: 0 1px 5px rgba(0,0,0,.5), 0 0 12px rgba(0,0,0,.3);
+  pointer-events: none; transition: opacity .5s ease;
+}
+.compare-hint.is-dismissed { opacity: 0; }
+
+/* Policy footer -- the site's quiet About/terms equivalent. Reads as
+   a handful of small facts, not a legal block: sourcing, which spec
+   is shown, what the images are, and an open invitation to correct
+   the record. No heading, no card, no toggle -- just present, at the
+   same low volume as everything else down here. Vehicle-agnostic by
+   design (see the HTML comment above it); reuse verbatim per vehicle. */
+.policy { padding: 60px 22px 54px; display: flex; flex-direction: column; gap: 17px; }
+/* Apple-Legal register: smaller, tighter-set, lower-contrast than a
+   paragraph meant to be read start to finish -- this is meant to be
+   skimmed past, not read. Line-height/gap/opacity opened up slightly
+   from an earlier pass that read as a touch too dense to comfortably
+   skim; same copy, same size, just more air between paragraphs and
+   within each one. */
+.policy-text { margin: 0; max-width: 460px; font-size: 11px; font-weight: 300; line-height: 1.75; opacity: .34; letter-spacing: .015em; }
+.policy-text--invite { opacity: .4; }
+.policy-link { color: inherit; opacity: .55; }
+.policy-meta { margin: 6px 0 0; font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 400; opacity: .22; letter-spacing: .02em; }
+
+@media (min-width: 700px) {
+  .hero-copy, .heritage, .timeline, .detail, .compare, .policy { padding-left: 8vw; padding-right: 8vw; }
+  .timeline-rail { left: 8vw; right: 8vw; }
+  .detail { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: .01ms !important; }
+}
