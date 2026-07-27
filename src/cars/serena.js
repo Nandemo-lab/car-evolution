@@ -124,7 +124,12 @@ const generations = [
       { x: 40, y: 30, label: '水平基調の一体型フロント', dir: 'top', labelX: 38 },
       { x: 54, y: 50, label: '発光する大型エンブレム', dir: 'bottom', labelX: 66 },
     ],
-    facelift: null,
+    // 2024年9月9日の一部改良: 4WD(e-4ORCE)モデルを追加、ガソリン
+    // モデルは価格改定。
+    facelift: {
+      fromYear: '2024', toYear: '2024',
+      points: ['4WD(e-4ORCE)モデルを追加', 'ガソリンモデルの価格を改定'],
+    },
   },
 ]
 

@@ -78,7 +78,7 @@ export function initCarPage(config) {
   detailRefs.image.loading = 'lazy'
   detailRefs.image.decoding = 'async'
   withImageFallback(detailRefs.image)
-  const engine = createDetailEngine(detailRefs, generations, defaultIndex)
+  const engine = createDetailEngine(detailRefs, generations, defaultIndex, config.vehicleName)
   engine.render(generations[defaultIndex])
 
   // A state switcher, not a page-jump: the timeline swaps which
@@ -226,7 +226,7 @@ function renderFacelift(refs, data) {
   refs.facelistList.classList.remove('is-open')
 }
 
-function createDetailEngine(refs, generations, defaultIndex) {
+function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
   const SLIDE_PX = 20
   const SWAP_DELAY_MS = 260
   const GROUPS = [refs.image, refs.dots, refs.callouts, refs.text]
@@ -248,6 +248,7 @@ function createDetailEngine(refs, generations, defaultIndex) {
 
   function render(gen) {
     refs.image.src = gen.image
+    refs.image.alt = `${gen.era} ${vehicleName} ${gen.title}`
     refs.numeral.textContent = gen.numeral
     refs.era.textContent = gen.era
     refs.title.textContent = gen.title

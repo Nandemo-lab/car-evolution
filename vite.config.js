@@ -205,8 +205,30 @@ function seoInjectPlugin() {
   }
 }
 
+// Generates dist/sitemap.xml from the same car-discovery mechanism as
+// everything else in this file (loadAllCars) -- adding a vehicle never
+// requires touching this plugin, same "single source of truth" pattern
+// as discoverEntries()/buildHomeJsonLd() above. Build-only (Rollup's
+// generateBundle hook): sitemap.xml is a production/crawler concern,
+// not something `vite` (dev) needs to serve.
+function sitemapPlugin() {
+  return {
+    name: 'car-evolution-sitemap',
+    async generateBundle() {
+      const cars = await loadAllCars()
+      const staticUrls = [`${SITE_ORIGIN}/`, `${SITE_ORIGIN}/editorial-policy.html`]
+      const carUrls = cars.map((car) => `${SITE_ORIGIN}/cars/${car.slug}.html`)
+      const urls = [...staticUrls, ...carUrls]
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
+        .map((url) => `  <url><loc>${url}</loc></url>`)
+        .join('\n')}\n</urlset>\n`
+      this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: xml })
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [seoInjectPlugin()],
+  plugins: [seoInjectPlugin(), sitemapPlugin()],
   build: {
     rollupOptions: {
       input: discoverEntries(),
