@@ -41,6 +41,29 @@ import './car-page.css'
 //   ],
 // }
 
+// Fallback for any generation whose photo hasn't been produced/placed
+// yet -- rather than a browser's broken-image icon, the image's own
+// box shows a quiet "画像準備中" label (see .image-missing-label in
+// car-page.css) and the <img> itself stays wired completely normally:
+// the moment a real file lands at that exact path, the very next load
+// succeeds and this fallback simply never fires again -- no flag to
+// unset anywhere, no data file to edit, self-healing by construction.
+function withImageFallback(img) {
+  const label = document.createElement('span')
+  label.className = 'image-missing-label'
+  label.textContent = '画像準備中'
+  img.insertAdjacentElement('afterend', label)
+  img.addEventListener('error', () => {
+    img.style.visibility = 'hidden'
+    label.classList.add('is-visible')
+  })
+  img.addEventListener('load', () => {
+    img.style.visibility = ''
+    label.classList.remove('is-visible')
+  })
+  return img
+}
+
 export function initCarPage(config) {
   const { generations, defaultIndex } = config
 
@@ -54,6 +77,7 @@ export function initCarPage(config) {
   // competing with the hero image for bandwidth.
   detailRefs.image.loading = 'lazy'
   detailRefs.image.decoding = 'async'
+  withImageFallback(detailRefs.image)
   const engine = createDetailEngine(detailRefs, generations, defaultIndex)
   engine.render(generations[defaultIndex])
 
@@ -118,6 +142,7 @@ function renderTimeline(generations, vehicleName) {
         <span class="timeline-year">${gen.yearRange}</span>
       </span>
     `
+    withImageFallback(btn.querySelector('.timeline-thumb img'))
     nav.appendChild(btn)
   })
 }
@@ -291,6 +316,8 @@ function initCompare(generations) {
   baseImage.decoding = 'async'
   overlayImage.loading = 'lazy'
   overlayImage.decoding = 'async'
+  withImageFallback(baseImage)
+  withImageFallback(overlayImage)
 
   // CarVista is "a catalog to look at," not a settings screen -- so the
   // default state shows only the current pair as plain text ("80系 ⇄
