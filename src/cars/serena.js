@@ -29,8 +29,8 @@ const generations = [
     period: '1991年〜1999年',
     image: '/images/cars/serena/gen1-1991.png',
     annotations: [
-      { x: 30, y: 50, label: '商用車由来の無骨なグリル', dir: 'bottom', labelX: 30 },
-      { x: 60, y: 14, label: '直立した箱型フォルム', dir: 'top', labelX: 62 },
+      { x: 25, y: 80, label: '商用車由来の無骨なグリル', dir: 'bottom', labelX: 25 },
+      { x: 60, y: 37, label: '直立した箱型フォルム', dir: 'top', labelX: 62 },
     ],
     facelift: {
       fromYear: '1994', toYear: '1997',
@@ -48,7 +48,7 @@ const generations = [
     period: '1999年〜2005年',
     image: '/images/cars/serena/gen2-1999.png',
     annotations: [
-      { x: 32, y: 46, label: '横方向に広がりを見せるグリル', dir: 'bottom', labelX: 32 },
+      { x: 32, y: 53, label: '横方向に広がりを見せるグリル', dir: 'bottom', labelX: 32 },
       { x: 58, y: 20, label: '低められた前傾フォルム', dir: 'top', labelX: 62 },
     ],
     facelift: {
@@ -85,7 +85,7 @@ const generations = [
     image: '/images/cars/serena/gen4-2010.png',
     annotations: [
       { x: 31, y: 46, label: '台形を基調としたグリル', dir: 'bottom', labelX: 31 },
-      { x: 60, y: 22, label: 'スクエアなヘッドランプ', dir: 'top', labelX: 64 },
+      { x: 58, y: 50, label: 'スクエアなヘッドランプ', dir: 'bottom', labelX: 68 },
     ],
     facelift: {
       fromYear: '2012', toYear: '2013',
@@ -104,7 +104,7 @@ const generations = [
     image: '/images/cars/serena/gen5-2016.png',
     annotations: [
       { x: 32, y: 48, label: 'V字を描くクロームグリル', dir: 'bottom', labelX: 32 },
-      { x: 58, y: 24, label: 'シャープなヘッドランプ', dir: 'top', labelX: 62 },
+      { x: 52, y: 50, label: 'シャープなヘッドランプ', dir: 'bottom', labelX: 66 },
     ],
     facelift: {
       fromYear: '2019', toYear: '2019',
@@ -122,7 +122,7 @@ const generations = [
     image: '/images/cars/serena/gen6-2022.png',
     annotations: [
       { x: 40, y: 30, label: '水平基調の一体型フロント', dir: 'top', labelX: 38 },
-      { x: 54, y: 50, label: '発光する大型エンブレム', dir: 'bottom', labelX: 66 },
+      { x: 37, y: 50, label: '発光する大型エンブレム', dir: 'bottom', labelX: 66 },
     ],
     // 2024年9月9日の一部改良: 4WD(e-4ORCE)モデルを追加、ガソリン
     // モデルは価格改定。

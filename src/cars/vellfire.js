@@ -44,7 +44,7 @@ const generations = [
     image: '/images/cars/vellfire/gen2-2015.png',
     annotations: [
       { x: 20, y: 48, label: '大型グリルと一体化したヘッドランプ', dir: 'bottom', labelX: 20 },
-      { x: 50, y: 20, label: '鋭く抜けるキャラクターライン', dir: 'top', labelX: 52 },
+      { x: 48, y: 44, label: '鋭く抜けるキャラクターライン', dir: 'bottom', labelX: 60 },
     ],
     facelift: {
       fromYear: '2015', toYear: '2018',
@@ -62,7 +62,7 @@ const generations = [
     image: '/images/cars/vellfire/gen3-2023.png',
     annotations: [
       { x: 22, y: 45, label: '立体的で鋭さのあるダイヤモンドグリル', dir: 'bottom', labelX: 22 },
-      { x: 56, y: 16, label: '逆スラント基調のフロントフェイス', dir: 'top', labelX: 58 },
+      { x: 40, y: 35, label: '逆スラント基調のフロントフェイス', dir: 'top', labelX: 58 },
     ],
     facelift: {
       fromYear: '2023', toYear: '2025',

@@ -43,7 +43,7 @@ const generations = [
     image: '/images/cars/noah/gen1-2001.png',
     annotations: [
       { x: 31, y: 47, label: '横一文字に伸びる大型クロームバー', dir: 'bottom', labelX: 31 },
-      { x: 62, y: 12, label: '丸く包み込むようなヘッドランプ', dir: 'top', labelX: 64 },
+      { x: 58, y: 50, label: '丸く包み込むようなヘッドランプ', dir: 'bottom', labelX: 68 },
     ],
     facelift: {
       fromYear: '2001', toYear: '2004',
@@ -60,8 +60,8 @@ const generations = [
     period: '2007年〜2014年',
     image: '/images/cars/noah/gen2-2007.png',
     annotations: [
-      { x: 29, y: 32, label: '格子ではなく面で魅せるグリル', dir: 'top', labelX: 25 },
-      { x: 58, y: 46, label: '包み込むように丸いフェイス', dir: 'bottom', labelX: 62 },
+      { x: 30, y: 53, label: '格子ではなく面で魅せるグリル', dir: 'bottom', labelX: 25 },
+      { x: 45, y: 48, label: '包み込むように丸いフェイス', dir: 'bottom', labelX: 62 },
     ],
     facelift: {
       fromYear: '2007', toYear: '2010',
@@ -78,8 +78,8 @@ const generations = [
     period: '2014年〜2021年',
     image: '/images/cars/noah/gen3-2014.png',
     annotations: [
-      { x: 30, y: 46, label: '台形にせり出す大型グリル', dir: 'bottom', labelX: 30 },
-      { x: 50, y: 36, label: '厚みを感じさせるバンパー', dir: 'top', labelX: 54 },
+      { x: 30, y: 46, label: '台形にせり出す大型グリル', dir: 'bottom', labelX: 12 },
+      { x: 48, y: 68, label: '厚みを感じさせるバンパー', dir: 'bottom', labelX: 62 },
     ],
     facelift: {
       fromYear: '2014', toYear: '2017',
@@ -96,8 +96,8 @@ const generations = [
     period: '2022年〜現在',
     image: '/images/cars/noah/gen4-2022.png',
     annotations: [
-      { x: 38, y: 30, label: '水平に伸びる一体グリル', dir: 'top', labelX: 36 },
-      { x: 58, y: 52, label: '風格を漂わせる大型メッキ', dir: 'bottom', labelX: 70 },
+      { x: 38, y: 38, label: '水平に伸びる一体グリル', dir: 'top', labelX: 60 },
+      { x: 25, y: 42, label: '風格を漂わせる大型メッキ', dir: 'top', labelX: 8 },
     ],
     facelift: {
       // 2025年9月2日の単発発表・発売 (グレード整理: 標準の "X" + エアロ

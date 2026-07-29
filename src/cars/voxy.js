@@ -23,8 +23,8 @@ const generations = [
     period: '2001年〜2007年',
     image: '/images/cars/voxy/gen1-2001.png',
     annotations: [
-      { x: 30, y: 46, label: '3本クロームグリル', dir: 'bottom', labelX: 30 },
-      { x: 60, y: 10, label: '箱型シルエット', dir: 'top', labelX: 62 },
+      { x: 21, y: 54, label: '3本クロームグリル', dir: 'bottom', labelX: 21 },
+      { x: 60, y: 14, label: '箱型シルエット', dir: 'top', labelX: 62 },
     ],
     facelift: {
       fromYear: '2001', toYear: '2004',
@@ -41,9 +41,9 @@ const generations = [
     period: '2007年〜2014年',
     image: '/images/cars/voxy/gen2-2007.png',
     annotations: [
-      { x: 28, y: 28, label: '大型クロームエンブレム', dir: 'top', labelX: 24 },
-      { x: 36, y: 58, label: 'ハニカムメッシュグリル', dir: 'bottom', labelX: 36 },
-      { x: 60, y: 42, label: '丸みを帯びたフェイス', dir: 'top', labelX: 64 },
+      { x: 30, y: 53, label: '大型クロームエンブレム', dir: 'bottom', labelX: 10 },
+      { x: 36, y: 58, label: 'ハニカムメッシュグリル', dir: 'bottom', labelX: 52 },
+      { x: 45, y: 42, label: '丸みを帯びたフェイス', dir: 'top', labelX: 64 },
     ],
     facelift: {
       fromYear: '2007', toYear: '2010',
@@ -61,7 +61,7 @@ const generations = [
     image: '/images/cars/voxy/gen3-2014.png',
     annotations: [
       { x: 31, y: 47, label: '鋭角的なV字グリル', dir: 'bottom', labelX: 31 },
-      { x: 46, y: 40, label: 'スイープヘッドライト', dir: 'top', labelX: 50 },
+      { x: 47, y: 55, label: 'スイープヘッドライト', dir: 'bottom', labelX: 55 },
     ],
     facelift: {
       fromYear: '2014', toYear: '2017',
@@ -78,8 +78,8 @@ const generations = [
     period: '2022年〜現在',
     image: '/images/cars/voxy/gen4-2022.png',
     annotations: [
-      { x: 40, y: 28, label: 'フルワイド発光ライン', dir: 'top', labelX: 38 },
-      { x: 52, y: 50, label: '3眼LEDヘッドライト', dir: 'bottom', labelX: 66 },
+      { x: 35, y: 36, label: 'フルワイド発光ライン', dir: 'top', labelX: 38 },
+      { x: 18, y: 43, label: '3眼LEDヘッドライト', dir: 'top', labelX: 66 },
       { x: 28, y: 68, label: 'ダイヤモンドメッシュグリル', dir: 'bottom', labelX: 15 },
     ],
     facelift: {

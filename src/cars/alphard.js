@@ -44,9 +44,9 @@ const generations = [
     period: '2008年〜2015年',
     image: '/images/cars/alphard/gen2-2008.png',
     annotations: [
-      { x: 28, y: 28, label: '切れ長の大型ヘッドランプ', dir: 'top', labelX: 24 },
-      { x: 36, y: 58, label: '横バー基調のグリル', dir: 'bottom', labelX: 36 },
-      { x: 60, y: 42, label: 'V字型に抜けるフロントライン', dir: 'top', labelX: 64 },
+      { x: 42, y: 52, label: '切れ長の大型ヘッドランプ', dir: 'bottom', labelX: 55 },
+      { x: 20, y: 48, label: '横バー基調のグリル', dir: 'bottom', labelX: 8 },
+      { x: 48, y: 36, label: 'V字型に抜けるフロントライン', dir: 'top', labelX: 64 },
     ],
     facelift: {
       fromYear: '2008', toYear: '2011',
@@ -63,8 +63,8 @@ const generations = [
     period: '2015年〜2023年',
     image: '/images/cars/alphard/gen3-2015.png',
     annotations: [
-      { x: 31, y: 47, label: '大型化したフロントグリル', dir: 'bottom', labelX: 31 },
-      { x: 46, y: 40, label: '重厚な押し出し感のあるバンパー', dir: 'top', labelX: 50 },
+      { x: 31, y: 47, label: '大型化したフロントグリル', dir: 'bottom', labelX: 12 },
+      { x: 50, y: 68, label: '重厚な押し出し感のあるバンパー', dir: 'bottom', labelX: 62 },
     ],
     facelift: {
       fromYear: '2015', toYear: '2018',
@@ -82,7 +82,7 @@ const generations = [
     period: '2023年〜現在',
     image: '/images/cars/alphard/gen4-2023.png',
     annotations: [
-      { x: 40, y: 30, label: '縦方向に直線的な「逆スラント」フェイス', dir: 'top', labelX: 38 },
+      { x: 40, y: 38, label: '縦方向に直線的な「逆スラント」フェイス', dir: 'top', labelX: 38 },
       { x: 52, y: 52, label: 'トヨタエンブレムを据えたグリル', dir: 'bottom', labelX: 62 },
       { x: 74, y: 46, label: '凹凸のある立体的なボディサイド', dir: 'top', labelX: 78 },
     ],

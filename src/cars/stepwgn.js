@@ -26,8 +26,8 @@ const generations = [
     period: '1996年〜2001年',
     image: '/images/cars/stepwgn/gen1-1996.png',
     annotations: [
-      { x: 30, y: 48, label: '無骨で実用的なフロントグリル', dir: 'bottom', labelX: 30 },
-      { x: 60, y: 10, label: '背の高いウォークスルー・ボディ', dir: 'top', labelX: 62 },
+      { x: 25, y: 70, label: '無骨で実用的なフロントグリル', dir: 'bottom', labelX: 25 },
+      { x: 60, y: 32, label: '背の高いウォークスルー・ボディ', dir: 'top', labelX: 62 },
     ],
     facelift: {
       fromYear: '1996', toYear: '1999',
@@ -44,8 +44,8 @@ const generations = [
     period: '2001年〜2005年',
     image: '/images/cars/stepwgn/gen2-2001.png',
     annotations: [
-      { x: 31, y: 46, label: 'キープコンセプトの台形グリル', dir: 'bottom', labelX: 31 },
-      { x: 58, y: 16, label: '張り出したフェンダーアーチ（SPADA）', dir: 'top', labelX: 62 },
+      { x: 31, y: 62, label: 'キープコンセプトの台形グリル', dir: 'bottom', labelX: 31 },
+      { x: 48, y: 62, label: '張り出したフェンダーアーチ（SPADA）', dir: 'bottom', labelX: 62 },
     ],
     facelift: {
       fromYear: '2001', toYear: '2003',
@@ -63,8 +63,8 @@ const generations = [
     period: '2005年〜2009年',
     image: '/images/cars/stepwgn/gen3-2005.png',
     annotations: [
-      { x: 30, y: 44, label: '低められた車高と大型グリル', dir: 'bottom', labelX: 30 },
-      { x: 56, y: 20, label: '両側スライドドアの採用', dir: 'top', labelX: 60 },
+      { x: 30, y: 58, label: '低められた車高と大型グリル', dir: 'bottom', labelX: 30 },
+      { x: 70, y: 55, label: '両側スライドドアの採用', dir: 'bottom', labelX: 78 },
     ],
     facelift: {
       fromYear: '2005', toYear: '2007',
@@ -83,7 +83,7 @@ const generations = [
     image: '/images/cars/stepwgn/gen4-2009.png',
     annotations: [
       { x: 31, y: 46, label: '角度のついたメッキグリル', dir: 'bottom', labelX: 31 },
-      { x: 58, y: 22, label: '丸みを帯びた親しみやすいフェイス', dir: 'top', labelX: 62 },
+      { x: 55, y: 48, label: '丸みを帯びた親しみやすいフェイス', dir: 'bottom', labelX: 66 },
     ],
     facelift: {
       fromYear: '2012', toYear: '2012',
@@ -101,7 +101,7 @@ const generations = [
     image: '/images/cars/stepwgn/gen5-2015.png',
     annotations: [
       { x: 32, y: 48, label: '水平基調に広がるフロントフェイス', dir: 'bottom', labelX: 32 },
-      { x: 60, y: 24, label: 'スリムなヘッドライト', dir: 'top', labelX: 64 },
+      { x: 58, y: 45, label: 'スリムなヘッドライト', dir: 'bottom', labelX: 68 },
     ],
     facelift: {
       fromYear: '2017', toYear: '2017',
@@ -119,8 +119,8 @@ const generations = [
     period: '2022年〜現在',
     image: '/images/cars/stepwgn/gen6-2022.png',
     annotations: [
-      { x: 39, y: 30, label: '大型化した一体感のあるフロント', dir: 'top', labelX: 36 },
-      { x: 55, y: 52, label: '存在感のある水平グリル', dir: 'bottom', labelX: 66 },
+      { x: 39, y: 30, label: '大型化した一体感のあるフロント', dir: 'top', labelX: 62 },
+      { x: 25, y: 45, label: '存在感のある水平グリル', dir: 'top', labelX: 6 },
     ],
     facelift: null,
   },
