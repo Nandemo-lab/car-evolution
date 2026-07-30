@@ -23,7 +23,7 @@ const generations = [
     startYear: '2008',
     yearRange: '2008–2015',
     period: '2008年〜2015年',
-    image: '/images/cars/vellfire/gen1-2008.png',
+    image: '/images/cars/vellfire/gen1-2008.webp',
     annotations: [
       { x: 24, y: 46, label: 'メッキ主体の押し出し感のあるグリル', dir: 'bottom', labelX: 24 },
       { x: 58, y: 14, label: '直線的で張りのあるグリーンハウス', dir: 'top', labelX: 60 },
@@ -41,7 +41,7 @@ const generations = [
     startYear: '2015',
     yearRange: '2015–2023',
     period: '2015年〜2023年',
-    image: '/images/cars/vellfire/gen2-2015.png',
+    image: '/images/cars/vellfire/gen2-2015.webp',
     annotations: [
       { x: 20, y: 48, label: '大型グリルと一体化したヘッドランプ', dir: 'bottom', labelX: 20 },
       { x: 48, y: 44, label: '鋭く抜けるキャラクターライン', dir: 'bottom', labelX: 60 },
@@ -59,7 +59,7 @@ const generations = [
     startYear: '2023',
     yearRange: '2023–現在',
     period: '2023年〜現在',
-    image: '/images/cars/vellfire/gen3-2023.png',
+    image: '/images/cars/vellfire/gen3-2023.webp',
     annotations: [
       { x: 22, y: 45, label: '立体的で鋭さのあるダイヤモンドグリル', dir: 'bottom', labelX: 22 },
       { x: 40, y: 35, label: '逆スラント基調のフロントフェイス', dir: 'top', labelX: 58 },
@@ -119,7 +119,7 @@ export default {
   // on the page.
   referenceLengthMm: 4995,
   tagline: 'かたちは、時代を語る。',
-  heroImage: '/images/cars/vellfire/hero-gen3-3q.png',
+  heroImage: '/images/cars/vellfire/hero-gen3-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.

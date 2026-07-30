@@ -188,6 +188,12 @@ function seoInjectPlugin() {
         { tag: 'title', children: car.seo.title, injectTo: 'head' },
         meta({ name: 'description', content: car.seo.description }),
         { tag: 'link', attrs: { rel: 'canonical', href: url }, injectTo: 'head' },
+        // Hero is this page's LCP element (see car-page.js's renderHero,
+        // which also sets fetchPriority='high' on the <img> itself once
+        // JS runs) -- this preload hint lets the browser start the
+        // request as soon as it parses <head>, before it even reaches
+        // the <img> tag in <body>.
+        { tag: 'link', attrs: { rel: 'preload', as: 'image', href: car.heroImage, fetchpriority: 'high' }, injectTo: 'head' },
         meta({ property: 'og:type', content: 'website' }),
         meta({ property: 'og:site_name', content: SITE_NAME }),
         meta({ property: 'og:title', content: car.seo.title }),

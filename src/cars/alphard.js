@@ -24,7 +24,7 @@ const generations = [
     startYear: '2002',
     yearRange: '2002–2008',
     period: '2002年〜2008年',
-    image: '/images/cars/alphard/gen1-2002.png',
+    image: '/images/cars/alphard/gen1-2002.webp',
     annotations: [
       { x: 30, y: 46, label: 'メッキ基調の堂々としたグリル', dir: 'bottom', labelX: 30 },
       { x: 60, y: 10, label: '直線的で四角いフォルム', dir: 'top', labelX: 62 },
@@ -42,7 +42,7 @@ const generations = [
     startYear: '2008',
     yearRange: '2008–2015',
     period: '2008年〜2015年',
-    image: '/images/cars/alphard/gen2-2008.png',
+    image: '/images/cars/alphard/gen2-2008.webp',
     annotations: [
       { x: 42, y: 52, label: '切れ長の大型ヘッドランプ', dir: 'bottom', labelX: 55 },
       { x: 20, y: 48, label: '横バー基調のグリル', dir: 'bottom', labelX: 8 },
@@ -61,7 +61,7 @@ const generations = [
     startYear: '2015',
     yearRange: '2015–2023',
     period: '2015年〜2023年',
-    image: '/images/cars/alphard/gen3-2015.png',
+    image: '/images/cars/alphard/gen3-2015.webp',
     annotations: [
       { x: 31, y: 47, label: '大型化したフロントグリル', dir: 'bottom', labelX: 12 },
       { x: 50, y: 68, label: '重厚な押し出し感のあるバンパー', dir: 'bottom', labelX: 62 },
@@ -80,7 +80,7 @@ const generations = [
     startYear: '2023',
     yearRange: '2023–現在',
     period: '2023年〜現在',
-    image: '/images/cars/alphard/gen4-2023.png',
+    image: '/images/cars/alphard/gen4-2023.webp',
     annotations: [
       { x: 40, y: 38, label: '縦方向に直線的な「逆スラント」フェイス', dir: 'top', labelX: 38 },
       { x: 52, y: 52, label: 'トヨタエンブレムを据えたグリル', dir: 'bottom', labelX: 62 },
@@ -136,7 +136,7 @@ export default {
   // never render this as a spec on the page.
   referenceLengthMm: 4945,
   tagline: 'かたちは、時代を語る。',
-  heroImage: '/images/cars/alphard/hero-gen4-3q.png',
+  heroImage: '/images/cars/alphard/hero-gen4-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.

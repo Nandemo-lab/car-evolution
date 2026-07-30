@@ -21,7 +21,7 @@ const generations = [
     startYear: '2001',
     yearRange: '2001–2007',
     period: '2001年〜2007年',
-    image: '/images/cars/voxy/gen1-2001.png',
+    image: '/images/cars/voxy/gen1-2001.webp',
     annotations: [
       { x: 21, y: 54, label: '3本クロームグリル', dir: 'bottom', labelX: 21 },
       { x: 60, y: 14, label: '箱型シルエット', dir: 'top', labelX: 62 },
@@ -39,7 +39,7 @@ const generations = [
     startYear: '2007',
     yearRange: '2007–2014',
     period: '2007年〜2014年',
-    image: '/images/cars/voxy/gen2-2007.png',
+    image: '/images/cars/voxy/gen2-2007.webp',
     annotations: [
       { x: 30, y: 53, label: '大型クロームエンブレム', dir: 'bottom', labelX: 10 },
       { x: 36, y: 58, label: 'ハニカムメッシュグリル', dir: 'bottom', labelX: 52 },
@@ -58,7 +58,7 @@ const generations = [
     startYear: '2014',
     yearRange: '2014–2021',
     period: '2014年〜2021年',
-    image: '/images/cars/voxy/gen3-2014.png',
+    image: '/images/cars/voxy/gen3-2014.webp',
     annotations: [
       { x: 31, y: 47, label: '鋭角的なV字グリル', dir: 'bottom', labelX: 31 },
       { x: 47, y: 55, label: 'スイープヘッドライト', dir: 'bottom', labelX: 55 },
@@ -76,7 +76,7 @@ const generations = [
     startYear: '2022',
     yearRange: '2022–現在',
     period: '2022年〜現在',
-    image: '/images/cars/voxy/gen4-2022.png',
+    image: '/images/cars/voxy/gen4-2022.webp',
     annotations: [
       { x: 35, y: 36, label: 'フルワイド発光ライン', dir: 'top', labelX: 38 },
       { x: 18, y: 43, label: '3眼LEDヘッドライト', dir: 'top', labelX: 66 },
@@ -128,7 +128,7 @@ export default {
   // metadata only -- never render this as a spec on the page.
   referenceLengthMm: 4695,
   tagline: 'かたちは、時代を語る。',
-  heroImage: '/images/cars/voxy/hero-gen4-3q.png',
+  heroImage: '/images/cars/voxy/hero-gen4-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.

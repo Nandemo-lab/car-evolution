@@ -27,7 +27,7 @@ const generations = [
     startYear: '1991',
     yearRange: '1991–1999',
     period: '1991年〜1999年',
-    image: '/images/cars/serena/gen1-1991.png',
+    image: '/images/cars/serena/gen1-1991.webp',
     annotations: [
       { x: 25, y: 80, label: '商用車由来の無骨なグリル', dir: 'bottom', labelX: 25 },
       { x: 60, y: 37, label: '直立した箱型フォルム', dir: 'top', labelX: 62 },
@@ -46,7 +46,7 @@ const generations = [
     startYear: '1999',
     yearRange: '1999–2005',
     period: '1999年〜2005年',
-    image: '/images/cars/serena/gen2-1999.png',
+    image: '/images/cars/serena/gen2-1999.webp',
     annotations: [
       { x: 32, y: 53, label: '横方向に広がりを見せるグリル', dir: 'bottom', labelX: 32 },
       { x: 58, y: 20, label: '低められた前傾フォルム', dir: 'top', labelX: 62 },
@@ -64,7 +64,7 @@ const generations = [
     startYear: '2005',
     yearRange: '2005–2010',
     period: '2005年〜2010年',
-    image: '/images/cars/serena/gen3-2005.png',
+    image: '/images/cars/serena/gen3-2005.webp',
     annotations: [
       { x: 30, y: 44, label: '大型シルバー加飾のグリル', dir: 'bottom', labelX: 30 },
       { x: 56, y: 18, label: '丸みを帯びたコンパクトな一体感', dir: 'top', labelX: 60 },
@@ -82,7 +82,7 @@ const generations = [
     startYear: '2010',
     yearRange: '2010–2016',
     period: '2010年〜2016年',
-    image: '/images/cars/serena/gen4-2010.png',
+    image: '/images/cars/serena/gen4-2010.webp',
     annotations: [
       { x: 31, y: 46, label: '台形を基調としたグリル', dir: 'bottom', labelX: 31 },
       { x: 58, y: 50, label: 'スクエアなヘッドランプ', dir: 'bottom', labelX: 68 },
@@ -101,7 +101,7 @@ const generations = [
     startYear: '2016',
     yearRange: '2016–2022',
     period: '2016年〜2022年',
-    image: '/images/cars/serena/gen5-2016.png',
+    image: '/images/cars/serena/gen5-2016.webp',
     annotations: [
       { x: 32, y: 48, label: 'V字を描くクロームグリル', dir: 'bottom', labelX: 32 },
       { x: 52, y: 50, label: 'シャープなヘッドランプ', dir: 'bottom', labelX: 66 },
@@ -119,7 +119,7 @@ const generations = [
     startYear: '2022',
     yearRange: '2022–現在',
     period: '2022年〜現在',
-    image: '/images/cars/serena/gen6-2022.png',
+    image: '/images/cars/serena/gen6-2022.webp',
     annotations: [
       { x: 40, y: 30, label: '水平基調の一体型フロント', dir: 'top', labelX: 38 },
       { x: 37, y: 50, label: '発光する大型エンブレム', dir: 'bottom', labelX: 66 },
@@ -169,7 +169,7 @@ export default {
   // metadata only -- never render this as a spec on the page.
   referenceLengthMm: 4765,
   tagline: 'かたちは、時代を語る。',
-  heroImage: '/images/cars/serena/hero-gen6-3q.png',
+  heroImage: '/images/cars/serena/hero-gen6-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.

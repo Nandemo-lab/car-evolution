@@ -24,7 +24,7 @@ const generations = [
     startYear: '1996',
     yearRange: '1996–2001',
     period: '1996年〜2001年',
-    image: '/images/cars/stepwgn/gen1-1996.png',
+    image: '/images/cars/stepwgn/gen1-1996.webp',
     annotations: [
       { x: 25, y: 70, label: '無骨で実用的なフロントグリル', dir: 'bottom', labelX: 25 },
       { x: 60, y: 32, label: '背の高いウォークスルー・ボディ', dir: 'top', labelX: 62 },
@@ -42,7 +42,7 @@ const generations = [
     startYear: '2001',
     yearRange: '2001–2005',
     period: '2001年〜2005年',
-    image: '/images/cars/stepwgn/gen2-2001.png',
+    image: '/images/cars/stepwgn/gen2-2001.webp',
     annotations: [
       { x: 31, y: 62, label: 'キープコンセプトの台形グリル', dir: 'bottom', labelX: 31 },
       { x: 48, y: 62, label: '張り出したフェンダーアーチ（SPADA）', dir: 'bottom', labelX: 62 },
@@ -61,7 +61,7 @@ const generations = [
     startYear: '2005',
     yearRange: '2005–2009',
     period: '2005年〜2009年',
-    image: '/images/cars/stepwgn/gen3-2005.png',
+    image: '/images/cars/stepwgn/gen3-2005.webp',
     annotations: [
       { x: 30, y: 58, label: '低められた車高と大型グリル', dir: 'bottom', labelX: 30 },
       { x: 70, y: 55, label: '両側スライドドアの採用', dir: 'bottom', labelX: 78 },
@@ -80,7 +80,7 @@ const generations = [
     startYear: '2009',
     yearRange: '2009–2015',
     period: '2009年〜2015年',
-    image: '/images/cars/stepwgn/gen4-2009.png',
+    image: '/images/cars/stepwgn/gen4-2009.webp',
     annotations: [
       { x: 31, y: 46, label: '角度のついたメッキグリル', dir: 'bottom', labelX: 31 },
       { x: 55, y: 48, label: '丸みを帯びた親しみやすいフェイス', dir: 'bottom', labelX: 66 },
@@ -98,7 +98,7 @@ const generations = [
     startYear: '2015',
     yearRange: '2015–2022',
     period: '2015年〜2022年',
-    image: '/images/cars/stepwgn/gen5-2015.png',
+    image: '/images/cars/stepwgn/gen5-2015.webp',
     annotations: [
       { x: 32, y: 48, label: '水平基調に広がるフロントフェイス', dir: 'bottom', labelX: 32 },
       { x: 58, y: 45, label: 'スリムなヘッドライト', dir: 'bottom', labelX: 68 },
@@ -117,7 +117,7 @@ const generations = [
     startYear: '2022',
     yearRange: '2022–現在',
     period: '2022年〜現在',
-    image: '/images/cars/stepwgn/gen6-2022.png',
+    image: '/images/cars/stepwgn/gen6-2022.webp',
     annotations: [
       { x: 39, y: 30, label: '大型化した一体感のあるフロント', dir: 'top', labelX: 62 },
       { x: 25, y: 45, label: '存在感のある水平グリル', dir: 'top', labelX: 6 },
@@ -165,7 +165,7 @@ export default {
   // metadata only -- never render this as a spec on the page.
   referenceLengthMm: 4800,
   tagline: 'かたちは、時代を語る。',
-  heroImage: '/images/cars/stepwgn/hero-gen6-3q.png',
+  heroImage: '/images/cars/stepwgn/hero-gen6-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.

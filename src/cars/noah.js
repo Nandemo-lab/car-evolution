@@ -40,7 +40,7 @@ const generations = [
     startYear: '2001',
     yearRange: '2001–2007',
     period: '2001年〜2007年',
-    image: '/images/cars/noah/gen1-2001.png',
+    image: '/images/cars/noah/gen1-2001.webp',
     annotations: [
       { x: 31, y: 47, label: '横一文字に伸びる大型クロームバー', dir: 'bottom', labelX: 31 },
       { x: 58, y: 50, label: '丸く包み込むようなヘッドランプ', dir: 'bottom', labelX: 68 },
@@ -58,7 +58,7 @@ const generations = [
     startYear: '2007',
     yearRange: '2007–2014',
     period: '2007年〜2014年',
-    image: '/images/cars/noah/gen2-2007.png',
+    image: '/images/cars/noah/gen2-2007.webp',
     annotations: [
       { x: 30, y: 53, label: '格子ではなく面で魅せるグリル', dir: 'bottom', labelX: 25 },
       { x: 45, y: 48, label: '包み込むように丸いフェイス', dir: 'bottom', labelX: 62 },
@@ -76,7 +76,7 @@ const generations = [
     startYear: '2014',
     yearRange: '2014–2021',
     period: '2014年〜2021年',
-    image: '/images/cars/noah/gen3-2014.png',
+    image: '/images/cars/noah/gen3-2014.webp',
     annotations: [
       { x: 30, y: 46, label: '台形にせり出す大型グリル', dir: 'bottom', labelX: 12 },
       { x: 48, y: 68, label: '厚みを感じさせるバンパー', dir: 'bottom', labelX: 62 },
@@ -94,7 +94,7 @@ const generations = [
     startYear: '2022',
     yearRange: '2022–現在',
     period: '2022年〜現在',
-    image: '/images/cars/noah/gen4-2022.png',
+    image: '/images/cars/noah/gen4-2022.webp',
     annotations: [
       { x: 38, y: 38, label: '水平に伸びる一体グリル', dir: 'top', labelX: 60 },
       { x: 25, y: 42, label: '風格を漂わせる大型メッキ', dir: 'top', labelX: 8 },
@@ -164,7 +164,7 @@ export default {
   // production metadata only -- never render this as a spec on the page.
   referenceLengthMm: 4695,
   tagline: 'かたちは、時代を語る。',
-  heroImage: '/images/cars/noah/hero-gen4-3q.png',
+  heroImage: '/images/cars/noah/hero-gen4-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
