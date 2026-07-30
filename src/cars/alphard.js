@@ -133,6 +133,13 @@ export default {
   // never render this as a spec on the page.
   referenceLengthMm: 4945,
   tagline: 'かたちは、時代を語る。',
+  // 2026-07-30: heroImage was swapped to a gold-painted photo by direct
+  // user request, as a deliberate one-off exception to
+  // representativeColor above -- Timeline/Detail/Compare for all 4
+  // generations still show Black (202), matching representativeColor.
+  // Do not "fix" this mismatch by regenerating the other images or by
+  // changing representativeColor without asking first; both were an
+  // explicit choice, not an oversight.
   heroImage: '/images/cars/alphard/hero-gen4-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
