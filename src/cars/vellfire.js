@@ -85,7 +85,7 @@ export default {
   vehicleName: 'Vellfire',
   brand: 'トヨタ',
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
-  order: 6, // Home page display order within All Cars -- lower shows first
+  order: 2, // Home page display order within All Cars -- lower shows first
   // CarVista Design Identity -- see docs/brand/design-identity.md.
   // Sourced directly from Toyota's own contrast between the two
   // Alphard-platform siblings: "ヴェルファイアが掲げるコンセプトは、

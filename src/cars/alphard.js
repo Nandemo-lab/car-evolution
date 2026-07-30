@@ -97,7 +97,7 @@ export default {
   vehicleName: 'Alphard',
   brand: 'トヨタ',
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
-  order: 2, // Home page display order within All Cars -- lower shows first
+  order: 1, // Home page display order within All Cars -- lower shows first
   // CarVista Design Identity -- see docs/brand/design-identity.md. The
   // standing reference for Hero copy, annotation vocabulary, and SEO
   // tone for this vehicle; check new copy against these words before
