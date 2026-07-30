@@ -41,7 +41,7 @@ const generations = [
     period: '2007年〜2014年',
     image: '/images/cars/voxy/gen2-2007.webp',
     annotations: [
-      { x: 30, y: 53, label: '大型クロームエンブレム', dir: 'bottom', labelX: 10 },
+      { x: 30, y: 53, label: '大型クロームエンブレム', dir: 'bottom', labelX: 20 },
       { x: 36, y: 58, label: 'ハニカムメッシュグリル', dir: 'bottom', labelX: 52 },
       { x: 45, y: 42, label: '丸みを帯びたフェイス', dir: 'top', labelX: 64 },
     ],
@@ -79,8 +79,8 @@ const generations = [
     image: '/images/cars/voxy/gen4-2022.webp',
     annotations: [
       { x: 35, y: 36, label: 'フルワイド発光ライン', dir: 'top', labelX: 38 },
-      { x: 18, y: 43, label: '3眼LEDヘッドライト', dir: 'top', labelX: 66 },
-      { x: 28, y: 68, label: 'ダイヤモンドメッシュグリル', dir: 'bottom', labelX: 15 },
+      { x: 18, y: 43, label: '3眼LEDヘッドライト', dir: 'bottom', labelX: 60 },
+      { x: 28, y: 68, label: 'ダイヤモンドメッシュグリル', dir: 'bottom', labelX: 20 },
     ],
     facelift: {
       fromYear: '2022', toYear: '2025',
@@ -95,12 +95,7 @@ export default {
   vehicleName: 'VOXY',
   brand: 'トヨタ', // used only for JSON-LD ("トヨタ VOXY 90系" etc.) -- not every future vehicle is a Toyota
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
-  order: 1, // Home page display order across Featured Cars + All Cars -- lower shows first
-  // Featured Cards is a curated "start here" set, not every vehicle --
-  // All Cars is the complete catalog regardless of this flag. Flip to
-  // false to drop a vehicle from Featured without removing it from the
-  // site; this is an editorial call, not automatic.
-  featured: true,
+  order: 1, // Home page display order within All Cars -- lower shows first
   // CarVista Design Identity -- see docs/brand/design-identity.md. The
   // standing reference for Hero copy, annotation vocabulary, and SEO
   // tone for this vehicle; check new copy against these words before
@@ -120,6 +115,10 @@ export default {
   // register, not just a color pick.
   representativeGrade: 'Standard model',
   representativeColor: 'Attitude Black Mica',
+  // Hero vignette tint (see .hero-vignette in car-page.css) -- a few RGB
+  // units cooler/steelier than the neutral base (11,12,14), matching
+  // Sharp/Aggressive. Whisper-subtle by design, not a color filter.
+  heroScrim: '9, 12, 19',
   // Current (90系) generation's approx. overall length -- see
   // docs/brand/design-identity.md's "What Reference Length is". Anchors
   // this vehicle's apparent body scale relative to every other vehicle

@@ -22,7 +22,13 @@
         <div class="home-hero-copy">
           <p class="home-eyebrow home-eyebrow--mark">CARVISTA</p>
           <h1 class="home-hero-title">CarVista</h1>
-          <p class="home-hero-tagline">見るだけで、進化がわかる。</p>
+          <!-- "見るだけで、進化がわかる。" -> "クルマの進化が、見てわかる。"
+               (2026-07-30): the original never named the subject -- only
+               the wordmark's "Car" supplied it. Reordered, not padded,
+               so the line stays effectively the same length (14 vs 13
+               chars) and still fits one line at 320px -- see the nowrap
+               note below. -->
+          <p class="home-hero-tagline">クルマの進化が、見てわかる。</p>
           <!-- Manual break points, not left to the browser -- verified
                (2026-07-26) that unconstrained wrapping put the break in
                a different, sometimes mid-word spot at 320/390/1280px
@@ -31,19 +37,19 @@
                the <br> is what forces the break, at the same phrase
                boundary regardless of viewport. -->
           <p class="home-hero-desc"><span class="line">同じ視点・同じ条件で、</span><br /><span class="line">歴代モデルの進化を比較できる</span><br /><span class="line">ビジュアル図鑑。</span></p>
-          <a class="home-cta" href="#featured" id="home-cta">
+          <a class="home-cta" href="#all-cars" id="home-cta">
             <span>Explore Cars</span>
             <span class="home-cta-arrow" aria-hidden="true">↓</span>
           </a>
         </div>
       </header>
 
-      <section class="featured" id="featured" aria-label="公開中の車種">
-        <p class="section-eyebrow fade-in">FEATURED CARS</p>
-        <div class="featured-grid" id="featured-grid"></div>
-      </section>
-
-      <section class="all-cars" aria-label="すべての車種">
+      <!-- CarVista is "pick a car, see its evolution," not a
+           recommendation feed -- All Cars is the page's main content,
+           directly after Hero. The former Featured Cars spotlight
+           section (curated subset, big photo cards) was removed
+           (2026-07-30); see project history if it's ever reconsidered. -->
+      <section class="all-cars" id="all-cars" aria-label="すべての車種">
         <div class="all-cars-header fade-in">
           <p class="section-eyebrow">ALL CARS</p>
           <h2 class="all-cars-heading">Browse All Models</h2>

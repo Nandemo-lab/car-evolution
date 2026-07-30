@@ -25,12 +25,11 @@
 // words with the size turned up. That contrast is NOAH's actual
 // identity here, not a workaround for having no unique geometry.
 //
-// IMPORTANT: annotation x/y/labelX coordinates are placeholders. VOXY's
-// coordinates were tuned against its actual generated photos; NOAH has
-// no photos yet (to be generated separately). These values are a
-// reasonable starting guess modeled on VOXY's front-3/4 composition
-// (grille lower-center, headlight/greenhouse upper area) and MUST be
-// re-checked once real images land in public/images/cars/noah/.
+// Annotation x/y dot positions were re-checked directly against this
+// vehicle's actual photos (2026-07-29, all 27 generations site-wide --
+// see git history). labelX/dir placement was further tuned (2026-07-30)
+// to keep every leader line's caption inside the visible margin at
+// mobile widths.
 const generations = [
   {
     numeral: 'I',
@@ -78,7 +77,7 @@ const generations = [
     period: '2014年〜2021年',
     image: '/images/cars/noah/gen3-2014.webp',
     annotations: [
-      { x: 30, y: 46, label: '台形にせり出す大型グリル', dir: 'bottom', labelX: 12 },
+      { x: 30, y: 46, label: '台形にせり出す大型グリル', dir: 'bottom', labelX: 20 },
       { x: 48, y: 68, label: '厚みを感じさせるバンパー', dir: 'bottom', labelX: 62 },
     ],
     facelift: {
@@ -97,7 +96,7 @@ const generations = [
     image: '/images/cars/noah/gen4-2022.webp',
     annotations: [
       { x: 38, y: 38, label: '水平に伸びる一体グリル', dir: 'top', labelX: 60 },
-      { x: 25, y: 42, label: '風格を漂わせる大型メッキ', dir: 'top', labelX: 8 },
+      { x: 25, y: 42, label: '風格を漂わせる大型メッキ', dir: 'top', labelX: 20 },
     ],
     facelift: {
       // 2025年9月2日の単発発表・発売 (グレード整理: 標準の "X" + エアロ
@@ -117,12 +116,7 @@ export default {
   vehicleName: 'NOAH',
   brand: 'トヨタ', // used only for JSON-LD ("トヨタ NOAH 90系" etc.)
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
-  order: 3, // Home page display order across Featured Cars + All Cars -- lower shows first
-  // Featured Cards is a curated "start here" set, not every vehicle --
-  // All Cars is the complete catalog regardless of this flag. Flip to
-  // false to drop a vehicle from Featured without removing it from the
-  // site; this is an editorial call, not automatic.
-  featured: true,
+  order: 3, // Home page display order within All Cars -- lower shows first
   // CarVista Design Identity -- see docs/brand/design-identity.md. The
   // standing reference for Hero copy, annotation vocabulary, and SEO
   // tone for this vehicle; check new copy against these words before
@@ -155,6 +149,10 @@ export default {
   // the color equivalent of "Composed," not just a popular pick.
   representativeGrade: 'Standard model',
   representativeColor: 'White Pearl Crystal Shine',
+  // Hero vignette tint (see .hero-vignette in car-page.css) -- a soft
+  // warm neutral vs. the base (11,12,14), matching Composed/Substantial.
+  // Whisper-subtle by design, not a color filter.
+  heroScrim: '13, 12, 10',
   // Current (90系) generation's approx. overall length -- see
   // docs/brand/design-identity.md's "What Reference Length is". Same
   // platform/length as VOXY (see the twin-platform note at the top of

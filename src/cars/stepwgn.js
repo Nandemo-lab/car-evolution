@@ -9,12 +9,9 @@
 // run from 1996 to today, same as serena.js -- comparePairs has five
 // pairs, not three.
 //
-// IMPORTANT: annotation x/y/labelX coordinates are placeholders. VOXY's
-// coordinates were tuned against its actual generated photos; StepWGN
-// has no photos yet (to be generated separately). These values are a
-// reasonable starting guess modeled on VOXY's front-3/4 composition
-// (grille lower-center, headlight/greenhouse upper area) and MUST be
-// re-checked once real images land in public/images/cars/stepwgn/.
+// Annotation x/y dot positions were re-checked directly against this
+// vehicle's actual photos (2026-07-29, all 27 generations site-wide --
+// see git history, includes a gen1-2 re-crop for framing consistency).
 const generations = [
   {
     numeral: 'I',
@@ -118,9 +115,15 @@ const generations = [
     yearRange: '2022–現在',
     period: '2022年〜現在',
     image: '/images/cars/stepwgn/gen6-2022.webp',
+    // Timeline's shared 1.55x crop (see --timeline-object-position in
+    // car-page.css) cut the front wheel right at the card's edge on
+    // this generation's photo -- shifted left just for this thumbnail
+    // (verified: wheel has real margin, headlight/grille still fully
+    // shown).
+    timelineObjectPosition: '26% 55%',
     annotations: [
       { x: 39, y: 30, label: '大型化した一体感のあるフロント', dir: 'top', labelX: 62 },
-      { x: 25, y: 45, label: '存在感のある水平グリル', dir: 'top', labelX: 6 },
+      { x: 25, y: 45, label: '存在感のある水平グリル', dir: 'top', labelX: 20 },
     ],
     facelift: null,
   },
@@ -131,12 +134,7 @@ export default {
   vehicleName: 'STEPWGN',
   brand: 'ホンダ', // used only for JSON-LD ("ホンダ STEPWGN RP6-8型" etc.)
   maker: 'Honda', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
-  order: 5, // Home page display order across Featured Cars + All Cars -- lower shows first
-  // Featured Cards is a curated "start here" set, not every vehicle --
-  // All Cars is the complete catalog regardless of this flag. Flip to
-  // false to drop a vehicle from Featured without removing it from the
-  // site; this is an editorial call, not automatic.
-  featured: true,
+  order: 5, // Home page display order within All Cars -- lower shows first
   // CarVista Design Identity -- see docs/brand/design-identity.md. The
   // standing reference for Hero copy, annotation vocabulary, and SEO
   // tone for this vehicle; check new copy against these words before
@@ -157,6 +155,11 @@ export default {
   // Clean directly, not just popularity.
   representativeGrade: 'AIR',
   representativeColor: 'Platinum White Pearl',
+  // Hero vignette tint (see .hero-vignette in car-page.css) -- a true
+  // neutral gray vs. the base (11,12,14), matching Simple/Functional --
+  // deliberately the smallest shift on the site. Whisper-subtle by
+  // design, not a color filter.
+  heroScrim: '12, 12, 12',
   // Current (RP6-8) generation's approx. overall length -- see
   // docs/brand/design-identity.md's "What Reference Length is". Anchors
   // this vehicle's apparent body scale relative to every other vehicle

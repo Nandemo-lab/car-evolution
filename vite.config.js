@@ -101,7 +101,7 @@ function buildHomeJsonLd(cars) {
 // until a dedicated brand asset exists.
 function buildHomeTags(cars) {
   const url = `${SITE_ORIGIN}/`
-  const title = `${SITE_NAME} — 見るだけで、進化がわかる。`
+  const title = `${SITE_NAME} — クルマの進化が、見てわかる。`
   const description = '同じ視点・同じ条件で、歴代モデルの進化を比較できるビジュアルカタログ。VOXY・アルファードなど、デザインの変遷を写真で辿る。'
   const image = cars[0] ? `${SITE_ORIGIN}${cars[0].heroImage}` : ''
   const jsonLd = buildHomeJsonLd(cars)

@@ -60,6 +60,14 @@ const generations = [
     yearRange: '2023–現在',
     period: '2023年〜現在',
     image: '/images/cars/vellfire/gen3-2023.webp',
+    // Timeline's shared 1.55x crop (see --timeline-object-position in
+    // car-page.css) cut the front wheel right at the card's edge on
+    // this generation's photo -- shifted left just for this thumbnail
+    // (verified: wheel has real margin, headlight/grille still fully
+    // shown). Not one of the generations actually reported, but its
+    // measured crop was the tightest of any generation site-wide and
+    // this is also this vehicle's default/highlighted Timeline card.
+    timelineObjectPosition: '24% 55%',
     annotations: [
       { x: 22, y: 45, label: '立体的で鋭さのあるダイヤモンドグリル', dir: 'bottom', labelX: 22 },
       { x: 40, y: 35, label: '逆スラント基調のフロントフェイス', dir: 'top', labelX: 58 },
@@ -77,10 +85,7 @@ export default {
   vehicleName: 'Vellfire',
   brand: 'トヨタ',
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
-  order: 6, // Home page display order across Featured Cars + All Cars -- lower shows first
-  // Featured Cards is a curated "start here" set, not every vehicle --
-  // All Cars is the complete catalog regardless of this flag.
-  featured: true,
+  order: 6, // Home page display order within All Cars -- lower shows first
   // CarVista Design Identity -- see docs/brand/design-identity.md.
   // Sourced directly from Toyota's own contrast between the two
   // Alphard-platform siblings: "ヴェルファイアが掲げるコンセプトは、
@@ -110,6 +115,11 @@ export default {
   // Alphard's own representativeGrade choice already applies.
   representativeGrade: 'Z Premier',
   representativeColor: 'Black',
+  // Hero vignette tint (see .hero-vignette in car-page.css) -- cool and
+  // dark with a faint magenta undertone vs. the base (11,12,14),
+  // matching Bold/Individual and distinct from both VOXY's steel-blue
+  // and Alphard's warm bronze. Whisper-subtle by design, not a filter.
+  heroScrim: '12, 9, 15',
   // Current (40系) generation's approx. overall length -- see
   // docs/brand/design-identity.md's "What Reference Length is".
   // Vellfire shares its platform with Alphard and is Toyota's own

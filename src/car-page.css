@@ -37,11 +37,18 @@ body { margin: 0; background: #0b0c0e; }
    roof and below the wheels at both aspects while keeping the car the
    dominant subject. */
 .hero-image { width: 100%; height: 100%; object-fit: cover; object-position: 52% 58%; transform: scale(1.15); }
+/* --hero-scrim (set inline per vehicle via config.heroScrim, see
+   car-page.js's renderHero) tints this same scrim a few RGB units
+   warmer/cooler per vehicle's own Design Identity -- e.g. VOXY reads a
+   touch cooler/steelier, Alphard a touch warmer/deeper. Falls back to
+   the original neutral (11,12,14) so a vehicle with no heroScrim looks
+   exactly as before. Only the color shifts; opacity/stops/layout are
+   untouched, so this stays atmosphere, not a filter. */
 .hero-vignette {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 75% 60% at 50% 40%, rgba(0,0,0,0) 45%, rgba(11,12,14,.75) 100%),
-    linear-gradient(180deg, rgba(11,12,14,.15) 0%, rgba(11,12,14,0) 24%, rgba(11,12,14,0) 55%, rgba(11,12,14,.9) 100%);
+    radial-gradient(ellipse 75% 60% at 50% 40%, rgba(0,0,0,0) 45%, rgba(var(--hero-scrim, 11,12,14),.75) 100%),
+    linear-gradient(180deg, rgba(var(--hero-scrim, 11,12,14),.15) 0%, rgba(var(--hero-scrim, 11,12,14),0) 24%, rgba(var(--hero-scrim, 11,12,14),0) 55%, rgba(var(--hero-scrim, 11,12,14),.9) 100%);
 }
 .hero-copy { position: absolute; left: 22px; right: 22px; bottom: 26px; z-index: 2; }
 .eyebrow { margin: 0; font: 500 10.5px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .55; }
@@ -95,8 +102,20 @@ body { margin: 0; background: #0b0c0e; }
   filter: grayscale(.15) brightness(.85);
 }
 .timeline-thumb { position: relative; display: block; width: 100%; height: 108px; flex: 0 0 auto; }
+/* The tight 1.55x zoom is deliberate -- Timeline is a gallery of front-
+   design close-ups, not a comparison diagram (that's Detail/Compare's
+   job, both shown at true full-frame, zero crop). Zooming every
+   generation out to remove all cropping was tried and reverted
+   (2026-07-31): it made every card read as a smaller, more distant
+   photo and weakened exactly the "impressive front shot" character
+   this section is for. Cropping is only a real problem on the small
+   number of generations whose own source photo happens to frame the
+   car close to the full width of its 1408px canvas -- those get a
+   per-generation override (see --timeline-object-position, set inline
+   via car-page.js from generations[].timelineObjectPosition) rather
+   than changing this shared rule for every vehicle. */
 .timeline-thumb img {
-  width: 100%; height: 100%; object-fit: cover; object-position: 40% 55%; transform: scale(1.55);
+  width: 100%; height: 100%; object-fit: cover; object-position: var(--timeline-object-position, 40% 55%); transform: scale(1.55);
   filter: grayscale(.4) brightness(.68); transition: filter .35s;
 }
 .timeline-item[aria-current="true"] .timeline-thumb img { filter: grayscale(0) brightness(1.05) saturate(1.15); }
@@ -345,7 +364,7 @@ body { margin: 0; background: #0b0c0e; }
 .compare-hint {
   position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
   font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .1em;
-  color: #f4f3f0; opacity: .4; text-transform: uppercase;
+  color: #f4f3f0; opacity: .58; text-transform: uppercase;
   text-shadow: 0 1px 5px rgba(0,0,0,.5), 0 0 12px rgba(0,0,0,.3);
   pointer-events: none; transition: opacity .5s ease;
 }
@@ -369,8 +388,28 @@ body { margin: 0; background: #0b0c0e; }
 .policy-link { color: inherit; opacity: .55; }
 .policy-meta { margin: 6px 0 0; font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 400; opacity: .22; letter-spacing: .02em; }
 
+/* Way back to Home -- deliberately NOT inside .policy: sitting after
+   five paragraphs of fine print at the same near-invisible opacity as
+   that fine print (an earlier version) meant a reader had to scroll
+   past all of it and already know to look for it, which real-device
+   testing confirmed doesn't work. This sits as its own row right after
+   Compare, before the fine print starts -- the first thing reached
+   once the main content ends, not the last thing buried under it.
+   Opacity matches .policy-link (already verified legible against this
+   site's dark background) rather than the fine-print's own .34-.4. */
+/* Vertical padding sized for a real tap target (measured ~42px total
+   with the text's own line-height, close to the ~44px comfortable-tap
+   guideline) rather than just the text's own ~20px visual height --
+   the padding is invisible, only the tappable area grows. */
+.back-home {
+  display: block; padding: 14px 22px; margin: 0;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: .05em;
+  color: inherit; text-decoration: none; opacity: .55; transition: opacity .3s;
+}
+.back-home:hover, .back-home:focus-visible { opacity: .9; }
+
 @media (min-width: 700px) {
-  .hero-copy, .heritage, .timeline, .detail, .compare, .policy { padding-left: 8vw; padding-right: 8vw; }
+  .hero-copy, .heritage, .timeline, .detail, .compare, .policy, .back-home { padding-left: 8vw; padding-right: 8vw; }
   .timeline-rail { left: 8vw; right: 8vw; }
   .detail { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
 }

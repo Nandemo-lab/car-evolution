@@ -21,19 +21,28 @@ import './car-page.css'
 //   vehicleName: 'VOXY',
 //   brand: 'トヨタ',            // JSON-LD only, see vite.config.js
 //   maker: 'Toyota',            // English, Home page maker grouping
-//   order: 1,                   // Home page display order
-//   featured: true,             // include in Home's curated Featured Cards (All Cars always shows every vehicle regardless)
+//   order: 1,                   // Home page display order within All Cars
 //   designRole: 'The expressive choice.',               // one-line "what is this vehicle" -- read first
 //   designIdentity: ['Sharp', 'Dynamic', 'Aggressive'], // see docs/brand/design-identity.md
 //   designAvoid: ['Elegant', 'Luxury', 'Formal'],       // words this vehicle's copy must not reach for
 //   representativeGrade: 'Standard model',              // fixed spec shown across every generation's image
 //   representativeColor: 'Attitude Black Mica',         // fixed color shown across every generation's image
+//   heroScrim: '9, 12, 19',     // optional -- R,G,B tint for the hero vignette, see .hero-vignette in car-page.css
 //   tagline: 'かたちは、時代を語る。',
 //   heroImage: '/images/cars/voxy/hero-gen4-3q.png',
 //   defaultIndex: 3,
 //   generations: [
 //     {
 //       numeral, era, title, code, startYear, yearRange, period, image,
+//       timelineObjectPosition?: '23% 55%', // rare per-generation override for
+//         // Timeline's shared 1.55x crop (see --timeline-object-position in
+//         // car-page.css) -- only set on a generation whose own photo frames
+//         // the car close to the full width of the canvas, where the shared
+//         // crop cuts into the wheel/body. Timeline is an intentionally tight
+//         // "impressive front design" crop by design, not a comparison view
+//         // (that's Detail/Compare's job) -- don't reach for this to make
+//         // every generation show more of the car, only to fix a generation
+//         // that's actually cut in a way that looks wrong.
 //       annotations: [{ x, y, label, dir: 'top'|'bottom', labelX }],
 //       facelift: { fromYear, toYear, note?, points: [...] } | null,
 //     },
@@ -107,6 +116,12 @@ function renderHero(config) {
   document.getElementById('hero-eyebrow').textContent = config.eyebrow
   document.getElementById('hero-title').textContent = config.vehicleName
   document.getElementById('tagline').textContent = config.tagline
+  // Optional per-vehicle scrim tint (see .hero-vignette in car-page.css)
+  // -- a few RGB units warmer/cooler, sourced from this vehicle's own
+  // designIdentity. Absent field = untouched neutral scrim.
+  if (config.heroScrim) {
+    document.querySelector('.hero').style.setProperty('--hero-scrim', config.heroScrim)
+  }
 }
 
 // A quiet strip of each generation's own start year, plus "現在" for
@@ -142,7 +157,17 @@ function renderTimeline(generations, vehicleName) {
         <span class="timeline-year">${gen.yearRange}</span>
       </span>
     `
-    withImageFallback(btn.querySelector('.timeline-thumb img'))
+    const thumbImg = btn.querySelector('.timeline-thumb img')
+    withImageFallback(thumbImg)
+    // Per-generation escape hatch for the shared 1.55x Timeline crop
+    // (see --timeline-object-position in car-page.css) -- only set on
+    // the small number of generations whose own source photo frames
+    // the car close to the full width of its canvas, where the shared
+    // crop would otherwise cut into the body. Absent field = untouched
+    // shared default.
+    if (gen.timelineObjectPosition) {
+      thumbImg.style.setProperty('--timeline-object-position', gen.timelineObjectPosition)
+    }
     nav.appendChild(btn)
   })
 }
@@ -494,7 +519,11 @@ function initCompare(generations) {
     entries.forEach((entry) => {
       if (entry.isIntersecting && !hintPlayed) {
         hintPlayed = true
-        animateSplit([[42, 520], [58, 620], [50, 420]], dismissHint)
+        // A short hold after the sweep settles back to center, before
+        // fading the label -- the sweep alone leaves barely a beat to
+        // register the text; holding it a moment longer makes its
+        // existence clearer without adding any new motion.
+        animateSplit([[42, 520], [58, 620], [50, 420]], () => window.setTimeout(dismissHint, 500))
       }
     })
   }, { threshold: 0.6 })

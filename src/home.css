@@ -3,11 +3,11 @@
 /* CarVista -- Home page styles ------------------------------------
    The brand's entry point, not a vehicle page: no product photo in the
    hero (that also keeps the hero's LCP path trivially fast -- text and
-   a gradient only). Photography becomes the star starting at Featured
-   Cars, one scroll below. Same dark palette and two-family type system
-   as car-page.css, duplicated here rather than shared, since this page
-   never loads car-page.css's bundle (compare slider, timeline, etc. --
-   none of it applies here). */
+   a gradient only). Photography starts at All Cars, one scroll below --
+   the page's one and only listing (see home.js). Same dark palette and
+   two-family type system as car-page.css, duplicated here rather than
+   shared, since this page never loads car-page.css's bundle (compare
+   slider, timeline, etc. -- none of it applies here). */
 :root { color: #f4f3f0; background: #0b0c0e; font-family: 'Noto Sans JP', 'Inter', sans-serif; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #0b0c0e; }
@@ -22,7 +22,7 @@ body { margin: 0; background: #0b0c0e; }
      in line with it. On editorial-policy.html (fewer total audits than
      Home) this single low-contrast label was enough to pull the page's
      accessibility score below the site's established 95+ bar. */
-  margin: 0 0 18px; font: 500 10.5px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .55;
+  margin: 0 0 14px; font: 500 10.5px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .55;
 }
 
 /* Hero -- centered brand statement. No photo: the gradient carries the
@@ -30,14 +30,17 @@ body { margin: 0; background: #0b0c0e; }
 .home-hero {
   position: relative;
   /* calc() rather than a vh percentage -- guarantees a fixed ~64px peek
-     of Featured Cars at the bottom of the viewport on first load,
-     regardless of device height, instead of a peek that only appears on
-     tall screens and vanishes on short ones. Tuned to surface the
-     "FEATURED CARS" label only, not the card photo itself -- an earlier
-     110px version pulled the first card's image into the initial
-     viewport, which made it LCP-eligible and undid the hero's fast,
-     photo-free LCP path (dropped Performance from 97 to 86 in testing).
-     Text-only peek keeps both the "there's more" cue and the score. */
+     of All Cars at the bottom of the viewport on first load, regardless
+     of device height, instead of a peek that only appears on tall
+     screens and vanishes on short ones. Tuned to surface the "ALL CARS"
+     label only, not a card photo itself -- an earlier version (from
+     when Featured Cars, since removed, sat directly below Hero) found
+     that a 110px peek pulled a card's image into the initial viewport,
+     making it LCP-eligible and undoing the hero's fast, photo-free LCP
+     path (dropped Performance from 97 to 86 in testing). Text-only peek
+     keeps both the "there's more" cue and the score -- still true now
+     that All Cars (smaller thumbnails, more vertical margin before its
+     own grid starts) is the section directly below. */
   min-height: calc(100vh - 64px);
   display: flex; align-items: center; justify-content: center;
   padding: 100px 22px 80px;
@@ -45,8 +48,8 @@ body { margin: 0; background: #0b0c0e; }
   overflow: hidden;
 }
 /* I / II / III / IV, extremely faint, spanning the full width behind
-   the copy -- the same numeral language as the timeline, the Featured
-   Card badge, and the heritage strip, but here it's pure atmosphere:
+   the copy -- the same numeral language as the timeline and the
+   heritage strip on every vehicle page, but here it's pure atmosphere:
    "generation" and "time" as a felt background, not a legible label.
    aria-hidden since it carries no information a reader needs -- it's
    decoration, not content (also keeps it out of the color-contrast
@@ -65,7 +68,9 @@ body { margin: 0; background: #0b0c0e; }
      Contentful Paint element (adding its own font-render delay); even
      after fixing that, the 4 large glyphs were still measurably slower
      to paint in the same frame as the hero text. Smaller glyphs cost
-     less to rasterize regardless of which element LCP picks. */
+     less to rasterize regardless of which element LCP picks. IV keeps
+     this exact proven-safe ceiling; I/II/III step up toward it below,
+     never past it, so nothing here re-opens the LCP risk. */
   font-size: clamp(36px, 5.5vw, 72px); letter-spacing: -.02em; line-height: 1;
   /* rgba alpha, not `opacity` -- opacity < 1 promotes each span to its
      own compositing layer (offscreen render + composite), real paint
@@ -73,6 +78,15 @@ body { margin: 0; background: #0b0c0e; }
      faintness with a normal paint, no extra layers. */
   color: rgba(244, 243, 240, .035);
 }
+/* A quiet size/weight progression across I -> II -> III -> IV -- the
+   same "smaller, fainter past -> larger, more present now" idea the
+   whole site already tells with the timeline and heritage strip, felt
+   here before a reader has scrolled to either. Still whisper-quiet
+   (max delta is a few hundredths of opacity and a handful of px) and
+   never exceeds IV's already-proven-safe 72px/.035 ceiling above. */
+.home-hero-motif span:nth-child(1) { font-size: clamp(28px, 4.3vw, 52px); color: rgba(244, 243, 240, .022); }
+.home-hero-motif span:nth-child(2) { font-size: clamp(31px, 4.7vw, 59px); color: rgba(244, 243, 240, .027); }
+.home-hero-motif span:nth-child(3) { font-size: clamp(33px, 5.1vw, 65px); color: rgba(244, 243, 240, .031); }
 /* Nudged down from dead-center within the hero box -- purely a breathing-
    room adjustment (the hero's min-height/flex-centering is unchanged),
    requested to loosen the page's overall vertical rhythm at the very top. */
@@ -97,7 +111,7 @@ body { margin: 0; background: #0b0c0e; }
 }
 .home-hero-desc {
   margin: 18px auto 0; max-width: 420px; font-weight: 300; font-size: 14.5px;
-  line-height: 1.85; opacity: .68; letter-spacing: .01em;
+  line-height: 1.85; opacity: .76; letter-spacing: .01em;
 }
 .home-hero-desc .line { white-space: nowrap; }
 .home-cta {
@@ -110,63 +124,18 @@ body { margin: 0; background: #0b0c0e; }
 .home-cta-arrow { display: inline-block; font-size: 13px; transform: translateY(1px); animation: cta-bob 2.2s ease-in-out infinite; }
 @keyframes cta-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
 
-/* Featured Cars -- large, photo-first cards. Just enough text to name
-   what's there; the photo does the rest. Wider than a generic product-
-   card ratio (16:9, close to the source photos' own ~1.78:1 crop) and a
-   quiet Roman-numeral plate in place of a "全N世代" spec line -- reads
-   closer to a catalog plate than an e-commerce listing. */
-.featured { padding: 40px 22px 30px; }
-.featured-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-.car-card {
-  display: flex; flex-direction: column; color: inherit; text-decoration: none;
-  border-radius: 18px; overflow: hidden; background: #111316;
-  box-shadow: 0 0 0 1px rgba(255,255,255,.05);
-  transition: box-shadow .35s, transform .35s;
-}
-/* A restrained Apple/Rivian-style response, not a bounce: a small lift,
-   a touch brighter, and the car's own reflections read very slightly
-   stronger -- via brightness/contrast on the photo itself, not an
-   overlay -- so the feedback feels like the car responding, not a UI
-   layer on top of it. */
-.car-card:hover, .car-card:focus-visible { box-shadow: 0 0 0 1px rgba(255,255,255,.14); transform: translateY(-3px); }
-.car-card:hover .car-card-photo img, .car-card:focus-visible .car-card-photo img { filter: brightness(1.07) contrast(1.03); }
-/* Taller than the source photos' native ~1.78:1 crop (9:8, not 16:9)
-   and the meta block below tightened -- together these push the
-   card's photo-to-info balance well past 80%, so the car is the star
-   of the card and the name/heritage strip reads as a caption beneath
-   it, not a co-equal panel competing with it for space. */
-.car-card-photo { position: relative; display: block; aspect-ratio: 9 / 8; background: #0d0e10; }
-/* transform-origin biased toward the top (32% rather than the default
-   50%) so the zoom crops more from the floor/shadow margin and less
-   from the roofline -- verified by simulating the actual cover+scale
-   crop against the source photos (this box's aspect is narrower than
-   the source, so object-fit:cover alone already matches height exactly
-   with zero vertical crop; the top-of-frame headlight/roof clipping
-   was coming entirely from the scale() below zooming from box-center). */
-.car-card-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 52% 58%; transform: scale(1.16); transform-origin: 50% 20%; transition: filter .35s; }
-.car-card-gen-badge {
-  position: absolute; top: 14px; left: 14px; z-index: 1;
-  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .07em;
-  color: #f4f3f0; opacity: .75;
-  text-shadow: 0 1px 5px rgba(0,0,0,.5), 0 0 12px rgba(0,0,0,.3);
-}
-.car-card-meta { display: flex; flex-direction: column; gap: 7px; padding: 12px 18px 14px; }
-/* Hierarchy is car -> name -> timeline strip: name bumped up in size/
-   weight, heritage strip below it dialed back a touch further, so the
-   two never compete for the same glance. */
-.car-card-name { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -.015em; }
-/* Mini heritage strip -- scaled-down clone of .heritage/.heritage-point/
-   .heritage-line (see car-page.css). Deliberately the same visual
-   language at a smaller size rather than a new pattern. */
-.car-card-heritage { display: flex; align-items: center; gap: 6px; }
-.mini-heritage-point { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 500; letter-spacing: -.005em; opacity: .34; white-space: nowrap; }
-.mini-heritage-point.is-current { opacity: .82; font-weight: 600; }
-.mini-heritage-line { flex: 1 1 auto; height: 1px; min-width: 6px; background: rgba(255,255,255,.14); }
-
-/* All Cars -- quieter than Featured on purpose: smaller thumbnails,
-   grouped by maker, no per-card description. Coming Soon tiles sit in
-   the same grid at reduced opacity, un-linked. */
-.all-cars { padding: 52px 22px 30px; }
+/* All Cars -- the page's one and only listing (Featured Cars, a
+   curated photo-card spotlight above this section, was removed
+   2026-07-30 -- see home.js). Grouped by maker, smaller thumbnails, no
+   per-card description; Coming Soon tiles sit in the same grid at
+   reduced opacity, un-linked. */
+/* Top padding trimmed from an earlier 52px, tuned for when this
+   section sat below Featured Cars -- now that All Cars is the first
+   section after Hero, it gets the same Hero-adjacent treatment
+   Featured Cars itself used to (see git history): a shorter run from
+   the Hero's fixed 64px peek to the first real content. Doesn't touch
+   .home-hero's own min-height (LCP-tuned, see the comment above it). */
+.all-cars { padding: 26px 22px 30px; }
 /* A real heading + a live model count, not just the eyebrow label --
    gives the section its own sense of scale/momentum instead of
    dropping straight into a grid of small thumbnails. */
@@ -259,8 +228,7 @@ body { margin: 0; background: #0b0c0e; }
 .policy-page-link:hover, .policy-page-link:focus-visible { color: #f4f3f0; }
 
 @media (min-width: 700px) {
-  .home-hero-copy, .featured, .all-cars, .about, .policy { padding-left: 8vw; padding-right: 8vw; }
-  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-hero-copy, .all-cars, .about, .policy { padding-left: 8vw; padding-right: 8vw; }
   .maker-cars { grid-template-columns: repeat(4, 1fr); }
 }
 

@@ -12,12 +12,9 @@
 // -- it already supports any generation count, no engine change
 // needed).
 //
-// IMPORTANT: annotation x/y/labelX coordinates are placeholders. VOXY's
-// coordinates were tuned against its actual generated photos; Serena
-// has no photos yet (to be generated separately). These values are a
-// reasonable starting guess modeled on VOXY's front-3/4 composition
-// (grille lower-center, headlight/greenhouse upper area) and MUST be
-// re-checked once real images land in public/images/cars/serena/.
+// Annotation x/y dot positions were re-checked directly against this
+// vehicle's actual photos (2026-07-29, all 27 generations site-wide --
+// see git history, includes a gen1-2 re-crop for framing consistency).
 const generations = [
   {
     numeral: 'I',
@@ -120,6 +117,12 @@ const generations = [
     yearRange: '2022–現在',
     period: '2022年〜現在',
     image: '/images/cars/serena/gen6-2022.webp',
+    // Timeline's shared 1.55x crop (see --timeline-object-position in
+    // car-page.css) cut the front wheel right at the card's edge and
+    // clipped the "SERENA" badge to "ERENA" on this generation's photo
+    // -- shifted left just for this thumbnail (verified: full badge
+    // text visible, wheel has real margin).
+    timelineObjectPosition: '23% 55%',
     annotations: [
       { x: 40, y: 30, label: '水平基調の一体型フロント', dir: 'top', labelX: 38 },
       { x: 37, y: 50, label: '発光する大型エンブレム', dir: 'bottom', labelX: 66 },
@@ -138,12 +141,7 @@ export default {
   vehicleName: 'SERENA',
   brand: '日産', // used only for JSON-LD ("日産 SERENA C28型" etc.)
   maker: 'Nissan', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
-  order: 4, // Home page display order across Featured Cars + All Cars -- lower shows first
-  // Featured Cards is a curated "start here" set, not every vehicle --
-  // All Cars is the complete catalog regardless of this flag. Flip to
-  // false to drop a vehicle from Featured without removing it from the
-  // site; this is an editorial call, not automatic.
-  featured: true,
+  order: 4, // Home page display order within All Cars -- lower shows first
   // CarVista Design Identity -- see docs/brand/design-identity.md. The
   // standing reference for Hero copy, annotation vocabulary, and SEO
   // tone for this vehicle; check new copy against these words before
@@ -161,6 +159,10 @@ export default {
   // more formal impression black carries on this vehicle.
   representativeGrade: 'Standard model',
   representativeColor: 'White Pearl',
+  // Hero vignette tint (see .hero-vignette in car-page.css) -- a light,
+  // open warm-neutral vs. the base (11,12,14), matching Family/Open.
+  // Whisper-subtle by design, not a color filter.
+  heroScrim: '13, 13, 11',
   // Current (C28) generation's approx. overall length -- see
   // docs/brand/design-identity.md's "What Reference Length is". Anchors
   // this vehicle's apparent body scale relative to every other vehicle

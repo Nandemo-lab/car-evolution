@@ -8,13 +8,11 @@
 // and other reliable public sources -- no invented specs. See the
 // project memory for the source list.
 //
-// IMPORTANT: annotation x/y/labelX coordinates are placeholders. VOXY's
-// coordinates were tuned against its actual generated photos; Alphard
-// has no photos yet (the user is generating them separately). These
-// values are a reasonable starting guess modeled on VOXY's front-3/4
-// composition (grille lower-center, headlight/greenhouse upper area)
-// and MUST be re-checked once real images land in
-// public/images/cars/alphard/.
+// Annotation x/y dot positions were re-checked directly against this
+// vehicle's actual photos (2026-07-29, all 27 generations site-wide --
+// see git history). labelX/dir placement was further tuned (2026-07-30)
+// to keep every leader line's caption inside the visible margin at
+// mobile widths.
 const generations = [
   {
     numeral: 'I',
@@ -45,7 +43,7 @@ const generations = [
     image: '/images/cars/alphard/gen2-2008.webp',
     annotations: [
       { x: 42, y: 52, label: '切れ長の大型ヘッドランプ', dir: 'bottom', labelX: 55 },
-      { x: 20, y: 48, label: '横バー基調のグリル', dir: 'bottom', labelX: 8 },
+      { x: 20, y: 48, label: '横バー基調のグリル', dir: 'bottom', labelX: 23 },
       { x: 48, y: 36, label: 'V字型に抜けるフロントライン', dir: 'top', labelX: 64 },
     ],
     facelift: {
@@ -63,7 +61,7 @@ const generations = [
     period: '2015年〜2023年',
     image: '/images/cars/alphard/gen3-2015.webp',
     annotations: [
-      { x: 31, y: 47, label: '大型化したフロントグリル', dir: 'bottom', labelX: 12 },
+      { x: 31, y: 47, label: '大型化したフロントグリル', dir: 'bottom', labelX: 20 },
       { x: 50, y: 68, label: '重厚な押し出し感のあるバンパー', dir: 'bottom', labelX: 62 },
     ],
     facelift: {
@@ -99,12 +97,7 @@ export default {
   vehicleName: 'Alphard',
   brand: 'トヨタ',
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
-  order: 2, // Home page display order across Featured Cars + All Cars -- lower shows first
-  // Featured Cards is a curated "start here" set, not every vehicle --
-  // All Cars is the complete catalog regardless of this flag. Flip to
-  // false to drop a vehicle from Featured without removing it from the
-  // site; this is an editorial call, not automatic.
-  featured: true,
+  order: 2, // Home page display order within All Cars -- lower shows first
   // CarVista Design Identity -- see docs/brand/design-identity.md. The
   // standing reference for Hero copy, annotation vocabulary, and SEO
   // tone for this vehicle; check new copy against these words before
@@ -127,6 +120,10 @@ export default {
   // most representative spec, not necessarily the top grade.
   representativeGrade: 'Z',
   representativeColor: 'Black (202)',
+  // Hero vignette tint (see .hero-vignette in car-page.css) -- a few RGB
+  // units warmer/deeper than the neutral base (11,12,14), matching
+  // Presence/Dignified. Whisper-subtle by design, not a color filter.
+  heroScrim: '15, 11, 8',
   // Current (40系) generation's approx. overall length -- see
   // docs/brand/design-identity.md's "What Reference Length is". Alphard
   // is CarVista's largest vehicle and should read ~5-10% bigger in
