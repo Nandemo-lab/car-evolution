@@ -65,6 +65,23 @@ function buildJsonLd(brand, vehicleName, generations) {
   }
 }
 
+// BreadcrumbList JSON-LD (2026-07-31 on) -- Home > vehicle, matching the
+// site's actual navigable structure (there's no separate maker-listing
+// page). Generic and data-driven like buildJsonLd above, so it applies to
+// every vehicle page uniformly, including the 8 that predate it -- purely
+// additive structured data, no visible/behavioral change, so there's no
+// per-vehicle rollout risk the way a new UI section would have.
+function buildBreadcrumbJsonLd(car, slug) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: SITE_NAME, item: `${SITE_ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name: car.vehicleName, item: `${SITE_ORIGIN}/cars/${slug}.html` },
+    ],
+  }
+}
+
 // Loads every src/cars/*.js file (same discovery mechanism as
 // discoverCarEntries above) and returns them sorted by their `order`
 // field -- used for the Home page's JSON-LD list of published vehicles.
@@ -187,6 +204,7 @@ function seoInjectPlugin() {
       const url = `${SITE_ORIGIN}${path}`
       const image = `${SITE_ORIGIN}${car.heroImage}`
       const jsonLd = buildJsonLd(car.brand, car.vehicleName, car.generations)
+      const breadcrumbJsonLd = buildBreadcrumbJsonLd(car, slug)
 
       const meta = (attrs) => ({ tag: 'meta', attrs, injectTo: 'head' })
       const tags = [
@@ -210,6 +228,7 @@ function seoInjectPlugin() {
         meta({ name: 'twitter:description', content: car.seo.description }),
         meta({ name: 'twitter:image', content: image }),
         { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(jsonLd), injectTo: 'head' },
+        { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(breadcrumbJsonLd), injectTo: 'head' },
       ]
       return { html, tags }
     },
