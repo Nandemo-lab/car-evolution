@@ -22,23 +22,35 @@
 // no invented specs.
 //
 // gen1/gen2 images: the supplied source photos have white studio
-// backgrounds and real floor-reflection texture near the tires. Three
-// rounds of mask-based background removal (gradient-threshold flood
-// fill + "floor crush" override + dilation, tuned three different ways)
-// all left visible artifacts under the wheels -- the mask itself is
-// unavoidably noisy in that zone (real reflection texture defeats a
-// clean gradient threshold), so filling a noisy mask with flat color
-// always produced blocky/patchy results regardless of tuning. Fixed
-// (2026-08-01) by abandoning per-pixel classification for that zone
-// entirely: below a fixed, conservative cutoff row (chosen below every
-// visible wheel/skid-garnish highlight, verified by direct pixel
-// probing), all original pixel data is discarded and replaced with a
-// fully synthetic ground plane -- a smooth vertical gradient plus soft
-// elliptical contact shadows under each wheel, feathered into the real
-// photo above so there's no seam. This is the reusable pattern for any
-// future vehicle whose real-photo floor/reflection can't be cleanly
-// salvaged: reconstruct the ground plane, don't try to patch it pixel
-// by pixel.
+// backgrounds and real floor-reflection texture near the tires. Four
+// rounds fixing this, each catching something the previous one missed:
+// (1-3) mask-based background removal (gradient-threshold flood fill +
+// "floor crush" override + dilation, tuned three ways) all left visible
+// block/patch artifacts -- the mask itself is unavoidably noisy in that
+// zone, so filling a noisy mask with flat color always produced blocky
+// results regardless of tuning. (4, 2026-08-01) Rebuilt as a fully
+// synthetic ground plane below a fixed cutoff row instead of trying to
+// classify real pixels at all -- but the FIRST version of this still
+// read as a visible "band" on the actual rendered page (confirmed via
+// canvas pixel sampling on the live DOM, not just re-inspecting the
+// output files) because it was perfectly smooth/noise-free next to a
+// real photo's grain above it, and its tone curve never brightened
+// back up toward the bottom edge the way a real floor reflection does.
+// Recalibrated by sampling SERENA's own real detail-image floor profile
+// live off the rendered page (a proven-good reference, not a guess):
+// noisy low-toned shadow immediately below the car, then a smooth rise
+// from ~27 to ~59 luminance across the bottom 20% of frame. The current
+// version reproduces both the noise and that rising curve, plus tighter
+// Gaussian (not linear) contact-shadow ellipses under each wheel.
+// Verified this time via actual browser rendering: canvas snapshots of
+// the live Detail image, the Compare base image, and the Timeline
+// thumbnail with its real CSS transform (object-position + scale(1.55))
+// replicated, at both wheels, both generations -- not by reading the
+// source files directly, which is what let the "band" ship undetected
+// the first time. Reusable pattern for any future vehicle whose real-
+// photo floor can't be cleanly salvaged: reconstruct the ground plane
+// against a real reference's measured profile, and verify by sampling
+// the actual rendered page, not the source file in isolation.
 const generations = [
   {
     numeral: 'I',
