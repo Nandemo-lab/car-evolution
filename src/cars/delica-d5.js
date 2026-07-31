@@ -15,12 +15,30 @@
 // terminology this vehicle's own press and owner community already use,
 // e.g. "デリカD:5(前期型)を買うなら") rather than "初代"/"2代目", which
 // would misrepresent a single continuously-produced model as two full
-// generations. See faq[0] below, which states this directly for readers
-// who arrive expecting a normal generation history.
+// generations.
 //
 // Sourced facts cross-checked against Mitsubishi Motors' own newsroom/
 // spec pages plus independent catalog sources (nextage.jp, spectank.jp) --
 // no invented specs.
+//
+// gen1/gen2 images: the supplied source photos have white studio
+// backgrounds and real floor-reflection texture near the tires. Three
+// rounds of mask-based background removal (gradient-threshold flood
+// fill + "floor crush" override + dilation, tuned three different ways)
+// all left visible artifacts under the wheels -- the mask itself is
+// unavoidably noisy in that zone (real reflection texture defeats a
+// clean gradient threshold), so filling a noisy mask with flat color
+// always produced blocky/patchy results regardless of tuning. Fixed
+// (2026-08-01) by abandoning per-pixel classification for that zone
+// entirely: below a fixed, conservative cutoff row (chosen below every
+// visible wheel/skid-garnish highlight, verified by direct pixel
+// probing), all original pixel data is discarded and replaced with a
+// fully synthetic ground plane -- a smooth vertical gradient plus soft
+// elliptical contact shadows under each wheel, feathered into the real
+// photo above so there's no seam. This is the reusable pattern for any
+// future vehicle whose real-photo floor/reflection can't be cleanly
+// salvaged: reconstruct the ground plane, don't try to patch it pixel
+// by pixel.
 const generations = [
   {
     numeral: 'I',
