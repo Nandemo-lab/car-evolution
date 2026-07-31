@@ -12,6 +12,17 @@
 // Annotation x/y dot positions were re-checked directly against this
 // vehicle's actual photos (2026-07-29, all 27 generations site-wide --
 // see git history, includes a gen1-2 re-crop for framing consistency).
+// gen1/gen2 photos were replaced again (2026-07-31, user-supplied) --
+// their car was recorded noticeably smaller/higher in frame than every
+// other generation on the site (measured: ~71% of frame height vs.
+// ~87-93% for gen3-6), which is what actually caused the "見切れ"
+// (cut off at the bottom) complaint -- a source-photo scale mismatch,
+// not a CSS crop problem, so it couldn't be fixed by adjusting
+// object-position/scale alone (verified: neither image had enough
+// spare width margin to crop in on the height without cutting into
+// the car's own front/rear). Annotation coordinates below were
+// re-derived against these new photos, not carried over from the old
+// ones.
 const generations = [
   {
     numeral: 'I',
@@ -23,8 +34,8 @@ const generations = [
     period: '1996年〜2001年',
     image: '/images/cars/stepwgn/gen1-1996.webp',
     annotations: [
-      { x: 25, y: 70, label: '無骨で実用的なフロントグリル', dir: 'bottom', labelX: 25 },
-      { x: 60, y: 32, label: '背の高いウォークスルー・ボディ', dir: 'top', labelX: 62 },
+      { x: 20, y: 63, label: '無骨で実用的なフロントグリル', dir: 'bottom', labelX: 20 },
+      { x: 55, y: 15, label: '背の高いウォークスルー・ボディ', dir: 'top', labelX: 58 },
     ],
     facelift: {
       fromYear: '1996', toYear: '1999',
@@ -41,8 +52,8 @@ const generations = [
     period: '2001年〜2005年',
     image: '/images/cars/stepwgn/gen2-2001.webp',
     annotations: [
-      { x: 31, y: 62, label: 'キープコンセプトの台形グリル', dir: 'bottom', labelX: 31 },
-      { x: 48, y: 62, label: '張り出したフェンダーアーチ（SPADA）', dir: 'bottom', labelX: 62 },
+      { x: 19, y: 61, label: 'キープコンセプトの台形グリル', dir: 'bottom', labelX: 19 },
+      { x: 37, y: 75, label: '張り出したフェンダーアーチ（SPADA）', dir: 'bottom', labelX: 55 },
     ],
     facelift: {
       fromYear: '2001', toYear: '2003',

@@ -15,6 +15,17 @@
 // Annotation x/y dot positions were re-checked directly against this
 // vehicle's actual photos (2026-07-29, all 27 generations site-wide --
 // see git history, includes a gen1-2 re-crop for framing consistency).
+// gen1/gen2 photos were replaced again (2026-07-31, user-supplied) --
+// their car was recorded noticeably smaller/higher in frame than every
+// other generation on the site (measured: ~64-74% of frame height vs.
+// ~78-90% for gen3-6), which is what actually caused the "見切れ"
+// (cut off at the bottom) complaint -- a source-photo scale mismatch,
+// not a CSS crop problem, so it couldn't be fixed by adjusting
+// object-position/scale alone (verified: neither image had enough
+// spare width margin to crop in on the height without cutting into
+// the car's own front/rear). Annotation coordinates below were
+// re-derived against these new photos, not carried over from the old
+// ones.
 const generations = [
   {
     numeral: 'I',
@@ -26,8 +37,8 @@ const generations = [
     period: '1991年〜1999年',
     image: '/images/cars/serena/gen1-1991.webp',
     annotations: [
-      { x: 25, y: 80, label: '商用車由来の無骨なグリル', dir: 'bottom', labelX: 25 },
-      { x: 60, y: 37, label: '直立した箱型フォルム', dir: 'top', labelX: 62 },
+      { x: 20, y: 60, label: '商用車由来の無骨なグリル', dir: 'bottom', labelX: 20 },
+      { x: 55, y: 20, label: '直立した箱型フォルム', dir: 'top', labelX: 58 },
     ],
     facelift: {
       fromYear: '1994', toYear: '1997',
@@ -45,8 +56,8 @@ const generations = [
     period: '1999年〜2005年',
     image: '/images/cars/serena/gen2-1999.webp',
     annotations: [
-      { x: 32, y: 53, label: '横方向に広がりを見せるグリル', dir: 'bottom', labelX: 32 },
-      { x: 58, y: 20, label: '低められた前傾フォルム', dir: 'top', labelX: 62 },
+      { x: 20, y: 58, label: '横方向に広がりを見せるグリル', dir: 'bottom', labelX: 20 },
+      { x: 45, y: 20, label: '低められた前傾フォルム', dir: 'top', labelX: 48 },
     ],
     facelift: {
       fromYear: '2001', toYear: '2001',
