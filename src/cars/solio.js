@@ -75,7 +75,7 @@ const generations = [
 
 export default {
   eyebrow: 'CARVISTA',
-  vehicleName: 'ソリオ',
+  vehicleName: 'SOLIO',
   brand: 'スズキ', // used only for JSON-LD ("スズキ ソリオ MA37S型" etc.)
   maker: 'Suzuki', // English, for grouping cards on the Home page (see src/home.js) -- CarVista's first Suzuki vehicle
   order: 11, // Home page display order within All Cars -- appended after every existing maker AND after Delica D:5's new Mitsubishi group, so existing brand order is untouched and Suzuki becomes the newest group.
@@ -118,7 +118,7 @@ export default {
   // representativeColor above. See "What Representative Grade and Color
   // are" in design-identity.md.
   seo: {
-    title: 'ソリオ 歴代モデル一覧 — CarVista',
+    title: 'SOLIO 歴代モデル一覧 — CarVista',
     description: 'スズキ ソリオ全4世代を画像で比較。コンパクトなトールワゴンとしてのデザインの進化が一目でわかる。',
   },
   defaultIndex: 3,

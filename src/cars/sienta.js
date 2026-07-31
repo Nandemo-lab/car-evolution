@@ -61,7 +61,7 @@ const generations = [
 
 export default {
   eyebrow: 'CARVISTA',
-  vehicleName: 'シエンタ',
+  vehicleName: 'SIENTA',
   brand: 'トヨタ', // used only for JSON-LD ("トヨタ シエンタ MXPL10型" etc.)
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js)
   order: 9, // Home page display order within All Cars -- joins the existing Toyota group (appended after ESQUIRE/5) without disturbing Toyota-Nissan-Honda's own relative order.
@@ -111,7 +111,7 @@ export default {
   // real original saturation). Minor remaining difference from gen3's
   // solid single-tone body; not a full match.
   seo: {
-    title: 'シエンタ 歴代モデル一覧 — CarVista',
+    title: 'SIENTA 歴代モデル一覧 — CarVista',
     description: 'トヨタ シエンタ全3世代を画像で比較。コンパクトミニバンとしてのデザインの進化が一目でわかる。',
   },
   defaultIndex: 2,

@@ -63,7 +63,7 @@ const generations = [
 
 export default {
   eyebrow: 'CARVISTA',
-  vehicleName: 'デリカD:5',
+  vehicleName: 'DELICA D:5',
   brand: '三菱', // used only for JSON-LD ("三菱 デリカD:5 CV5W型 前期" etc.)
   maker: 'Mitsubishi', // English, for grouping cards on the Home page (see src/home.js) -- CarVista's first Mitsubishi vehicle
   order: 10, // Home page display order within All Cars -- appended after every existing maker (Toyota/Nissan/Honda) so their relative order is untouched; Mitsubishi becomes a new group after Honda.
@@ -102,11 +102,18 @@ export default {
   // the originally-supplied デリカTOP.png, which depicted a black
   // example -- a real color-consistency violation caught in review (see
   // "What Representative Grade and Color are" in design-identity.md).
-  // Recropped for Hero's own tighter/taller framing; background
-  // normalized the same way as every generation photo.
+  // A black-to-white paint recolor of デリカTOP.png itself was tried
+  // and rejected on inspection: a genuinely black photo has no hidden
+  // white diffuse-reflectance data to recover, so lifting shadow/
+  // midtone luminance posterized into a harsh edge-lit silhouette
+  // instead of a clean repaint -- unlike the yellow/beige recolors on
+  // Sienta/Solio, which had real color+saturation to remap. Recropped
+  // for Hero's own tighter/taller framing; background normalized the
+  // same way as every generation photo, plus a vignette/grain pass and
+  // a 7% zoom so the car reads larger on Home's card (same file).
   heroImage: '/images/cars/delica-d5/hero-cv1w-3q.webp',
   seo: {
-    title: 'デリカD:5 歴代モデル一覧 — CarVista',
+    title: 'DELICA D:5 歴代モデル一覧 — CarVista',
     description: '三菱 デリカD:5の前期・後期モデルを画像で比較。オールラウンドミニバンとしての外観の変化が一目でわかる。',
   },
   defaultIndex: 1,
