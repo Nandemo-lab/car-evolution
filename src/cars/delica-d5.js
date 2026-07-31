@@ -22,35 +22,55 @@
 // no invented specs.
 //
 // gen1/gen2 images: the supplied source photos have white studio
-// backgrounds and real floor-reflection texture near the tires. Four
+// backgrounds and real floor-reflection texture near the tires. Six
 // rounds fixing this, each catching something the previous one missed:
 // (1-3) mask-based background removal (gradient-threshold flood fill +
 // "floor crush" override + dilation, tuned three ways) all left visible
 // block/patch artifacts -- the mask itself is unavoidably noisy in that
 // zone, so filling a noisy mask with flat color always produced blocky
-// results regardless of tuning. (4, 2026-08-01) Rebuilt as a fully
-// synthetic ground plane below a fixed cutoff row instead of trying to
-// classify real pixels at all -- but the FIRST version of this still
-// read as a visible "band" on the actual rendered page (confirmed via
-// canvas pixel sampling on the live DOM, not just re-inspecting the
-// output files) because it was perfectly smooth/noise-free next to a
-// real photo's grain above it, and its tone curve never brightened
-// back up toward the bottom edge the way a real floor reflection does.
-// Recalibrated by sampling SERENA's own real detail-image floor profile
-// live off the rendered page (a proven-good reference, not a guess):
-// noisy low-toned shadow immediately below the car, then a smooth rise
-// from ~27 to ~59 luminance across the bottom 20% of frame. The current
-// version reproduces both the noise and that rising curve, plus tighter
-// Gaussian (not linear) contact-shadow ellipses under each wheel.
-// Verified this time via actual browser rendering: canvas snapshots of
-// the live Detail image, the Compare base image, and the Timeline
-// thumbnail with its real CSS transform (object-position + scale(1.55))
-// replicated, at both wheels, both generations -- not by reading the
-// source files directly, which is what let the "band" ship undetected
-// the first time. Reusable pattern for any future vehicle whose real-
-// photo floor can't be cleanly salvaged: reconstruct the ground plane
-// against a real reference's measured profile, and verify by sampling
-// the actual rendered page, not the source file in isolation.
+// results regardless of tuning.
+// (4) Rebuilt as a fully synthetic ground plane (smooth gradient) below
+// a fixed cutoff row instead of classifying real pixels at all -- still
+// read as a visible seam because it was perfectly smooth/noise-free
+// next to real photo grain above it.
+// (5) Added procedurally-generated random noise + a tone curve
+// calibrated against SERENA's own real floor profile (brightens toward
+// the bottom edge, like a real reflection) -- reduced the defect but a
+// full-frame read of the actual output file (not a zoomed crop) still
+// showed a faint but real full-width band: the brightening curve had no
+// x-dependence, so it lit up evenly all the way to empty space far from
+// the car where no reflection should exist -- a "patch" is exactly what
+// a geometrically uniform horizontal region reads as at normal size,
+// even with locally smooth noise.
+// (6, 2026-08-01, current) Two changes: dropped the separate "floor"
+// tone curve entirely -- the ground-contact zone now gets the EXACT
+// same dark background-wall gradient formula as the rest of this image
+// (no brightening, no distinct treatment), so there's nothing for the
+// eye to identify as a separate region in the first place. And replaced
+// procedural noise with a texture TRANSPLANT: a small patch is sampled
+// from this same photo's own clean background (real sensor/compression
+// noise, not generated), then tiled with two independently-offset reads
+// blended together (breaks tile periodicity) plus light dither, so the
+// texture character matches what's actually in the rest of the photo
+// instead of approximating it. Wheel-contact shadows are a small,
+// tight, localized darkening only (never brightening), so they can't
+// read as a band either.
+// Verified by reading the actual output files in full, at normal (not
+// zoomed) scale -- the same way the v4/v5 defects were actually caught
+// -- and comparing directly against VOXY's own full-frame image side by
+// side. DOM-level checks (byte-identical served files, every surface's
+// <img src> pointing at these same two files) confirm Home's card,
+// Timeline (both thumbnails), Compare (base + overlay), and Detail all
+// read this corrected content; live in-browser screenshot capture
+// failed this session (tooling issue, not attempted-and-passed) --
+// flagged rather than silently skipped. Reusable lesson for any future
+// vehicle whose real-photo floor can't be cleanly salvaged: don't
+// invent a distinct "floor" treatment at all if the surrounding
+// background already has one -- extend that same treatment down, and
+// prefer transplanting real photo texture over generating synthetic
+// noise. Verify by reading the full, unzoomed output file and comparing
+// side by side against a known-good reference vehicle, not a cropped
+// close-up of the same file being judged.
 const generations = [
   {
     numeral: 'I',
