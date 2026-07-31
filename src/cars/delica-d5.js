@@ -48,7 +48,7 @@ const generations = [
     image: '/images/cars/delica-d5/gen2-2019.webp',
     annotations: [
       { x: 24, y: 58, label: '台形グリルとスキッドガーニッシュ', dir: 'bottom', labelX: 22 },
-      { x: 44, y: 30, label: 'シャープに切れ上がるヘッドライト', dir: 'top', labelX: 46 },
+      { x: 44, y: 24, label: 'シャープに切れ上がるヘッドライト', dir: 'top', labelX: 44 },
     ],
     // 2026年1月9日、走行性能を中心とした一部改良を実施(フルモデル
     // チェンジではない)。
