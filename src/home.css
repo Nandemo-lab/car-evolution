@@ -150,7 +150,7 @@ body { margin: 0; background: #0b0c0e; }
 }
 .maker-groups { display: flex; flex-direction: column; gap: 40px; }
 .maker-name {
-  margin: 0 0 16px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  margin: 0 0 16px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase; opacity: .6;
 }
 .maker-cars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
