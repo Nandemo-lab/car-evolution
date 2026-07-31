@@ -98,19 +98,21 @@ export default {
   // `specs` field below is the real, separately-sourced display data).
   referenceLengthMm: 4790,
   tagline: 'かたちは、時代を語る。',
-  // Hero reuses the same source photo as gen2 (後期, white) rather than
-  // the originally-supplied デリカTOP.png, which depicted a black
-  // example -- a real color-consistency violation caught in review (see
-  // "What Representative Grade and Color are" in design-identity.md).
-  // A black-to-white paint recolor of デリカTOP.png itself was tried
-  // and rejected on inspection: a genuinely black photo has no hidden
-  // white diffuse-reflectance data to recover, so lifting shadow/
-  // midtone luminance posterized into a harsh edge-lit silhouette
-  // instead of a clean repaint -- unlike the yellow/beige recolors on
-  // Sienta/Solio, which had real color+saturation to remap. Recropped
-  // for Hero's own tighter/taller framing; background normalized the
-  // same way as every generation photo, plus a vignette/grain pass and
-  // a 7% zoom so the car reads larger on Home's card (same file).
+  // Hero uses the original デリカTOP.png as-is (black), by explicit
+  // decision -- its atmospheric studio lighting (fog, floor reflection)
+  // reads closer to VOXY/SERENA's own Hero photos than any available
+  // white alternative, and a black-to-white paint recolor was tried and
+  // rejected (a genuinely black photo has no hidden white diffuse-
+  // reflectance data to recover; lifting shadow/midtone luminance
+  // posterized into a harsh edge-lit silhouette instead of a clean
+  // repaint -- unlike the yellow/beige recolors on Sienta/Solio, which
+  // had real color+saturation to remap). This means Hero (black) and
+  // the generation photos (white, per representativeColor below) are
+  // knowingly NOT the same color -- an accepted exception to this
+  // project's color-consistency rule, prioritizing Hero's studio mood
+  // over strict color matching for this vehicle specifically. Only
+  // cropped/padded to the shared 1408x668 hero canvas; not recolored,
+  // background-processed, or zoomed beyond that.
   heroImage: '/images/cars/delica-d5/hero-cv1w-3q.webp',
   seo: {
     title: 'DELICA D:5 歴代モデル一覧 — CarVista',
