@@ -43,18 +43,23 @@ function discoverEntries() {
 
 // title/vehicleModelDate/productionDate for the JSON-LD ItemList are
 // derived entirely from `generations` -- there is no separate list to
-// keep in sync. yearRange is "2001–2007" style; the last generation's
-// end is "現在" (ongoing), so it gets no productionDate, matching how
-// an in-production vehicle's schema.org listing should read.
+// keep in sync. yearRange is "2001–2007" style; a generation whose
+// yearRange ends in "現在" is ongoing and gets no productionDate,
+// matching how an in-production vehicle's schema.org listing should
+// read. Checked against the generation's own yearRange text, not its
+// array position -- ESQUIRE (see src/cars/esquire.js) is a single
+// generation that's also discontinued (yearRange "2014–2021", not
+// "現在"), which an earlier "last generation = ongoing" version of
+// this check got wrong for exactly that reason.
 function buildJsonLd(brand, vehicleName, generations) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${brand} ${vehicleName} 歴代モデル`,
-    itemListElement: generations.map((gen, index) => {
+    itemListElement: generations.map((gen) => {
       const [start, end] = gen.yearRange.split('–') // en dash
       const item = { '@type': 'Car', name: `${brand} ${vehicleName} ${gen.title}`, vehicleModelDate: start }
-      if (index < generations.length - 1) item.productionDate = `${start}/${end}`
+      if (end !== '現在') item.productionDate = `${start}/${end}`
       return item
     }),
   }

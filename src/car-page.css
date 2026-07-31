@@ -141,6 +141,22 @@ body { margin: 0; background: #0b0c0e; }
 .timeline-numeral { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; letter-spacing: -.005em; line-height: 1.1; }
 .timeline-year { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 9.5px; letter-spacing: .02em; opacity: .65; }
 
+/* Single-generation vehicles (see car-page.js's renderTimeline and
+   cars/esquire.html) get one Timeline card with nothing to select
+   between. It's rendered `disabled` (real non-interactivity: no click
+   ever fires, no focus, no native hover) and carries this class to
+   override the shared card's own hover/cursor/selected-glow rules
+   above, which `disabled` alone doesn't touch -- the photo and caption
+   still show at full clarity (matching [aria-current="true"]'s own
+   brightness/opacity), just without the ring, lift, or scale that
+   would otherwise say "this is the active choice among several." */
+.timeline-item--static { cursor: default; }
+.timeline-item--static:hover, .timeline-item--static:focus-visible {
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05); transform: none;
+}
+.timeline-item--static .timeline-thumb img { filter: grayscale(0) brightness(1.05) saturate(1.15); }
+.timeline-item--static .timeline-tag { opacity: 1; }
+
 /* Detail -- the image stays neutral and comparison-ready (no text
    overlay on it); the generation name is the dominant element of the
    info block, with model code / sales period deliberately quieter. */

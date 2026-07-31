@@ -72,7 +72,7 @@ Same-maker is not the only place two vehicles compete for the same identity. Car
 
 | Cluster | Members | Notes |
 |---|---|---|
-| Mainstream family minivan | VOXY, NOAH, SERENA, STEPWGN | The real-world competitive set these four nameplates are actually cross-shopped within, spanning all three of CarVista's current makers. A future addition in this class (e.g. a Toyota Estima) checks against all four, not just same-maker VOXY/NOAH. |
+| Mainstream family minivan | VOXY, NOAH, SERENA, STEPWGN, ESQUIRE | The real-world competitive set these nameplates are actually cross-shopped within, spanning all three of CarVista's current makers. ESQUIRE (added 2026-07) is a third sibling on VOXY/NOAH's own platform, not a new competitor -- same reasoning as Vellfire/Alphard below, one cluster below it. A future addition in this class (e.g. a Toyota Estima) checks against all five. |
 | Luxury minivan | Alphard, Vellfire | Vellfire (added 2026-07) is Alphard's own platform-sharing sibling -- the real-world case this row was written for. A future addition here (e.g. an Elgrand) checks against both. |
 
 A vehicle belongs to a cluster by what it actually competes against in the real market, not by category label alone — add a new cluster row when a genuinely different segment is added, rather than forcing every future vehicle into one of these two.
@@ -96,8 +96,9 @@ A vehicle belongs to a cluster by what it actually competes against in the real 
 | SERENA | Nissan | The open family choice. | Family, Friendly, Open | Aggressive, Luxury, Intimidating | Nissan's own long-running family-minivan positioning; first non-Toyota vehicle on the site, and a same-cluster (not same-maker) check against VOXY/NOAH/STEPWGN. |
 | STEPWGN | Honda | The functional essential. | Simple, Clean, Functional | Flashy, Aggressive, Luxury | Sourced directly from Honda's own stated concept for the nameplate — "家族みんなの使い勝手 = ユーティリティをデザインするクルマ造り" (designing a car around everyday family usability). |
 | Vellfire | Toyota | The bold alternative. | Bold, Aggressive, Individual | Elegant, Dignified, Formal | Toyota's own official contrast against its platform-sharing sibling: "ヴェルファイアが掲げるコンセプトは、上質さとアグレッシブさの追求...アルファードは、真のラグジュアリー追求をコンセプト" — the same strength of sourcing as the NOAH/VOXY pair, this time for the Luxury minivan cluster. |
+| ESQUIRE | Toyota | The refined compact. | Refined, Elegant, Polished | Aggressive, Sporty, Utilitarian | Third sibling on VOXY/NOAH's own platform. Official concept copy: "新上級コンパクトキャブワゴン" (a new upscale compact cab-wagon) pursuing 高級感/上質感, explicitly contrasted against VOXY's own "スポーティ・先進的" register — the same strength of sourcing as the NOAH/VOXY pair, this time for a three-way sibling set within the Mainstream cluster. Discontinued 2021 without a full model change; CarVista's first single-generation vehicle (see "Single-generation vehicles" below). |
 
-No two vehicles share a Design Identity keyword within the same cluster — checked across the whole Mainstream family minivan cluster (VOXY/NOAH/SERENA/STEPWGN) and the Luxury minivan cluster (Alphard/Vellfire) separately, not only within one maker — and every Avoid list either mirrors a cluster-mate's own keywords (catching collisions structurally, not just at review time) or is sourced from an official contrast. (Vellfire's "Aggressive" is not a collision with VOXY's own "Aggressive" — they sit in different clusters, per the cluster-scoped check this document itself defines.)
+No two vehicles share a Design Identity keyword within the same cluster — checked across the whole Mainstream family minivan cluster (VOXY/NOAH/SERENA/STEPWGN/ESQUIRE) and the Luxury minivan cluster (Alphard/Vellfire) separately, not only within one maker — and every Avoid list either mirrors a cluster-mate's own keywords (catching collisions structurally, not just at review time) or is sourced from an official contrast. (Vellfire's "Aggressive" is not a collision with VOXY's own "Aggressive" — they sit in different clusters, per the cluster-scoped check this document itself defines.)
 
 | Vehicle | Representative Grade | Representative Color | Why |
 |---|---|---|---|
@@ -107,6 +108,7 @@ No two vehicles share a Design Identity keyword within the same cluster — chec
 | SERENA | Standard model | White Pearl | Base "X" grade, not the sportier Highway STAR trim, matching the Family/Friendly register; white avoids the heavier, more formal impression black carries on this vehicle. |
 | STEPWGN | AIR | Platinum White Pearl | "AIR" is this generation's own standard nameplate, distinct from the sportier SPADA trim already ruled out by this vehicle's Avoid list. Platinum White Pearl is sourced as this nameplate's most popular color, described in terms of reassuring, standard-choice confidence — matching Simple/Clean directly. |
 | Vellfire | Z Premier | Black | The current (40系) generation ships in only two colors, Black (standard/no-cost) and Platinum White Pearl Mica (paid) — Black is sourced as conveying "力強さと高級感" (boldness), matching Bold/Aggressive better than the white option. Z Premier is the mainstream signature-face grade, distinct from the cabin-focused Executive Lounge halo trim — same reasoning as Alphard's own Z choice. |
+| ESQUIRE | Gi | Black | "Gi" is the premium-tier grade (vs. base "Xi") -- a documented special package on it is literally named "Gi プレミアムパッケージ ブラックテーラード" (Gi Premium Package Black Tailored), which sources both the grade and the color at once and reinforces Refined/Elegant/Polished directly ("Tailored"). |
 
 | Vehicle | Reference Length (current gen, approx.) | Cluster position |
 |---|---|---|
@@ -114,8 +116,17 @@ No two vehicles share a Design Identity keyword within the same cluster — chec
 | Alphard | ~4945mm | Luxury minivan — should read ~5-10% bigger in frame than the Mainstream cluster below, camera/floor held identical. |
 | VOXY | ~4695mm | Mainstream family minivan — same platform/length as NOAH. |
 | NOAH | ~4695mm | Mainstream family minivan — same platform/length as VOXY. |
+| ESQUIRE | ~4695mm | Mainstream family minivan — same platform/length as VOXY/NOAH (third sibling on the same body-in-white). |
 | SERENA | ~4765mm | Mainstream family minivan — Nissan's own nameplate, close to but not identical to the Toyota pair; the small real difference is fine to show, not something to force to exact parity. |
 | STEPWGN | ~4800mm | Mainstream family minivan — largest within the mainstream cluster, still meaningfully smaller than Alphard. |
+
+## Single-generation vehicles
+
+ESQUIRE (added 2026-07) is CarVista's first vehicle that never received a full model change before being discontinued (2014–2021, folded back into the NOAH/VOXY lineup at end of life) -- its `generations` array has exactly one entry. This affects more than the data file:
+
+- **`era` is `'初代'` (first generation), never `'現行モデル'`** — the latter means "current/ongoing," which is false for a discontinued vehicle. Don't relabel it "current" just because it's also the last (and only) entry.
+- **The vehicle-page HTML omits `.heritage` and `.compare` entirely** (not just hides them with CSS) — both are inherently multi-generation components (a start-year *strip*, a generation-*comparison* slider) that don't have a sensible single-generation rendering, and `.heritage`'s "現在" label for the last point would be factually wrong for a discontinued vehicle regardless. `car-page.js`'s `initCarPage()` guards both calls with an element-existence check, so no per-vehicle JS is needed — see `cars/esquire.html`'s own comment for the full reasoning. Copy `esquire.html`, not `voxy.html`, as the template for any *future* single-generation vehicle; copy `voxy.html` for anything with 2+.
+- **The per-vehicle JSON-LD's `productionDate`** (see `vite.config.js`'s `buildJsonLd`) is derived from whether a generation's own `yearRange` ends in `'現在'`, not from array position — this is what correctly leaves ESQUIRE's single generation with a real end date instead of reading as still in production.
 
 These figures are approximate (current-generation catalog specs, not verified to the millimeter) and exist to calibrate *relative* scale between vehicles, not to be published anywhere on the live site — re-check against current official specs before relying on one precisely. A future smaller-class addition (e.g. a Freed-class vehicle, not yet on the roster) would sit below this whole table, around 4250-4300mm.
 

@@ -77,7 +77,12 @@ export function initCarPage(config) {
   const { generations, defaultIndex } = config
 
   renderHero(config)
-  renderHeritage(generations)
+  // .heritage and .compare are optional -- a single-generation vehicle
+  // (see cars/esquire.html) omits both from its HTML (a multi-gen
+  // start-year strip and a generation-comparison slider don't apply
+  // with only one generation), so these two are guarded by element
+  // existence rather than assumed present like everything else here.
+  if (document.getElementById('heritage')) renderHeritage(generations)
   renderTimeline(generations, config.vehicleName)
 
   const detailRefs = getDetailRefs()
@@ -100,7 +105,7 @@ export function initCarPage(config) {
     engine.showGeneration(Number(btn.dataset.gen))
   })
 
-  initCompare(generations)
+  if (document.getElementById('compare')) initCompare(generations)
 }
 
 // ---- Hero / Heritage / Timeline (static-shaped, data-driven) ----------
@@ -144,12 +149,26 @@ function renderTimeline(generations, vehicleName) {
   nav.innerHTML = ''
   nav.appendChild(rail)
 
+  // A single-generation vehicle (see cars/esquire.html) has nothing to
+  // select between -- its one Timeline card gets a quiet static-info
+  // treatment (see .timeline-item--static in car-page.css) instead of
+  // the selected/interactive look every other vehicle's current card
+  // has, so it never reads as "you can choose something here." Native
+  // `disabled` does the real work (no click ever fires, no focus, no
+  // native hover-cursor); the class only overrides the shared card's
+  // own hover/cursor CSS, which `disabled` alone doesn't touch.
+  const isStatic = generations.length === 1
+
   generations.forEach((gen, index) => {
     const btn = document.createElement('button')
-    btn.className = 'timeline-item'
+    btn.className = isStatic ? 'timeline-item timeline-item--static' : 'timeline-item'
     btn.type = 'button'
     btn.dataset.gen = String(index)
-    if (index === generations.length - 1) btn.setAttribute('aria-current', 'true')
+    if (isStatic) {
+      btn.disabled = true
+    } else if (index === generations.length - 1) {
+      btn.setAttribute('aria-current', 'true')
+    }
     btn.innerHTML = `
       <span class="timeline-thumb"><img src="${gen.image}" alt="${gen.era} ${vehicleName}" loading="lazy" decoding="async" /></span>
       <span class="timeline-tag">

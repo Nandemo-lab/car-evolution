@@ -95,7 +95,7 @@ export default {
   vehicleName: 'VOXY',
   brand: 'トヨタ', // used only for JSON-LD ("トヨタ VOXY 90系" etc.) -- not every future vehicle is a Toyota
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
-  order: 3, // Home page display order within All Cars -- lower shows first
+  order: 4, // Home page display order within All Cars -- lower shows first
   // CarVista Design Identity -- see docs/brand/design-identity.md. The
   // standing reference for Hero copy, annotation vocabulary, and SEO
   // tone for this vehicle; check new copy against these words before
