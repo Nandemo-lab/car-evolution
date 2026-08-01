@@ -107,6 +107,16 @@ export default {
   referenceLengthMm: 4260,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/sienta/hero-mxpl10-3q.webp',
+  // Home's mini-card (see the doc comment in src/home.js) -- SIENTA's
+  // own Hero photo is a wider full-car product shot (whole vehicle
+  // visible, camera further back) unlike VOXY/Alphard's tight close-up
+  // sources, so it read noticeably smaller/more distant than every
+  // other card on Home even though heroImage itself is unchanged and
+  // still correct for this vehicle's own page. This is a pure recrop
+  // of that same photo (grille/headlight/front wheel, no pixel values
+  // changed) at roughly the same framing VOXY/Alphard's own source
+  // photos already have -- not a new image.
+  homeCardImage: '/images/cars/sienta/home-card.webp',
   // gen1 (originally yellow) and gen2 (originally gold) were recolored
   // (hue/saturation remapped, original lightness/shading preserved) to
   // アーバンカーキ to match Hero/gen3, per representativeColor above. See

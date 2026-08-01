@@ -14,6 +14,19 @@ import roadmap from './roadmap.js'
 // Cars -- removed 2026-07-30: CarVista is "pick a car, see its
 // evolution," not a recommendation feed, so All Cars is now the page's
 // one and only listing, directly after Hero.
+//
+// mini-card photo: `car.homeCardImage`, optional, falls back to
+// `heroImage`. The mini-card box is a tight 4:3 crop of whatever image
+// it's given (object-fit:cover, no per-vehicle position control) --
+// this reads fine for every vehicle whose own Hero photo is ALREADY an
+// extreme close-up (VOXY/Alphard's hero sources fill nearly their
+// entire frame with the car), but a vehicle whose Hero is a wider full-
+// car product shot (see sienta.js) ends up looking small/distant next
+// to those on this page even though its own Hero page looks fine.
+// `homeCardImage` is a separate, purpose-cropped file for exactly that
+// case -- a tighter recrop of the same photo, framed the same way
+// VOXY/Alphard's own source photos already are, used ONLY here so the
+// vehicle's own Hero page composition is untouched.
 const carModules = import.meta.glob('./cars/*.js', { eager: true })
 const cars = Object.entries(carModules)
   .map(([path, mod]) => ({ ...mod.default, slug: path.match(/([^/]+)\.js$/)[1] }))
@@ -50,7 +63,7 @@ function renderAllCars(cars, roadmap) {
           .map(
             (car) => `
           <a class="mini-card" href="/cars/${car.slug}.html">
-            <span class="mini-card-photo"><img src="${car.heroImage}" alt="${car.vehicleName}" loading="lazy" decoding="async" /></span>
+            <span class="mini-card-photo"><img src="${car.homeCardImage || car.heroImage}" alt="${car.vehicleName}" loading="lazy" decoding="async" /></span>
             <span class="mini-card-name">${car.vehicleName}</span>
           </a>`
           )
