@@ -58,22 +58,30 @@
 // reference image (real photo): its background stddev is never 0 at
 // any row, rising gradually toward the bottom, matching real sensor
 // grain everywhere, not just near the tires.
-// (7, 2026-08-01, current) Added subtle luminance noise (Gaussian,
-// sigma rising from ~0.5 near the top to ~2.2 near the bottom, matching
-// Serena's own measured grain trend) to every background-classified
-// pixel across the WHOLE frame, not a localized zone -- classification
-// is per-row distance from a guaranteed-background baseline column
-// (x=5, confirmed clear of the car silhouette at every row), so the
-// car body/tires/glass are untouched and only the synthetic field gets
-// grain. This removes the flat-vs-textured boundary at its root instead
-// of relocating it. Verified by re-measuring row stddev after the fix
-// (now non-zero at every sampled row, gen1 and gen2 both) and by
-// reading the actual output files at normal scale. Reusable lesson: a
-// synthetic background composited behind a real photo needs texture
-// applied to its full extent, not just the region judged "close to the
-// car" -- any leftover perfectly-flat area is itself the defect, since
-// it contrasts with literally every other pixel in the frame that came
-// from a real sensor.
+// (7, 2026-08-01) Added subtle luminance noise across the whole
+// background instead of just the floor zone -- fixed the band, but
+// direct user feedback against the rendered page caught a new problem:
+// noise density that high (touching ~70-77% of the frame) read as a
+// pale haze over the entire lower half, working against this brand's
+// actual target look (flat black studio, car reads as grounded purely
+// by contact shadow -- see VOXY/SERENA). Adding texture was solving
+// the wrong problem: this background was never a real photo needing
+// grain to blend into, it's a synthetic reconstruction that should
+// just commit to being flat.
+// (8, 2026-08-01, current) Reset, not iterated-on: every background
+// pixel (same per-row-baseline classification as v7, so car body/
+// tires/glass stay untouched) is now one flat near-black RGB value --
+// the same tone as the frame's own top corners -- with 1-level dither
+// only to prevent 8-bit banding, no gradient, no noise. No separate
+// floor treatment at all; whatever natural darkening already existed
+// right at the tire base (outside the background threshold, so never
+// touched by any of these passes) is the only ground-contact cue,
+// matching VOXY/SERENA's actual construction. Verified by reading the
+// output files directly (solid black, no seam, no haze) after this
+// exact failure mode -- v5's x-independent brightening curve -- was
+// the diagnosed cause of the original band; re-adding any brightness
+// gradient here should be treated as regressing a known-bad approach,
+// not a variant worth re-trying.
 const generations = [
   {
     numeral: 'I',
