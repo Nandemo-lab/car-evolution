@@ -21,8 +21,8 @@ const generations = [
     period: '2005年〜2010年',
     image: '/images/cars/solio/gen1-2005.webp',
     annotations: [
-      { x: 25, y: 61, label: 'クロームバーのシンプルなグリル', dir: 'bottom', labelX: 23 },
-      { x: 57, y: 18, label: '直立したコンパクトなシルエット', dir: 'top', labelX: 59 },
+      { x: 25, y: 61, label: 'クロームバーのシンプルな<wbr>グリル', dir: 'bottom', labelX: 23 },
+      { x: 57, y: 18, label: '直立したコンパクトな<wbr>シルエット', dir: 'top', labelX: 59 },
     ],
     facelift: null,
   },
@@ -36,8 +36,8 @@ const generations = [
     period: '2010年〜2015年',
     image: '/images/cars/solio/gen2-2010.webp',
     annotations: [
-      { x: 25, y: 53, label: '水平基調のクロームグリル', dir: 'bottom', labelX: 23 },
-      { x: 78, y: 13, label: 'リアに備わるルーフスポイラー', dir: 'top', labelX: 76 },
+      { x: 25, y: 53, label: '水平基調の<wbr>クロームグリル', dir: 'bottom', labelX: 23 },
+      { x: 78, y: 13, label: 'リアに備わる<wbr>ルーフスポイラー', dir: 'top', labelX: 76 },
     ],
     facelift: null,
   },
@@ -51,8 +51,8 @@ const generations = [
     period: '2015年〜2020年',
     image: '/images/cars/solio/gen3-2015.webp',
     annotations: [
-      { x: 26, y: 58, label: 'メッシュ地のフロントグリル', dir: 'bottom', labelX: 24 },
-      { x: 40, y: 53, label: 'シャープな印象のヘッドランプ', dir: 'top', labelX: 42 },
+      { x: 26, y: 58, label: 'メッシュ地の<wbr>フロントグリル', dir: 'bottom', labelX: 24 },
+      { x: 40, y: 53, label: 'シャープな印象の<wbr>ヘッドランプ', dir: 'top', labelX: 42 },
     ],
     facelift: null,
   },
@@ -66,8 +66,8 @@ const generations = [
     period: '2020年〜現在',
     image: '/images/cars/solio/gen4-2020.webp',
     annotations: [
-      { x: 26, y: 58, label: 'ブラック基調の一体型グリル', dir: 'bottom', labelX: 24 },
-      { x: 40, y: 51, label: '水平に伸びるLEDデイライト', dir: 'top', labelX: 42 },
+      { x: 26, y: 58, label: 'ブラック基調の<wbr>一体型グリル', dir: 'bottom', labelX: 24 },
+      { x: 40, y: 51, label: '水平に伸びる<wbr>LEDデイライト', dir: 'top', labelX: 42 },
     ],
     facelift: null,
   },

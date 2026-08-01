@@ -25,8 +25,8 @@ const generations = [
     period: '2008年〜2016年',
     image: '/images/cars/freed/gen1-2008.webp',
     annotations: [
-      { x: 22, y: 50, label: 'クロームバーが際立つシンプルなグリル', dir: 'bottom', labelX: 22 },
-      { x: 60, y: 15, label: '直立感のあるボクシーなシルエット', dir: 'top', labelX: 62 },
+      { x: 22, y: 50, label: 'クロームバーが際立つ<wbr>シンプルなグリル', dir: 'bottom', labelX: 22 },
+      { x: 60, y: 15, label: '直立感のあるボクシーな<wbr>シルエット', dir: 'top', labelX: 62 },
     ],
     // 2011年10月、大幅改良。外装デザインを変更し、ハイブリッドモデル
     // （GP3型）を追加。乗車定員は6人・7人乗りに整理（発売当初にあった
@@ -47,8 +47,8 @@ const generations = [
     period: '2016年〜2024年',
     image: '/images/cars/freed/gen2-2016.webp',
     annotations: [
-      { x: 20, y: 48, label: '水平基調のクロームグリル', dir: 'bottom', labelX: 20 },
-      { x: 55, y: 15, label: '丸みを帯びた親しみやすいフロントフェイス', dir: 'top', labelX: 58 },
+      { x: 20, y: 48, label: '水平基調の<wbr>クロームグリル', dir: 'bottom', labelX: 20 },
+      { x: 55, y: 15, label: '丸みを帯びた親しみやすい<wbr>フロントフェイス', dir: 'top', labelX: 58 },
     ],
     // 2019年10月改良。グリルレス的な新しいフロントマスクを採用し、
     // クロスオーバー仕様の新グレード「CROSSTAR」を追加。Honda SENSING
@@ -69,8 +69,8 @@ const generations = [
     period: '2024年〜現在',
     image: '/images/cars/freed/gen3-2024.webp',
     annotations: [
-      { x: 20, y: 45, label: '水平に伸びるスリムなLEDヘッドライト', dir: 'top', labelX: 22 },
-      { x: 42, y: 47, label: 'グリルと一体化した水平基調のフロントフェイス', dir: 'top', labelX: 58 },
+      { x: 20, y: 45, label: '水平に伸びるスリムな<wbr>LEDヘッドライト', dir: 'top', labelX: 22 },
+      { x: 42, y: 47, label: 'グリルと一体化した<wbr>水平基調のフロントフェイス', dir: 'top', labelX: 58 },
     ],
     facelift: null,
   },

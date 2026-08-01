@@ -25,8 +25,8 @@ const generations = [
     period: '2008年〜2015年',
     image: '/images/cars/vellfire/gen1-2008.webp',
     annotations: [
-      { x: 24, y: 46, label: 'メッキ主体の押し出し感のあるグリル', dir: 'bottom', labelX: 24 },
-      { x: 58, y: 14, label: '直線的で張りのあるグリーンハウス', dir: 'top', labelX: 60 },
+      { x: 24, y: 46, label: 'メッキ主体の押し出し感のある<wbr>グリル', dir: 'bottom', labelX: 24 },
+      { x: 58, y: 14, label: '直線的で張りのある<wbr>グリーンハウス', dir: 'top', labelX: 60 },
     ],
     facelift: {
       fromYear: '2008', toYear: '2011',
@@ -43,8 +43,8 @@ const generations = [
     period: '2015年〜2023年',
     image: '/images/cars/vellfire/gen2-2015.webp',
     annotations: [
-      { x: 20, y: 48, label: '大型グリルと一体化したヘッドランプ', dir: 'bottom', labelX: 20 },
-      { x: 48, y: 44, label: '鋭く抜けるキャラクターライン', dir: 'bottom', labelX: 60 },
+      { x: 20, y: 48, label: '大型グリルと一体化した<wbr>ヘッドランプ', dir: 'bottom', labelX: 20 },
+      { x: 48, y: 44, label: '鋭く抜ける<wbr>キャラクターライン', dir: 'bottom', labelX: 60 },
     ],
     facelift: {
       fromYear: '2015', toYear: '2018',
@@ -69,8 +69,8 @@ const generations = [
     // this is also this vehicle's default/highlighted Timeline card.
     timelineObjectPosition: '24% 55%',
     annotations: [
-      { x: 22, y: 45, label: '立体的で鋭さのあるダイヤモンドグリル', dir: 'bottom', labelX: 22 },
-      { x: 40, y: 35, label: '逆スラント基調のフロントフェイス', dir: 'top', labelX: 58 },
+      { x: 22, y: 45, label: '立体的で鋭さのある<wbr>ダイヤモンドグリル', dir: 'bottom', labelX: 22 },
+      { x: 40, y: 35, label: '逆スラント基調の<wbr>フロントフェイス', dir: 'top', labelX: 58 },
     ],
     facelift: {
       fromYear: '2023', toYear: '2025',

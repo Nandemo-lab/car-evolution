@@ -37,8 +37,8 @@ const generations = [
     period: '1991年〜1999年',
     image: '/images/cars/serena/gen1-1991.webp',
     annotations: [
-      { x: 20, y: 60, label: '商用車由来の無骨なグリル', dir: 'bottom', labelX: 20 },
-      { x: 55, y: 20, label: '直立した箱型フォルム', dir: 'top', labelX: 58 },
+      { x: 20, y: 60, label: '商用車由来の無骨な<wbr>グリル', dir: 'bottom', labelX: 20 },
+      { x: 55, y: 20, label: '直立した<wbr>箱型フォルム', dir: 'top', labelX: 58 },
     ],
     facelift: {
       fromYear: '1994', toYear: '1997',
@@ -56,8 +56,8 @@ const generations = [
     period: '1999年〜2005年',
     image: '/images/cars/serena/gen2-1999.webp',
     annotations: [
-      { x: 20, y: 58, label: '横方向に広がりを見せるグリル', dir: 'bottom', labelX: 20 },
-      { x: 45, y: 20, label: '低められた前傾フォルム', dir: 'top', labelX: 48 },
+      { x: 20, y: 58, label: '横方向に広がりを見せる<wbr>グリル', dir: 'bottom', labelX: 20 },
+      { x: 45, y: 20, label: '低められた<wbr>前傾フォルム', dir: 'top', labelX: 48 },
     ],
     facelift: {
       fromYear: '2001', toYear: '2001',
@@ -74,8 +74,8 @@ const generations = [
     period: '2005年〜2010年',
     image: '/images/cars/serena/gen3-2005.webp',
     annotations: [
-      { x: 30, y: 44, label: '大型シルバー加飾のグリル', dir: 'bottom', labelX: 30 },
-      { x: 56, y: 18, label: '丸みを帯びたコンパクトな一体感', dir: 'top', labelX: 60 },
+      { x: 30, y: 44, label: '大型シルバー加飾の<wbr>グリル', dir: 'bottom', labelX: 30 },
+      { x: 56, y: 18, label: '丸みを帯びたコンパクトな<wbr>一体感', dir: 'top', labelX: 60 },
     ],
     facelift: {
       fromYear: '2007', toYear: '2007',
@@ -92,8 +92,8 @@ const generations = [
     period: '2010年〜2016年',
     image: '/images/cars/serena/gen4-2010.webp',
     annotations: [
-      { x: 31, y: 46, label: '台形を基調としたグリル', dir: 'bottom', labelX: 31 },
-      { x: 58, y: 50, label: 'スクエアなヘッドランプ', dir: 'bottom', labelX: 68 },
+      { x: 31, y: 46, label: '台形を基調とした<wbr>グリル', dir: 'bottom', labelX: 31 },
+      { x: 58, y: 50, label: 'スクエアな<wbr>ヘッドランプ', dir: 'bottom', labelX: 68 },
     ],
     facelift: {
       fromYear: '2012', toYear: '2013',
@@ -111,8 +111,8 @@ const generations = [
     period: '2016年〜2022年',
     image: '/images/cars/serena/gen5-2016.webp',
     annotations: [
-      { x: 32, y: 48, label: 'V字を描くクロームグリル', dir: 'bottom', labelX: 32 },
-      { x: 52, y: 50, label: 'シャープなヘッドランプ', dir: 'bottom', labelX: 66 },
+      { x: 32, y: 48, label: 'V字を描く<wbr>クロームグリル', dir: 'bottom', labelX: 32 },
+      { x: 52, y: 50, label: 'シャープな<wbr>ヘッドランプ', dir: 'bottom', labelX: 66 },
     ],
     facelift: {
       fromYear: '2019', toYear: '2019',
@@ -135,8 +135,8 @@ const generations = [
     // text visible, wheel has real margin).
     timelineObjectPosition: '23% 55%',
     annotations: [
-      { x: 40, y: 30, label: '水平基調の一体型フロント', dir: 'top', labelX: 38 },
-      { x: 37, y: 50, label: '発光する大型エンブレム', dir: 'bottom', labelX: 66 },
+      { x: 40, y: 30, label: '水平基調の<wbr>一体型フロント', dir: 'top', labelX: 38 },
+      { x: 37, y: 50, label: '発光する<wbr>大型エンブレム', dir: 'bottom', labelX: 66 },
     ],
     // 2024年9月9日の一部改良: 4WD(e-4ORCE)モデルを追加、ガソリン
     // モデルは価格改定。

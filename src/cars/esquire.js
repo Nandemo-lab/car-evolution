@@ -32,8 +32,8 @@ const generations = [
     period: '2014年〜2021年',
     image: '/images/cars/esquire/gen1-2014.webp',
     annotations: [
-      { x: 22, y: 48, label: '中世の盾を模した大型メッキグリル', dir: 'bottom', labelX: 22 },
-      { x: 58, y: 15, label: 'メッキを纏った上質なフロントフェイス', dir: 'top', labelX: 60 },
+      { x: 22, y: 48, label: '中世の盾を模した<wbr>大型メッキグリル', dir: 'bottom', labelX: 22 },
+      { x: 58, y: 15, label: 'メッキを纏った上質な<wbr>フロントフェイス', dir: 'top', labelX: 60 },
     ],
     // 2017年7月3日改良: グリル幅を拡大しコンセプトモチーフ（中世
     // ヨーロッパの従騎士の盾）をより具現化。ヘッドライトユニットを

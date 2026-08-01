@@ -203,8 +203,14 @@ body { margin: 0; background: #0b0c0e; }
   /* Wraps rather than forcing one long line -- a generation with two
      labels sharing the same margin row needs each one narrow enough
      not to reach its neighbor; center-aligned so a wrapped second line
-     stays under the same anchor point as the first. */
-  max-width: 34%; white-space: normal; text-align: center;
+     stays under the same anchor point as the first. word-break:keep-all
+     stops the browser's default CJK behavior of breaking between ANY
+     two characters when a line overflows -- without it, a label wraps
+     wherever the pixel width happens to run out, not at a phrase
+     boundary. Each label's data (src/cars/*.js) instead marks its own
+     one natural break point with a literal <wbr>, so when a label does
+     wrap, it always wraps there and nowhere else. */
+  max-width: 34%; white-space: normal; text-align: center; word-break: keep-all;
 }
 .annotation-label--top { top: 0; }
 .annotation-label--bottom { bottom: 0; }

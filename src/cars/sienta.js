@@ -22,8 +22,8 @@ const generations = [
     period: '2003年〜2015年',
     image: '/images/cars/sienta/gen1-2003.webp',
     annotations: [
-      { x: 39, y: 57, label: '丸型2灯のヘッドランプ', dir: 'top', labelX: 41 },
-      { x: 26, y: 61, label: 'シンプルな横基調グリル', dir: 'bottom', labelX: 24 },
+      { x: 39, y: 57, label: '丸型2灯の<wbr>ヘッドランプ', dir: 'top', labelX: 41 },
+      { x: 26, y: 61, label: 'シンプルな<wbr>横基調グリル', dir: 'bottom', labelX: 24 },
     ],
     facelift: null,
   },
@@ -37,8 +37,8 @@ const generations = [
     period: '2015年〜2022年',
     image: '/images/cars/sienta/gen2-2015.webp',
     annotations: [
-      { x: 26, y: 60, label: 'ダイヤモンドメッシュのグリル', dir: 'bottom', labelX: 24 },
-      { x: 39, y: 55, label: '切れ長のヘッドランプ', dir: 'top', labelX: 41 },
+      { x: 26, y: 60, label: 'ダイヤモンドメッシュの<wbr>グリル', dir: 'bottom', labelX: 24 },
+      { x: 39, y: 55, label: '切れ長の<wbr>ヘッドランプ', dir: 'top', labelX: 41 },
     ],
     facelift: null,
   },
@@ -52,8 +52,8 @@ const generations = [
     period: '2022年〜現在',
     image: '/images/cars/sienta/gen3-2022.webp',
     annotations: [
-      { x: 28, y: 62, label: '丸みを帯びた「シカクマル」グリル', dir: 'bottom', labelX: 26 },
-      { x: 40, y: 56, label: 'オレンジのラインが入る丸型ヘッドライト', dir: 'top', labelX: 47 },
+      { x: 28, y: 62, label: '丸みを帯びた<wbr>「シカクマル」グリル', dir: 'bottom', labelX: 26 },
+      { x: 40, y: 56, label: 'オレンジのラインが入る<wbr>丸型ヘッドライト', dir: 'top', labelX: 47 },
     ],
     facelift: null,
   },

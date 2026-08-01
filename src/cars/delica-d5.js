@@ -41,6 +41,18 @@
 // source photo; it only applies when the source has the wrong
 // background and needs one built from nothing.
 //
+// annotations: re-derived (2026-08-01) against the new photos above --
+// the car sits smaller and differently centered in frame than the old
+// reconstructed images did (real letterboxed photo vs. a canvas the car
+// used to fill edge-to-edge), so the old x/y percentages pointed at
+// empty background. Verified per-point with a grid overlay + marker dot
+// read back against the actual output file, not eyeballed against the
+// thumbnail. Label line-break: each label's one natural break point is
+// marked with a literal <wbr> (see .annotation-label's word-break:
+// keep-all in car-page.css) so the caption wraps at a phrase boundary
+// instead of wherever the browser's default CJK char-by-char breaking
+// happens to land.
+//
 // Rounds 1-8 (historical, kept for the reusable lessons only -- the
 // technique itself no longer applies to this vehicle's current images):
 // (1-3) mask-based background removal (gradient-threshold flood fill +
@@ -112,8 +124,8 @@ const generations = [
     period: '2007年〜2019年',
     image: '/images/cars/delica-d5/gen1-2007.webp',
     annotations: [
-      { x: 25, y: 61, label: 'クロームスラット基調のグリル', dir: 'bottom', labelX: 23 },
-      { x: 63, y: 17, label: '直立したキャブオーバー風のシルエット', dir: 'top', labelX: 64 },
+      { x: 30, y: 63, label: 'クロームスラット基調の<wbr>グリル', dir: 'bottom', labelX: 28 },
+      { x: 57, y: 39, label: '直立したキャブオーバー風の<wbr>シルエット', dir: 'top', labelX: 58 },
     ],
     facelift: null,
   },
@@ -127,8 +139,8 @@ const generations = [
     period: '2019年〜現在',
     image: '/images/cars/delica-d5/gen2-2019.webp',
     annotations: [
-      { x: 24, y: 58, label: '台形グリルとスキッドガーニッシュ', dir: 'bottom', labelX: 22 },
-      { x: 44, y: 24, label: 'シャープに切れ上がるヘッドライト', dir: 'top', labelX: 44 },
+      { x: 28, y: 70, label: '台形グリルと<wbr>スキッドガーニッシュ', dir: 'bottom', labelX: 26 },
+      { x: 40, y: 58, label: 'シャープに切れ上がる<wbr>ヘッドライト', dir: 'top', labelX: 40 },
     ],
     // 2026年1月9日、走行性能を中心とした一部改良を実施(フルモデル
     // チェンジではない)。

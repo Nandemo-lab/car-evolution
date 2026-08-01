@@ -41,8 +41,8 @@ const generations = [
     period: '2001年〜2007年',
     image: '/images/cars/noah/gen1-2001.webp',
     annotations: [
-      { x: 31, y: 47, label: '横一文字に伸びる大型クロームバー', dir: 'bottom', labelX: 31 },
-      { x: 58, y: 50, label: '丸く包み込むようなヘッドランプ', dir: 'bottom', labelX: 68 },
+      { x: 31, y: 47, label: '横一文字に伸びる<wbr>大型クロームバー', dir: 'bottom', labelX: 31 },
+      { x: 58, y: 50, label: '丸く包み込むような<wbr>ヘッドランプ', dir: 'bottom', labelX: 68 },
     ],
     facelift: {
       fromYear: '2001', toYear: '2004',
@@ -59,8 +59,8 @@ const generations = [
     period: '2007年〜2014年',
     image: '/images/cars/noah/gen2-2007.webp',
     annotations: [
-      { x: 30, y: 53, label: '格子ではなく面で魅せるグリル', dir: 'bottom', labelX: 25 },
-      { x: 45, y: 48, label: '包み込むように丸いフェイス', dir: 'bottom', labelX: 62 },
+      { x: 30, y: 53, label: '格子ではなく面で魅せる<wbr>グリル', dir: 'bottom', labelX: 25 },
+      { x: 45, y: 48, label: '包み込むように丸い<wbr>フェイス', dir: 'bottom', labelX: 62 },
     ],
     facelift: {
       fromYear: '2007', toYear: '2010',
@@ -77,8 +77,8 @@ const generations = [
     period: '2014年〜2021年',
     image: '/images/cars/noah/gen3-2014.webp',
     annotations: [
-      { x: 30, y: 46, label: '台形にせり出す大型グリル', dir: 'bottom', labelX: 20 },
-      { x: 48, y: 68, label: '厚みを感じさせるバンパー', dir: 'bottom', labelX: 62 },
+      { x: 30, y: 46, label: '台形にせり出す<wbr>大型グリル', dir: 'bottom', labelX: 20 },
+      { x: 48, y: 68, label: '厚みを感じさせる<wbr>バンパー', dir: 'bottom', labelX: 62 },
     ],
     facelift: {
       fromYear: '2014', toYear: '2017',
@@ -95,8 +95,8 @@ const generations = [
     period: '2022年〜現在',
     image: '/images/cars/noah/gen4-2022.webp',
     annotations: [
-      { x: 38, y: 38, label: '水平に伸びる一体グリル', dir: 'top', labelX: 60 },
-      { x: 25, y: 42, label: '風格を漂わせる大型メッキ', dir: 'top', labelX: 20 },
+      { x: 38, y: 38, label: '水平に伸びる<wbr>一体グリル', dir: 'top', labelX: 60 },
+      { x: 25, y: 42, label: '風格を漂わせる<wbr>大型メッキ', dir: 'top', labelX: 20 },
     ],
     facelift: {
       // 2025年9月2日の単発発表・発売 (グレード整理: 標準の "X" + エアロ
