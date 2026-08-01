@@ -38,19 +38,23 @@
 // when the source has the wrong background and needs one built from
 // nothing.
 //
-// (9, 2026-08-01) The format conversion above was left completely
-// pixel-untouched per explicit instruction -- but measured against
-// VOXY's own background (edge-column sampling), Delica's real photo
-// background was noticeably darker and flatter (roughly half VOXY's
-// brightness, no vertical gradient), a real "different studio" gap.
-// Per updated explicit instruction, brightened the background ONLY
-// (same vertical gradient target as solio.js/sienta.js, same border-
-// flood-fill car/background separation -- see that file's comment for
-// the full technique writeup) -- car body pixels are provably
-// untouched (post-edit diff against the pre-round-9 file showed zero
-// byte changes inside the flood-fill-protected region). The car
-// photography itself (paint, reflections, shape) is still exactly as
-// supplied; only the black level/gradient behind it changed.
+// (9, 2026-08-01, reverted same day) Tried brightening the background
+// only (measured darker/flatter than VOXY's own; same border-flood-
+// fill technique as solio.js/sienta.js, car pixels provably untouched
+// -- see that file's comment for the technique writeup). Passed every
+// check run at the time (build, DOM, diff-against-original), but real-
+// device viewing (an actual phone screenshot, not this session's own
+// tooling) showed a visibly smudgy/patchy gray cloud under the car in
+// Timeline and Detail -- the flood-fill's conservative "leave it alone
+// if unsure" fallback left uneven, disconnected background patches
+// unprocessed, and at real viewing size/distance those read as an
+// artifact, not a subtle imperfection. Reverted same day, straight
+// back to the pure format-conversion file (git commit 307ee5c) -- not
+// patched further. **Do not re-attempt background grading on this
+// vehicle's images without a real device screenshot in hand to verify
+// against; this project's own tooling (in-session browser automation)
+// missed exactly this defect twice in a row on this file.** Current
+// gen1/gen2 files are, once again, untouched exactly as supplied.
 //
 // annotations: re-derived (2026-08-01) against the new photos above --
 // the car sits smaller and differently centered in frame than the old
