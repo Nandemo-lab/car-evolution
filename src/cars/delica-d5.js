@@ -28,18 +28,29 @@
 // background photos (see git history on this block for the full
 // account of what each round got wrong). All of that is now moot: the
 // user supplied proper black-studio source photos directly
-// (デリカ初代.png / デリカ2代目.png), so gen1-2007/gen2-2019 are a pure
-// format conversion of those -- resized to fit the shared 1408x668
-// canvas by height (no crop; the source's 1.50:1 aspect is narrower
-// than the canvas's 2.11:1), letterboxed with the source's own edge
-// color, then WebP-encoded at a quality high enough to be visually
-// lossless. No background removal, no floor/shadow synthesis, no
-// masking, no noise, no color/level/tone changes of any kind -- per
-// explicit instruction, these two files are complete as supplied and
-// must not be re-edited. Do not resurrect the reconstruction approach
-// below for any future vehicle that already has a proper black-studio
-// source photo; it only applies when the source has the wrong
-// background and needs one built from nothing.
+// (デリカ初代.png / デリカ2代目.png), so gen1-2007/gen2-2019 started as a
+// pure format conversion of those -- resized to fit the shared
+// 1408x668 canvas by height (no crop; the source's 1.50:1 aspect is
+// narrower than the canvas's 2.11:1), letterboxed with the source's
+// own edge color, WebP-encoded at a visually-lossless quality. Do not
+// resurrect the reconstruction approach below for any future vehicle
+// that already has a proper black-studio source photo; it only applies
+// when the source has the wrong background and needs one built from
+// nothing.
+//
+// (9, 2026-08-01) The format conversion above was left completely
+// pixel-untouched per explicit instruction -- but measured against
+// VOXY's own background (edge-column sampling), Delica's real photo
+// background was noticeably darker and flatter (roughly half VOXY's
+// brightness, no vertical gradient), a real "different studio" gap.
+// Per updated explicit instruction, brightened the background ONLY
+// (same vertical gradient target as solio.js/sienta.js, same border-
+// flood-fill car/background separation -- see that file's comment for
+// the full technique writeup) -- car body pixels are provably
+// untouched (post-edit diff against the pre-round-9 file showed zero
+// byte changes inside the flood-fill-protected region). The car
+// photography itself (paint, reflections, shape) is still exactly as
+// supplied; only the black level/gradient behind it changed.
 //
 // annotations: re-derived (2026-08-01) against the new photos above --
 // the car sits smaller and differently centered in frame than the old

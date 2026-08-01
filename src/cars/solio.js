@@ -10,6 +10,27 @@
 // change for any of the four generations was sourced with enough
 // confidence (date + concrete content) to publish -- a gap to close in a
 // future pass, not filled with invented history.
+//
+// gen1-4 images (2026-08-01): background unified with VOXY/SERENA/
+// STEPWGN's own measured studio formula -- those three, sampled at
+// pure-background edge columns, all showed a purely vertical (not
+// radial; left/right edges matched) brightening gradient from near-
+// black at the top to a moderate mid-gray at the bottom. SOLIO's own
+// background measured flat 0-24 at every row (no gradient at all),
+// which is what read as a different, cheaper-looking studio.
+// Car/background separation used border flood-fill (seed every border
+// pixel, grow through neighbors within a per-row color tolerance of a
+// guaranteed-background column), not a per-pixel color-distance
+// threshold -- the first attempt at this exact fix used a plain
+// threshold and it corrupted the car body (dark shadow/tint pixels
+// inside the silhouette matched the background tone by coincidence and
+// got overwritten). Flood fill can't make that mistake: a pixel only
+// counts as background if there's a continuous background-colored path
+// connecting it to the image border, so an isolated dark patch inside
+// the car is topologically unreachable even when its raw color matches.
+// Verified per image: a red-tinted mask preview showed the full car
+// silhouette protected before any pixel was touched, and a post-edit
+// diff confirmed zero byte changes inside the protected region.
 const generations = [
   {
     numeral: 'I',

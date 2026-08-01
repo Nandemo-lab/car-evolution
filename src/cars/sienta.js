@@ -11,6 +11,12 @@
 // publish this session (gen3 is additionally still too new to have one at
 // all) -- a gap to close in a future pass, not filled with invented
 // history.
+//
+// gen1-3 images (2026-08-01): background unified with VOXY/SERENA/
+// STEPWGN's studio formula (same pass, same technique -- see the
+// matching comment in solio.js for the full account, including why a
+// naive per-pixel threshold corrupted the car body on the first
+// attempt and had to be reverted in favor of border flood-fill).
 const generations = [
   {
     numeral: 'I',

@@ -144,14 +144,27 @@ body { margin: 0; background: #0b0c0e; }
   margin: 0; font-family: 'Inter', sans-serif; font-size: clamp(22px, 4.5vw, 28px);
   font-weight: 600; letter-spacing: -.015em;
 }
+/* Sits between the heading and the live count -- same weight/size
+   register as .about-text (a quiet, secondary line) rather than the
+   heading's own display weight, so it reads as connective copy, not a
+   second title. */
+.all-cars-intro {
+  margin: 10px 0 0; max-width: 420px; font-weight: 300; font-size: 14.5px;
+  line-height: 1.6; opacity: .6; letter-spacing: .01em;
+}
 .all-cars-count {
-  margin: 8px 0 0; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
+  margin: 10px 0 0; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
   letter-spacing: .04em; opacity: .45;
 }
 .maker-groups { display: flex; flex-direction: column; gap: 40px; }
+/* .6 opacity + .16em tracking read as thin/airy despite the 700 weight --
+   wide tracking dilutes a bold face's own visual weight. Tightened
+   tracking and raised opacity (contrast, not a heavier font-weight)
+   for a denser, more premium mark -- still whisper-quiet next to the
+   photography, just no longer reading as fragile. */
 .maker-name {
   margin: 0 0 16px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
-  letter-spacing: .16em; text-transform: uppercase; opacity: .6;
+  letter-spacing: .12em; text-transform: uppercase; opacity: .78;
 }
 .maker-cars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .mini-card {

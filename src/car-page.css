@@ -120,6 +120,23 @@ body { margin: 0; background: #0b0c0e; }
 }
 .timeline-item[aria-current="true"] .timeline-thumb img { filter: grayscale(0) brightness(1.05) saturate(1.15); }
 
+/* A quiet, permanent marker for whichever card is the actual latest
+   production generation -- independent of aria-current (which tracks
+   the card currently being VIEWED and moves on click). Without this,
+   clicking back to an early generation dims the current one down to
+   the same unselected treatment as every other card, losing the "this
+   is where the story is now" cue entirely. Small enough to read as a
+   footnote on the photo, not a second headline. */
+.timeline-item[data-latest="true"] .timeline-thumb::after {
+  content: 'NOW';
+  position: absolute; top: 8px; right: 8px; z-index: 1;
+  padding: 3px 7px; border-radius: 20px;
+  font: 600 8px/1 'Inter', sans-serif; letter-spacing: .08em;
+  color: rgba(11,12,14,.85); background: rgba(244,243,240,.92);
+  opacity: .85; transition: opacity .35s;
+}
+.timeline-item[data-latest="true"][aria-current="true"] .timeline-thumb::after { opacity: 0; }
+
 /* Client-side fallback for a generation whose photo hasn't been placed
    yet (see withImageFallback in car-page.js) -- a quiet in-box label
    instead of a broken-image icon. Sits in the same three photo boxes

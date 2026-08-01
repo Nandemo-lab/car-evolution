@@ -168,6 +168,12 @@ function renderTimeline(generations, vehicleName) {
       btn.disabled = true
     } else if (index === generations.length - 1) {
       btn.setAttribute('aria-current', 'true')
+      // Distinct from aria-current, which moves to whichever card is
+      // being VIEWED as the user clicks through the timeline -- this
+      // marks whichever card is actually the latest/current production
+      // generation and never moves, so that card keeps a quiet cue even
+      // once browsing an older one has dimmed it back down.
+      btn.dataset.latest = 'true'
     }
     btn.innerHTML = `
       <span class="timeline-thumb"><img src="${gen.image}" alt="${gen.era} ${vehicleName}" loading="lazy" decoding="async" /></span>
