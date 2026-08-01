@@ -12,11 +12,12 @@
 // all) -- a gap to close in a future pass, not filled with invented
 // history.
 //
-// gen1-3 images (2026-08-01): background unified with VOXY/SERENA/
-// STEPWGN's studio formula (same pass, same technique -- see the
-// matching comment in solio.js for the full account, including why a
-// naive per-pixel threshold corrupted the car body on the first
-// attempt and had to be reverted in favor of border flood-fill).
+// gen1-3 images (2026-08-01, tried and reverted same day): same
+// background-unification attempt and same revert as solio.js -- see
+// that file's comment for the full account. A real phone screenshot
+// showed the same smudgy gray-patch artifact under the car; reverted
+// straight back to the pre-edit files (git commit a074b2b). These three
+// files are, once again, untouched exactly as originally supplied.
 const generations = [
   {
     numeral: 'I',

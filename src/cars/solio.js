@@ -11,26 +11,22 @@
 // confidence (date + concrete content) to publish -- a gap to close in a
 // future pass, not filled with invented history.
 //
-// gen1-4 images (2026-08-01): background unified with VOXY/SERENA/
-// STEPWGN's own measured studio formula -- those three, sampled at
-// pure-background edge columns, all showed a purely vertical (not
-// radial; left/right edges matched) brightening gradient from near-
-// black at the top to a moderate mid-gray at the bottom. SOLIO's own
-// background measured flat 0-24 at every row (no gradient at all),
-// which is what read as a different, cheaper-looking studio.
-// Car/background separation used border flood-fill (seed every border
-// pixel, grow through neighbors within a per-row color tolerance of a
-// guaranteed-background column), not a per-pixel color-distance
-// threshold -- the first attempt at this exact fix used a plain
-// threshold and it corrupted the car body (dark shadow/tint pixels
-// inside the silhouette matched the background tone by coincidence and
-// got overwritten). Flood fill can't make that mistake: a pixel only
-// counts as background if there's a continuous background-colored path
-// connecting it to the image border, so an isolated dark patch inside
-// the car is topologically unreachable even when its raw color matches.
-// Verified per image: a red-tinted mask preview showed the full car
-// silhouette protected before any pixel was touched, and a post-edit
-// diff confirmed zero byte changes inside the protected region.
+// gen1-4 images (2026-08-01, tried and reverted same day): attempted a
+// background-only brightness unification with VOXY/SERENA/STEPWGN's own
+// studio formula (vertical gradient, border-flood-fill car/background
+// separation -- see git history on this block for the technique, which
+// did provably leave car pixels byte-identical). Passed every check run
+// in-session (build, diff-against-original, DOM), but an actual phone
+// screenshot showed a visibly smudgy/patchy gray cloud under the car in
+// Timeline and Detail -- the flood-fill's conservative "leave it if
+// unsure" fallback left disconnected background patches unprocessed,
+// which read as a real artifact at true viewing size even though this
+// session's own tooling never caught it. Reverted straight back to the
+// pre-edit files (git commit a074b2b). **Do not re-attempt this same
+// background-grading approach without a real device screenshot to
+// verify against -- this exact defect was missed twice (Delica hit it
+// first, same day, same technique, see src/cars/delica-d5.js).** These
+// four files are, once again, untouched exactly as originally supplied.
 const generations = [
   {
     numeral: 'I',

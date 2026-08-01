@@ -21,6 +21,20 @@
 //
 // Annotation x/y coordinates were measured directly against this
 // vehicle's actual (user-supplied) photo.
+//
+// gen1-2014 image (2026-08-01): the supplied source photo had zero
+// margin top and bottom -- the roofline touched row 0 and the front
+// tire/bumper touched the last row, both genuinely cropped (confirmed
+// by cropping and viewing the top/bottom strips directly, not just
+// eyeballing the full frame), unlike every other vehicle's photo on
+// the site. There's no more of the original photo to recover past that
+// crop, so fixed it non-destructively: scaled the whole image down 14%
+// (uniform, no distortion) and centered it on the same 1408x668 canvas,
+// padded with the photo's own background color (sampled from its own
+// clean top corners) with a ~36px feathered alpha edge so the resized
+// photo blends into the pad instead of showing a hard rectangle seam.
+// Car pixels themselves are unchanged, just smaller within the frame
+// with real breathing room on every side now.
 const generations = [
   {
     numeral: 'I',
