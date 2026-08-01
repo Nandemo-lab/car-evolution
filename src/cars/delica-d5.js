@@ -42,35 +42,38 @@
 // the car where no reflection should exist -- a "patch" is exactly what
 // a geometrically uniform horizontal region reads as at normal size,
 // even with locally smooth noise.
-// (6, 2026-08-01, current) Two changes: dropped the separate "floor"
-// tone curve entirely -- the ground-contact zone now gets the EXACT
-// same dark background-wall gradient formula as the rest of this image
-// (no brightening, no distinct treatment), so there's nothing for the
-// eye to identify as a separate region in the first place. And replaced
-// procedural noise with a texture TRANSPLANT: a small patch is sampled
-// from this same photo's own clean background (real sensor/compression
-// noise, not generated), then tiled with two independently-offset reads
-// blended together (breaks tile periodicity) plus light dither, so the
-// texture character matches what's actually in the rest of the photo
-// instead of approximating it. Wheel-contact shadows are a small,
-// tight, localized darkening only (never brightening), so they can't
-// read as a band either.
-// Verified by reading the actual output files in full, at normal (not
-// zoomed) scale -- the same way the v4/v5 defects were actually caught
-// -- and comparing directly against VOXY's own full-frame image side by
-// side. DOM-level checks (byte-identical served files, every surface's
-// <img src> pointing at these same two files) confirm Home's card,
-// Timeline (both thumbnails), Compare (base + overlay), and Detail all
-// read this corrected content; live in-browser screenshot capture
-// failed this session (tooling issue, not attempted-and-passed) --
-// flagged rather than silently skipped. Reusable lesson for any future
-// vehicle whose real-photo floor can't be cleanly salvaged: don't
-// invent a distinct "floor" treatment at all if the surrounding
-// background already has one -- extend that same treatment down, and
-// prefer transplanting real photo texture over generating synthetic
-// noise. Verify by reading the full, unzoomed output file and comparing
-// side by side against a known-good reference vehicle, not a cropped
-// close-up of the same file being judged.
+// (6, 2026-08-01) Dropped the separate "floor" tone curve and added a
+// texture transplant -- but only to the ground-contact zone near the
+// tires. Still visibly wrong: measuring row-by-row noise (stddev) in
+// the background strips beside the car showed the ENTIRE rest of the
+// frame -- not just some narrow seam -- was a perfectly flat, zero-
+// noise computed gradient (stddev == 0.00 for ~70% of the image
+// height), with grain only in that one small floor patch. A patch of
+// texture inside an otherwise glass-smooth synthetic field reads as a
+// band regardless of how well the patch itself is blended -- the v6
+// writeup's own framing ("nothing for the eye to identify as a
+// separate region") was right but applied to the wrong region: the
+// floor was never the odd one out, the untouched 70% of flat
+// background was. Confirmed by the same check against Serena's own
+// reference image (real photo): its background stddev is never 0 at
+// any row, rising gradually toward the bottom, matching real sensor
+// grain everywhere, not just near the tires.
+// (7, 2026-08-01, current) Added subtle luminance noise (Gaussian,
+// sigma rising from ~0.5 near the top to ~2.2 near the bottom, matching
+// Serena's own measured grain trend) to every background-classified
+// pixel across the WHOLE frame, not a localized zone -- classification
+// is per-row distance from a guaranteed-background baseline column
+// (x=5, confirmed clear of the car silhouette at every row), so the
+// car body/tires/glass are untouched and only the synthetic field gets
+// grain. This removes the flat-vs-textured boundary at its root instead
+// of relocating it. Verified by re-measuring row stddev after the fix
+// (now non-zero at every sampled row, gen1 and gen2 both) and by
+// reading the actual output files at normal scale. Reusable lesson: a
+// synthetic background composited behind a real photo needs texture
+// applied to its full extent, not just the region judged "close to the
+// car" -- any leftover perfectly-flat area is itself the defect, since
+// it contrasts with literally every other pixel in the frame that came
+// from a real sensor.
 const generations = [
   {
     numeral: 'I',
