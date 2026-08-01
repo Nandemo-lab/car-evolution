@@ -21,9 +21,28 @@
 // spec pages plus independent catalog sources (nextage.jp, spectank.jp) --
 // no invented specs.
 //
-// gen1/gen2 images: the supplied source photos have white studio
-// backgrounds and real floor-reflection texture near the tires. Six
-// rounds fixing this, each catching something the previous one missed:
+// gen1/gen2 images (2026-08-01, superseded): the ORIGINAL supplied
+// source photos had white studio backgrounds and real floor-reflection
+// texture near the tires. Eight rounds were spent trying to
+// reconstruct a dark CarVista-style background/floor from those white-
+// background photos (see git history on this block for the full
+// account of what each round got wrong). All of that is now moot: the
+// user supplied proper black-studio source photos directly
+// (デリカ初代.png / デリカ2代目.png), so gen1-2007/gen2-2019 are a pure
+// format conversion of those -- resized to fit the shared 1408x668
+// canvas by height (no crop; the source's 1.50:1 aspect is narrower
+// than the canvas's 2.11:1), letterboxed with the source's own edge
+// color, then WebP-encoded at a quality high enough to be visually
+// lossless. No background removal, no floor/shadow synthesis, no
+// masking, no noise, no color/level/tone changes of any kind -- per
+// explicit instruction, these two files are complete as supplied and
+// must not be re-edited. Do not resurrect the reconstruction approach
+// below for any future vehicle that already has a proper black-studio
+// source photo; it only applies when the source has the wrong
+// background and needs one built from nothing.
+//
+// Rounds 1-8 (historical, kept for the reusable lessons only -- the
+// technique itself no longer applies to this vehicle's current images):
 // (1-3) mask-based background removal (gradient-threshold flood fill +
 // "floor crush" override + dilation, tuned three ways) all left visible
 // block/patch artifacts -- the mask itself is unavoidably noisy in that
