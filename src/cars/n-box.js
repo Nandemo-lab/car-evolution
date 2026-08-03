@@ -45,8 +45,8 @@ const generations = [
     period: '2011年〜2017年',
     image: '/images/cars/n-box/gen1-2011.webp',
     annotations: [
-      { x: 34, y: 57, label: 'クロームバー基調の<wbr>フロントグリル', dir: 'bottom', labelX: 32 },
-      { x: 62, y: 20, label: '角型シルエットの<wbr>背の高いボディ', dir: 'top', labelX: 62 },
+      { x: 36, y: 57, label: 'クロームバー基調の<wbr>フロントグリル', dir: 'bottom', labelX: 34 },
+      { x: 60, y: 23, label: '角型シルエットの<wbr>背の高いボディ', dir: 'top', labelX: 60 },
     ],
     facelift: null,
   },
@@ -61,7 +61,7 @@ const generations = [
     image: '/images/cars/n-box/gen2-2017.webp',
     annotations: [
       { x: 33, y: 58, label: '厚みを増した<wbr>クロームグリル', dir: 'bottom', labelX: 31 },
-      { x: 63, y: 18, label: 'より水平基調になった<wbr>ルーフライン', dir: 'top', labelX: 63 },
+      { x: 63, y: 22, label: 'より水平基調になった<wbr>ルーフライン', dir: 'top', labelX: 63 },
     ],
     facelift: null,
   },
@@ -75,8 +75,8 @@ const generations = [
     period: '2023年〜2026年',
     image: '/images/cars/n-box/gen3-2023.webp',
     annotations: [
-      { x: 42, y: 63, label: '人の瞳を想起させる<wbr>丸型LEDヘッドライト', dir: 'bottom', labelX: 40 },
-      { x: 27, y: 68, label: '丸穴デザインの<wbr>フロントグリル', dir: 'bottom', labelX: 25 },
+      { x: 48, y: 61, label: '人の瞳を想起させる<wbr>丸型LEDヘッドライト', dir: 'bottom', labelX: 48 },
+      { x: 32, y: 66, label: '丸穴デザインの<wbr>フロントグリル', dir: 'bottom', labelX: 30 },
     ],
     facelift: null,
   },
@@ -90,8 +90,8 @@ const generations = [
     period: '2026年〜現在',
     image: '/images/cars/n-box/gen3-2026.webp',
     annotations: [
-      { x: 42, y: 60, label: '丸型ヘッドライトの<wbr>親しみやすい表情を継承', dir: 'bottom', labelX: 40 },
-      { x: 65, y: 22, label: '乗る人すべてを包む<wbr>水平基調のデザイン', dir: 'top', labelX: 65 },
+      { x: 49, y: 58, label: '丸型ヘッドライトの<wbr>親しみやすい表情を継承', dir: 'bottom', labelX: 49 },
+      { x: 63, y: 24, label: '乗る人すべてを包む<wbr>水平基調のデザイン', dir: 'top', labelX: 63 },
     ],
     // 2026年7月17日、標準モデルの外観言語を維持したまま一部改良を実施
     // (フルモデルチェンジではない -- 型式もJF5/JF6のまま変更なし)。

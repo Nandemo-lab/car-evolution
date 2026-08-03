@@ -38,8 +38,8 @@ const generations = [
     period: '2013年〜2017年',
     image: '/images/cars/spacia/gen1-2013.webp',
     annotations: [
-      { x: 33, y: 62, label: '縦基調のクロームバー<wbr>グリル', dir: 'bottom', labelX: 31 },
-      { x: 45, y: 60, label: '丸みを帯びた<wbr>ヘッドライト', dir: 'bottom', labelX: 47 },
+      { x: 33, y: 56, label: '縦基調のクロームバー<wbr>グリル', dir: 'bottom', labelX: 31 },
+      { x: 41, y: 56, label: '丸みを帯びた<wbr>ヘッドライト', dir: 'bottom', labelX: 43 },
     ],
     facelift: null,
   },
@@ -53,7 +53,7 @@ const generations = [
     period: '2017年〜2023年',
     image: '/images/cars/spacia/gen2-2017.webp',
     annotations: [
-      { x: 42, y: 58, label: 'Sマークを囲む<wbr>クロームグリル', dir: 'bottom', labelX: 40 },
+      { x: 48, y: 53, label: 'Sマークを囲む<wbr>クロームグリル', dir: 'bottom', labelX: 48 },
       { x: 62, y: 20, label: '水平基調に変わった<wbr>ルーフライン', dir: 'top', labelX: 62 },
     ],
     facelift: null,
@@ -68,8 +68,8 @@ const generations = [
     period: '2023年〜現在',
     image: '/images/cars/spacia/gen3-2023.webp',
     annotations: [
-      { x: 45, y: 55, label: 'Sマークを大きく掲げる<wbr>クロームグリル', dir: 'bottom', labelX: 43 },
-      { x: 25, y: 60, label: 'シャープな造形の<wbr>ヘッドライト', dir: 'bottom', labelX: 23 },
+      { x: 48, y: 50, label: 'Sマークを大きく掲げる<wbr>クロームグリル', dir: 'bottom', labelX: 48 },
+      { x: 27, y: 53, label: 'シャープな造形の<wbr>ヘッドライト', dir: 'bottom', labelX: 27 },
     ],
     facelift: null,
   },
