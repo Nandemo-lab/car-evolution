@@ -272,17 +272,12 @@ export default {
   // changing representativeColor without asking first; both were an
   // explicit choice, not an oversight.
   heroImage: '/images/cars/alphard/hero-gen4-3q.webp',
-  // Home's mini-card (see the doc comment in src/home.js) falls back to
-  // heroImage when this is unset -- but heroImage here is the deliberate
-  // gold one-off exception above, which does NOT match representativeColor
-  // (Black) or any other vehicle's neutral dark-studio Home card tone.
-  // Found during 2026-08-03 QA: Alphard's card was visibly warm/gold next
-  // to every sibling's cool/black card, reading as "off-brand" on Home
-  // specifically (the vehicle page's own gold Hero is unaffected and
-  // stays as approved). This is a tight crop of gen4-2023.png (Black
-  // 202, matches representativeColor) at the same close-up framing
-  // VOXY's own Hero-as-card and Vellfire/Sienta's homeCardImage use.
-  homeCardImage: '/images/cars/alphard/home-card.webp',
+  // 2026-08-04: a black homeCardImage override (cropped from gen4-2023.png)
+  // was tried here to make Home's card match every sibling's cool/black
+  // tone instead of the gold Hero -- reverted by direct user request, so
+  // Home's mini-card now falls back to heroImage (gold) like it did
+  // originally. Do not re-add a homeCardImage override for color reasons
+  // without asking first.
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
