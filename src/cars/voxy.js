@@ -12,6 +12,48 @@
 // gen4's photo was horizontally flipped (see public/images/cars/voxy/gen4-2022.png)
 // to match the front-left camera angle of the other 3 generations, so
 // its coordinates are mirrored from the raw feature position.
+//
+// 2026-08-04 -- cross-generation scale correction. QA (same wheel-rim
+// measurement method used for Alphard, see that file's own history)
+// found VOXY's photos split into two different scales: gen1/gen2's
+// front wheel rim measured ~146-151px diameter, gen3/gen4's ~112-114px
+// -- a real ~21-25% scale mismatch, not just a position offset like
+// Alphard had. Per direct user decision, gen4 (90系, current model) is
+// the baseline: (1) future generations will keep extending forward
+// from it, not require renumbering everything, (2) it's what most
+// visitors compare older models against, (3) it matches the "same
+// camera/distance" comparability principle this site is built on.
+// gen3 measured close enough (~114 vs 112px, gen4's rim) that its
+// scale was left alone per explicit instruction -- only gen1 and gen2
+// were uniformly resized (both axes, same factor -- aspect ratio never
+// distorted) down to gen4's rim diameter: gen1 by 0.7417x, gen2 by
+// 0.7593x. All 3 (gen1/gen2 resized, gen3 position-only) then had their
+// wheel CENTER re-aligned to gen4's own (734,474)px position, via crop/
+// pad (gen3) or resize+pad (gen1/gen2) -- car pixels are pasted back
+// unresampled at their new offset, never touched a second time.
+//
+// Padding technique differs from Alphard's: VOXY's source photos crop
+// much tighter (car sits close to every edge already, confirmed by
+// direct pixel sampling), so mirroring a wide edge strip -- the
+// technique that worked for Alphard's more generously-margined photos
+// -- pulled in actual car pixels and produced a visible duplicate-car
+// artifact in the padding. Fixed with a different fill derived from
+// direct measurement: this photo's own background reads as essentially
+// a pure VERTICAL gradient (dark top -> lighter floor, confirmed by
+// sampling both true side columns and top/bottom rows, all at every
+// row/column, all car-free) with only minor horizontal variation. A
+// single vertical gradient column -- averaged from the image's own
+// confirmed-clean left and right edge columns, then heavily blurred --
+// is tiled to fill every pad region (left/right/top/bottom alike) from
+// that one function, which is why there's no visible seam where two
+// different edge-fills would otherwise meet at a corner.
+//
+// Final verification (per explicit user checklist) measured on the
+// shipped files: rim diameter and center within the requested ~1px
+// tolerance across gen1/2/3 vs gen4; roofline and bumper position
+// checked as the qualitative final pass. All x/y% below were re-
+// derived for gen1 (resize 0.7417, pad L246/T87), gen2 (resize 0.7593,
+// pad L94/T66), and gen3 (translate dx=-8/dy=-12, no resize).
 const generations = [
   {
     numeral: 'I',
@@ -23,8 +65,8 @@ const generations = [
     period: '2001年〜2007年',
     image: '/images/cars/voxy/gen1-2001.webp',
     annotations: [
-      { x: 21, y: 54, label: '3本クロームグリル', dir: 'bottom', labelX: 21 },
-      { x: 60, y: 14, label: '箱型シルエット', dir: 'top', labelX: 62 },
+      { x: 33, y: 53.1, label: '3本クロームグリル', dir: 'bottom', labelX: 33 },
+      { x: 62, y: 23.4, label: '箱型シルエット', dir: 'top', labelX: 63.5 },
     ],
     facelift: {
       fromYear: '2001', toYear: '2004',
@@ -41,9 +83,9 @@ const generations = [
     period: '2007年〜2014年',
     image: '/images/cars/voxy/gen2-2007.webp',
     annotations: [
-      { x: 30, y: 53, label: '大型クローム<wbr>エンブレム', dir: 'bottom', labelX: 20 },
-      { x: 36, y: 58, label: 'ハニカムメッシュ<wbr>グリル', dir: 'bottom', labelX: 52 },
-      { x: 45, y: 42, label: '丸みを帯びた<wbr>フェイス', dir: 'top', labelX: 64 },
+      { x: 29.5, y: 50.1, label: '大型クローム<wbr>エンブレム', dir: 'bottom', labelX: 21.9 },
+      { x: 34, y: 53.9, label: 'ハニカムメッシュ<wbr>グリル', dir: 'bottom', labelX: 46.2 },
+      { x: 40.8, y: 41.8, label: '丸みを帯びた<wbr>フェイス', dir: 'top', labelX: 55.3 },
     ],
     facelift: {
       fromYear: '2007', toYear: '2010',
@@ -60,8 +102,8 @@ const generations = [
     period: '2014年〜2021年',
     image: '/images/cars/voxy/gen3-2014.webp',
     annotations: [
-      { x: 31, y: 47, label: '鋭角的な<wbr>V字グリル', dir: 'bottom', labelX: 31 },
-      { x: 47, y: 55, label: 'スイープ<wbr>ヘッドライト', dir: 'bottom', labelX: 55 },
+      { x: 30.4, y: 45.2, label: '鋭角的な<wbr>V字グリル', dir: 'bottom', labelX: 30.4 },
+      { x: 46.4, y: 53.2, label: 'スイープ<wbr>ヘッドライト', dir: 'bottom', labelX: 54.4 },
     ],
     facelift: {
       fromYear: '2014', toYear: '2017',
@@ -82,10 +124,18 @@ const generations = [
       { x: 18, y: 43, label: '3眼LED<wbr>ヘッドライト', dir: 'bottom', labelX: 60 },
       { x: 28, y: 68, label: 'ダイヤモンドメッシュ<wbr>グリル', dir: 'bottom', labelX: 20 },
     ],
+    // 2025年9月2日、ノアと同時に一部改良(単発発表・発売)。ボディカラーの
+    // 入れ替え(ホワイトパールクリスタルシャイン→プラチナホワイトパール
+    // マイカ)、上位グレードへのディスプレイオーディオPlus標準化、
+    // ブラインドスポットモニター等の安全装備標準化が柱 -- 旧版の
+    // 「Apple CarPlay・Android Autoに対応」は今回の改良で新たに加わった
+    // ものではなく(対応自体は本機種で既存)、実際の改良点ではなかったため
+    // 削除。
+    // https://kinto-jp.com/magazine/k20250905-1/
     facelift: {
       fromYear: '2022', toYear: '2025',
       note: '今回の改良では、装備・機能面を中心にアップデート。',
-      points: ['新色を追加', 'ディスプレイオーディオを刷新', 'Apple CarPlay・Android Autoに対応'],
+      points: ['ボディカラーを一新(新色プラチナホワイトパールマイカ等)', '上位グレードにディスプレイオーディオPlusを標準装備', 'ブラインドスポットモニターなど安全装備を標準化'],
     },
   },
 ]
