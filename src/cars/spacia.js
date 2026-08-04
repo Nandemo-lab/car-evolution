@@ -125,15 +125,13 @@ export default {
   referenceLengthMm: 3395,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/spacia/hero-mk94s-3q.webp',
-  // Home's mini-card (see the doc comment in src/home.js) -- SPACIA's
-  // own Hero photo has the car positioned toward the left of its frame
-  // at a different scale than SOLIO's (its Suzuki sibling, shown right
-  // next to it in the same maker group), which read as visibly
-  // inconsistent card-to-card despite both heroImage files being
-  // 1408x668. This is a pure recrop of that same photo (headlight/
-  // grille/mirror, no pixel values changed) matching SOLIO's own
-  // mini-card framing/scale.
-  homeCardImage: '/images/cars/spacia/home-card.webp',
+  // 2026-08-04: a homeCardImage override (a very tight recrop) was tried
+  // here to fix Home's mini-card reading smaller/different-scale than
+  // SOLIO's -- but heroImage itself has since been directly rescaled to
+  // match SOLIO's car width/position (see the data-file header comment),
+  // making that override stale and doubly-wrong (an extreme close-up,
+  // worse than the original mismatch). Removed so Home's mini-card falls
+  // back to heroImage like SOLIO's own card does.
   seo: {
     title: 'SPACIA 歴代モデル一覧 — CarVista',
     description: 'スズキ スペーシア全3世代を画像で比較。軽スーパーハイトワゴンとしてのデザインの進化が一目でわかる。',
