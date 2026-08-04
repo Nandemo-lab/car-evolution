@@ -446,12 +446,13 @@ function initCompare(generations) {
     labelRight.textContent = newer.title
     pairText.textContent = `${older.title} ⇄ ${newer.title}`
 
-    // Compare mode shows dots only, no labels -- it's the purest "photo
-    // as the interface" surface on the page, so it points at what
-    // changed without re-explaining it (that's the detail section's
-    // job above).
-    renderDots(document.getElementById('compare-annotations-base'), newer.annotations)
-    renderDots(document.getElementById('compare-annotations-overlay'), older.annotations)
+    // Compare mode shows no annotation dots (removed 2026-08-04, direct
+    // user request, site-wide) -- it's the purest "photo as the
+    // interface" surface on the page: no markers, just the two photos
+    // and the drag divider. The detail section above is where features
+    // are actually called out (dot + leader line + label).
+    document.getElementById('compare-annotations-base').innerHTML = ''
+    document.getElementById('compare-annotations-overlay').innerHTML = ''
 
     setSplit(50)
   }
