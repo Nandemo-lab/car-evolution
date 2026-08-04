@@ -22,11 +22,23 @@
 // there is no confirmed 4th generation or confirmed minor-change split
 // for this vehicle to justify a 4th timeline entry (see the note above).
 // It remains in the user's Downloads folder, untouched, in case a future
-// confirmed update gives it a real purpose. gen1-3's photos were
-// uniformly scaled (car-body-width normalized across all 3 -- source
-// photos had different native resolutions/framings) and cropped/padded
-// (background-only) onto the shared 1408x668 canvas; see
-// docs/architecture/image-integration-checklist.md.
+// confirmed update gives it a real purpose.
+//
+// gen1-3 car scale (2026-08-04, corrected): an earlier pass claimed
+// gen1-3 were already "uniformly scaled," but a real screenshot showed
+// gen1/gen2's car noticeably larger than gen3's within the shared
+// 1408x668 canvas -- measured directly (brightness-threshold bounding
+// box, car is white against a near-black background at every row/
+// column) rather than trusting the old claim: gen1/gen2's car bbox
+// width was 60-63% of frame vs. gen3's 47%. gen3 (current model) was
+// treated as the reference and left untouched; gen1/gen2 were uniformly
+// scaled down (0.7517x / 0.7782x respectively -- resize, not a pixel/
+// color edit) so their bbox width matches gen3's exactly, then
+// re-centered on gen3's own bbox center and padded with each image's
+// own sampled background color. Re-verified after: all three now
+// measure 662-663px / ~47% bbox width. Annotation x/y below were
+// re-derived afterward against the corrected files (grid overlay +
+// marker-dot verification against the actual output).
 const generations = [
   {
     numeral: 'I',
@@ -38,8 +50,8 @@ const generations = [
     period: '2013年〜2017年',
     image: '/images/cars/spacia/gen1-2013.webp',
     annotations: [
-      { x: 33, y: 56, label: '縦基調のクロームバー<wbr>グリル', dir: 'bottom', labelX: 31 },
-      { x: 41, y: 56, label: '丸みを帯びた<wbr>ヘッドライト', dir: 'bottom', labelX: 43 },
+      { x: 45, y: 62, label: '縦基調のクロームバー<wbr>グリル', dir: 'bottom', labelX: 35 },
+      { x: 51, y: 61, label: '丸みを帯びた<wbr>ヘッドライト', dir: 'bottom', labelX: 63 },
     ],
     facelift: null,
   },
@@ -53,8 +65,8 @@ const generations = [
     period: '2017年〜2023年',
     image: '/images/cars/spacia/gen2-2017.webp',
     annotations: [
-      { x: 48, y: 53, label: 'Sマークを囲む<wbr>クロームグリル', dir: 'bottom', labelX: 48 },
-      { x: 62, y: 20, label: '水平基調に変わった<wbr>ルーフライン', dir: 'top', labelX: 62 },
+      { x: 46, y: 54, label: 'Sマークを囲む<wbr>クロームグリル', dir: 'bottom', labelX: 46 },
+      { x: 62, y: 21, label: '水平基調に変わった<wbr>ルーフライン', dir: 'top', labelX: 62 },
     ],
     facelift: null,
   },
@@ -68,8 +80,8 @@ const generations = [
     period: '2023年〜現在',
     image: '/images/cars/spacia/gen3-2023.webp',
     annotations: [
-      { x: 48, y: 50, label: 'Sマークを大きく掲げる<wbr>クロームグリル', dir: 'bottom', labelX: 48 },
-      { x: 27, y: 53, label: 'シャープな造形の<wbr>ヘッドライト', dir: 'bottom', labelX: 27 },
+      { x: 46, y: 49, label: 'Sマークを大きく掲げる<wbr>クロームグリル', dir: 'bottom', labelX: 35 },
+      { x: 56, y: 48, label: 'シャープな造形の<wbr>ヘッドライト', dir: 'bottom', labelX: 65 },
     ],
     facelift: null,
   },
