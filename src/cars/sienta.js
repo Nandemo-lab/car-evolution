@@ -112,10 +112,11 @@ export default {
   // visible, camera further back) unlike VOXY/Alphard's tight close-up
   // sources, so it read noticeably smaller/more distant than every
   // other card on Home even though heroImage itself is unchanged and
-  // still correct for this vehicle's own page. This is a pure recrop
-  // of that same photo (grille/headlight/front wheel, no pixel values
-  // changed) at roughly the same framing VOXY/Alphard's own source
-  // photos already have -- not a new image.
+  // still correct for this vehicle's own page. Originally a digital
+  // recrop of that same hero photo (2026-08-01); replaced (2026-08-03)
+  // with a dedicated user-supplied close-up photo framed the same way
+  // VOXY/Alphard's own sources are -- pure resize/reformat only, no
+  // pixel editing.
   homeCardImage: '/images/cars/sienta/home-card.webp',
   // gen1 (originally yellow) and gen2 (originally gold) were recolored
   // (hue/saturation remapped, original lightness/shading preserved) to
