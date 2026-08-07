@@ -39,10 +39,10 @@ const generations = [
     startYear: '2001',
     yearRange: '2001–2007',
     period: '2001年〜2007年',
-    image: '/images/cars/noah/gen1-2001.webp',
+    image: '/images/cars/noah/gen1-2001-tall.webp',
     annotations: [
-      { x: 31, y: 47, label: '横一文字に伸びる<wbr>大型クロームバー', dir: 'bottom', labelX: 31 },
-      { x: 58, y: 50, label: '丸く包み込むような<wbr>ヘッドランプ', dir: 'bottom', labelX: 68 },
+      { x: 35, y: 48, label: '横一文字に伸びる<wbr>大型クロームバー', dir: 'bottom', labelX: 31 },
+      { x: 46, y: 51, label: '丸く包み込むような<wbr>ヘッドランプ', dir: 'bottom', labelX: 68 },
     ],
     facelift: {
       fromYear: '2001', toYear: '2004',
@@ -57,9 +57,9 @@ const generations = [
     startYear: '2007',
     yearRange: '2007–2014',
     period: '2007年〜2014年',
-    // Recreated from the verified 70-series reference with brighter studio
-    // separation while preserving the generation-specific exterior design.
-    image: '/images/cars/noah/gen2-2007-v3.webp',
+    // Recreated from the verified 70-series reference with the same
+    // left-front three-quarter camera angle used by the other generations.
+    image: '/images/cars/noah/gen2-2007-unified.webp',
     annotations: [
       { x: 30, y: 53, label: '格子ではなく面で魅せる<wbr>グリル', dir: 'bottom', labelX: 25 },
       { x: 45, y: 48, label: '包み込むように丸い<wbr>フェイス', dir: 'bottom', labelX: 62 },
@@ -95,7 +95,7 @@ const generations = [
     startYear: '2022',
     yearRange: '2022–現在',
     period: '2022年〜現在',
-    image: '/images/cars/noah/gen4-2022.webp',
+    image: '/images/cars/noah/gen4-2022-front.webp',
     annotations: [
       { x: 38, y: 38, label: '水平に伸びる<wbr>一体グリル', dir: 'top', labelX: 60 },
       { x: 25, y: 42, label: '風格を漂わせる<wbr>大型メッキ', dir: 'top', labelX: 20 },
