@@ -163,7 +163,10 @@ function renderHero(config) {
   // the browser to fetch it ahead of same-priority requests (fonts, the
   // timeline's own thumbnails) instead of competing with them evenly.
   heroImage.fetchPriority = 'high'
-  heroImage.src = config.heroImage
+  // Use the same art-directed 4:3 image set as TOP/NEXT DISCOVERY so every
+  // vehicle page opens with a consistent camera angle, apparent size and
+  // wheel baseline. The neutral generation images below remain untouched.
+  heroImage.src = getDiscoveryImage({ ...config, slug: getSlugFromPath() })
   heroImage.alt = config.vehicleName
   document.getElementById('hero-eyebrow').textContent = config.eyebrow
   document.getElementById('hero-title').textContent = config.vehicleName
