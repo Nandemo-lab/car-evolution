@@ -130,7 +130,7 @@
 // not a variant worth re-trying.
 const generations = [
   {
-    numeral: 'I',
+    numeral: 'I-A',
     era: '前期',
     title: 'CV5W型 前期',
     code: 'DBA-CV5W',
@@ -145,10 +145,12 @@ const generations = [
     facelift: null,
   },
   {
-    numeral: 'II',
+    // The 2019 redesign is a major facelift of the same D:5 generation,
+    // not a second generation.
+    numeral: 'I-B',
     era: '後期',
     title: 'CV1W型 後期',
-    code: '3BA-CV1W',
+    code: '3DA-CV1W',
     startYear: '2019',
     yearRange: '2019–現在',
     period: '2019年〜現在',

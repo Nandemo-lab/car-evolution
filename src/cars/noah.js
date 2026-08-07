@@ -57,7 +57,9 @@ const generations = [
     startYear: '2007',
     yearRange: '2007–2014',
     period: '2007年〜2014年',
-    image: '/images/cars/noah/gen2-2007.webp',
+    // Recreated from the verified 70-series reference with brighter studio
+    // separation while preserving the generation-specific exterior design.
+    image: '/images/cars/noah/gen2-2007-v3.webp',
     annotations: [
       { x: 30, y: 53, label: '格子ではなく面で魅せる<wbr>グリル', dir: 'bottom', labelX: 25 },
       { x: 45, y: 48, label: '包み込むように丸い<wbr>フェイス', dir: 'bottom', labelX: 62 },
