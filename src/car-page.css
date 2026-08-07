@@ -447,10 +447,54 @@ body { margin: 0; background: #0b0c0e; }
 }
 .back-home:hover, .back-home:focus-visible { opacity: .9; }
 
+/* NEXT DISCOVERY -- an image-led continuation after the comparison,
+   visually separate from both the page tool and the legal footer. */
+.next-discovery {
+  padding: 58px 22px 48px;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.next-discovery-heading { margin-bottom: 24px; }
+.next-discovery-eyebrow {
+  margin: 0 0 12px; font: 500 10px/1 'Inter', sans-serif;
+  letter-spacing: .22em; opacity: .42;
+}
+.next-discovery-heading h2 {
+  margin: 0; font-family: 'Noto Sans JP', sans-serif;
+  font-size: clamp(22px, 5vw, 30px); font-weight: 600; letter-spacing: -.015em;
+}
+.next-discovery-heading > p:last-child {
+  margin: 10px 0 0; font-size: 13px; font-weight: 300; line-height: 1.7; opacity: .48;
+}
+.next-discovery-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.discovery-card {
+  display: block; overflow: hidden; border-radius: 14px;
+  color: inherit; text-decoration: none; background: #111316;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.045);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.discovery-card:hover, .discovery-card:focus-visible {
+  transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(255,255,255,.14);
+}
+.discovery-card-photo { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #0d0e10; }
+.discovery-card-photo img { width: 100%; height: 100%; object-fit: cover; scale: var(--top-card-scale, 1); transition: transform .5s ease, filter .3s ease; }
+.discovery-card:hover img, .discovery-card:focus-visible img { transform: scale(1.015); filter: brightness(1.07); }
+.discovery-card-meta {
+  display: grid; grid-template-columns: 1fr auto; align-items: center;
+  padding: 14px 15px 15px;
+}
+.discovery-card-maker {
+  grid-column: 1; display: block; margin-bottom: 4px;
+  font: 500 9px/1 'Inter', sans-serif; letter-spacing: .16em; text-transform: uppercase; opacity: .38;
+}
+.discovery-card-name { grid-column: 1; font: 600 14px/1.2 'Inter', sans-serif; }
+.discovery-card-arrow { grid-column: 2; grid-row: 1 / 3; font: 400 15px/1 'Inter', sans-serif; opacity: .38; transition: transform .3s, opacity .3s; }
+.discovery-card:hover .discovery-card-arrow, .discovery-card:focus-visible .discovery-card-arrow { transform: translateX(3px); opacity: .8; }
+
 @media (min-width: 700px) {
-  .hero-copy, .heritage, .timeline, .detail, .compare, .policy, .back-home { padding-left: 8vw; padding-right: 8vw; }
+  .hero-copy, .heritage, .timeline, .detail, .compare, .next-discovery, .policy, .back-home { padding-left: 8vw; padding-right: 8vw; }
   .timeline-rail { left: 8vw; right: 8vw; }
   .detail { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
+  .next-discovery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

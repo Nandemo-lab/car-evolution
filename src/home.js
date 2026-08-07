@@ -1,5 +1,6 @@
 import './home.css'
 import roadmap from './roadmap.js'
+import { getDiscoveryImage, getDiscoveryStyle } from './discovery.js'
 
 // CarVista -- Home page engine ---------------------------------
 // Every published vehicle is discovered from src/cars/*.js via Vite's
@@ -63,7 +64,7 @@ function renderAllCars(cars, roadmap) {
           .map(
             (car) => `
           <a class="mini-card" href="/cars/${car.slug}.html">
-            <span class="mini-card-photo"><img src="${car.homeCardImage || car.heroImage}" alt="${car.vehicleName}" loading="lazy" decoding="async" /></span>
+            <span class="mini-card-photo"><img src="${getDiscoveryImage(car)}" style="${getDiscoveryStyle(car)}" alt="${car.vehicleName}" loading="lazy" decoding="async" /></span>
             <span class="mini-card-name">${car.vehicleName}</span>
           </a>`
           )

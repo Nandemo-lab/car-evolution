@@ -175,8 +175,8 @@ body { margin: 0; background: #0b0c0e; }
 }
 .mini-card:not(.mini-card--soon):hover, .mini-card:not(.mini-card--soon):focus-visible { box-shadow: 0 0 0 1px rgba(255,255,255,.12); transform: translateY(-2px); }
 .mini-card:not(.mini-card--soon):hover .mini-card-photo img, .mini-card:not(.mini-card--soon):focus-visible .mini-card-photo img { filter: brightness(1.08); }
-.mini-card-photo { display: block; aspect-ratio: 4 / 3; background: #0d0e10; }
-.mini-card-photo img { width: 100%; height: 100%; object-fit: cover; transition: filter .3s; }
+.mini-card-photo { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #0d0e10; }
+.mini-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; scale: var(--top-card-scale, 1); transition: filter .3s; }
 .mini-card-name { padding: 0 12px 12px; font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500; letter-spacing: -.005em; }
 .mini-card--soon { opacity: .38; cursor: default; }
 .mini-card--soon .mini-card-photo { display: flex; align-items: center; justify-content: center; }

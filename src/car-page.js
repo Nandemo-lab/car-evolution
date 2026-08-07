@@ -1,4 +1,11 @@
 import './car-page.css'
+import { getDiscoveryImage, getDiscoveryStyle, getSlugFromPath, relatedCars } from './discovery.js'
+
+const carModules = import.meta.glob('./cars/*.js', { eager: true })
+const discoveryCars = Object.entries(carModules).map(([path, mod]) => ({
+  ...mod.default,
+  slug: path.match(/([^/]+)\.js$/)[1],
+}))
 
 // CarVista -- shared vehicle-page engine ---------------------------
 // Every vehicle page (VOXY, Alphard, ...) shares this exact engine and
@@ -106,6 +113,46 @@ export function initCarPage(config) {
   })
 
   if (document.getElementById('compare')) initCompare(generations)
+  renderNextDiscovery(config)
+}
+
+// A final, image-led handoff to the next vehicle. Inserted by the shared
+// engine so every current and future vehicle page keeps one HTML skeleton.
+function renderNextDiscovery(config) {
+  const currentSlug = getSlugFromPath()
+  const slugs = relatedCars[currentSlug] || []
+  const cars = slugs
+    .map((slug) => discoveryCars.find((car) => car.slug === slug))
+    .filter(Boolean)
+    .slice(0, 3)
+
+  if (!cars.length) return
+
+  const section = document.createElement('section')
+  section.className = 'next-discovery'
+  section.setAttribute('aria-labelledby', 'next-discovery-title')
+  section.innerHTML = `
+    <div class="next-discovery-heading">
+      <p class="next-discovery-eyebrow">NEXT DISCOVERY</p>
+      <h2 id="next-discovery-title">次の進化を見る</h2>
+      <p>${config.vehicleName}を見終えたら、次はこちらへ。</p>
+    </div>
+    <div class="next-discovery-grid">
+      ${cars.map((car) => `
+        <a class="discovery-card" href="/cars/${car.slug}.html">
+          <span class="discovery-card-photo">
+            <img src="${getDiscoveryImage(car)}" style="${getDiscoveryStyle(car)}" alt="${car.vehicleName}" loading="lazy" decoding="async" />
+          </span>
+          <span class="discovery-card-meta">
+            <span class="discovery-card-maker">${car.maker}</span>
+            <span class="discovery-card-name">${car.vehicleName}</span>
+            <span class="discovery-card-arrow" aria-hidden="true">→</span>
+          </span>
+        </a>`).join('')}
+    </div>`
+
+  section.querySelectorAll('img').forEach(withImageFallback)
+  document.querySelector('.back-home').before(section)
 }
 
 // ---- Hero / Heritage / Timeline (static-shaped, data-driven) ----------
