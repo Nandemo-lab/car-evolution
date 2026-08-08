@@ -1,5 +1,6 @@
 import './car-page.css'
 import { getDiscoveryImage, getDiscoveryStyle, getSlugFromPath, relatedCars } from './discovery.js'
+import { trackEvent } from './analytics.js'
 
 const carModules = import.meta.glob('./cars/*.js', { eager: true })
 const discoveryCars = Object.entries(carModules).map(([path, mod]) => ({
@@ -84,6 +85,7 @@ export function initCarPage(config) {
   const { generations, defaultIndex } = config
 
   renderHero(config)
+  renderShare(config)
   // .heritage and .compare are optional -- a single-generation vehicle
   // (see cars/esquire.html) omits both from its HTML (a multi-gen
   // start-year strip and a generation-comparison slider don't apply
@@ -109,11 +111,34 @@ export function initCarPage(config) {
   document.getElementById('timeline').addEventListener('click', (event) => {
     const btn = event.target.closest('.timeline-item')
     if (!btn) return
+    trackEvent('select_generation', { vehicle: config.vehicleName, generation: Number(btn.dataset.gen) + 1 })
     engine.showGeneration(Number(btn.dataset.gen))
   })
 
-  if (document.getElementById('compare')) initCompare(generations)
+  if (document.getElementById('compare')) initCompare(generations, config.vehicleName)
   renderNextDiscovery(config)
+}
+
+function renderShare(config) {
+  const section = document.createElement('section')
+  section.className = 'page-share'
+  section.setAttribute('aria-label', `${config.vehicleName}を共有`)
+  section.innerHTML = '<p>この世代の変化を共有</p><button type="button">共有する</button><button type="button">URLをコピー</button>'
+  document.querySelector('.hero').insertAdjacentElement('afterend', section)
+
+  const buttons = section.querySelectorAll('button')
+  const shareData = { title: document.title, text: `${config.vehicleName}の歴代モデルをCarVistaで比較`, url: location.href }
+  buttons[0].addEventListener('click', async () => {
+    trackEvent('share_vehicle', { vehicle: config.vehicleName, method: navigator.share ? 'native' : 'copy' })
+    if (navigator.share) return navigator.share(shareData)
+    await navigator.clipboard.writeText(location.href)
+    buttons[0].textContent = 'URLをコピーしました'
+  })
+  buttons[1].addEventListener('click', async () => {
+    trackEvent('copy_vehicle_url', { vehicle: config.vehicleName })
+    await navigator.clipboard.writeText(location.href)
+    buttons[1].textContent = 'コピーしました'
+  })
 }
 
 // A final, image-led handoff to the next vehicle. Inserted by the shared
@@ -401,7 +426,7 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
 //
 // newer is always the visible base layer; older is the overlay
 // revealed from the left as the drag handle moves right.
-function initCompare(generations) {
+function initCompare(generations, vehicleName) {
   const tabs = document.getElementById('compare-tabs')
   const stage = document.getElementById('compare-stage')
   const baseImage = document.getElementById('compare-base-image')
@@ -458,6 +483,9 @@ function initCompare(generations) {
     pairToggle.setAttribute('aria-expanded', String(open))
   }
   pairToggle.addEventListener('click', () => {
+    if (!picker.classList.contains('is-open')) {
+      trackEvent('open_generation_compare_picker', { vehicle: vehicleName })
+    }
     setPickerOpen(!picker.classList.contains('is-open'))
   })
 
@@ -507,6 +535,14 @@ function initCompare(generations) {
     setSplit(50)
   }
 
+  function trackPairChange() {
+    trackEvent('change_generation_comparison', {
+      vehicle: vehicleName,
+      older_generation: older.numeral,
+      newer_generation: newer.numeral,
+    })
+  }
+
   // A pair choice closes the picker automatically -- picking is a single
   // action, not a mode a reader stays in, so it folds back to the plain
   // "X ⇄ Y" text the instant a new pair is set, same as tapping it away
@@ -515,12 +551,14 @@ function initCompare(generations) {
     const chip = event.target.closest('.compare-chip')
     if (!chip || chip.disabled) return
     loadPair(Number(chip.dataset.index), rightIndex)
+    trackPairChange()
     setPickerOpen(false)
   })
   pickerRight.addEventListener('click', (event) => {
     const chip = event.target.closest('.compare-chip')
     if (!chip || chip.disabled) return
     loadPair(leftIndex, Number(chip.dataset.index))
+    trackPairChange()
     setPickerOpen(false)
   })
 
@@ -570,7 +608,16 @@ function initCompare(generations) {
 
   let dragging = false
   let hintPlayed = false
+  let sliderInteracted = false
   stage.addEventListener('pointerdown', (event) => {
+    if (!sliderInteracted) {
+      sliderInteracted = true
+      trackEvent('interact_generation_compare_slider', {
+        vehicle: vehicleName,
+        older_generation: older.numeral,
+        newer_generation: newer.numeral,
+      })
+    }
     hintPlayed = true
     dismissHint()
     dragging = true

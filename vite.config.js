@@ -14,6 +14,34 @@ const SITE_NAME = 'CarVista'
 // built from this one constant so deployment and search signals agree.
 const SITE_ORIGIN = 'https://carvista.jp'
 
+const COMPARISON_PAGES = {
+  'compare-voxy-noah-esquire.html': {
+    title: 'VOXY・NOAH・ESQUIREを見比べる | CarVista',
+    description: 'VOXY、NOAH、ESQUIREを同じ視点で比較。フロントマスクと世代の違いを見比べます。',
+    image: '/images/og/voxy-noah-esquire.png',
+  },
+  'voxy-generations.html': {
+    title: '歴代VOXYの見分け方 | CarVista',
+    description: '歴代VOXYを同じ視点で比較。世代ごとのフロントマスクとプロポーションの変化を見比べます。',
+    image: '/images/og/voxy-generations.png',
+  },
+  'alphard-generations.html': {
+    title: '歴代Alphardを見比べる | CarVista',
+    description: '歴代Alphardを同じ視点で比較。4世代のデザインの変化を見比べます。',
+    image: '/images/og/alphard-generations.png',
+  },
+  'voxy-70-80-90.html': {
+    title: 'VOXY 70・80・90系の見分け方 | CarVista',
+    description: 'VOXYの70系・80系・90系を画像で比較。年式の目安とフロントマスクの違いが一目でわかります。',
+    image: '/images/og/voxy-generations.png',
+  },
+  'compare-alphard-vellfire.html': {
+    title: 'Alphard・Vellfireの違い | CarVista',
+    description: 'AlphardとVellfireを同じ視点で比較。2台のフロントマスクがつくるデザイン上の違いを見比べます。',
+    image: '/images/og/alphard-vellfire.png',
+  },
+}
+
 // Every file in cars/*.html, plus every other *.html at the project
 // root (editorial-policy.html, and whatever site-wide page comes next),
 // becomes a build entry automatically -- adding a new page can never
@@ -169,6 +197,25 @@ function buildEditorialPolicyTags() {
   ]
 }
 
+function buildComparisonTags(filename) {
+  const comparison = COMPARISON_PAGES[filename]
+  const url = `${SITE_ORIGIN}/${filename}`
+  const meta = (attrs) => ({ tag: 'meta', attrs, injectTo: 'head' })
+  return [
+    { tag: 'title', children: comparison.title, injectTo: 'head' },
+    meta({ name: 'description', content: comparison.description }),
+    { tag: 'link', attrs: { rel: 'canonical', href: url }, injectTo: 'head' },
+    meta({ property: 'og:type', content: 'website' }),
+    meta({ property: 'og:site_name', content: SITE_NAME }),
+    meta({ property: 'og:title', content: comparison.title }),
+    meta({ property: 'og:description', content: comparison.description }),
+    meta({ property: 'og:url', content: url }),
+    meta({ property: 'og:image', content: `${SITE_ORIGIN}${comparison.image}` }),
+    meta({ name: 'twitter:card', content: 'summary_large_image' }),
+    meta({ name: 'twitter:image', content: `${SITE_ORIGIN}${comparison.image}` }),
+  ]
+}
+
 // Every vehicle page's <head> is just charset/viewport/theme-color in
 // the HTML source -- title, description, canonical, OGP, Twitter card,
 // and JSON-LD are all injected here from that vehicle's src/cars/<slug>.js
@@ -189,6 +236,10 @@ function seoInjectPlugin() {
 
       if (filename === 'editorial-policy.html') {
         return { html, tags: buildEditorialPolicyTags() }
+      }
+
+      if (COMPARISON_PAGES[filename]) {
+        return { html, tags: buildComparisonTags(filename) }
       }
 
       const slug = filename.replace(/\.html$/, '')
@@ -244,7 +295,11 @@ function sitemapPlugin() {
     name: 'car-evolution-sitemap',
     async generateBundle() {
       const cars = await loadAllCars()
-      const staticUrls = [`${SITE_ORIGIN}/`, `${SITE_ORIGIN}/editorial-policy.html`]
+      const staticUrls = [
+        `${SITE_ORIGIN}/`,
+        `${SITE_ORIGIN}/editorial-policy.html`,
+        ...Object.keys(COMPARISON_PAGES).map((filename) => `${SITE_ORIGIN}/${filename}`),
+      ]
       const carUrls = cars.map((car) => `${SITE_ORIGIN}/cars/${car.slug}.html`)
       const urls = [...staticUrls, ...carUrls]
       const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls

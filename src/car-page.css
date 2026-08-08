@@ -47,6 +47,10 @@ body { margin: 0; background: #0b0c0e; }
 .hero-copy { position: absolute; left: 22px; right: 22px; bottom: 26px; z-index: 2; }
 .eyebrow { margin: 0; font: 500 10.5px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .55; }
 .hero-copy h1 { margin: 14px 0 0; font-family: 'Inter', sans-serif; font-size: clamp(30px, 9vw, 48px); font-weight: 600; letter-spacing: -.035em; white-space: nowrap; }
+.page-share { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; padding: 18px 22px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.page-share p { margin: 0 6px 0 0; font: 400 11px/1 'Inter', sans-serif; letter-spacing: .04em; opacity: .48; }
+.page-share button { border: 1px solid rgba(244,243,240,.2); border-radius: 999px; background: transparent; color: inherit; padding: 8px 12px; font: 500 11px/1 'Inter', sans-serif; cursor: pointer; }
+.page-share button:hover, .page-share button:focus-visible { background: rgba(244,243,240,.1); }
 /* nowrap -- verified (2026-07-26) this always fits one line down to
    320px; forcing it guarantees the browser never picks a different
    wrap point at some in-between width instead of leaving it to chance. */
@@ -485,7 +489,7 @@ body { margin: 0; background: #0b0c0e; }
 .discovery-card:hover .discovery-card-arrow, .discovery-card:focus-visible .discovery-card-arrow { transform: translateX(3px); opacity: .8; }
 
 @media (min-width: 700px) {
-  .hero-copy, .heritage, .timeline, .detail, .compare, .next-discovery, .policy, .back-home { padding-left: 8vw; padding-right: 8vw; }
+  .hero-copy, .page-share, .heritage, .timeline, .detail, .compare, .next-discovery, .policy, .back-home { padding-left: 8vw; padding-right: 8vw; }
   .timeline-rail { left: 8vw; right: 8vw; }
   .detail { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
   .next-discovery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }

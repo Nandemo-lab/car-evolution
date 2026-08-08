@@ -156,6 +156,13 @@ body { margin: 0; background: #0b0c0e; }
   margin: 10px 0 0; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
   letter-spacing: .04em; opacity: .45;
 }
+.comparison-links { padding: 58px 22px; border-top: 1px solid rgba(255,255,255,.07); }
+.comparison-links h2 { margin: 12px 0 0; font-size: clamp(24px, 5vw, 32px); letter-spacing: -.025em; }
+.comparison-links > p:last-of-type { max-width: 520px; margin: 12px 0 0; font-size: 13px; font-weight: 300; line-height: 1.8; opacity: .55; }
+.comparison-links-grid { display: grid; gap: 10px; margin-top: 24px; }
+.comparison-links-grid a { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 17px 16px; border-radius: 12px; background: rgba(255,255,255,.04); color: inherit; text-decoration: none; font: 500 13px/1.3 'Inter', sans-serif; transition: background .2s ease, transform .2s ease; }
+.comparison-links-grid a:hover, .comparison-links-grid a:focus-visible { background: rgba(255,255,255,.1); transform: translateY(-1px); }
+.comparison-links-grid span { font-size: 16px; opacity: .55; }
 .maker-groups { display: flex; flex-direction: column; gap: 40px; }
 /* .6 opacity + .16em tracking read as thin/airy despite the 700 weight --
    wide tracking dilutes a bold face's own visual weight. Tightened
@@ -241,7 +248,7 @@ body { margin: 0; background: #0b0c0e; }
 .policy-page-link:hover, .policy-page-link:focus-visible { color: #f4f3f0; }
 
 @media (min-width: 700px) {
-  .home-hero-copy, .all-cars, .about, .policy { padding-left: 8vw; padding-right: 8vw; }
+  .home-hero-copy, .all-cars, .comparison-links, .about, .policy { padding-left: 8vw; padding-right: 8vw; }
   .maker-cars { grid-template-columns: repeat(4, 1fr); }
 }
 

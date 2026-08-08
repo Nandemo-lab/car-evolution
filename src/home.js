@@ -1,6 +1,7 @@
 import './home.css'
 import roadmap from './roadmap.js'
 import { getDiscoveryImage, getDiscoveryStyle } from './discovery.js'
+import { trackEvent } from './analytics.js'
 
 // CarVista -- Home page engine ---------------------------------
 // Every published vehicle is discovered from src/cars/*.js via Vite's
@@ -115,6 +116,20 @@ function initHeroCta() {
   })
 }
 
+function initGrowthEvents() {
+  document.getElementById('maker-groups').addEventListener('click', (event) => {
+    const card = event.target.closest('.mini-card')
+    if (!card || !card.href) return
+    trackEvent('open_vehicle', { vehicle: card.querySelector('.mini-card-name')?.textContent?.trim() || '' })
+  })
+
+  document.querySelector('.comparison-links')?.addEventListener('click', (event) => {
+    const link = event.target.closest('a')
+    if (!link) return
+    trackEvent('open_comparison_from_home', { destination: new URL(link.href).pathname })
+  })
+}
+
 // A live count, not a hardcoded one -- reads straight from the same
 // `cars` array All Cars is built from, so it never drifts out of sync
 // as vehicles are added. Coming Soon count only appears
@@ -135,3 +150,4 @@ renderAllCars(cars, roadmap)
 renderAllCarsSummary(cars, roadmap)
 initScrollFade()
 initHeroCta()
+initGrowthEvents()
