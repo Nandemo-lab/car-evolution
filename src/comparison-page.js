@@ -36,12 +36,12 @@ const pages = {
     guideNote: 'ここでは、CarVistaが各モデルの代表的な仕様として掲載している画像をもとに、デザイン上の印象を比較しています。',
     cars: [alphard, vellfire],
     images: {
-      Alphard: { standard: '/images/cars/alphard/compare-standard-v3.png', detail: '/images/cars/alphard/compare-front-detail-v2.png' },
-      Vellfire: { standard: '/images/cars/vellfire/compare-standard-v3.png', detail: '/images/cars/vellfire/compare-front-detail-v2.png' },
+      Alphard: { standard: '/images/cars/alphard/compare-standard-v3.png', detail: '/images/cars/alphard/compare-front-detail-v4.png' },
+      Vellfire: { standard: '/images/cars/vellfire/compare-standard-v3.png', detail: '/images/cars/vellfire/compare-front-detail-v4.png' },
     },
     focus: [
-      { name: 'Alphard', label: '整った面と大きなグリルの構成', image: '/images/cars/alphard/compare-front-detail-v2.png' },
-      { name: 'Vellfire', label: '鋭いライトと重層的なグリルの構成', image: '/images/cars/vellfire/compare-front-detail-v2.png' },
+      { name: 'Alphard', label: '整った面と大きなグリルの構成', image: '/images/cars/alphard/compare-front-detail-v4.png' },
+      { name: 'Vellfire', label: '鋭いライトと重層的なグリルの構成', image: '/images/cars/vellfire/compare-front-detail-v4.png' },
     ],
     reading: [
       { heading: '共通の土台に、異なるキャラクターを与えた2台', text: 'AlphardとVellfireは、基本となるボディの存在感を共有しながら、フロントマスクで受ける印象を明確に分けています。CarVistaでは、同じ角度・同じ条件のビジュアルにそろえることで、サイズ感ではなく、ライト、グリル、バンパーの構成による違いを見やすくしています。' },
