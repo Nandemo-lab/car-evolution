@@ -117,6 +117,7 @@ export function initCarPage(config) {
 
   if (document.getElementById('compare')) initCompare(generations, config.vehicleName)
   renderNextDiscovery(config)
+  renderReferences(config)
 }
 
 function renderShare(config) {
@@ -177,6 +178,29 @@ function renderNextDiscovery(config) {
     </div>`
 
   section.querySelectorAll('img').forEach(withImageFallback)
+  document.querySelector('.back-home').before(section)
+}
+
+function renderReferences(config) {
+  if (!config.references?.items?.length) return
+
+  const section = document.createElement('section')
+  section.className = 'page-references'
+  section.setAttribute('aria-labelledby', 'page-references-title')
+  section.innerHTML = `
+    <div class="page-references-heading">
+      <p>REFERENCES</p>
+      <h2 id="page-references-title">情報の確認</h2>
+      <span>確認日：${config.references.checkedAt}</span>
+    </div>
+    <p class="page-references-note">年式・型式・世代区分は、各メーカーの公開情報を優先して確認しています。代表的な確認資料を世代ごとに掲載します。</p>
+    <ul class="page-references-list">${config.references.items.map((item) => `
+      <li><span>${item.generations}</span><a href="${item.url}" target="_blank" rel="noopener noreferrer" data-reference-link>${item.label}<b aria-hidden="true">↗</b></a></li>`).join('')}
+    </ul>`
+
+  section.querySelectorAll('[data-reference-link]').forEach((link) => {
+    link.addEventListener('click', () => trackEvent('open_reference', { vehicle: config.vehicleName, reference: link.textContent.trim() }))
+  })
   document.querySelector('.back-home').before(section)
 }
 
