@@ -30,6 +30,14 @@ const pages = {
     intro: '同じ世代の2台を並べると、フロントマスクが目指す個性の差が見えてきます。',
     guideNote: 'ここでは、CarVistaが各モデルの代表的な仕様として掲載している画像をもとに、デザイン上の印象を比較しています。',
     cars: [alphard, vellfire],
+    images: {
+      Alphard: { standard: '/images/cars/alphard/compare-standard-v2.png', detail: '/images/cars/alphard/compare-front-detail-v2.png' },
+      Vellfire: { standard: '/images/cars/vellfire/compare-standard-v2.png', detail: '/images/cars/vellfire/compare-front-detail-v2.png' },
+    },
+    focus: [
+      { name: 'Alphard', label: '整った面と大きなグリルの構成', image: '/images/cars/alphard/compare-front-detail-v2.png' },
+      { name: 'Vellfire', label: '鋭いライトと重層的なグリルの構成', image: '/images/cars/vellfire/compare-front-detail-v2.png' },
+    ],
     reading: [
       { heading: '共通の土台に、異なるキャラクターを与えた2台', text: 'AlphardとVellfireは、基本となるボディの存在感を共有しながら、フロントマスクで受ける印象を明確に分けています。CarVistaでは、同じ角度・同じ条件のビジュアルにそろえることで、サイズ感ではなく、ライト、グリル、バンパーの構成による違いを見やすくしています。' },
       { heading: 'Alphardは威厳、Vellfireは前に出る個性', text: 'Alphardは大きな面と整った線によって、落ち着きと威厳を感じさせる方向です。一方のVellfireは、より大胆な造形と鋭い要素で、強い個性を前に出します。どちらが上という比較ではなく、乗る人が求める見られ方に合わせて選ぶ2台だと考えると、その違いがつかみやすくなります。' },
@@ -61,7 +69,7 @@ const cards = page.cars.flatMap((car) => {
   const generations = page.cars.length === 1 ? car.generations : [car.generations.at(-1)]
   return generations.map((generation) => `
     <a class="comparison-card" href="/cars/${car.vehicleName.toLowerCase().replaceAll(' ', '-')}.html">
-      <img src="${generation.image}" alt="${car.vehicleName} ${generation.title}" loading="lazy" decoding="async" />
+      <img src="${page.images?.[car.vehicleName]?.standard || generation.image}" alt="${car.vehicleName} ${generation.title}" loading="lazy" decoding="async" />
       <span class="comparison-card-copy">
         <span class="comparison-card-name">${car.vehicleName}</span>
         <span class="comparison-card-meta">${generation.title} · ${generation.period}</span>
@@ -85,6 +93,15 @@ if (page.reading) {
     <section class="comparison-reading" aria-label="デザインの読み解き">
       <p class="comparison-eyebrow">DESIGN NOTES</p><h2>見比べるポイント</h2>
       ${page.reading.map((item) => `<article><h3>${item.heading}</h3><p>${item.text}</p></article>`).join('')}
+    </section>`)
+}
+
+if (page.focus) {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+    <section class="comparison-focus" aria-label="フロントマスクの比較">
+      <p class="comparison-eyebrow">FRONT MASK FOCUS</p><h2>顔つきを、同じ角度で読む</h2>
+      <p class="comparison-focus-intro">フロントマスクの違いがもっとも読み取りやすい、正面寄りの共通アングルです。ライト、グリル、バンパーのつながりに注目して見比べてください。</p>
+      <div class="comparison-focus-grid">${page.focus.map((item) => `<figure><img src="${item.image}" alt="${item.name}のフロントマスク" loading="lazy" decoding="async" /><figcaption><strong>${item.name}</strong><span>${item.label}</span></figcaption></figure>`).join('')}</div>
     </section>`)
 }
 
