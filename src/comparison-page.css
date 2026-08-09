@@ -13,7 +13,11 @@ body { margin: 0; background: #0b0c0e; }
 .comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; padding: 0 22px 34px; }
 .comparison-card { color: inherit; text-decoration: none; overflow: hidden; border-radius: 16px; background: #121417; box-shadow: 0 0 0 1px rgba(255,255,255,.06); transition: transform .25s ease, box-shadow .25s ease; }
 .comparison-card:hover, .comparison-card:focus-visible { transform: translateY(-3px); box-shadow: 0 0 0 1px rgba(255,255,255,.2); }
-.comparison-card img { display: block; width: 100%; aspect-ratio: 1.7 / 1; object-fit: cover; }
+.comparison-card img { display: block; width: 100%; aspect-ratio: 1.7 / 1; object-fit: cover; transform: scale(var(--comparison-car-scale, 1)); transform-origin: 50% 76%; }
+/* VOXY 70・80・90系は実車の全長が同一。比較ビジュアル内の占有率だけを
+   そろえ、世代による実寸差のような誤読を防ぐ。 */
+.comparison-card--voxy-1 { --comparison-car-scale: .91; }
+.comparison-card--voxy-3 { --comparison-car-scale: 1.14; }
 .comparison-card-copy { display: block; padding: 14px 15px 16px; }
 .comparison-card-name { display: block; font: 600 15px/1.15 'Inter', sans-serif; }
 .comparison-card-meta { display: block; margin-top: 6px; font: 400 11px/1.3 'Inter', sans-serif; opacity: .52; }

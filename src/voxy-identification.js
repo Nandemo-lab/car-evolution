@@ -9,9 +9,9 @@ const guides = [
 ]
 
 const guideImages = [
-  '/images/cars/voxy/guide-70-standard-v1.png',
-  '/images/cars/voxy/guide-80-standard-v1.png',
-  '/images/cars/voxy/guide-90-standard-v1.png',
+  '/images/cars/voxy/top-70-standard-v3.jpg',
+  '/images/cars/voxy/top-80-standard-v3.jpg',
+  '/images/cars/voxy/top-90-standard-v3.jpg',
 ]
 
 document.querySelector('#comparison-page').innerHTML = `
@@ -24,12 +24,12 @@ document.querySelector('#comparison-page').innerHTML = `
   </header>
   <section class="comparison-grid" aria-label="VOXY世代の比較">
     ${guides.map(({ generation, note }, index) => `
-      <a class="comparison-card" href="/cars/voxy.html">
+      <a class="comparison-card comparison-card--voxy comparison-card--voxy-${index + 1}" href="/cars/voxy.html">
         <img src="${guideImages[index] || generation.image}" alt="VOXY ${generation.title}" loading="lazy" decoding="async" />
         <span class="comparison-card-copy"><span class="comparison-card-name">${generation.title}</span><span class="comparison-card-meta">${generation.period}</span><span class="comparison-card-note">${note}</span></span>
       </a>`).join('')}
   </section>
-  <section class="comparison-guide-note" aria-label="掲載基準"><p>掲載画像は、各世代の代表的な仕様を同一条件で比較しやすいようCarVistaが制作したビジュアル表現です。前期・後期やグレードによる細部の違いは、各ページの世代情報もあわせて確認してください。</p></section>
+  <section class="comparison-guide-note" aria-label="掲載基準"><p>掲載画像は、各世代の代表的な仕様を同一条件で比較しやすいようCarVistaが制作したビジュアル表現です。比較のため、車名エンブレムとナンバープレートは省略しています。前期・後期やグレードによる細部の違いは、各ページの世代情報もあわせて確認してください。</p></section>
   <a class="comparison-more" href="/cars/voxy.html">VOXYの歴代モデル一覧を見る</a>`
 
 document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `

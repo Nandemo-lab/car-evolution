@@ -6,7 +6,7 @@
 // All facts below are drawn from Toyota's own vehicle history plus
 // independent catalog sources -- no invented specs. ESQUIRE is
 // CarVista's first single-generation vehicle: launched 2014-10-01,
-// discontinued 2021-02 without ever receiving a full model change
+// discontinued 2021-12 without ever receiving a full model change
 // (folded back into the NOAH/VOXY lineup at end of life) -- see
 // https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A8%E3%82%BF%E3%83%BB%E3%82%A8%E3%82%B9%E3%82%AF%E3%82%A1%E3%82%A4%E3%82%A2
 // and https://cobby.jp/esquire-minorchange.html. It shares its
@@ -40,7 +40,7 @@ const generations = [
     numeral: 'I',
     era: '初代',
     title: '80系',
-    code: 'DBA-ZRR80G',
+    code: 'ZRR80G / ZRR85G / ZWR80G',
     startYear: '2014',
     yearRange: '2014–2021',
     period: '2014年〜2021年',
@@ -109,13 +109,11 @@ export default {
   heroImage: '/images/cars/esquire/hero-gen1-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
-  // <head> is hand-written. English title/description per explicit
-  // user request (2026-07-31) -- a deliberate exception to every other
-  // vehicle's Japanese SEO copy, not an oversight; do not "fix" this
-  // back to Japanese without asking first.
+  // <head> is hand-written. Keep this Japanese, matching every other
+  // CarVista vehicle page and the Japanese search intent for this model.
   seo: {
-    title: 'Toyota ESQUIRE Evolution | CarVista',
-    description: 'Explore the evolution of the Toyota ESQUIRE from 2014 to 2021 with a premium visual timeline.',
+    title: 'ESQUIRE 歴代モデル一覧 — CarVista',
+    description: 'トヨタ エスクァイア（2014〜2021年）を画像で比較。80系のデザイン変化と型式が一目でわかる。',
   },
   defaultIndex: 0,
   generations,

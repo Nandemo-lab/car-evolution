@@ -102,7 +102,7 @@ const generations = [
     numeral: 'I',
     era: '初代',
     title: '10系',
-    code: 'ANH10W',
+    code: 'ANH10W / MNH10W ほか',
     startYear: '2002',
     yearRange: '2002–2008',
     period: '2002年〜2008年',
@@ -133,7 +133,7 @@ const generations = [
     numeral: 'II',
     era: '2代目',
     title: '20系',
-    code: 'ANH20W',
+    code: 'ANH20W / GGH20W ほか',
     startYear: '2008',
     yearRange: '2008–2015',
     period: '2008年〜2015年',
@@ -162,7 +162,7 @@ const generations = [
     numeral: 'III',
     era: '3代目',
     title: '30系',
-    code: 'AGH30W',
+    code: 'AGH30W / GGH30W / AYH30W',
     startYear: '2015',
     yearRange: '2015–2023',
     period: '2015年〜2023年',
@@ -195,7 +195,7 @@ const generations = [
     numeral: 'IV',
     era: '現行モデル',
     title: '40系',
-    code: '3BA-AGH40W',
+    code: 'AGH40W / AAHH40W ほか',
     startYear: '2023',
     yearRange: '2023–現在',
     period: '2023年〜現在',
@@ -225,7 +225,7 @@ const generations = [
 
 export default {
   eyebrow: 'CARVISTA',
-  vehicleName: 'Alphard',
+  vehicleName: 'ALPHARD',
   brand: 'トヨタ',
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
   order: 1, // Home page display order within All Cars -- lower shows first
@@ -282,7 +282,7 @@ export default {
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
   seo: {
-    title: 'Alphard 歴代モデル一覧 — CarVista',
+    title: 'ALPHARD 歴代モデル一覧 — CarVista',
     description: 'トヨタ アルファード全4世代を画像で比較。型式・販売期間・デザインの進化が一目でわかる。',
   },
   defaultIndex: 3,

@@ -19,7 +19,7 @@ const generations = [
     numeral: 'I',
     era: '初代',
     title: '20系',
-    code: 'ANH20W',
+    code: 'ANH20W / GGH20W ほか',
     startYear: '2008',
     yearRange: '2008–2015',
     period: '2008年〜2015年',
@@ -37,7 +37,7 @@ const generations = [
     numeral: 'II',
     era: '2代目',
     title: '30系',
-    code: 'AGH30W',
+    code: 'AGH30W / GGH30W / AYH30W',
     startYear: '2015',
     yearRange: '2015–2023',
     period: '2015年〜2023年',
@@ -55,7 +55,7 @@ const generations = [
     numeral: 'III',
     era: '現行モデル',
     title: '40系',
-    code: '5BA-TAHA40W',
+    code: 'TAHA40W / AAHH40W ほか',
     startYear: '2023',
     yearRange: '2023–現在',
     period: '2023年〜現在',
@@ -82,7 +82,7 @@ const generations = [
 
 export default {
   eyebrow: 'CARVISTA',
-  vehicleName: 'Vellfire',
+  vehicleName: 'VELLFIRE',
   brand: 'トヨタ',
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
   order: 2, // Home page display order within All Cars -- lower shows first
@@ -130,11 +130,16 @@ export default {
   referenceLengthMm: 4995,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/vellfire/hero-gen3-3q.webp',
+  // Home's mini-card (see the doc comment in src/home.js) -- a
+  // dedicated close-up photo (user-supplied, 2026-08-03) matching the
+  // same tight framing VOXY/Alphard's own Hero sources already use, so
+  // this card doesn't read smaller/farther away next to its neighbors.
+  homeCardImage: '/images/cars/vellfire/home-card.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
   seo: {
-    title: 'Vellfire 歴代モデル一覧 — CarVista',
+    title: 'VELLFIRE 歴代モデル一覧 — CarVista',
     description: 'トヨタ ヴェルファイア全3世代を画像で比較。型式・販売期間・デザインの進化が一目でわかる。',
   },
   defaultIndex: 2,

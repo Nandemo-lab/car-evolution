@@ -130,11 +130,14 @@ body { margin: 0; background: #0b0c0e; }
 .home-hero-evolution-head span:last-child { font-size: 10px; font-weight: 600; letter-spacing: .1em; opacity: .9; }
 .home-hero-evolution-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; align-items: end; }
 .home-hero-era { position: relative; display: block; overflow: hidden; aspect-ratio: 1.55 / 1; border-radius: 9px; background: #0a0b0d; box-shadow: 0 0 0 1px rgba(255,255,255,.07); }
-.home-hero-era img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease, filter .4s ease; }
-.home-hero-evolution:hover .home-hero-era img, .home-hero-evolution:focus-visible .home-hero-era img { transform: scale(1.035); filter: brightness(1.08); }
-.home-hero-era--first { transform: translateY(18px); opacity: .68; }
-.home-hero-era--second { transform: translateY(8px); opacity: .86; }
-.home-hero-era--current { transform: translateY(-4px); }
+.home-hero-era img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(var(--hero-car-scale, 1)); transform-origin: 50% 76%; transition: transform .5s ease, filter .4s ease; }
+.home-hero-evolution:hover .home-hero-era img, .home-hero-evolution:focus-visible .home-hero-era img { transform: scale(calc(var(--hero-car-scale, 1) * 1.035)); filter: brightness(1.08); }
+/* These are a true same-camera comparison, so frames and tire baselines
+   deliberately align. The 90-series source is optically smaller and is
+   normalized here without changing its aspect ratio. */
+.home-hero-era--first { --hero-car-scale: .93; opacity: .75; }
+.home-hero-era--second { opacity: .88; }
+.home-hero-era--current { --hero-car-scale: 1.18; }
 .home-hero-era-label { position: absolute; right: 8px; bottom: 7px; display: flex; align-items: baseline; gap: 4px; color: #fff; font-family: 'Inter', sans-serif; text-shadow: 0 1px 8px rgba(0,0,0,.75); }
 .home-hero-era-label span { font-size: 8px; font-weight: 500; letter-spacing: .06em; }
 .home-hero-era-label strong { display: inline-flex; align-items: baseline; font-size: 15px; font-weight: 600; letter-spacing: -.04em; }

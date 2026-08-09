@@ -22,8 +22,8 @@ const generations = [
   {
     numeral: 'I',
     era: '初代',
-    title: 'NCP81型',
-    code: 'NCP81',
+    title: 'NCP81/85系',
+    code: 'NCP81G / NCP85G',
     startYear: '2003',
     yearRange: '2003–2015',
     period: '2003年〜2015年',
@@ -37,8 +37,8 @@ const generations = [
   {
     numeral: 'II',
     era: '2代目',
-    title: 'NHP170型',
-    code: 'NHP170',
+    title: 'NSP/NHP170系',
+    code: 'NSP170G / NHP170G ほか',
     startYear: '2015',
     yearRange: '2015–2022',
     period: '2015年〜2022年',
@@ -52,8 +52,8 @@ const generations = [
   {
     numeral: 'III',
     era: '現行モデル',
-    title: 'MXPL10型',
-    code: 'MXPL10',
+    title: 'MXPL/MXPC10系',
+    code: 'MXPL10G / MXPC10G ほか',
     startYear: '2022',
     yearRange: '2022–現在',
     period: '2022年〜現在',

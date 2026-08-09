@@ -48,9 +48,12 @@ const generations = [
     era: '2代目',
     title: 'MA15S型',
     code: 'MA15S',
-    startYear: '2010',
-    yearRange: '2010–2015',
-    period: '2010年〜2015年',
+    // Announced in December 2010, but sales started on 7 January 2011.
+    // The timeline uses the actual Japanese sales start, consistently with
+    // the other vehicles on CarVista.
+    startYear: '2011',
+    yearRange: '2011–2015',
+    period: '2011年〜2015年',
     image: '/images/cars/solio/gen2-2010.webp',
     annotations: [
       { x: 25, y: 53, label: '水平基調の<wbr>クロームグリル', dir: 'bottom', labelX: 23 },

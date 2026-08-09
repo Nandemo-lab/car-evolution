@@ -47,6 +47,15 @@ body { margin: 0; background: #0b0c0e; }
 .hero-copy { position: absolute; left: 22px; right: 22px; bottom: 26px; z-index: 2; }
 .eyebrow { margin: 0; font: 500 10.5px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .55; }
 .hero-copy h1 { margin: 14px 0 0; font-family: 'Inter', sans-serif; font-size: clamp(30px, 9vw, 48px); font-weight: 600; letter-spacing: -.035em; white-space: nowrap; }
+
+/* A 2.1:1 studio master cannot be used with `cover` inside the tall
+   mobile hero without cutting off most of a car. Keep the full vehicle
+   legible on phones; the surrounding charcoal is intentional breathing
+   room for the title rather than an enlarged, cropped detail shot. */
+@media (max-width: 699px) {
+  .hero-image { object-fit: contain; object-position: 50% 25%; transform: none; }
+}
+
 .page-share { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; padding: 18px 22px; border-bottom: 1px solid rgba(255,255,255,.07); }
 .page-share p { margin: 0 6px 0 0; font: 400 11px/1 'Inter', sans-serif; letter-spacing: .04em; opacity: .48; }
 .page-share button { border: 1px solid rgba(244,243,240,.2); border-radius: 999px; background: transparent; color: inherit; padding: 8px 12px; font: 500 11px/1 'Inter', sans-serif; cursor: pointer; }

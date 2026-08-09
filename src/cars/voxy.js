@@ -59,13 +59,11 @@ const generations = [
     numeral: 'I',
     era: '初代',
     title: '60系',
-    code: 'AZR60G',
+    code: 'AZR60G / AZR65G',
     startYear: '2001',
     yearRange: '2001–2007',
     period: '2001年〜2007年',
-    // Historical source filenames were reversed: this file contains the
-    // boxier AZR60 vehicle even though its filename says 2007.
-    image: '/images/cars/voxy/gen2-2007.webp',
+    image: '/images/cars/voxy/gen1-2001.webp',
     annotations: [
       { x: 33, y: 53.1, label: '3本クロームグリル', dir: 'bottom', labelX: 33 },
       { x: 62, y: 23.4, label: '箱型シルエット', dir: 'top', labelX: 63.5 },
@@ -79,13 +77,11 @@ const generations = [
     numeral: 'II',
     era: '2代目',
     title: '70系',
-    code: 'ZRR70G',
+    code: 'ZRR70G / ZRR75G',
     startYear: '2007',
     yearRange: '2007–2014',
     period: '2007年〜2014年',
-    // This file contains the split-lamp ZRR70 vehicle. Keep the corrected
-    // assignment unless the underlying assets themselves are renamed.
-    image: '/images/cars/voxy/gen1-2001.webp',
+    image: '/images/cars/voxy/gen2-2007.webp',
     annotations: [
       { x: 29.5, y: 50.1, label: '大型クローム<wbr>エンブレム', dir: 'bottom', labelX: 21.9 },
       { x: 34, y: 53.9, label: 'ハニカムメッシュ<wbr>グリル', dir: 'bottom', labelX: 46.2 },
@@ -100,7 +96,7 @@ const generations = [
     numeral: 'III',
     era: '3代目',
     title: '80系',
-    code: 'ZRR80G',
+    code: 'ZRR80G / ZRR85G / ZWR80G',
     startYear: '2014',
     yearRange: '2014–2021',
     period: '2014年〜2021年',
@@ -118,7 +114,7 @@ const generations = [
     numeral: 'IV',
     era: '現行モデル',
     title: '90系',
-    code: '6AA-ZWR90W',
+    code: 'MZRA90W / ZWR90W ほか',
     startYear: '2022',
     yearRange: '2022–現在',
     period: '2022年〜現在',

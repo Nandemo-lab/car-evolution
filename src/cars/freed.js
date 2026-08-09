@@ -18,8 +18,8 @@ const generations = [
   {
     numeral: 'I',
     era: '初代',
-    title: 'GB3型',
-    code: 'DBA-GB3',
+    title: 'GB3/4・GP3型',
+    code: 'GB3 / GB4 / GP3',
     startYear: '2008',
     yearRange: '2008–2016',
     period: '2008年〜2016年',
@@ -40,8 +40,8 @@ const generations = [
   {
     numeral: 'II',
     era: '2代目',
-    title: 'GB5型',
-    code: 'DBA-GB5',
+    title: 'GB5-8型',
+    code: 'GB5 / GB6 / GB7 / GB8',
     startYear: '2016',
     yearRange: '2016–2024',
     period: '2016年〜2024年',
@@ -62,8 +62,8 @@ const generations = [
   {
     numeral: 'III',
     era: '現行モデル',
-    title: 'GT5型',
-    code: '6AA-GT5',
+    title: 'GT1-4型',
+    code: 'GT1 / GT2 / GT3 / GT4',
     startYear: '2024',
     yearRange: '2024–現在',
     period: '2024年〜現在',

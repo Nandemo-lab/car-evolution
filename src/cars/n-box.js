@@ -121,6 +121,10 @@ export default {
   referenceLengthMm: 3395,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/n-box/hero-jf5-3q.webp',
+  // User-supplied TOP composition (2026-08-07): low, front-emphasised
+  // three-quarter view used only on discovery cards. The vehicle page Hero
+  // and same-condition generation images remain unchanged.
+  homeCardImage: '/images/cars/n-box/home-card.webp',
   seo: {
     title: 'N-BOX 歴代モデル一覧 — CarVista',
     description: 'ホンダ N-BOXの初代から現行3代目までを画像で比較。軽スーパーハイトワゴンとしてのデザインの進化が一目でわかる。',
