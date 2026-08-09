@@ -13,6 +13,11 @@ const pages = {
     intro: '同じ時代を走った3台を、CarVistaの統一された視点で並べました。まずは表情の違いから見てみてください。',
     guideNote: '3台は近い時代・近いクラスに位置するため、ここではスペックではなくフロントマスクがつくる印象の違いに注目します。',
     cars: [voxy, noah, esquire],
+    reading: [
+      { heading: '3台は「兄弟車」でも、見せたい印象が違う', text: 'VOXY・NOAH・ESQUIREは、同じ時代のミニバンとして近い基本構成を共有していました。そのため、ここでは大きさや装備の優劣ではなく、まず顔つきが生む印象に絞って見比べます。グリルの形、ライトのつながり方、クロームの量を見ると、各モデルがどんな存在感を目指したかを追いやすくなります。' },
+      { heading: 'VOXYは、動きのある表情を選びたい人へ', text: 'VOXYは、シャープなライトと前に出るフロントマスクが特徴です。ミニバンらしい実用性を保ちながらも、停車中に少し低く、速く見える表情をつくっています。歴代モデルを見るときは、ライトの輪郭とグリルの主張の変化を追うと、VOXYらしい方向性がわかります。' },
+      { heading: 'NOAHとESQUIREは、落ち着きと上質感で分かれる', text: 'NOAHは水平基調のまとまりによって、端正で安心感のある表情をつくります。ESQUIREはクロームの使い方を強め、同じサイズのボディによりフォーマルな印象を与えます。購入前の比較では、ボディカラーやグレードだけでなく、普段どんな場面でこの顔つきを見るかを想像すると選びやすくなります。' },
+    ],
     notes: {
       VOXY: 'シャープでダイナミック。フロント全体に強い張りを感じる表情。',
       NOAH: '横方向の落ち着きが中心。端正で安定感のある表情。',
@@ -25,6 +30,10 @@ const pages = {
     intro: '同じ世代の2台を並べると、フロントマスクが目指す個性の差が見えてきます。',
     guideNote: 'ここでは、CarVistaが各モデルの代表的な仕様として掲載している画像をもとに、デザイン上の印象を比較しています。',
     cars: [alphard, vellfire],
+    reading: [
+      { heading: '共通の土台に、異なるキャラクターを与えた2台', text: 'AlphardとVellfireは、基本となるボディの存在感を共有しながら、フロントマスクで受ける印象を明確に分けています。CarVistaでは、同じ角度・同じ条件のビジュアルにそろえることで、サイズ感ではなく、ライト、グリル、バンパーの構成による違いを見やすくしています。' },
+      { heading: 'Alphardは威厳、Vellfireは前に出る個性', text: 'Alphardは大きな面と整った線によって、落ち着きと威厳を感じさせる方向です。一方のVellfireは、より大胆な造形と鋭い要素で、強い個性を前に出します。どちらが上という比較ではなく、乗る人が求める見られ方に合わせて選ぶ2台だと考えると、その違いがつかみやすくなります。' },
+    ],
     notes: {
       Alphard: '存在感と威厳を軸にした、落ち着きのあるフロントマスク。',
       Vellfire: 'より大胆でアグレッシブ。個性を前に出したフロントマスク。',
@@ -70,6 +79,14 @@ document.querySelector('#comparison-page').innerHTML = `
   <section class="comparison-grid" aria-label="比較一覧">${cards}</section>
   ${page.guideNote ? `<section class="comparison-guide-note" aria-label="比較の基準"><p>${page.guideNote}</p></section>` : ''}
   <a class="comparison-more" href="/#all-cars">ほかの車種の進化を見る</a>`
+
+if (page.reading) {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+    <section class="comparison-reading" aria-label="デザインの読み解き">
+      <p class="comparison-eyebrow">DESIGN NOTES</p><h2>見比べるポイント</h2>
+      ${page.reading.map((item) => `<article><h3>${item.heading}</h3><p>${item.text}</p></article>`).join('')}
+    </section>`)
+}
 
 async function copyUrl(button, message) {
   await navigator.clipboard.writeText(location.href)
