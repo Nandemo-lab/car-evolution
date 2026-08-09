@@ -150,7 +150,7 @@ function buildHomeJsonLd(cars) {
 function buildHomeTags(cars) {
   const url = `${SITE_ORIGIN}/`
   const title = `${SITE_NAME} — クルマの進化が、見てわかる。`
-  const description = '同じ視点・同じ条件で、歴代モデルの進化を比較できるビジュアルカタログ。VOXY・アルファードなど、デザインの変遷を写真で辿る。'
+  const description = '同じ視点・同じ条件で、歴代モデルの進化を比較できるビジュアル図鑑。VOXY・アルファードなど、デザインの変遷を独自制作のビジュアルで辿る。'
   const image = cars[0] ? `${SITE_ORIGIN}${cars[0].heroImage}` : ''
   const jsonLd = buildHomeJsonLd(cars)
 
@@ -181,6 +181,7 @@ function buildEditorialPolicyTags() {
   const url = `${SITE_ORIGIN}/editorial-policy.html`
   const title = `制作方針・免責事項 — ${SITE_NAME}`
   const description = `${SITE_NAME}が参考にしている情報源、自動車メーカーとの関係、画像の制作方針についてまとめています。`
+  const image = `${SITE_ORIGIN}/images/cars/voxy/hero-gen4-3q.webp`
   const meta = (attrs) => ({ tag: 'meta', attrs, injectTo: 'head' })
   return [
     { tag: 'title', children: title, injectTo: 'head' },
@@ -191,9 +192,11 @@ function buildEditorialPolicyTags() {
     meta({ property: 'og:title', content: title }),
     meta({ property: 'og:description', content: description }),
     meta({ property: 'og:url', content: url }),
-    meta({ name: 'twitter:card', content: 'summary' }),
+    meta({ property: 'og:image', content: image }),
+    meta({ name: 'twitter:card', content: 'summary_large_image' }),
     meta({ name: 'twitter:title', content: title }),
     meta({ name: 'twitter:description', content: description }),
+    meta({ name: 'twitter:image', content: image }),
   ]
 }
 
