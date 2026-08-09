@@ -13,6 +13,11 @@ const pages = {
     intro: '同じ時代を走った3台を、CarVistaの統一された視点で並べました。まずは表情の違いから見てみてください。',
     guideNote: '3台は近い時代・近いクラスに位置するため、ここではスペックではなくフロントマスクがつくる印象の違いに注目します。',
     cars: [voxy, noah, esquire],
+    images: {
+      VOXY: { standard: '/images/cars/voxy/compare-standard-v1.png' },
+      NOAH: { standard: '/images/cars/noah/compare-standard-v1.png' },
+      ESQUIRE: { standard: '/images/cars/esquire/compare-standard-v1.png' },
+    },
     reading: [
       { heading: '3台は「兄弟車」でも、見せたい印象が違う', text: 'VOXY・NOAH・ESQUIREは、同じ時代のミニバンとして近い基本構成を共有していました。そのため、ここでは大きさや装備の優劣ではなく、まず顔つきが生む印象に絞って見比べます。グリルの形、ライトのつながり方、クロームの量を見ると、各モデルがどんな存在感を目指したかを追いやすくなります。' },
       { heading: 'VOXYは、動きのある表情を選びたい人へ', text: 'VOXYは、シャープなライトと前に出るフロントマスクが特徴です。ミニバンらしい実用性を保ちながらも、停車中に少し低く、速く見える表情をつくっています。歴代モデルを見るときは、ライトの輪郭とグリルの主張の変化を追うと、VOXYらしい方向性がわかります。' },
