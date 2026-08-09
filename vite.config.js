@@ -16,29 +16,53 @@ const SITE_ORIGIN = 'https://carvista.jp'
 
 const COMPARISON_PAGES = {
   'compare-noah-serena-stepwgn.html': {
+    name: 'NOAH・SERENA・STEP WGNの違い',
     title: 'NOAH・SERENA・STEP WGNの違い | CarVista',
     description: 'NOAH、SERENA、STEP WGNを同じ視点で比較。Mクラスミニバン3台のフロントマスクとキャラクターの違いを見比べます。',
     image: '/images/og/noah-serena-stepwgn.webp',
+    models: [
+      { name: 'トヨタ NOAH', url: '/cars/noah.html' },
+      { name: '日産 SERENA', url: '/cars/serena.html' },
+      { name: 'ホンダ STEP WGN', url: '/cars/stepwgn.html' },
+    ],
   },
   'compare-voxy-noah.html': {
+    name: 'VOXY・NOAHの違い',
     title: 'VOXY・NOAHの違い | CarVista',
     description: 'VOXYとNOAHを同じ視点で比較。兄弟車2台のフロントマスクとデザインの違いを見比べます。',
     image: '/images/og/voxy-noah.webp',
+    models: [
+      { name: 'トヨタ VOXY', url: '/cars/voxy.html' },
+      { name: 'トヨタ NOAH', url: '/cars/noah.html' },
+    ],
   },
   'compare-voxy-noah-esquire.html': {
+    name: 'VOXY・NOAH・ESQUIREを見比べる',
     title: 'VOXY・NOAH・ESQUIREを見比べる | CarVista',
     description: 'VOXY、NOAH、ESQUIREを同じ視点で比較。フロントマスクと世代の違いを見比べます。',
     image: '/images/og/voxy-noah-esquire.png',
+    models: [
+      { name: 'トヨタ VOXY', url: '/cars/voxy.html' },
+      { name: 'トヨタ NOAH', url: '/cars/noah.html' },
+      { name: 'トヨタ ESQUIRE', url: '/cars/esquire.html' },
+    ],
   },
   'voxy-70-80-90.html': {
+    name: 'VOXY 70・80・90系の見分け方',
     title: 'VOXY 70・80・90系の見分け方 | CarVista',
     description: 'VOXYの70系・80系・90系を画像で比較。年式の目安とフロントマスクの違いが一目でわかります。',
     image: '/images/og/voxy-generations.png',
+    models: [{ name: 'トヨタ VOXY', url: '/cars/voxy.html' }],
   },
   'compare-alphard-vellfire.html': {
+    name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',
     description: 'AlphardとVellfireを同じ視点で比較。2台のフロントマスクがつくるデザイン上の違いを見比べます。',
     image: '/images/og/alphard-vellfire.png',
+    models: [
+      { name: 'トヨタ Alphard', url: '/cars/alphard.html' },
+      { name: 'トヨタ Vellfire', url: '/cars/vellfire.html' },
+    ],
   },
 }
 
@@ -200,9 +224,43 @@ function buildEditorialPolicyTags() {
   ]
 }
 
+function buildComparisonJsonLd(comparison, url) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: comparison.name,
+    description: comparison.description,
+    url,
+    image: `${SITE_ORIGIN}${comparison.image}`,
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: `${SITE_ORIGIN}/` },
+    mainEntity: {
+      '@type': 'ItemList',
+      name: `${comparison.name}の比較対象`,
+      itemListElement: comparison.models.map((model, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: { '@type': 'Car', name: model.name, url: `${SITE_ORIGIN}${model.url}` },
+      })),
+    },
+  }
+}
+
+function buildComparisonBreadcrumbJsonLd(comparison, url) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: SITE_NAME, item: `${SITE_ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name: comparison.name, item: url },
+    ],
+  }
+}
+
 function buildComparisonTags(filename) {
   const comparison = COMPARISON_PAGES[filename]
   const url = `${SITE_ORIGIN}/${filename}`
+  const jsonLd = buildComparisonJsonLd(comparison, url)
+  const breadcrumbJsonLd = buildComparisonBreadcrumbJsonLd(comparison, url)
   const meta = (attrs) => ({ tag: 'meta', attrs, injectTo: 'head' })
   return [
     { tag: 'title', children: comparison.title, injectTo: 'head' },
@@ -216,6 +274,8 @@ function buildComparisonTags(filename) {
     meta({ property: 'og:image', content: `${SITE_ORIGIN}${comparison.image}` }),
     meta({ name: 'twitter:card', content: 'summary_large_image' }),
     meta({ name: 'twitter:image', content: `${SITE_ORIGIN}${comparison.image}` }),
+    { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(jsonLd), injectTo: 'head' },
+    { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(breadcrumbJsonLd), injectTo: 'head' },
   ]
 }
 
