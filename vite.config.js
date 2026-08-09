@@ -229,17 +229,33 @@ function seoInjectPlugin() {
     name: 'car-evolution-seo-inject',
     async transformIndexHtml(html, ctx) {
       const filename = ctx.filename.split(/[\\/]/).pop()
+      // AdSense uses this single verification script to establish that
+      // CarVista controls every published page. It loads no visible ad
+      // placements by itself; those remain deliberately absent until a
+      // later, user-approved monetization decision.
+      const withAdSenseVerification = (tags) => [
+        ...tags,
+        {
+          tag: 'script',
+          attrs: {
+            async: true,
+            src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-79074331904833321',
+            crossorigin: 'anonymous',
+          },
+          injectTo: 'head',
+        },
+      ]
 
       if (filename === 'index.html') {
-        return { html, tags: buildHomeTags(await loadAllCars()) }
+        return { html, tags: withAdSenseVerification(buildHomeTags(await loadAllCars())) }
       }
 
       if (filename === 'editorial-policy.html') {
-        return { html, tags: buildEditorialPolicyTags() }
+        return { html, tags: withAdSenseVerification(buildEditorialPolicyTags()) }
       }
 
       if (COMPARISON_PAGES[filename]) {
-        return { html, tags: buildComparisonTags(filename) }
+        return { html, tags: withAdSenseVerification(buildComparisonTags(filename)) }
       }
 
       const slug = filename.replace(/\.html$/, '')
@@ -279,7 +295,7 @@ function seoInjectPlugin() {
         { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(jsonLd), injectTo: 'head' },
         { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(breadcrumbJsonLd), injectTo: 'head' },
       ]
-      return { html, tags }
+      return { html, tags: withAdSenseVerification(tags) }
     },
   }
 }
