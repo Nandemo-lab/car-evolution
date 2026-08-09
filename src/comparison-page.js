@@ -7,6 +7,26 @@ import vellfire from './cars/vellfire.js'
 import { trackEvent } from './analytics.js'
 
 const pages = {
+  'voxy-noah': {
+    eyebrow: 'SIDE BY SIDE',
+    title: 'VOXY・NOAHの違い',
+    intro: '共通する実用性の中で、2台のフロントマスクは異なる印象を目指しています。並べて見ると、その選び分けが見えてきます。',
+    guideNote: 'ここでは、現行モデルの代表的な仕様を同じ視点・同じ条件で並べ、デザインがつくる印象に注目して比較します。',
+    cars: [voxy, noah],
+    images: {
+      VOXY: { standard: '/images/cars/voxy/compare-standard-v1.png' },
+      NOAH: { standard: '/images/cars/noah/compare-standard-v1.png' },
+    },
+    reading: [
+      { heading: '共通の基本構成に、異なる顔つきを与えた2台', text: 'VOXYとNOAHは近い基本構成を共有する兄弟車です。そのため、まず注目したいのはフロントマスクのつくり方です。ライト、グリル、バンパーの線を同じ角度で見比べると、似ている部分と、見せたい印象を分ける部分が読み取りやすくなります。' },
+      { heading: 'VOXYは、シャープさと動きのある表情', text: 'VOXYは、ライトの輪郭と前に出るフロントマスクによって、低く、引き締まった印象をつくっています。ミニバンとしての実用性を保ちながらも、停車中に少し動きを感じさせる表情を求める人に向く方向です。' },
+      { heading: 'NOAHは、端正で安定感のある表情', text: 'NOAHは、横方向にまとまった線と落ち着いた面構成で、端正で安定感のある表情をつくっています。家族で使う場面を思い浮かべながら、強い主張よりも整った印象を選びたい人には、その違いが判断の手がかりになります。' },
+    ],
+    notes: {
+      VOXY: 'シャープでダイナミック。前に出る表情。',
+      NOAH: '端正で安定感のある、水平基調の表情。',
+    },
+  },
   'voxy-noah-esquire': {
     eyebrow: 'SIDE BY SIDE',
     title: 'VOXY・NOAH・ESQUIREを見比べる',
@@ -51,18 +71,6 @@ const pages = {
       Alphard: '存在感と威厳を軸にした、落ち着きのあるフロントマスク。',
       Vellfire: 'より大胆でアグレッシブ。個性を前に出したフロントマスク。',
     },
-  },
-  'voxy-generations': {
-    eyebrow: 'EVOLUTION GUIDE',
-    title: '歴代VOXYの見分け方',
-    intro: '世代ごとのフロントマスクとプロポーションを並べて、VOXYの変化をたどります。',
-    cars: [voxy],
-  },
-  'alphard-generations': {
-    eyebrow: 'EVOLUTION GUIDE',
-    title: '歴代Alphardを見比べる',
-    intro: '4世代のAlphardを同じ視点で比較。世代ごとの存在感の変化を見てください。',
-    cars: [alphard],
   },
 }
 

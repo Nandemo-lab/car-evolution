@@ -15,20 +15,15 @@ const SITE_NAME = 'CarVista'
 const SITE_ORIGIN = 'https://carvista.jp'
 
 const COMPARISON_PAGES = {
+  'compare-voxy-noah.html': {
+    title: 'VOXY・NOAHの違い | CarVista',
+    description: 'VOXYとNOAHを同じ視点で比較。兄弟車2台のフロントマスクとデザインの違いを見比べます。',
+    image: '/images/og/voxy-noah-esquire.png',
+  },
   'compare-voxy-noah-esquire.html': {
     title: 'VOXY・NOAH・ESQUIREを見比べる | CarVista',
     description: 'VOXY、NOAH、ESQUIREを同じ視点で比較。フロントマスクと世代の違いを見比べます。',
     image: '/images/og/voxy-noah-esquire.png',
-  },
-  'voxy-generations.html': {
-    title: '歴代VOXYの見分け方 | CarVista',
-    description: '歴代VOXYを同じ視点で比較。世代ごとのフロントマスクとプロポーションの変化を見比べます。',
-    image: '/images/og/voxy-generations.png',
-  },
-  'alphard-generations.html': {
-    title: '歴代Alphardを見比べる | CarVista',
-    description: '歴代Alphardを同じ視点で比較。4世代のデザインの変化を見比べます。',
-    image: '/images/og/alphard-generations.png',
   },
   'voxy-70-80-90.html': {
     title: 'VOXY 70・80・90系の見分け方 | CarVista',
