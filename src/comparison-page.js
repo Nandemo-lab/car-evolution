@@ -31,6 +31,10 @@ const pages = {
       SERENA: '横線と立体感で、堂々とした存在感をつくる表情。',
       STEPWGN: '四角く整った輪郭を活かした、すっきりした表情。',
     },
+    related: [
+      { href: '/compare-voxy-noah.html', label: 'VOXYとNOAHの違い', description: '兄弟車のフロントマスクを、同じ条件で見る。' },
+      { href: '/voxy-70-80-90.html', label: 'VOXY 70・80・90系の見分け方', description: '中古車写真で世代を見分けるポイントを確認する。' },
+    ],
   },
   'voxy-noah': {
     eyebrow: 'SIDE BY SIDE',
@@ -51,6 +55,10 @@ const pages = {
       VOXY: 'シャープでダイナミック。前に出る表情。',
       NOAH: '端正で安定感のある、水平基調の表情。',
     },
+    related: [
+      { href: '/compare-noah-serena-stepwgn.html', label: 'NOAH・SERENA・STEP WGNの違い', description: 'Mクラスミニバン3台の個性を並べて見る。' },
+      { href: '/voxy-70-80-90.html', label: 'VOXY 70・80・90系の見分け方', description: '中古車写真で世代を見分けるポイントを確認する。' },
+    ],
   },
   'voxy-noah-esquire': {
     eyebrow: 'SIDE BY SIDE',
@@ -143,6 +151,11 @@ if (page.focus) {
     </section>`)
 }
 
+if (page.related) {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+    <section class="comparison-next" aria-label="次に見比べる"><p class="comparison-eyebrow">KEEP EXPLORING</p><h2>次に見比べる</h2><div class="comparison-next-grid">${page.related.map((item) => `<a href="${item.href}" data-related-link><strong>${item.label}</strong><span>${item.description}</span><b>見る →</b></a>`).join('')}</div></section>`)
+}
+
 async function copyUrl(button, message) {
   await navigator.clipboard.writeText(location.href)
   button.textContent = message
@@ -157,4 +170,8 @@ document.querySelector('.share-button').addEventListener('click', async (event) 
 document.querySelector('.copy-button').addEventListener('click', (event) => {
   trackEvent('copy_comparison_url', { comparison: slug })
   return copyUrl(event.currentTarget, 'コピーしました')
+})
+
+document.querySelectorAll('[data-related-link]').forEach((link) => {
+  link.addEventListener('click', () => trackEvent('open_related_comparison', { comparison: slug, destination: link.getAttribute('href') }))
 })

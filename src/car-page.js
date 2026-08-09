@@ -601,7 +601,7 @@ function initCompare(generations, vehicleName) {
   // done.
   const hintLabel = document.createElement('span')
   hintLabel.className = 'compare-hint'
-  hintLabel.textContent = 'Drag to Compare'
+  hintLabel.textContent = '左右にドラッグして比較'
   hintLabel.setAttribute('aria-hidden', 'true')
   stage.appendChild(hintLabel)
   function dismissHint() { hintLabel.classList.add('is-dismissed') }
