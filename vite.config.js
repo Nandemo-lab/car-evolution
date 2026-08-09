@@ -242,7 +242,7 @@ function seoInjectPlugin() {
           tag: 'meta',
           attrs: {
             name: 'google-adsense-account',
-            content: 'ca-pub-79074331904833321',
+            content: 'ca-pub-7907331904833321',
           },
           injectTo: 'head',
         },
@@ -250,7 +250,7 @@ function seoInjectPlugin() {
           tag: 'script',
           attrs: {
             async: true,
-            src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-79074331904833321',
+            src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907331904833321',
             crossorigin: 'anonymous',
           },
           injectTo: 'head',
