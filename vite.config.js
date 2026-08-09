@@ -235,6 +235,17 @@ function seoInjectPlugin() {
       // later, user-approved monetization decision.
       const withAdSenseVerification = (tags) => [
         ...tags,
+        // The meta tag is an additional ownership signal recommended by
+        // AdSense for site verification. Keeping it alongside the script
+        // makes verification resilient while still creating no ad slots.
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'google-adsense-account',
+            content: 'ca-pub-79074331904833321',
+          },
+          injectTo: 'head',
+        },
         {
           tag: 'script',
           attrs: {
