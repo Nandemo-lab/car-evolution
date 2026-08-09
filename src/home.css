@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
 
 /* CarVista -- Home page styles ------------------------------------
-   The brand's entry point, not a vehicle page: no product photo in the
-   hero (that also keeps the hero's LCP path trivially fast -- text and
-   a gradient only). Photography starts at All Cars, one scroll below --
-   the page's one and only listing (see home.js). Same dark palette and
-   two-family type system as car-page.css, duplicated here rather than
-   shared, since this page never loads car-page.css's bundle (compare
-   slider, timeline, etc. -- none of it applies here). */
+   The entry point makes the product visible immediately: one real,
+   consistently framed three-generation example beside the brand story.
+   Same dark palette and two-family type system as car-page.css. */
 :root { color: #f4f3f0; background: #0b0c0e; font-family: 'Noto Sans JP', 'Inter', sans-serif; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #0b0c0e; }
@@ -25,25 +21,15 @@ body { margin: 0; background: #0b0c0e; }
   margin: 0 0 14px; font: 500 10.5px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .55;
 }
 
-/* Hero -- centered brand statement. No photo: the gradient carries the
-   atmosphere, the wordmark and tagline carry the meaning. */
+/* Hero -- brand statement and a real, consistently framed evolution. */
 .home-hero {
   position: relative;
-  /* calc() rather than a vh percentage -- guarantees a fixed ~64px peek
-     of All Cars at the bottom of the viewport on first load, regardless
-     of device height, instead of a peek that only appears on tall
-     screens and vanishes on short ones. Tuned to surface the "ALL CARS"
-     label only, not a card photo itself -- an earlier version (from
-     when Featured Cars, since removed, sat directly below Hero) found
-     that a 110px peek pulled a card's image into the initial viewport,
-     making it LCP-eligible and undoing the hero's fast, photo-free LCP
-     path (dropped Performance from 97 to 86 in testing). Text-only peek
-     keeps both the "there's more" cue and the score -- still true now
-     that All Cars (smaller thumbnails, more vertical margin before its
-     own grid starts) is the section directly below. */
-  min-height: calc(100vh - 64px);
+  /* A capped desktop height keeps the next action visible on tall screens;
+     shorter viewports remain viewport-led. The next section begins with a
+     text heading, so the first scroll cue never competes with card imagery. */
+  min-height: min(650px, calc(100vh - 64px));
   display: flex; align-items: center; justify-content: center;
-  padding: 100px 22px 80px;
+  padding: 88px 22px 72px;
   background: radial-gradient(ellipse 90% 60% at 50% 38%, #17181b 0%, #0d0e10 62%, #0b0c0e 100%);
   overflow: hidden;
 }
@@ -87,10 +73,12 @@ body { margin: 0; background: #0b0c0e; }
 .home-hero-motif span:nth-child(1) { font-size: clamp(28px, 4.3vw, 52px); color: rgba(244, 243, 240, .022); }
 .home-hero-motif span:nth-child(2) { font-size: clamp(31px, 4.7vw, 59px); color: rgba(244, 243, 240, .027); }
 .home-hero-motif span:nth-child(3) { font-size: clamp(33px, 5.1vw, 65px); color: rgba(244, 243, 240, .031); }
-/* Nudged down from dead-center within the hero box -- purely a breathing-
-   room adjustment (the hero's min-height/flex-centering is unchanged),
-   requested to loosen the page's overall vertical rhythm at the very top. */
-.home-hero-copy { position: relative; z-index: 1; max-width: 560px; text-align: center; margin-top: 26px; }
+.home-hero-layout {
+  position: relative; z-index: 1; width: min(100%, 1080px);
+  display: grid; grid-template-columns: minmax(0, .8fr) minmax(500px, 1.2fr);
+  align-items: center; gap: clamp(38px, 6vw, 76px);
+}
+.home-hero-copy { max-width: 460px; text-align: left; }
 .home-eyebrow { margin: 0 0 18px; font: 500 11px/1 'Inter', sans-serif; letter-spacing: .28em; opacity: .5; }
 /* Sits directly above "CarVista" (the H1) -- without this, the same
    word reads twice in a row as if repeating itself. Shrunk further and
@@ -99,7 +87,7 @@ body { margin: 0; background: #0b0c0e; }
 .home-eyebrow--mark { font-size: 9.5px; letter-spacing: .34em; opacity: .38; margin-bottom: 12px; }
 .home-hero-title {
   margin: 0; font-family: 'Inter', sans-serif; font-weight: 600;
-  font-size: clamp(37px, 9.2vw, 56px); letter-spacing: -.03em; line-height: 1.08;
+  font-size: clamp(37px, 9.2vw, 60px); letter-spacing: -.035em; line-height: 1.05;
 }
 .home-hero-tagline {
   margin: 18px 0 0; font-weight: 500; font-size: clamp(19px, 4.6vw, 25px);
@@ -110,19 +98,50 @@ body { margin: 0; background: #0b0c0e; }
   white-space: nowrap;
 }
 .home-hero-desc {
-  margin: 18px auto 0; max-width: 420px; font-weight: 300; font-size: 14.5px;
+  margin: 18px 0 0; max-width: 420px; font-weight: 300; font-size: 14.5px;
   line-height: 1.85; opacity: .76; letter-spacing: .01em;
 }
 .home-hero-desc .line { white-space: nowrap; }
 .home-cta {
-  display: inline-flex; align-items: center; gap: 8px; margin-top: 40px;
+  display: inline-flex; align-items: center; gap: 9px; margin-top: 38px; padding: 12px 15px;
   color: inherit; text-decoration: none; cursor: pointer;
-  font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 500; letter-spacing: .12em;
-  opacity: .8; transition: opacity .3s;
+  border: 1px solid rgba(255,255,255,.2); border-radius: 999px;
+  background: rgba(255,255,255,.035);
+  font-family: 'Noto Sans JP', 'Inter', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: .08em;
+  opacity: .86; transition: opacity .3s, background .3s, border-color .3s, transform .3s;
 }
-.home-cta:hover, .home-cta:focus-visible { opacity: 1; }
+.home-cta:hover, .home-cta:focus-visible { opacity: 1; border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.1); transform: translateY(-1px); }
 .home-cta-arrow { display: inline-block; font-size: 13px; transform: translateY(1px); animation: cta-bob 2.2s ease-in-out infinite; }
 @keyframes cta-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+/* A concrete example of the product, not a decorative collage. The same
+   framing makes the idea legible before the visitor has read the copy. */
+.home-hero-evolution {
+  display: block; min-width: 0; color: inherit; text-decoration: none;
+  padding: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.018));
+  box-shadow: 0 24px 70px rgba(0,0,0,.26);
+  transition: border-color .3s ease, background .3s ease, transform .3s ease;
+}
+.home-hero-evolution:hover, .home-hero-evolution:focus-visible {
+  border-color: rgba(255,255,255,.25); background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.025)); transform: translateY(-3px);
+}
+.home-hero-evolution-head { display: flex; justify-content: space-between; align-items: center; margin: 2px 2px 14px; font: 500 9px/1 'Inter', sans-serif; letter-spacing: .17em; opacity: .68; }
+.home-hero-evolution-head span:last-child { font-size: 10px; font-weight: 600; letter-spacing: .1em; opacity: .9; }
+.home-hero-evolution-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; align-items: end; }
+.home-hero-era { position: relative; display: block; overflow: hidden; aspect-ratio: 1.55 / 1; border-radius: 9px; background: #0a0b0d; box-shadow: 0 0 0 1px rgba(255,255,255,.07); }
+.home-hero-era img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease, filter .4s ease; }
+.home-hero-evolution:hover .home-hero-era img, .home-hero-evolution:focus-visible .home-hero-era img { transform: scale(1.035); filter: brightness(1.08); }
+.home-hero-era--first { transform: translateY(18px); opacity: .68; }
+.home-hero-era--second { transform: translateY(8px); opacity: .86; }
+.home-hero-era--current { transform: translateY(-4px); }
+.home-hero-era-label { position: absolute; right: 8px; bottom: 7px; display: flex; align-items: baseline; gap: 4px; color: #fff; font-family: 'Inter', sans-serif; text-shadow: 0 1px 8px rgba(0,0,0,.75); }
+.home-hero-era-label span { font-size: 8px; font-weight: 500; letter-spacing: .06em; }
+.home-hero-era-label strong { display: inline-flex; align-items: baseline; font-size: 15px; font-weight: 600; letter-spacing: -.04em; }
+.home-hero-era-label em { margin-left: 1px; font-family: 'Noto Sans JP', sans-serif; font-size: 9px; font-style: normal; letter-spacing: 0; }
+.home-hero-evolution-caption { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 29px 2px 1px; font: 400 10px/1.35 'Noto Sans JP', 'Inter', sans-serif; letter-spacing: .025em; opacity: .75; }
+.home-hero-evolution-caption strong { color: #f4f3f0; font-weight: 500; white-space: nowrap; }
+.home-hero-evolution-caption b { font-size: 14px; font-weight: 400; }
 
 /* All Cars -- the page's one and only listing (Featured Cars, a
    curated photo-card spotlight above this section, was removed
@@ -247,8 +266,21 @@ body { margin: 0; background: #0b0c0e; }
 .policy-page-link { display: inline-block; margin-top: 10px; color: rgba(244, 243, 240, .75); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
 .policy-page-link:hover, .policy-page-link:focus-visible { color: #f4f3f0; }
 
+@media (max-width: 699px) {
+  .home-hero { min-height: auto; padding: 74px 22px 56px; }
+  .home-hero-layout { grid-template-columns: 1fr; gap: 34px; }
+  .home-hero-copy { max-width: 100%; text-align: center; }
+  .home-hero-desc { margin-left: auto; margin-right: auto; }
+  .home-cta { margin-top: 30px; }
+  .home-hero-evolution { padding: 11px; border-radius: 15px; }
+  .home-hero-evolution-head { margin-bottom: 10px; }
+  .home-hero-era { border-radius: 7px; }
+  .home-hero-era--first, .home-hero-era--second, .home-hero-era--current { transform: none; opacity: 1; }
+  .home-hero-evolution-caption { margin-top: 11px; gap: 8px; font-size: 9.5px; }
+}
+
 @media (min-width: 700px) {
-  .home-hero-copy, .all-cars, .comparison-links, .about, .policy { padding-left: 8vw; padding-right: 8vw; }
+  .all-cars, .comparison-links, .about, .policy { padding-left: 8vw; padding-right: 8vw; }
   .maker-cars { grid-template-columns: repeat(4, 1fr); }
 }
 

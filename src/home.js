@@ -117,6 +117,10 @@ function initHeroCta() {
 }
 
 function initGrowthEvents() {
+  document.querySelector('.home-hero-evolution')?.addEventListener('click', () => {
+    trackEvent('open_hero_example', { vehicle: 'VOXY' })
+  })
+
   document.getElementById('maker-groups').addEventListener('click', (event) => {
     const card = event.target.closest('.mini-card')
     if (!card || !card.href) return
