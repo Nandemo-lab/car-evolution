@@ -1,12 +1,37 @@
 import './comparison-page.css'
 import voxy from './cars/voxy.js'
 import noah from './cars/noah.js'
+import serena from './cars/serena.js'
+import stepwgn from './cars/stepwgn.js'
 import esquire from './cars/esquire.js'
 import alphard from './cars/alphard.js'
 import vellfire from './cars/vellfire.js'
 import { trackEvent } from './analytics.js'
 
 const pages = {
+  'noah-serena-stepwgn': {
+    eyebrow: 'SIDE BY SIDE',
+    title: 'NOAH・SERENA・STEP WGNの違い',
+    intro: '家族で使うMクラスミニバンの3台を、同じ視点で並べました。フロントマスクから、それぞれが目指すキャラクターを見比べます。',
+    guideNote: 'ここでは、現行モデルの代表的な仕様を同一条件で比較しています。装備や価格ではなく、まずデザインがつくる印象に注目してください。',
+    cars: [noah, serena, stepwgn],
+    images: {
+      NOAH: { standard: '/images/comparisons/noah-serena-stepwgn-noah-v1.png' },
+      SERENA: { standard: '/images/comparisons/noah-serena-stepwgn-serena-v1.png' },
+      STEPWGN: { standard: '/images/comparisons/noah-serena-stepwgn-stepwgn-v1.png' },
+    },
+    reading: [
+      { heading: '同じクラスでも、まず顔つきの考え方が違う', text: 'NOAH、SERENA、STEP WGNは、いずれも家族で使うミニバンとして検討されやすい3台です。並べて見ると、似た背の高いボディでありながら、ライト、グリル、バンパーの組み立て方がそれぞれ異なることがわかります。' },
+      { heading: 'NOAHは、端正で安定感のある表情', text: 'NOAHは横方向に整えた線と落ち着いた面構成で、端正で安定感のある印象をつくっています。強い主張よりも、家族で長く付き合いやすい穏やかな表情を選びたい人に向く方向です。' },
+      { heading: 'SERENAは、存在感を前に出す表情', text: 'SERENAはグリルの横線とフロントの立体感によって、正面から見たときの存在感を強めています。ミニバンらしい堂々とした印象を求める人は、フロント全体の厚みと明暗のつき方に注目すると選びやすくなります。' },
+      { heading: 'STEP WGNは、道具としての素直さを感じる表情', text: 'STEP WGNは、四角く整った輪郭とシンプルなフロントマスクで、すっきりとした印象をつくっています。装飾を重ねるより、見通しのよさや日常になじむ雰囲気を大切にしたい人に合う方向です。' },
+    ],
+    notes: {
+      NOAH: '端正で安定感のある、水平基調の表情。',
+      SERENA: '横線と立体感で、堂々とした存在感をつくる表情。',
+      STEPWGN: '四角く整った輪郭を活かした、すっきりした表情。',
+    },
+  },
   'voxy-noah': {
     eyebrow: 'SIDE BY SIDE',
     title: 'VOXY・NOAHの違い',

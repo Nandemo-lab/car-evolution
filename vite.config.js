@@ -15,6 +15,11 @@ const SITE_NAME = 'CarVista'
 const SITE_ORIGIN = 'https://carvista.jp'
 
 const COMPARISON_PAGES = {
+  'compare-noah-serena-stepwgn.html': {
+    title: 'NOAH・SERENA・STEP WGNの違い | CarVista',
+    description: 'NOAH、SERENA、STEP WGNを同じ視点で比較。Mクラスミニバン3台のフロントマスクとキャラクターの違いを見比べます。',
+    image: '/images/comparisons/noah-serena-stepwgn-noah-v1.png',
+  },
   'compare-voxy-noah.html': {
     title: 'VOXY・NOAHの違い | CarVista',
     description: 'VOXYとNOAHを同じ視点で比較。兄弟車2台のフロントマスクとデザインの違いを見比べます。',
