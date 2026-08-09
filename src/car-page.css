@@ -89,6 +89,11 @@ body { margin: 0; background: #0b0c0e; }
   box-shadow: 0 0 0 1px rgba(255,255,255,.05);
   transition: box-shadow .35s, transform .35s;
 }
+.timeline-item::before {
+  content: ''; position: absolute; inset: 0; z-index: 3; border: 1px solid rgba(160, 211, 255, .7); border-radius: inherit;
+  box-shadow: inset 0 0 20px rgba(135, 202, 255, .1), 0 0 16px rgba(135, 202, 255, .1);
+  opacity: 0; pointer-events: none; transition: opacity .3s ease;
+}
 /* Selected state: a restrained, Apple-comparison-style lift rather than
    a loud highlight -- slightly larger, brighter, a touch more
    saturated, and a thin glow, while non-selected cards stay
@@ -108,6 +113,7 @@ body { margin: 0; background: #0b0c0e; }
 .timeline-item:not([aria-current="true"]):hover .timeline-thumb img, .timeline-item:not([aria-current="true"]):focus-visible .timeline-thumb img {
   filter: grayscale(.15) brightness(.85);
 }
+.timeline-item:not([aria-current="true"]):hover::before, .timeline-item:not([aria-current="true"]):focus-visible::before { opacity: 1; }
 .timeline-thumb { position: relative; display: block; width: 100%; height: 108px; flex: 0 0 auto; }
 /* The tight 1.55x zoom is deliberate -- Timeline is a gallery of front-
    design close-ups, not a comparison diagram (that's Detail/Compare's
@@ -196,6 +202,18 @@ body { margin: 0; background: #0b0c0e; }
    even on small phones, including generations with two labels sharing
    one margin row. */
 .detail-visual { position: relative; aspect-ratio: 1408 / 903; }
+.detail.is-switching .detail-visual::after {
+  content: ''; position: absolute; z-index: 5; top: 13%; bottom: 13%; width: 28%; left: 0;
+  pointer-events: none; opacity: 0; mix-blend-mode: screen;
+  background: linear-gradient(90deg, transparent 0%, rgba(141, 207, 255, .05) 38%, rgba(232, 248, 255, .72) 50%, rgba(141, 207, 255, .05) 62%, transparent 100%);
+  filter: blur(.2px); animation: detail-scan .56s cubic-bezier(.2,.68,.2,1) both;
+}
+@keyframes detail-scan {
+  0% { opacity: 0; transform: translateX(-115%); }
+  16% { opacity: .85; }
+  78% { opacity: .55; }
+  100% { opacity: 0; transform: translateX(430%); }
+}
 .detail-image-wrap {
   position: absolute; left: 0; width: 100%;
   top: 13%; height: 74%;
@@ -394,12 +412,21 @@ body { margin: 0; background: #0b0c0e; }
 .compare-divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 0; pointer-events: none; }
 .compare-divider::before {
   content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 1px;
-  background: rgba(244,243,240,.22);
+  background: rgba(244,243,240,.22); transition: background .2s ease, box-shadow .2s ease;
 }
 .compare-handle {
   position: absolute; top: 50%; left: 0; transform: translate(-50%, -50%);
   width: 14px; height: 14px; border-radius: 50%;
   background: transparent; border: 1px solid rgba(244,243,240,.3);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.compare-image-wrap.is-dragging .compare-divider::before {
+  background: linear-gradient(to bottom, rgba(160,211,255,.18), rgba(226,246,255,.96) 46%, rgba(160,211,255,.18));
+  box-shadow: 0 0 12px 2px rgba(135,202,255,.46), 0 0 34px 7px rgba(135,202,255,.16);
+}
+.compare-image-wrap.is-dragging .compare-handle {
+  border-color: rgba(226,246,255,.94); box-shadow: 0 0 0 4px rgba(135,202,255,.14), 0 0 16px rgba(135,202,255,.5);
+  transform: translate(-50%, -50%) scale(1.16);
 }
 /* Quiet, temporary discoverability label -- present only until a
    reader actually drags the divider or the auto-sweep hint has played
@@ -415,6 +442,11 @@ body { margin: 0; background: #0b0c0e; }
   pointer-events: none; transition: opacity .5s ease;
 }
 .compare-hint.is-dismissed { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-item, .timeline-item::before, .compare-divider::before, .compare-handle { transition: none; }
+  .detail.is-switching .detail-visual::after { animation: none; display: none; }
+}
 
 /* Policy footer -- the site's quiet About/terms equivalent. Reads as
    a handful of small facts, not a legal block: sourcing, which spec

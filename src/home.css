@@ -197,12 +197,18 @@ body { margin: 0; background: #0b0c0e; }
 }
 .maker-cars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .mini-card {
-  display: flex; flex-direction: column; gap: 10px; color: inherit; text-decoration: none;
+  position: relative; display: flex; flex-direction: column; gap: 10px; color: inherit; text-decoration: none;
   border-radius: 12px; overflow: hidden; background: #111316;
   box-shadow: 0 0 0 1px rgba(255,255,255,.04);
   transition: box-shadow .3s, transform .3s;
 }
+.mini-card::after {
+  content: ''; position: absolute; inset: 0; z-index: 2; border: 1px solid rgba(160, 211, 255, .72); border-radius: inherit;
+  box-shadow: inset 0 0 22px rgba(135, 202, 255, .11), 0 0 18px rgba(135, 202, 255, .12);
+  opacity: 0; pointer-events: none; transition: opacity .32s ease;
+}
 .mini-card:not(.mini-card--soon):hover, .mini-card:not(.mini-card--soon):focus-visible { box-shadow: 0 0 0 1px rgba(255,255,255,.12); transform: translateY(-2px); }
+.mini-card:not(.mini-card--soon):hover::after, .mini-card:not(.mini-card--soon):focus-visible::after { opacity: 1; }
 .mini-card:not(.mini-card--soon):hover .mini-card-photo img, .mini-card:not(.mini-card--soon):focus-visible .mini-card-photo img { filter: brightness(1.08); }
 .mini-card-photo { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #0d0e10; }
 .mini-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; scale: var(--top-card-scale, 1); transition: filter .3s; }

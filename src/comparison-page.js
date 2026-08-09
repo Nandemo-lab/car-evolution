@@ -1,4 +1,5 @@
 import './comparison-page.css'
+import './click-glow.js'
 import voxy from './cars/voxy.js'
 import noah from './cars/noah.js'
 import serena from './cars/serena.js'

@@ -1,4 +1,5 @@
 import './home.css'
+import './click-glow.js'
 import roadmap from './roadmap.js'
 import { getDiscoveryImage, getDiscoveryStyle } from './discovery.js'
 import { trackEvent } from './analytics.js'

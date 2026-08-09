@@ -1,0 +1,30 @@
+/* A quiet acknowledgement for deliberate desktop clicks. This is a click
+   glint, not a custom cursor: navigation and scrolling stay completely
+   native, and touch devices get no duplicate visual feedback. */
+.click-glow {
+  --click-glow-color: 151, 205, 255;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  z-index: 10000;
+  pointer-events: none;
+  border: 1px solid rgba(var(--click-glow-color), .78);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.95) 0 8%, rgba(var(--click-glow-color),.52) 18%, transparent 62%);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.16), 0 0 18px 4px rgba(var(--click-glow-color),.22);
+  mix-blend-mode: screen;
+  animation: click-glow-out .52s cubic-bezier(.2,.72,.25,1) forwards;
+}
+
+@keyframes click-glow-out {
+  0% { opacity: .95; transform: scale(.45); }
+  48% { opacity: .65; }
+  100% { opacity: 0; transform: scale(5.6); }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .click-glow { display: none; }
+}

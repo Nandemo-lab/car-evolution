@@ -1,4 +1,5 @@
 import './car-page.css'
+import './click-glow.js'
 import { getDiscoveryImage, getDiscoveryStyle, getSlugFromPath, relatedCars } from './discovery.js'
 import { trackEvent } from './analytics.js'
 
@@ -380,6 +381,7 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
   const SWAP_DELAY_MS = 260
   const GROUPS = [refs.image, refs.dots, refs.callouts, refs.text]
   let currentIndex = defaultIndex
+  let detailSweepTimer
 
   refs.facelistToggle.addEventListener('click', () => {
     const isOpen = refs.facelistToggle.getAttribute('aria-expanded') === 'true'
@@ -417,6 +419,14 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
     document.querySelectorAll('.timeline-item').forEach((btn) => {
       btn.setAttribute('aria-current', String(Number(btn.dataset.gen) === index))
     })
+
+    // One quiet scan line acknowledges a new entry in the archive. It runs
+    // across the image frame only, leaving captions and facts steady.
+    window.clearTimeout(detailSweepTimer)
+    refs.detail.classList.remove('is-switching')
+    void refs.detail.offsetWidth
+    refs.detail.classList.add('is-switching')
+    detailSweepTimer = window.setTimeout(() => refs.detail.classList.remove('is-switching'), 620)
 
     // exit: content slides toward the direction of travel while fading out
     setSlideState(goingForward ? -SLIDE_PX : SLIDE_PX, 0)
@@ -645,6 +655,7 @@ function initCompare(generations, vehicleName) {
     hintPlayed = true
     dismissHint()
     dragging = true
+    stage.classList.add('is-dragging')
     stage.setPointerCapture(event.pointerId)
     setSplit(splitFromPointerX(event.clientX))
   })
@@ -652,8 +663,8 @@ function initCompare(generations, vehicleName) {
     if (!dragging) return
     setSplit(splitFromPointerX(event.clientX))
   })
-  stage.addEventListener('pointerup', () => { dragging = false })
-  stage.addEventListener('pointercancel', () => { dragging = false })
+  stage.addEventListener('pointerup', () => { dragging = false; stage.classList.remove('is-dragging') })
+  stage.addEventListener('pointercancel', () => { dragging = false; stage.classList.remove('is-dragging') })
 
   // Default: latest generation vs. the one right before it.
   loadPair(Math.max(0, generations.length - 2), generations.length - 1)
