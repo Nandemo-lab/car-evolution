@@ -6,7 +6,12 @@ import stepwgn from './cars/stepwgn.js'
 import esquire from './cars/esquire.js'
 import alphard from './cars/alphard.js'
 import vellfire from './cars/vellfire.js'
+import freed from './cars/freed.js'
+import sienta from './cars/sienta.js'
+import nBox from './cars/n-box.js'
+import spacia from './cars/spacia.js'
 import { trackEvent } from './analytics.js'
+import { affiliateDestinations } from './affiliate.js'
 
 const pages = {
   'noah-serena-stepwgn': {
@@ -58,6 +63,46 @@ const pages = {
     related: [
       { href: '/compare-noah-serena-stepwgn.html', label: 'NOAH・SERENA・STEP WGNの違い', description: 'Mクラスミニバン3台の個性を並べて見る。' },
       { href: '/voxy-70-80-90.html', label: 'VOXY 70・80・90系の見分け方', description: '中古車写真で世代を見分けるポイントを確認する。' },
+    ],
+  },
+  'freed-sienta': {
+    eyebrow: 'SIDE BY SIDE',
+    title: 'FREED・SIENTAの違い',
+    intro: '家族で使うコンパクトミニバンの2台を、同じ視点で並べました。取り回しのよさを保ちながら、顔つきの考え方がどう違うかを見比べます。',
+    guideNote: 'ここでは、現行モデルの代表的な仕様を同じ条件で比較しています。装備や価格ではなく、まずフロントマスクがつくる印象に注目してください。',
+    cars: [freed, sienta],
+    reading: [
+      { heading: '近いサイズ感でも、表情のつくり方は異なる', text: 'FREEDとSIENTAは、どちらも日常で扱いやすいサイズの3列シートミニバンです。並べて見ると、ライトの置き方、グリルの存在感、バンパーの面の使い方に、それぞれの個性が表れています。' },
+      { heading: 'FREEDは、見通しのよさを感じる端正な表情', text: 'FREEDは、水平に整えたライトとすっきりした面構成で、道具としての素直さを感じる表情です。家族の移動を気負わず支える雰囲気を重視したい人に向く方向です。' },
+      { heading: 'SIENTAは、やわらかな造形で親しみをつくる', text: 'SIENTAは、丸みのある輪郭と灯火類の個性的な配置で、親しみやすさを強く打ち出します。ミニバンらしい実用性に、少し遊び心のあるデザインを求める人に合う方向です。' },
+    ],
+    notes: {
+      FREED: '水平基調で、端正かつ見通しのよい表情。',
+      SIENTA: '丸みのある輪郭で、親しみをつくる表情。',
+    },
+    related: [
+      { href: '/compare-n-box-spacia.html', label: 'N-BOXとSPACIAの違い', description: '軽スーパーハイトワゴン2台の表情を比べる。' },
+      { href: '/cars/freed.html', label: 'FREEDの歴代モデル', description: '世代ごとのデザインの変化を見る。' },
+    ],
+  },
+  'n-box-spacia': {
+    eyebrow: 'SIDE BY SIDE',
+    title: 'N-BOX・SPACIAの違い',
+    intro: '軽スーパーハイトワゴンを代表する2台を、同じ視点で並べました。背の高いボディに、どんな表情とキャラクターを与えているかを見比べます。',
+    guideNote: 'ここでは、現行モデルの代表的な仕様を同じ条件で比較しています。グレードや装備の優劣ではなく、デザインがつくる印象に注目してください。',
+    cars: [nBox, spacia],
+    reading: [
+      { heading: '使いやすさの方向は近く、表情の方向は違う', text: 'N-BOXとSPACIAは、どちらも背の高い室内空間を特徴とする軽自動車です。フロントマスクを並べると、ライト、グリル、ボンネットの面のつながりに、異なる個性が見えてきます。' },
+      { heading: 'N-BOXは、直線を抑えた落ち着きのある顔つき', text: 'N-BOXは、丸みを残した面と整った灯火類で、毎日に馴染む穏やかな表情をつくっています。過度な主張より、安心感や見慣れた印象を大切にしたい人に合う方向です。' },
+      { heading: 'SPACIAは、軽やかさと視覚的な楽しさを打ち出す', text: 'SPACIAは、細かな造形の変化と明るい表情で、軽やかさをつくっています。実用性に加え、見た目の楽しさや個性を求める人に向く方向です。' },
+    ],
+    notes: {
+      'N-BOX': '穏やかで、毎日に馴染む整った表情。',
+      SPACIA: '軽やかさと親しみを打ち出す表情。',
+    },
+    related: [
+      { href: '/compare-freed-sienta.html', label: 'FREEDとSIENTAの違い', description: 'コンパクトミニバン2台の表情を比べる。' },
+      { href: '/cars/n-box.html', label: 'N-BOXの歴代モデル', description: '世代ごとのデザインの変化を見る。' },
     ],
   },
   'voxy-noah-esquire': {
@@ -156,6 +201,24 @@ if (page.related) {
     <section class="comparison-next" aria-label="次に見比べる"><p class="comparison-eyebrow">KEEP EXPLORING</p><h2>次に見比べる</h2><div class="comparison-next-grid">${page.related.map((item) => `<a href="${item.href}" data-related-link><strong>${item.label}</strong><span>${item.description}</span><b>見る →</b></a>`).join('')}</div></section>`)
 }
 
+function renderUsedCarCta() {
+  const destination = affiliateDestinations.usedCarSearch
+  if (!destination?.url || !destination?.label) return
+
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+    <aside class="comparison-cta" aria-label="中古車検索のご案内">
+      <p>PR</p><h2>条件が決まったら、中古車を探す</h2>
+      <span>外部の中古車検索サービスへ移動します。</span>
+      <a href="${destination.url}" target="_blank" rel="sponsored noopener noreferrer" data-used-car-cta>${destination.label}<b aria-hidden="true">↗</b></a>
+    </aside>`)
+
+  document.querySelector('[data-used-car-cta]').addEventListener('click', () => {
+    trackEvent('click_used_car_search', { comparison: slug, partner: destination.partner || 'unknown' })
+  })
+}
+
+renderUsedCarCta()
+
 async function copyUrl(button, message) {
   await navigator.clipboard.writeText(location.href)
   button.textContent = message
@@ -175,3 +238,5 @@ document.querySelector('.copy-button').addEventListener('click', (event) => {
 document.querySelectorAll('[data-related-link]').forEach((link) => {
   link.addEventListener('click', () => trackEvent('open_related_comparison', { comparison: slug, destination: link.getAttribute('href') }))
 })
+
+trackEvent('view_comparison', { comparison: slug })

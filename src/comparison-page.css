@@ -45,5 +45,12 @@ body { margin: 0; background: #0b0c0e; }
 .comparison-next-grid strong { font-size: 15px; line-height: 1.45; }
 .comparison-next-grid span { margin-top: 8px; color: rgba(244,243,240,.62); font-size: 12px; font-weight: 300; line-height: 1.65; }
 .comparison-next-grid b { margin-top: auto; padding-top: 15px; font: 500 11px/1 'Inter', sans-serif; letter-spacing: .04em; opacity: .7; }
+.comparison-cta { max-width: 1120px; margin: 0 auto; padding: 0 22px 42px; }
+.comparison-cta p { width: fit-content; margin: 0 0 11px; padding: 4px 6px; border: 1px solid rgba(244,243,240,.22); border-radius: 3px; font: 600 9px/1 'Inter', sans-serif; letter-spacing: .12em; opacity: .78; }
+.comparison-cta h2 { margin: 0; font-size: clamp(22px, 4vw, 30px); letter-spacing: -.025em; }
+.comparison-cta > span { display: block; margin-top: 9px; color: rgba(244,243,240,.58); font-size: 12px; font-weight: 300; }
+.comparison-cta a { max-width: 380px; min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; padding: 14px 16px; border: 1px solid rgba(244,243,240,.26); border-radius: 12px; color: inherit; font: 500 13px/1.3 'Inter', sans-serif; text-decoration: none; }
+.comparison-cta a:hover, .comparison-cta a:focus-visible { background: rgba(244,243,240,.08); }
+.comparison-cta b { font: 400 14px/1 'Inter', sans-serif; opacity: .7; }
 .comparison-more { display: block; padding: 20px 22px 60px; color: inherit; font: 500 12px/1 'Inter', sans-serif; letter-spacing: .04em; opacity: .65; }
-@media (min-width: 700px) { .comparison-hero, .comparison-grid, .comparison-more, .comparison-guide-note, .comparison-reading, .comparison-focus, .comparison-next { padding-left: 8vw; padding-right: 8vw; } .comparison-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 700px) { .comparison-hero, .comparison-grid, .comparison-more, .comparison-guide-note, .comparison-reading, .comparison-focus, .comparison-next, .comparison-cta { padding-left: 8vw; padding-right: 8vw; } .comparison-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

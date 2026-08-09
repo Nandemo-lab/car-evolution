@@ -64,6 +64,26 @@ const COMPARISON_PAGES = {
       { name: 'トヨタ Vellfire', url: '/cars/vellfire.html' },
     ],
   },
+  'compare-freed-sienta.html': {
+    name: 'FREED・SIENTAの違い',
+    title: 'FREED・SIENTAの違い | CarVista',
+    description: 'FREEDとSIENTAを同じ視点で比較。コンパクトミニバン2台のフロントマスクとキャラクターの違いを見比べます。',
+    image: '/images/og/freed-sienta.webp',
+    models: [
+      { name: 'ホンダ FREED', url: '/cars/freed.html' },
+      { name: 'トヨタ SIENTA', url: '/cars/sienta.html' },
+    ],
+  },
+  'compare-n-box-spacia.html': {
+    name: 'N-BOX・SPACIAの違い',
+    title: 'N-BOX・SPACIAの違い | CarVista',
+    description: 'N-BOXとSPACIAを同じ視点で比較。軽スーパーハイトワゴン2台のフロントマスクと個性の違いを見比べます。',
+    image: '/images/og/n-box-spacia.webp',
+    models: [
+      { name: 'ホンダ N-BOX', url: '/cars/n-box.html' },
+      { name: 'スズキ SPACIA', url: '/cars/spacia.html' },
+    ],
+  },
 }
 
 // Every file in cars/*.html, plus every other *.html at the project
