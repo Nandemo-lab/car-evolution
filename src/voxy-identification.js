@@ -8,6 +8,12 @@ const guides = [
   { generation: voxy.generations[3], note: '2022年〜現在。横一文字の発光ラインが特徴。' },
 ]
 
+const guideImages = [
+  '/images/cars/voxy/guide-70-standard-v1.png',
+  '/images/cars/voxy/guide-80-standard-v1.png',
+  '/images/cars/voxy/guide-90-standard-v1.png',
+]
+
 document.querySelector('#comparison-page').innerHTML = `
   <header class="comparison-hero">
     <a class="comparison-home" href="/">CARVISTA</a>
@@ -17,9 +23,9 @@ document.querySelector('#comparison-page').innerHTML = `
     <div class="comparison-actions"><button class="share-button" type="button">共有する</button><button class="copy-button" type="button">URLをコピー</button></div>
   </header>
   <section class="comparison-grid" aria-label="VOXY世代の比較">
-    ${guides.map(({ generation, note }) => `
+    ${guides.map(({ generation, note }, index) => `
       <a class="comparison-card" href="/cars/voxy.html">
-        <img src="${generation.image}" alt="VOXY ${generation.title}" loading="lazy" decoding="async" />
+        <img src="${guideImages[index] || generation.image}" alt="VOXY ${generation.title}" loading="lazy" decoding="async" />
         <span class="comparison-card-copy"><span class="comparison-card-name">${generation.title}</span><span class="comparison-card-meta">${generation.period}</span><span class="comparison-card-note">${note}</span></span>
       </a>`).join('')}
   </section>
