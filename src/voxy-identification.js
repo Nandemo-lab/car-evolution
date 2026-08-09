@@ -3,9 +3,9 @@ import voxy from './cars/voxy.js'
 import { trackEvent } from './analytics.js'
 
 const guides = [
-  { generation: voxy.generations[1], note: '2007年〜2014年。ヘッドライトとグリルが上下に分かれた表情。' },
-  { generation: voxy.generations[2], note: '2014年〜2021年。縦方向の存在感が強いフロントマスク。' },
-  { generation: voxy.generations[3], note: '2022年〜現在。横一文字の発光ラインが特徴。' },
+  { generation: voxy.generations[1], note: 'ヘッドライトとグリルが上下に分かれた表情。' },
+  { generation: voxy.generations[2], note: '縦方向の存在感が強いフロントマスク。' },
+  { generation: voxy.generations[3], note: '横一文字の発光ラインが特徴。' },
 ]
 
 const guideImages = [
