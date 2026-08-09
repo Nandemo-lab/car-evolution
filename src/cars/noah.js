@@ -163,6 +163,14 @@ export default {
   // mind, not retroactive to already-published photos. Internal
   // production metadata only -- never render this as a spec on the page.
   referenceLengthMm: 4695,
+  references: {
+    checkedAt: '2026年8月9日',
+    items: [
+      { generations: '60系・70系', label: 'トヨタ認定中古車 ノア車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-NOAH/' },
+      { generations: '80系', label: 'トヨタ旧車情報 ノア', url: 'https://toyota.jp/carlineup/archive/noah/' },
+      { generations: '90系', label: 'トヨタ WEBカタログ ノア', url: 'https://toyota.jp/request/webcatalog/noah/' },
+    ],
+  },
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/noah/hero-gen4-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the

@@ -178,6 +178,13 @@ export default {
   // retroactive to already-published photos. Internal production
   // metadata only -- never render this as a spec on the page.
   referenceLengthMm: 4800,
+  references: {
+    checkedAt: '2026年8月9日',
+    items: [
+      { generations: '初代〜5代目', label: 'Honda 今まで販売したクルマ STEP WGN', url: 'https://www.honda.co.jp/auto-archive/stepwgn/normal/' },
+      { generations: '6代目', label: 'Honda 新型 STEP WGN 発売ニュースリリース', url: 'https://global.honda/jp/news/2022/4220526-stepwgn.html' },
+    ],
+  },
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/stepwgn/hero-gen6-3q.webp',
   // Drives <title>/description/canonical/OGP/Twitter -- see the
