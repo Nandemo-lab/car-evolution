@@ -505,6 +505,17 @@ body { margin: 0; background: #0b0c0e; }
   margin: 10px 0 0; font-size: 13px; font-weight: 300; line-height: 1.7; opacity: .48;
 }
 .next-discovery-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.vehicle-guides { padding: 0 22px 50px; border-top: 1px solid rgba(255,255,255,.07); }
+.vehicle-guides-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; padding-top: 46px; }
+.vehicle-guides-heading p { margin: 0; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .42; }
+.vehicle-guides-heading h2 { margin: 0; font-size: 22px; letter-spacing: -.015em; }
+.vehicle-guides-heading > span { width: 100%; color: rgba(244,243,240,.58); font-size: 12px; font-weight: 300; line-height: 1.7; }
+.vehicle-guides-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 22px; }
+.vehicle-guides-grid a { min-height: 118px; display: flex; flex-direction: column; align-items: flex-start; padding: 18px; border: 1px solid rgba(244,243,240,.13); border-radius: 14px; color: inherit; text-decoration: none; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+.vehicle-guides-grid a:hover, .vehicle-guides-grid a:focus-visible { background: rgba(244,243,240,.06); border-color: rgba(244,243,240,.32); transform: translateY(-2px); }
+.vehicle-guides-grid strong { font-size: 15px; line-height: 1.45; }
+.vehicle-guides-grid span { margin-top: 7px; color: rgba(244,243,240,.62); font-size: 12px; font-weight: 300; line-height: 1.65; }
+.vehicle-guides-grid b { margin-top: auto; padding-top: 13px; font: 500 11px/1 'Inter', sans-serif; letter-spacing: .04em; opacity: .7; }
 .page-references { padding: 0 22px 50px; border-top: 1px solid rgba(255,255,255,.07); }
 .page-references-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; padding-top: 46px; }
 .page-references-heading p { margin: 0; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .22em; opacity: .42; }
@@ -545,10 +556,11 @@ body { margin: 0; background: #0b0c0e; }
 .discovery-card:hover .discovery-card-arrow, .discovery-card:focus-visible .discovery-card-arrow { transform: translateX(3px); opacity: .8; }
 
 @media (min-width: 700px) {
-  .hero-copy, .page-share, .heritage, .timeline, .detail, .compare, .next-discovery, .page-references, .policy, .back-home { padding-left: 8vw; padding-right: 8vw; }
+  .hero-copy, .page-share, .heritage, .timeline, .detail, .compare, .next-discovery, .vehicle-guides, .page-references, .policy, .back-home { padding-left: 8vw; padding-right: 8vw; }
   .timeline-rail { left: 8vw; right: 8vw; }
   .detail { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
   .next-discovery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .vehicle-guides-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -121,6 +121,10 @@ export default {
   referenceLengthMm: 3395,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/n-box/hero-jf5-3q.webp',
+  guides: [
+    { href: '/n-box-generations.html', label: 'N-BOX 初代・2代目・3代目の違い', description: '3世代を写真・年式・JF型式で比較する。' },
+    { href: '/compare-n-box-spacia.html', label: 'N-BOX・SPACIAの違い', description: '現行の軽スーパーハイトワゴンを同じ視点で比べる。' },
+  ],
   // User-supplied TOP composition (2026-08-07): low, front-emphasised
   // three-quarter view used only on discovery cards. The vehicle page Hero
   // and same-condition generation images remain unchanged.

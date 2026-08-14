@@ -272,6 +272,10 @@ export default {
   // changing representativeColor without asking first; both were an
   // explicit choice, not an oversight.
   heroImage: '/images/cars/alphard/hero-gen4-3q.webp',
+  guides: [
+    { href: '/alphard-history-identification.html', label: 'アルファード 歴代の見分け方', description: '10系から40系まで、写真・年式・型式で世代を絞る。' },
+    { href: '/alphard-30-zenki-kouki.html', label: 'アルファード30系 前期・後期の違い', description: '30系を前期・後期まで、同一画角で見分ける。' },
+  ],
   // 2026-08-04: a black homeCardImage override (cropped from gen4-2023.png)
   // was tried here to make Home's card match every sibling's cool/black
   // tone instead of the gold Hero -- reverted by direct user request, so

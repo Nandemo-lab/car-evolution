@@ -119,6 +119,7 @@ export function initCarPage(config) {
 
   if (document.getElementById('compare')) initCompare(generations, config.vehicleName)
   renderNextDiscovery(config)
+  renderGuideLinks(config)
   renderReferences(config)
 }
 
@@ -180,6 +181,22 @@ function renderNextDiscovery(config) {
     </div>`
 
   section.querySelectorAll('img').forEach(withImageFallback)
+  document.querySelector('.back-home').before(section)
+}
+
+function renderGuideLinks(config) {
+  if (!config.guides?.length) return
+
+  const section = document.createElement('section')
+  section.className = 'vehicle-guides'
+  section.setAttribute('aria-labelledby', 'vehicle-guides-title')
+  section.innerHTML = `
+    <div class="vehicle-guides-heading"><p>GUIDES</p><h2 id="vehicle-guides-title">見分け方・比較ガイド</h2><span>${config.vehicleName}を、目的別にさらに詳しく見る。</span></div>
+    <div class="vehicle-guides-grid">${config.guides.map((guide) => `<a href="${guide.href}" data-vehicle-guide><strong>${guide.label}</strong><span>${guide.description}</span><b>見る →</b></a>`).join('')}</div>`
+
+  section.querySelectorAll('[data-vehicle-guide]').forEach((link) => link.addEventListener('click', () => {
+    trackEvent('open_vehicle_guide', { vehicle: config.vehicleName, destination: link.getAttribute('href') })
+  }))
   document.querySelector('.back-home').before(section)
 }
 
