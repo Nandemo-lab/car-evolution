@@ -1,0 +1,40 @@
+.facelift-hero { padding-bottom: 34px; }
+.facelift-answer, .facelift-compare, .facelift-timeline, .facelift-checklist, .facelift-source { max-width: 1120px; margin-left: auto; margin-right: auto; padding-left: 22px; padding-right: 22px; }
+.facelift-answer { display: grid; gap: 10px; margin-bottom: 72px; padding-top: 22px; padding-bottom: 22px; border-top: 1px solid rgba(244,243,240,.18); border-bottom: 1px solid rgba(244,243,240,.18); }
+.facelift-answer p, .facelift-source p { margin: 0; color: rgba(244,243,240,.48); font: 500 10px/1 'Inter', sans-serif; letter-spacing: .18em; }
+.facelift-answer strong { font-size: clamp(19px, 3vw, 28px); line-height: 1.35; letter-spacing: -.025em; }
+.facelift-answer span { max-width: 720px; color: rgba(244,243,240,.62); font-size: 12px; font-weight: 300; line-height: 1.8; }
+.facelift-compare { padding-bottom: 72px; }
+.facelift-compare .comparison-eyebrow, .facelift-timeline .comparison-eyebrow, .facelift-checklist .comparison-eyebrow { margin: 0 0 12px; }
+.facelift-compare h2, .facelift-timeline h2, .facelift-checklist h2 { margin: 0; font-size: clamp(26px, 5vw, 40px); letter-spacing: -.035em; }
+.facelift-section-intro { max-width: 700px; margin: 14px 0 28px; color: rgba(244,243,240,.58); font-size: 12px; font-weight: 300; line-height: 1.8; }
+.facelift-grid { display: grid; gap: 16px; }
+.facelift-card { overflow: hidden; border: 1px solid rgba(244,243,240,.1); border-radius: 18px; background: #121417; }
+.facelift-card-image { overflow: hidden; background: #1a1c20; }
+.facelift-card-image img { display: block; width: 100%; aspect-ratio: 1.52 / 1; object-fit: cover; }
+.facelift-card-copy { padding: 20px; }
+.facelift-card-label { margin: 0; color: #c9aa63; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .14em; }
+.facelift-card h2 { margin-top: 10px; font-size: 22px; }
+.facelift-card-copy > p:not(.facelift-card-label) { margin: 12px 0 0; color: rgba(244,243,240,.67); font-size: 13px; font-weight: 300; line-height: 1.8; }
+.facelift-card ul { margin: 18px 0 0; padding: 0; list-style: none; border-top: 1px solid rgba(244,243,240,.1); }
+.facelift-card li { position: relative; padding: 10px 0 10px 15px; border-bottom: 1px solid rgba(244,243,240,.08); color: rgba(244,243,240,.7); font-size: 12px; font-weight: 300; line-height: 1.6; }
+.facelift-card li::before { position: absolute; left: 0; content: '—'; color: #c9aa63; }
+.facelift-timeline { padding-bottom: 72px; }
+.timeline-track { display: grid; gap: 0; margin-top: 28px; border-left: 1px solid rgba(244,243,240,.22); }
+.timeline-track article { position: relative; padding: 0 0 28px 24px; }
+.timeline-track article::before { position: absolute; left: -5px; top: 3px; width: 9px; height: 9px; border-radius: 50%; background: #c9aa63; content: ''; }
+.timeline-track span { color: #c9aa63; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .12em; }
+.timeline-track h3 { margin: 8px 0 0; font-size: 16px; }
+.timeline-track p { max-width: 570px; margin: 8px 0 0; color: rgba(244,243,240,.62); font-size: 13px; font-weight: 300; line-height: 1.75; }
+.timeline-change h3 { color: #f4f3f0; }
+.facelift-checklist { padding-bottom: 72px; }
+.facelift-checklist ol { display: grid; gap: 12px; margin: 28px 0 0; padding: 0; list-style: none; counter-reset: check; }
+.facelift-checklist li { display: grid; grid-template-columns: 36px 1fr; column-gap: 12px; padding: 17px; border: 1px solid rgba(244,243,240,.12); border-radius: 13px; }
+.facelift-checklist li::before { counter-increment: check; content: '0' counter(check); color: #c9aa63; font: 500 11px/1.4 'Inter', sans-serif; letter-spacing: .08em; }
+.facelift-checklist b { align-self: center; font-size: 14px; }
+.facelift-checklist span { grid-column: 2; margin-top: 6px; color: rgba(244,243,240,.62); font-size: 12px; font-weight: 300; line-height: 1.7; }
+.facelift-reading { padding-top: 0; }
+.facelift-source { display: grid; gap: 10px; padding-bottom: 6px; }
+.facelift-source span { max-width: 760px; color: rgba(244,243,240,.45); font-size: 11px; font-weight: 300; line-height: 1.8; }
+.facelift-source a { color: rgba(244,243,240,.78); text-underline-offset: 3px; }
+@media (min-width: 700px) { .facelift-answer, .facelift-compare, .facelift-timeline, .facelift-checklist, .facelift-source { padding-left: 8vw; padding-right: 8vw; } .facelift-answer { grid-template-columns: 160px 1fr; align-items: center; } .facelift-answer p { grid-row: span 2; } .facelift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .timeline-track { grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(244,243,240,.22); border-left: 0; } .timeline-track article { padding: 24px 20px 0 0; } .timeline-track article::before { top: -5px; left: 0; } .facelift-checklist ol { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

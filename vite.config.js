@@ -54,6 +54,13 @@ const COMPARISON_PAGES = {
     image: '/images/og/voxy-generations.png',
     models: [{ name: 'トヨタ VOXY', url: '/cars/voxy.html' }],
   },
+  'alphard-30-zenki-kouki.html': {
+    name: 'アルファード30系 前期・後期の違い',
+    title: 'アルファード30系 前期・後期の違い | CarVista',
+    description: 'アルファード30系の前期・後期を同一画角の画像で比較。年式の目安、フロントマスクの見分け方、型式確認のポイントをまとめました。',
+    image: '/images/cars/alphard/30-post-facelift-v1.png',
+    models: [{ name: 'トヨタ アルファード 30系', url: '/cars/alphard.html' }],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',
