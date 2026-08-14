@@ -96,7 +96,7 @@ const generations = [
     numeral: 'III',
     era: '3代目',
     title: '80系',
-    code: 'ZRR80G / ZRR85G / ZWR80G',
+    code: 'ZRR80G/W / ZRR85G/W / ZWR80G/W',
     startYear: '2014',
     yearRange: '2014–2021',
     period: '2014年〜2021年',
@@ -107,7 +107,7 @@ const generations = [
     ],
     facelift: {
       fromYear: '2014', toYear: '2017',
-      points: ['Toyota Safety Senseを追加', 'フロントフェイスを刷新', 'ヘッドライトデザインを変更'],
+      points: ['Bi-Beam LEDと面発光LEDクリアランスランプを採用', 'ZS専用［ハ］字テーマのフロントバンパーへ刷新', 'グリル・開口部・フォグ周辺を一体で変更'],
     },
   },
   {
@@ -196,6 +196,7 @@ export default {
     ],
   },
   guides: [
+    { href: '/voxy-80-zenki-kouki.html', label: '80系 ZS 前期・後期の違い', description: '2017年7月を境に、同じ条件の画像で詳しく見分ける。' },
     { href: '/compare-voxy-noah-esquire.html', label: 'VOXY・NOAH・ESQUIREを見比べる', description: '兄弟車の個性を、同じ視点で比較する。' },
     { href: '/compare-voxy-noah.html', label: 'VOXY・NOAHの違い', description: '現行兄弟車2台の顔つきを詳しく比べる。' },
   ],
