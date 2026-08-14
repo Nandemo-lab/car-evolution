@@ -109,8 +109,8 @@ const pages = {
   'voxy-noah-esquire': {
     eyebrow: 'SIDE BY SIDE',
     title: 'VOXY・NOAH・ESQUIREを見比べる',
-    intro: '同じ時代を走った3台を、CarVistaの統一された視点で並べました。まずは表情の違いから見てみてください。',
-    guideNote: '3台は近い時代・近いクラスに位置するため、ここではスペックではなくフロントマスクがつくる印象の違いに注目します。',
+    intro: '現行VOXY・NOAHと、80系時代の上級兄弟車ESQUIREを並べ、フロントマスクの考え方の違いを見比べます。',
+    guideNote: '現行VOXY・NOAHと生産を終えたESQUIREを比べるページです。年式や装備の優劣ではなく、兄弟車に与えられたフロントマスクの個性に注目してください。',
     cars: [voxy, noah, esquire],
     images: {
       VOXY: { standard: '/images/cars/voxy/compare-standard-v1.png' },
@@ -118,7 +118,7 @@ const pages = {
       ESQUIRE: { standard: '/images/cars/esquire/compare-standard-v1.png' },
     },
     reading: [
-      { heading: '3台は「兄弟車」でも、見せたい印象が違う', text: 'VOXY・NOAH・ESQUIREは、同じ時代のミニバンとして近い基本構成を共有していました。そのため、ここでは大きさや装備の優劣ではなく、まず顔つきが生む印象に絞って見比べます。グリルの形、ライトのつながり方、クロームの量を見ると、各モデルがどんな存在感を目指したかを追いやすくなります。' },
+      { heading: '共通の土台から、異なる表情へ', text: 'ESQUIREは80系VOXY・NOAHをベースにした上級兄弟車で、販売は2021年に終了しました。一方、ここで並べるVOXY・NOAHは2022年登場の90系です。世代はそろっていませんが、兄弟車それぞれのフロントマスクが目指した存在感を読み比べられます。グリルの形、ライトのつながり方、クロームの量に注目してください。' },
       { heading: 'VOXYは、動きのある表情を選びたい人へ', text: 'VOXYは、シャープなライトと前に出るフロントマスクが特徴です。ミニバンらしい実用性を保ちながらも、停車中に少し低く、速く見える表情をつくっています。歴代モデルを見るときは、ライトの輪郭とグリルの主張の変化を追うと、VOXYらしい方向性がわかります。' },
       { heading: 'NOAHとESQUIREは、落ち着きと上質感で分かれる', text: 'NOAHは水平基調のまとまりによって、端正で安心感のある表情をつくります。ESQUIREはクロームの使い方を強め、同じサイズのボディによりフォーマルな印象を与えます。購入前の比較では、ボディカラーやグレードだけでなく、普段どんな場面でこの顔つきを見るかを想像すると選びやすくなります。' },
     ],
@@ -161,7 +161,7 @@ const cards = page.cars.flatMap((car) => {
   const generations = page.cars.length === 1 ? car.generations : [car.generations.at(-1)]
   return generations.map((generation) => `
     <a class="comparison-card" href="/cars/${car.vehicleName.toLowerCase().replaceAll(' ', '-')}.html">
-      <img src="${page.images?.[car.vehicleName]?.standard || generation.image}" alt="${car.vehicleName} ${generation.title}" loading="lazy" decoding="async" />
+      <img src="${page.images?.[car.vehicleName]?.standard || generation.image}" alt="${car.vehicleName} ${generation.title}" decoding="async" />
       <span class="comparison-card-copy">
         <span class="comparison-card-name">${car.vehicleName}</span>
         <span class="comparison-card-meta">${generation.title} · ${generation.period}</span>
@@ -208,8 +208,8 @@ function renderUsedCarCta() {
 
   document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
     <aside class="comparison-cta" aria-label="中古車検索のご案内">
-      <p>PR</p><h2>条件が決まったら、中古車を探す</h2>
-      <span>外部の中古車検索サービスへ移動します。</span>
+      <p>PR</p><h2>見比べて気になるモデルが見つかったら、中古車を探す</h2>
+      <span>年式や条件を指定して、在庫を確認できます。外部の中古車検索サービスへ移動します。</span>
       <a href="${destination.url}" target="_blank" rel="sponsored noopener noreferrer" data-used-car-cta>${destination.label}<b aria-hidden="true">↗</b></a>
     </aside>`)
 

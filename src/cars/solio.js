@@ -79,8 +79,8 @@ const generations = [
   {
     numeral: 'IV',
     era: '現行モデル',
-    title: 'MA37S型',
-    code: 'MA37S',
+    title: 'MA27S / MA37S型',
+    code: 'MA27S / MA37S',
     startYear: '2020',
     yearRange: '2020–現在',
     period: '2020年〜現在',

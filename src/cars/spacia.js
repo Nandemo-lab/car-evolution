@@ -73,8 +73,8 @@ const generations = [
   {
     numeral: 'III',
     era: '現行モデル',
-    title: 'MK94S型',
-    code: 'MK94S',
+    title: 'MK54S / MK94S型',
+    code: 'MK54S / MK94S',
     startYear: '2023',
     yearRange: '2023–現在',
     period: '2023年〜現在',

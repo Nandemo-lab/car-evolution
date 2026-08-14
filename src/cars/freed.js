@@ -62,8 +62,8 @@ const generations = [
   {
     numeral: 'III',
     era: '現行モデル',
-    title: 'GT1-4型',
-    code: 'GT1 / GT2 / GT3 / GT4',
+    title: 'GT1-8型',
+    code: 'GT1〜GT8',
     startYear: '2024',
     yearRange: '2024–現在',
     period: '2024年〜現在',
