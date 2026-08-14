@@ -274,11 +274,12 @@ export default {
   heroImage: '/images/cars/alphard/hero-gen4-3q.webp',
   generationGuide: {
     title: '10・20・30・40系を見分ける代表ポイント',
-    intro: '歴代の基本差は、Timeline・各世代の注釈・Compareで確認できます。まず外観で世代を絞り、最後に型式と初度登録年を照合してください。',
+    intro: 'アルファードの歴代・20系・30系・40系を調べるときは、まずフロントの造形で世代を絞り、販売期間と型式で確定します。30系の前期・後期だけは、この下の専門ガイドでさらに詳しく確認できます。',
     items: [
       { title: '10系', description: '直線的なボディと、独立して見えるメッキグリル。', meta: '2002年〜2008年 · ANH10W / MNH10W ほか' },
-      { title: '20系', description: '曲面を増やしたボディと、横バー基調のフロント。', meta: '2008年〜2015年 · ANH20W / GGH20W ほか' },
-      { title: '30系・40系', description: '縦長グリルなら30系、逆スラントの縦基調なら40系。', meta: '30系：2015年〜2023年 · 40系：2023年〜現在' },
+      { title: '20系', description: '曲面を増やしたボディと、横バー基調のフロント。20系からヴェルファイアが兄弟車として並びます。', meta: '2008年〜2015年 · ANH20W / GGH20W / ATH20W ほか' },
+      { title: '30系', description: '大きな縦長グリルが目印。2018年のマイナーチェンジで顔つきが変わるため、前期・後期は別途見分けます。', meta: '2015年〜2023年 · AGH30W / GGH30W / AYH30W' },
+      { title: '40系', description: 'エンブレム側が前へ出る逆スラントの縦基調グリル。歴代で最も新しい現行世代です。', meta: '2023年〜現在 · AGH40W / AAHH40W ほか' },
     ],
   },
   guides: [
@@ -294,8 +295,8 @@ export default {
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
   seo: {
-    title: 'ALPHARD 歴代モデル一覧 — CarVista',
-    description: 'トヨタ アルファード全4世代を画像で比較。型式・販売期間・デザインの進化が一目でわかる。',
+    title: 'ALPHARD 歴代モデル・20系/30系/40系の違い — CarVista',
+    description: 'トヨタ アルファード全4世代を統一画像で比較。20系・30系・40系の型式、販売期間、見分け方とデザイン進化が一目でわかる。',
   },
   defaultIndex: 3,
   generations,
