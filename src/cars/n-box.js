@@ -138,8 +138,8 @@ export default {
   // and same-condition generation images remain unchanged.
   homeCardImage: '/images/cars/n-box/home-card.webp',
   seo: {
-    title: 'N-BOX 歴代モデル一覧 — CarVista',
-    description: 'ホンダ N-BOXの初代から現行3代目までを画像で比較。軽スーパーハイトワゴンとしてのデザインの進化が一目でわかる。',
+    title: 'N-BOX 歴代モデル・初代/2代目/3代目の違い — CarVista',
+    description: 'ホンダ N-BOXの初代から現行3代目までを統一画像で比較。JF型式、販売期間、見分け方とデザイン進化が一目でわかる。',
   },
   defaultIndex: 2,
   generations,

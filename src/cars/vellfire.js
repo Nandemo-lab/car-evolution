@@ -130,6 +130,18 @@ export default {
   referenceLengthMm: 4995,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/vellfire/hero-gen3-3q.webp',
+  generationGuide: {
+    title: '20・30・40系を見分ける代表ポイント',
+    intro: 'VELLFIREは20系から始まるALPHARDの兄弟車です。世代の基本差は、フロントマスク・型式・販売期間の順に照合します。ALPHARDとの違いは比較ページで詳しく確認できます。',
+    items: [
+      { title: '20系', description: '切れ長のライトと、上下に分かれた力強いフロントが入口。', meta: '2008年〜2015年 · ANH20W / GGH20W ほか' },
+      { title: '30系', description: '縦に大きく開くグリルと、鋭い灯火類が特徴。', meta: '2015年〜2023年 · AGH30W / GGH30W / AYH30W' },
+      { title: '40系', description: 'ワイドに広がるグリルと、より立体的なフロントが現行の目印。', meta: '2023年〜現在 · TAHA40W / AAHH40W ほか' },
+    ],
+  },
+  guides: [
+    { href: '/compare-alphard-vellfire.html', label: 'ALPHARD・VELLFIREの違い', description: '兄弟車の表情とデザインの狙いを、同じ視点で比べる。' },
+  ],
   // Home's mini-card (see the doc comment in src/home.js) -- a
   // dedicated close-up photo (user-supplied, 2026-08-03) matching the
   // same tight framing VOXY/Alphard's own Hero sources already use, so
@@ -139,8 +151,8 @@ export default {
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
   seo: {
-    title: 'VELLFIRE 歴代モデル一覧 — CarVista',
-    description: 'トヨタ ヴェルファイア全3世代を画像で比較。型式・販売期間・デザインの進化が一目でわかる。',
+    title: 'VELLFIRE 歴代モデル・20系/30系/40系の違い — CarVista',
+    description: 'トヨタ ヴェルファイア全3世代を統一画像で比較。20系・30系・40系の型式、販売期間、見分け方とデザイン進化が一目でわかる。',
   },
   defaultIndex: 2,
   generations,

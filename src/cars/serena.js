@@ -183,12 +183,24 @@ export default {
   referenceLengthMm: 4765,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/serena/hero-gen6-3q.webp',
+  generationGuide: {
+    title: 'C23〜C28型を見分ける代表ポイント',
+    intro: 'SERENAの歴代を調べるときは、ボディの箱らしさとヘッドライトの位置を見てから、型式・販売期間で確定します。TimelineとCompareでは、各世代の顔つきの変化を同じ視点で確認できます。',
+    items: [
+      { title: 'C23型', description: '丸みを帯びたミニバンらしい初期の箱型シルエット。', meta: '1991年〜1999年 · C23' },
+      { title: 'C24型', description: '角張った背高ボディに、縦方向の灯火類を組み合わせた2代目。', meta: '1999年〜2005年 · C24' },
+      { title: 'C25型', description: '大きな面で構成したフロントと、より背の高いキャビンが目印。', meta: '2005年〜2010年 · C25' },
+      { title: 'C26型', description: 'ヘッドライトからグリルへ横方向の流れを作った、より柔らかな表情。', meta: '2010年〜2016年 · C26' },
+      { title: 'C27型', description: 'Vモーションのグリルと、前へ伸びるヘッドライトで見分ける。', meta: '2016年〜2022年 · C27' },
+      { title: 'C28型', description: '水平基調の一文字感あるフロント。現行の6代目です。', meta: '2022年〜現在 · C28' },
+    ],
+  },
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
   seo: {
-    title: 'SERENA 歴代モデル一覧 — CarVista',
-    description: '日産 セレナ全6世代を画像で比較。型式・販売期間・デザインの進化が一目でわかる。',
+    title: 'SERENA 歴代モデル・C23〜C28型の違い — CarVista',
+    description: '日産 セレナ全6世代を統一画像で比較。C23〜C28型の型式、販売期間、見分け方とデザイン進化が一目でわかる。',
   },
   defaultIndex: 5,
   generations,

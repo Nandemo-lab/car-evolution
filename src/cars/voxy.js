@@ -203,8 +203,8 @@ export default {
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
   seo: {
-    title: 'VOXY 歴代モデル一覧 — CarVista',
-    description: 'トヨタ ヴォクシー全4世代を画像で比較。型式・販売期間・デザインの進化が一目でわかる。',
+    title: 'VOXY 歴代モデル・70系/80系/90系の違い — CarVista',
+    description: 'トヨタ ヴォクシー全4世代を統一画像で比較。70系・80系・90系の型式、販売期間、見分け方とデザイン進化が一目でわかる。',
   },
   defaultIndex: 3,
   generations,
