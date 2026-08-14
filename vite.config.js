@@ -61,6 +61,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/alphard/30-post-facelift-v1.png',
     models: [{ name: 'トヨタ アルファード 30系', url: '/cars/alphard.html' }],
   },
+  'n-box-generations.html': {
+    name: 'N-BOX 初代・2代目・3代目の違い',
+    title: 'N-BOX 初代・2代目・3代目の違い | CarVista',
+    description: 'N-BOXの初代・2代目・3代目を統一画像で比較。販売年、型式、フロントマスクの違いを中古車選びに役立つ形で整理します。',
+    image: '/images/cars/n-box/gen3-2023.webp',
+    models: [{ name: 'ホンダ N-BOX', url: '/cars/n-box.html' }],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',
