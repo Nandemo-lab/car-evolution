@@ -68,6 +68,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/n-box/gen3-2023.webp',
     models: [{ name: 'ホンダ N-BOX', url: '/cars/n-box.html' }],
   },
+  'alphard-history-identification.html': {
+    name: 'アルファード 歴代の見分け方',
+    title: 'アルファード 歴代の見分け方 | CarVista',
+    description: 'アルファード10系・20系・30系・40系を統一画像で比較。年式、型式、フロントマスクの違いを中古車選びに役立つ形で整理します。',
+    image: '/images/cars/alphard/gen4-2023.webp',
+    models: [{ name: 'トヨタ アルファード', url: '/cars/alphard.html' }],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',
