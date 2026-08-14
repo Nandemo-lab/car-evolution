@@ -517,6 +517,9 @@ body { margin: 0; background: #0b0c0e; }
 .page-references-list a { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 48px; color: inherit; font-size: 12px; line-height: 1.5; text-decoration: none; }
 .page-references-list a:hover, .page-references-list a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
 .page-references-list b { font: 400 13px/1 'Inter', sans-serif; opacity: .58; }
+.page-references-contact { margin: 16px 0 0; color: rgba(244,243,240,.52); font-size: 12px; font-weight: 300; line-height: 1.7; }
+.page-references-contact a { color: inherit; text-underline-offset: 3px; }
+.page-references-contact a:hover, .page-references-contact a:focus-visible { color: rgba(244,243,240,.9); }
 .discovery-card {
   display: block; overflow: hidden; border-radius: 14px;
   color: inherit; text-decoration: none; background: #111316;

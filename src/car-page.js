@@ -2,6 +2,7 @@ import './car-page.css'
 import './click-glow.js'
 import { getDiscoveryImage, getDiscoveryStyle, getSlugFromPath, relatedCars } from './discovery.js'
 import { trackEvent } from './analytics.js'
+import { officialSources } from './official-sources.js'
 
 const carModules = import.meta.glob('./cars/*.js', { eager: true })
 const discoveryCars = Object.entries(carModules).map(([path, mod]) => ({
@@ -183,7 +184,8 @@ function renderNextDiscovery(config) {
 }
 
 function renderReferences(config) {
-  if (!config.references?.items?.length) return
+  const references = config.references?.items?.length ? config.references : officialSources[config.vehicleName]
+  if (!references?.items?.length) return
 
   const section = document.createElement('section')
   section.className = 'page-references'
@@ -192,12 +194,13 @@ function renderReferences(config) {
     <div class="page-references-heading">
       <p>REFERENCES</p>
       <h2 id="page-references-title">情報の確認</h2>
-      <span>確認日：${config.references.checkedAt}</span>
+      <span>確認日：${references.checkedAt}</span>
     </div>
-    <p class="page-references-note">年式・型式・世代区分は、各メーカーの公開情報を優先して確認しています。代表的な確認資料を世代ごとに掲載します。</p>
-    <ul class="page-references-list">${config.references.items.map((item) => `
+    <p class="page-references-note">年式・型式・世代区分は、各メーカーの公開情報を優先して確認しています。掲載画像は比較しやすいようCarVistaが統一条件で制作したビジュアル表現で、実車のグレード・色・装備とは異なる場合があります。</p>
+    <ul class="page-references-list">${references.items.map((item) => `
       <li><span>${item.generations}</span><a href="${item.url}" target="_blank" rel="noopener noreferrer" data-reference-link>${item.label}<b aria-hidden="true">↗</b></a></li>`).join('')}
-    </ul>`
+    </ul>
+    <p class="page-references-contact">誤り・更新情報は <a href="https://x.com/CarVistaJP" target="_blank" rel="noopener noreferrer">Xでお知らせください</a>。</p>`
 
   section.querySelectorAll('[data-reference-link]').forEach((link) => {
     link.addEventListener('click', () => trackEvent('open_reference', { vehicle: config.vehicleName, reference: link.textContent.trim() }))
