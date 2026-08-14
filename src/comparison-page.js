@@ -92,6 +92,9 @@ const pages = {
     intro: '軽スーパーハイトワゴンを代表する2台を、同じ視点で並べました。背の高いボディに、どんな表情とキャラクターを与えているかを見比べます。',
     guideNote: 'ここでは、現行モデルの代表的な仕様を同じ条件で比較しています。グレードや装備の優劣ではなく、デザインがつくる印象に注目してください。',
     cars: [nBox, spacia],
+    images: {
+      'N-BOX': { standard: '/images/cars/n-box/compare-standard-v1.png' },
+    },
     reading: [
       { heading: '使いやすさの方向は近く、表情の方向は違う', text: 'N-BOXとSPACIAは、どちらも背の高い室内空間を特徴とする軽自動車です。フロントマスクを並べると、ライト、グリル、ボンネットの面のつながりに、異なる個性が見えてきます。' },
       { heading: 'N-BOXは、直線を抑えた落ち着きのある顔つき', text: 'N-BOXは、丸みを残した面と整った灯火類で、毎日に馴染む穏やかな表情をつくっています。過度な主張より、安心感や見慣れた印象を大切にしたい人に合う方向です。' },
@@ -135,8 +138,8 @@ const pages = {
     guideNote: 'ここでは、CarVistaが各モデルの代表的な仕様として掲載している画像をもとに、デザイン上の印象を比較しています。',
     cars: [alphard, vellfire],
     images: {
-      Alphard: { standard: '/images/cars/alphard/compare-standard-v3.png', detail: '/images/cars/alphard/compare-front-detail-v4.png' },
-      Vellfire: { standard: '/images/cars/vellfire/compare-standard-v3.png', detail: '/images/cars/vellfire/compare-front-detail-v4.png' },
+      ALPHARD: { standard: '/images/cars/alphard/compare-standard-v3.png', detail: '/images/cars/alphard/compare-front-detail-v4.png' },
+      VELLFIRE: { standard: '/images/cars/vellfire/compare-standard-v3.png', detail: '/images/cars/vellfire/compare-front-detail-v4.png' },
     },
     focus: [
       { name: 'Alphard', label: '整った面と大きなグリルの構成', image: '/images/cars/alphard/compare-front-detail-v4.png' },
