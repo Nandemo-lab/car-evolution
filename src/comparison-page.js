@@ -72,6 +72,10 @@ const pages = {
     intro: '家族で使うコンパクトミニバンの2台を、同じ視点で並べました。取り回しのよさを保ちながら、顔つきの考え方がどう違うかを見比べます。',
     guideNote: 'ここでは、現行モデルの代表的な仕様を同じ条件で比較しています。装備や価格ではなく、まずフロントマスクがつくる印象に注目してください。',
     cars: [freed, sienta],
+    images: {
+      FREED: { standard: '/images/cars/freed/compare-standard-v1.png' },
+      SIENTA: { standard: '/images/cars/sienta/compare-standard-v1.png' },
+    },
     reading: [
       { heading: '近いサイズ感でも、表情のつくり方は異なる', text: 'FREEDとSIENTAは、どちらも日常で扱いやすいサイズの3列シートミニバンです。並べて見ると、ライトの置き方、グリルの存在感、バンパーの面の使い方に、それぞれの個性が表れています。' },
       { heading: 'FREEDは、見通しのよさを感じる端正な表情', text: 'FREEDは、水平に整えたライトとすっきりした面構成で、道具としての素直さを感じる表情です。家族の移動を気負わず支える雰囲気を重視したい人に向く方向です。' },
