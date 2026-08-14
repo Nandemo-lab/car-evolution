@@ -74,7 +74,7 @@ const pages = {
     cars: [freed, sienta],
     images: {
       FREED: { standard: '/images/cars/freed/compare-standard-v2.png' },
-      SIENTA: { standard: '/images/cars/sienta/compare-standard-v2.png' },
+      SIENTA: { standard: '/images/cars/sienta/compare-standard-v3.png' },
     },
     reading: [
       { heading: '近いサイズ感でも、表情のつくり方は異なる', text: 'FREEDとSIENTAは、どちらも日常で扱いやすいサイズの3列シートミニバンです。並べて見ると、ライトの置き方、グリルの存在感、バンパーの面の使い方に、それぞれの個性が表れています。' },
@@ -119,6 +119,11 @@ const pages = {
     title: 'VOXY・NOAH・ESQUIREを見比べる',
     intro: '現行VOXY・NOAHと、80系時代の上級兄弟車ESQUIREを並べ、フロントマスクの考え方の違いを見比べます。',
     guideNote: '現行VOXY・NOAHと生産を終えたESQUIREを比べるページです。年式や装備の優劣ではなく、兄弟車に与えられたフロントマスクの個性に注目してください。',
+    timeline: [
+      { title: '2014年〜2021年', text: 'ESQUIREは80系VOXY・NOAHと同時代の上級兄弟車。' },
+      { title: '2022年〜現在', text: 'VOXY・NOAHは90系へフルモデルチェンジ。' },
+      { title: 'このページの見方', text: '3台を同年式・装備の優劣として比べず、フロントマスクの個性として読む。' },
+    ],
     cars: [voxy, noah, esquire],
     images: {
       VOXY: { standard: '/images/cars/voxy/compare-standard-v1.png' },
@@ -135,6 +140,10 @@ const pages = {
       NOAH: '横方向の落ち着きが中心。端正で安定感のある表情。',
       ESQUIRE: 'クロームの存在感が際立つ、より洗練された表情。',
     },
+    related: [
+      { href: '/cars/voxy.html', label: 'VOXYの歴代モデル', description: '80系から90系へのデザインの変化を見る。' },
+      { href: '/cars/esquire.html', label: 'ESQUIREのモデル情報', description: '80系時代の上級兄弟車として確認する。' },
+    ],
   },
   'alphard-vellfire': {
     eyebrow: 'SIDE BY SIDE',
@@ -193,6 +202,14 @@ if (page.reading) {
     <section class="comparison-reading" aria-label="デザインの読み解き">
       <p class="comparison-eyebrow">DESIGN NOTES</p><h2>見比べるポイント</h2>
       ${page.reading.map((item) => `<article><h3>${item.heading}</h3><p>${item.text}</p></article>`).join('')}
+    </section>`)
+}
+
+if (page.timeline) {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+    <section class="comparison-focus" aria-label="比較する年式の整理">
+      <p class="comparison-eyebrow">TIMELINE</p><h2>比較する世代を先に整理する</h2>
+      <div class="comparison-next-grid">${page.timeline.map((item) => `<div><strong>${item.title}</strong><span>${item.text}</span></div>`).join('')}</div>
     </section>`)
 }
 
