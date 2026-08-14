@@ -272,8 +272,16 @@ export default {
   // changing representativeColor without asking first; both were an
   // explicit choice, not an oversight.
   heroImage: '/images/cars/alphard/hero-gen4-3q.webp',
+  generationGuide: {
+    title: '10・20・30・40系を見分ける代表ポイント',
+    intro: '歴代の基本差は、Timeline・各世代の注釈・Compareで確認できます。まず外観で世代を絞り、最後に型式と初度登録年を照合してください。',
+    items: [
+      { title: '10系', description: '直線的なボディと、独立して見えるメッキグリル。', meta: '2002年〜2008年 · ANH10W / MNH10W ほか' },
+      { title: '20系', description: '曲面を増やしたボディと、横バー基調のフロント。', meta: '2008年〜2015年 · ANH20W / GGH20W ほか' },
+      { title: '30系・40系', description: '縦長グリルなら30系、逆スラントの縦基調なら40系。', meta: '30系：2015年〜2023年 · 40系：2023年〜現在' },
+    ],
+  },
   guides: [
-    { href: '/alphard-history-identification.html', label: 'アルファード 歴代の見分け方', description: '10系から40系まで、写真・年式・型式で世代を絞る。' },
     { href: '/alphard-30-zenki-kouki.html', label: 'アルファード30系 前期・後期の違い', description: '30系を前期・後期まで、同一画角で見分ける。' },
   ],
   // 2026-08-04: a black homeCardImage override (cropped from gen4-2023.png)

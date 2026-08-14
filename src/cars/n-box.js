@@ -121,8 +121,16 @@ export default {
   referenceLengthMm: 3395,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/n-box/hero-jf5-3q.webp',
+  generationGuide: {
+    title: '初代・2代目・3代目を見分ける代表ポイント',
+    intro: 'N-BOXの基本的な世代差は、このページのTimeline・Compare・型式一覧で確認できます。中古車では外観だけで断定せず、JF型式と初度登録年を照合してください。',
+    items: [
+      { title: '初代', description: '細いグリルと、背の高い箱型シルエットが入口。', meta: '2011年〜2017年 · JF1 / JF2' },
+      { title: '2代目', description: 'ライトとグリルの横方向のつながりがより明確。', meta: '2017年〜2023年 · JF3 / JF4' },
+      { title: '3代目', description: '水平基調の灯火類と、すっきりしたフロントが目印。', meta: '2023年〜現在 · JF5 / JF6' },
+    ],
+  },
   guides: [
-    { href: '/n-box-generations.html', label: 'N-BOX 初代・2代目・3代目の違い', description: '3世代を写真・年式・JF型式で比較する。' },
     { href: '/compare-n-box-spacia.html', label: 'N-BOX・SPACIAの違い', description: '現行の軽スーパーハイトワゴンを同じ視点で比べる。' },
   ],
   // User-supplied TOP composition (2026-08-07): low, front-emphasised

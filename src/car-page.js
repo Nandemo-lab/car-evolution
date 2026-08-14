@@ -118,9 +118,22 @@ export function initCarPage(config) {
   })
 
   if (document.getElementById('compare')) initCompare(generations, config.vehicleName)
+  renderGenerationGuide(config)
   renderNextDiscovery(config)
   renderGuideLinks(config)
   renderReferences(config)
+}
+
+function renderGenerationGuide(config) {
+  if (!config.generationGuide?.items?.length) return
+  const guide = config.generationGuide
+  const section = document.createElement('section')
+  section.className = 'generation-guide'
+  section.setAttribute('aria-labelledby', 'generation-guide-title')
+  section.innerHTML = `
+    <div class="generation-guide-heading"><p>IDENTIFICATION</p><h2 id="generation-guide-title">${guide.title}</h2><span>${guide.intro}</span></div>
+    <div class="generation-guide-grid">${guide.items.map((item) => `<article><strong>${item.title}</strong><span>${item.description}</span><b>${item.meta}</b></article>`).join('')}</div>`
+  document.querySelector('.back-home').before(section)
 }
 
 function renderShare(config) {

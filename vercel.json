@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/voxy-70-80-90.html", "destination": "/cars/voxy.html", "permanent": true },
+    { "source": "/n-box-generations.html", "destination": "/cars/n-box.html", "permanent": true },
+    { "source": "/alphard-history-identification.html", "destination": "/cars/alphard.html", "permanent": true }
+  ]
+}

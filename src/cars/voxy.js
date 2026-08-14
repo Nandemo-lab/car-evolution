@@ -186,6 +186,19 @@ export default {
   },
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/voxy/hero-gen4-3q.webp',
+  generationGuide: {
+    title: '70・80・90系を見分ける代表ポイント',
+    intro: 'Timelineと画像を見たあと、ライト・グリル・型式の順に照合すると世代を絞り込めます。前期・後期やグレード差は個別の車両情報で確認してください。',
+    items: [
+      { title: '70系', description: 'ライトとグリルが分かれて見える、丸みを残したフロント。', meta: '2007年〜2014年 · ZRR70G / ZRR75G' },
+      { title: '80系', description: 'ライトからグリルへ続く、縦方向に存在感のあるフロント。', meta: '2014年〜2021年 · ZRR80G / ZRR85G / ZWR80G' },
+      { title: '90系', description: '横一文字に見える発光ラインと、ワイドなフロントが目印。', meta: '2022年〜現在 · MZRA90W / ZWR90W ほか' },
+    ],
+  },
+  guides: [
+    { href: '/compare-voxy-noah-esquire.html', label: 'VOXY・NOAH・ESQUIREを見比べる', description: '兄弟車の個性を、同じ視点で比較する。' },
+    { href: '/compare-voxy-noah.html', label: 'VOXY・NOAHの違い', description: '現行兄弟車2台の顔つきを詳しく比べる。' },
+  ],
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.

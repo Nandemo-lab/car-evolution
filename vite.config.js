@@ -47,33 +47,12 @@ const COMPARISON_PAGES = {
       { name: 'トヨタ ESQUIRE', url: '/cars/esquire.html' },
     ],
   },
-  'voxy-70-80-90.html': {
-    name: 'VOXY 70・80・90系の見分け方',
-    title: 'VOXY 70・80・90系の見分け方 | CarVista',
-    description: 'VOXYの70系・80系・90系を画像で比較。年式の目安とフロントマスクの違いが一目でわかります。',
-    image: '/images/og/voxy-generations.png',
-    models: [{ name: 'トヨタ VOXY', url: '/cars/voxy.html' }],
-  },
   'alphard-30-zenki-kouki.html': {
     name: 'アルファード30系 前期・後期の違い',
     title: 'アルファード30系 前期・後期の違い | CarVista',
     description: 'アルファード30系の前期・後期を同一画角の画像で比較。年式の目安、フロントマスクの見分け方、型式確認のポイントをまとめました。',
     image: '/images/cars/alphard/30-post-facelift-v1.png',
     models: [{ name: 'トヨタ アルファード 30系', url: '/cars/alphard.html' }],
-  },
-  'n-box-generations.html': {
-    name: 'N-BOX 初代・2代目・3代目の違い',
-    title: 'N-BOX 初代・2代目・3代目の違い | CarVista',
-    description: 'N-BOXの初代・2代目・3代目を統一画像で比較。販売年、型式、フロントマスクの違いを中古車選びに役立つ形で整理します。',
-    image: '/images/cars/n-box/gen3-2023.webp',
-    models: [{ name: 'ホンダ N-BOX', url: '/cars/n-box.html' }],
-  },
-  'alphard-history-identification.html': {
-    name: 'アルファード 歴代の見分け方',
-    title: 'アルファード 歴代の見分け方 | CarVista',
-    description: 'アルファード10系・20系・30系・40系を統一画像で比較。年式、型式、フロントマスクの違いを中古車選びに役立つ形で整理します。',
-    image: '/images/cars/alphard/gen4-2023.webp',
-    models: [{ name: 'トヨタ アルファード', url: '/cars/alphard.html' }],
   },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',

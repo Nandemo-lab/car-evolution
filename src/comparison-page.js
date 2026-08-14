@@ -39,7 +39,7 @@ const pages = {
     },
     related: [
       { href: '/compare-voxy-noah.html', label: 'VOXYとNOAHの違い', description: '兄弟車のフロントマスクを、同じ条件で見る。' },
-      { href: '/voxy-70-80-90.html', label: 'VOXY 70・80・90系の見分け方', description: '中古車写真で世代を見分けるポイントを確認する。' },
+      { href: '/cars/voxy.html', label: 'VOXYの歴代・見分け方', description: '世代ごとの違いと型式を本体ページで確認する。' },
     ],
   },
   'voxy-noah': {
@@ -63,7 +63,7 @@ const pages = {
     },
     related: [
       { href: '/compare-noah-serena-stepwgn.html', label: 'NOAH・SERENA・STEP WGNの違い', description: 'Mクラスミニバン3台の個性を並べて見る。' },
-      { href: '/voxy-70-80-90.html', label: 'VOXY 70・80・90系の見分け方', description: '中古車写真で世代を見分けるポイントを確認する。' },
+      { href: '/cars/voxy.html', label: 'VOXYの歴代・見分け方', description: '世代ごとの違いと型式を本体ページで確認する。' },
     ],
   },
   'freed-sienta': {
