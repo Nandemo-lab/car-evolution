@@ -73,8 +73,8 @@ const pages = {
     guideNote: 'ここでは、現行モデルの代表的な仕様を同じ条件で比較しています。装備や価格ではなく、まずフロントマスクがつくる印象に注目してください。',
     cars: [freed, sienta],
     images: {
-      FREED: { standard: '/images/cars/freed/compare-standard-v1.png' },
-      SIENTA: { standard: '/images/cars/sienta/compare-standard-v1.png' },
+      FREED: { standard: '/images/cars/freed/compare-standard-v2.png' },
+      SIENTA: { standard: '/images/cars/sienta/compare-standard-v2.png' },
     },
     reading: [
       { heading: '近いサイズ感でも、表情のつくり方は異なる', text: 'FREEDとSIENTAは、どちらも日常で扱いやすいサイズの3列シートミニバンです。並べて見ると、ライトの置き方、グリルの存在感、バンパーの面の使い方に、それぞれの個性が表れています。' },
@@ -97,7 +97,8 @@ const pages = {
     guideNote: 'ここでは、現行モデルの代表的な仕様を同じ条件で比較しています。グレードや装備の優劣ではなく、デザインがつくる印象に注目してください。',
     cars: [nBox, spacia],
     images: {
-      'N-BOX': { standard: '/images/cars/n-box/compare-standard-v1.png' },
+      'N-BOX': { standard: '/images/cars/n-box/compare-standard-v3.png' },
+      SPACIA: { standard: '/images/cars/spacia/compare-standard-v1.png' },
     },
     reading: [
       { heading: '使いやすさの方向は近く、表情の方向は違う', text: 'N-BOXとSPACIAは、どちらも背の高い室内空間を特徴とする軽自動車です。フロントマスクを並べると、ライト、グリル、ボンネットの面のつながりに、異なる個性が見えてきます。' },
