@@ -45,6 +45,7 @@ body { margin: 0; background: #0b0c0e; }
 .comparison-next h2 { margin: 0 0 22px; font-size: clamp(25px, 5vw, 36px); letter-spacing: -.025em; }
 .comparison-next-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
 .comparison-next-grid a { min-height: 148px; display: flex; flex-direction: column; align-items: flex-start; color: inherit; padding: 20px; border: 1px solid rgba(244,243,240,.13); border-radius: 15px; text-decoration: none; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+.comparison-next-grid > div { min-height: 148px; display: flex; flex-direction: column; align-items: flex-start; color: inherit; padding: 20px; border: 1px solid rgba(244,243,240,.13); border-radius: 15px; }
 .comparison-next-grid a:hover, .comparison-next-grid a:focus-visible { background: rgba(244,243,240,.06); border-color: rgba(244,243,240,.32); transform: translateY(-2px); }
 .comparison-next-grid strong { font-size: 15px; line-height: 1.45; }
 .comparison-next-grid span { margin-top: 8px; color: rgba(244,243,240,.62); font-size: 12px; font-weight: 300; line-height: 1.65; }
