@@ -82,6 +82,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/prius/gen4-2018-zvw51-post-facelift.png',
     models: [{ name: 'トヨタ PRIUS 50系', url: '/cars/prius.html' }],
   },
+  'stepwgn-rp-zenki-kouki.html': {
+    name: 'STEPWGN RP系 SPADA 前期・後期の違い',
+    title: 'STEPWGN RP系 前期・後期の違い・見分け方 | CarVista',
+    description: 'ホンダ STEPWGN RP系 SPADAの前期・後期を統一画像で比較。2017年9月のマイナーチェンジで変わったヘッドライト、グリル、バンパーと中古車の見分け方を解説します。',
+    image: '/images/cars/stepwgn/rp3-spada-post-facelift-v1.png',
+    models: [{ name: 'ホンダ STEPWGN RP系 SPADA', url: '/cars/stepwgn.html' }],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',

@@ -187,6 +187,16 @@ export default {
   },
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/stepwgn/hero-gen6-3q.webp',
+  guides: [
+    {
+      eyebrow: 'RP SERIES · FACELIFT GUIDE',
+      title: 'RP系 SPADA 前期・後期の違い',
+      description: '2017年9月を境に変わったヘッドライト、グリル、バンパーを統一画像で比較。中古車写真から見分ける要点を確認できます。',
+      href: '/stepwgn-rp-zenki-kouki.html',
+      cta: '前期・後期を見分ける',
+      image: '/images/cars/stepwgn/rp3-spada-post-facelift-v1.png',
+    },
+  ],
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
