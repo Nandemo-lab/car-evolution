@@ -96,6 +96,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/harrier/gen3-2017-zsu60w-post-facelift.png',
     models: [{ name: 'トヨタ HARRIER 60系', url: '/cars/harrier.html' }],
   },
+  'freed-gb5-zenki-kouki.html': {
+    name: 'FREED 2代目 GB5/GB6 前期・後期の違い',
+    title: 'FREED 2代目 前期・後期の違い・見分け方 | CarVista',
+    description: 'ホンダ FREED 2代目GB5/GB6の前期・後期を同一条件の画像で比較。2019年10月のマイナーチェンジで変わったフード、グリル、バンパーと中古車の見分け方を解説します。',
+    image: '/images/cars/freed/gen2-gb5-post-facelift-v1.png',
+    models: [{ name: 'ホンダ FREED 2代目 GB5/GB6', url: '/cars/freed.html' }],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',

@@ -131,6 +131,17 @@ export default {
   referenceLengthMm: 4310,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/freed/hero-gen3-3q.webp',
+  guides: [
+    {
+      label: '2代目 前期・後期の違い',
+      eyebrow: 'GB5 · FACELIFT GUIDE',
+      title: '2代目FREED 前期・後期の違い',
+      description: '2019年10月18日を境に変わったフード、グリル、バンパー、ロアグリルを統一画像で比較。中古車写真から見分ける要点を確認できます。',
+      href: '/freed-gb5-zenki-kouki.html',
+      cta: '前期・後期を見分ける',
+      image: '/images/cars/freed/gen2-gb5-post-facelift-v1.png',
+    },
+  ],
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
