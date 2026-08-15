@@ -65,7 +65,7 @@ export default {
   referenceLengthMm: 4600,
   tagline: '先駆けは、かたちを変え続ける。',
   heroImage: '/images/cars/prius/gen5-2023-mxwh60.png',
-  homeCardImage: '/images/cars/prius/home-card-v2.png',
+  homeCardImage: '/images/cars/prius/home-card-v3.png',
   generationGuide: {
     title: '10・20・30・50・60系を見分ける代表ポイント',
     intro: 'プリウスの歴代モデルは、初代10系だけが独立トランクの4ドアセダンです。2代目以降はトライアングルシルエットの5ドアへ移行し、30系、低重心の50系、さらに低くワイドな60系へ進化しました。まず外観で世代を絞り、販売期間と車検証の型式で確定します。',
