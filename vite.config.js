@@ -89,6 +89,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/stepwgn/rp3-spada-post-facelift-v1.png',
     models: [{ name: 'ホンダ STEPWGN RP系 SPADA', url: '/cars/stepwgn.html' }],
   },
+  'harrier-60-zenki-kouki.html': {
+    name: 'HARRIER 60系 前期・後期の違い',
+    title: 'HARRIER 60系 前期・後期の違い・見分け方 | CarVista',
+    description: 'トヨタ HARRIER 60系の前期・後期を同一条件の画像で比較。2017年6月のマイナーチェンジで変わったヘッドランプ、バンパー、フォグ周辺と中古車の見分け方を解説します。',
+    image: '/images/cars/harrier/gen3-2017-zsu60w-post-facelift.png',
+    models: [{ name: 'トヨタ HARRIER 60系', url: '/cars/harrier.html' }],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',

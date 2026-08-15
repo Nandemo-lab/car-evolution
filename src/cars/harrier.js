@@ -65,7 +65,16 @@ export default {
       { title: '80系', description: 'L字発光の薄型ランプと低くワイドなスタンス、ファストバック調の後姿が特徴です。', meta: '2020年〜現在 · MXUA80' },
     ],
   },
-  guides: [],
+  guides: [
+    {
+      eyebrow: '60 SERIES · FACELIFT GUIDE',
+      title: '60系 前期・後期の違い',
+      description: '2017年6月8日を境に変わったヘッドランプ、バンパー、フォグ周辺を統一画像で比較。中古車写真から判別する要点を確認できます。',
+      href: '/harrier-60-zenki-kouki.html',
+      cta: '前期・後期を見分ける',
+      image: '/images/cars/harrier/gen3-2017-zsu60w-post-facelift.png',
+    },
+  ],
   seo: {
     title: 'HARRIER 歴代モデル・10系/30系/60系/80系の違い — CarVista',
     description: 'トヨタ ハリアー歴代4世代を統一画像で比較。初代10系から30系、60系、現行80系まで、販売期間、代表型式、見分け方とデザインの進化が一目でわかります。',
