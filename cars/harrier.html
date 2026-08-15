@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0c0e" />
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="512x512" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- title/description/canonical/OGP/Twitter/JSON-LD are injected at
+         build+dev time by the seo-inject Vite plugin (see vite.config.js),
+         sourced from src/cars/harrier.js's `seo` field. Do not hand-add
+         them here -- edit the data file instead. -->
+  </head>
+  <body>
+    <!-- CarVista shared vehicle-page skeleton. This structure is
+         identical across every vehicle page (VOXY, Alphard, ...) --
+         all content comes from src/cars/<vehicle>.js (pure data) via
+         src/entries/<vehicle>.js (bootstrap) and src/car-page.js (the
+         engine). To add a new vehicle: copy this file, change only
+         <head> (title/description/OGP/JSON-LD/canonical) and the
+         closing <script src>. Do not hand-edit anything inside <main>. -->
+    <main id="car-page">
+      <header class="hero">
+        <img class="hero-image" id="hero-image" alt="" />
+        <div class="hero-vignette"></div>
+        <div class="hero-copy">
+          <p class="eyebrow" id="hero-eyebrow"></p>
+          <h1 id="hero-title"></h1>
+          <p class="tagline" id="tagline"></p>
+        </div>
+      </header>
+
+      <div class="heritage" id="heritage" aria-hidden="true"></div>
+
+      <nav class="timeline" id="timeline" aria-label="世代を選択"></nav>
+
+      <section class="detail" id="detail" aria-live="polite">
+        <div class="detail-visual">
+          <div class="detail-image-wrap">
+            <img class="detail-image" id="detail-image" alt="" />
+            <div class="detail-dots" id="detail-dots"></div>
+          </div>
+          <div class="detail-callouts" id="detail-callouts"></div>
+        </div>
+        <div class="detail-info">
+          <div class="detail-text">
+            <p class="detail-eyebrow"><span id="detail-numeral"></span><span class="detail-dot">・</span><span id="detail-era"></span></p>
+            <h2 id="detail-title"></h2>
+            <p class="detail-meta"><span id="detail-code"></span><span class="detail-dot">・</span><span id="detail-period"></span></p>
+          </div>
+          <div class="facelift" id="facelift">
+            <button class="facelift-toggle" id="facelift-toggle" type="button" aria-expanded="false" aria-controls="facelift-list">
+              <span id="facelift-from-year"></span>
+              <span class="facelift-arrow">→</span>
+              <span id="facelift-to-year"></span>
+            </button>
+            <p class="facelift-note" id="facelift-note" hidden></p>
+            <ul class="facelift-list" id="facelift-list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="compare" id="compare" aria-label="世代を比較">
+        <div class="compare-tabs" id="compare-tabs"></div>
+        <div class="compare-image-wrap" id="compare-stage">
+          <img class="compare-base" id="compare-base-image" alt="" />
+          <div class="compare-annotations" id="compare-annotations-base"></div>
+          <div class="compare-overlay" id="compare-overlay">
+            <img id="compare-overlay-image" alt="" />
+            <div class="compare-annotations" id="compare-annotations-overlay"></div>
+          </div>
+          <span class="compare-side-label compare-side-label--left" id="compare-label-left"></span>
+          <span class="compare-side-label compare-side-label--right" id="compare-label-right"></span>
+          <div class="compare-divider" id="compare-divider">
+            <span class="compare-handle"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Back to Home -- deliberately outside .policy, see car-page.css.
+           Copy this line verbatim into every vehicle page. -->
+      <a class="back-home" href="/">← TOPへ戻る</a>
+
+      <!-- CarVista common policy footer. Vehicle-agnostic wording --
+           copy this block verbatim into every vehicle page. Do not name
+           the current vehicle inside it. -->
+      <footer class="policy" aria-label="CarVistaについて">
+        <p class="policy-text">掲載内容は、メーカーの公式カタログやプレスリリースなど、複数の公開情報をもとに制作しています。グレードや特別仕様、地域仕様、年式、一部改良により、実際の仕様と異なる場合があります。</p>
+        <p class="policy-text">各世代の紹介では、その世代を最も象徴する代表的な仕様を基準にしています。最上級グレードや、もっとも販売台数が多いグレードとは限りません。特別仕様車・限定車・グレードごとの細かな違いは、原則として扱っていません。</p>
+        <p class="policy-text">掲載している画像は実車の写真ではありません。複数の公開資料を参考に、世代間の比較がしやすいよう同じ条件でCarVistaが独自に制作したビジュアル表現です。</p>
+        <p class="policy-text">CarVistaは各自動車メーカーとは一切関係のない独立したプロジェクトです。掲載しているメーカー名・車種名・商標は、各権利者に帰属します。(CarVista is an independent editorial project, created with no affiliation to any vehicle manufacturer.)</p>
+        <p class="policy-text policy-text--invite">CarVistaは、みなさんと一緒により正確なアーカイブへ育てていきたいと考えています。気づいた点があれば、ぜひお聞かせください。詳しい制作方針は<a class="policy-link" href="/editorial-policy.html">こちら</a>。<br /><a class="policy-link" href="https://x.com/CarVistaJP" target="_blank" rel="noopener noreferrer">X (Twitter) でお問い合わせ</a></p>
+        <p class="policy-meta">最終更新：2026年8月</p>
+      </footer>
+    </main>
+    <script type="module" src="/src/entries/harrier.js"></script>
+  </body>
+</html>
