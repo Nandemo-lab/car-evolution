@@ -1,0 +1,37 @@
+import './comparison-page.css'
+import './land-cruiser-300-vs-250.css'
+import './click-glow.js'
+import { trackEvent } from './analytics.js'
+
+const cars = [
+  {
+    id: 'lc300', name: 'LAND CRUISER 300', label: 'FLAGSHIP / VX GASOLINE', image: '/images/cars/land-cruiser/300-2021-vja300w-vx.png',
+    alt: 'トヨタ ランドクルーザー300 VX ブラックの左前3/4比較画像',
+    text: '2021年8月発売。VJA300W・VX・3.5L V6ツインターボガソリン・7人乗り。シリーズのフラッグシップとして、余裕ある動力性能と長距離移動の快適性を重視します。',
+  },
+  {
+    id: 'lc250', name: 'LAND CRUISER 250', label: 'CORE MODEL / VX GASOLINE', image: '/images/cars/land-cruiser/250-2024-trj250w-vx.png',
+    alt: 'トヨタ ランドクルーザー250 VX ブラックの左前3/4比較画像',
+    text: '2024年4月発売。TRJ250W・VX・2.7L直列4気筒ガソリン・7人乗り。生活と実用を支えるシリーズの中核として、原点回帰した機能的な造形を採用します。',
+  },
+]
+
+const carCard = (car, index) => `<article class="lc-car" id="${car.id}"><img src="${car.image}" alt="${car.alt}" ${index ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async" /><div class="lc-car-copy"><small>${car.label}</small><h3>${car.name}</h3><p>${car.text}</p></div></article>`
+
+document.querySelector('#land-cruiser-comparison-page').innerHTML = `
+  <header class="comparison-hero"><a class="comparison-home" href="/">CARVISTA</a><p class="comparison-eyebrow">TOYOTA OFFICIAL FACT CHECK · 300 VS 250</p><h1>ランクル300と250<br />違いを正確に比較</h1><p class="comparison-intro">外観だけでなく、公式寸法、ガソリン車のエンジン、価格、シリーズ内の役割まで同じ条件で比較します。300の後継や廉価版が250なのではなく、担う役割が異なる2台です。</p><div class="comparison-actions"><button class="share-button" type="button">共有する</button><button class="copy-button" type="button">URLをコピー</button></div></header>
+  <section class="lc-section lc-answer" aria-label="結論"><p class="comparison-eyebrow">FAST ANSWER</p><strong>300はフラッグシップ、250は暮らしを支える中核モデル。</strong><span>ボディ外寸は驚くほど近い一方、300はV6ツインターボの余裕、250は角張った実用的な設計とレギュラーガソリン仕様が個性です。250を「小さい300」と考えると実像を見誤ります。</span></section>
+  <section class="lc-section" aria-label="外観比較"><p class="comparison-eyebrow">SAME STUDIO · EXTERIOR</p><h2>顔つきとプロポーション</h2><p class="lc-lead">比較仕様は通常販売のガソリンVX・7人乗り・フルタイム4WD・ブラックで統一。250は丸目のFirst Editionではなく、通常VXの角目3眼LED仕様です。画像の車体そのものは変形させていません。</p><div class="lc-cars">${cars.map(carCard).join('')}</div></section>
+  <section class="lc-section" aria-label="位置づけ"><p class="comparison-eyebrow">POSITION</p><h2>上下ではなく、役割が違う</h2><div class="lc-grid"><article><h3>300：フラッグシップ</h3><p>200系の後継として登場。GA-Fのラダーフレームを採用し、悪路走破性を守りながら、最新技術、力強いV6ツインターボ、長距離での疲れにくさを高い水準でまとめたモデルです。</p></article><article><h3>250：シリーズの中核</h3><p>プラドが担ってきた領域を受け継ぎつつ「原点回帰」を掲げた実用モデル。300と同じGA-F系ラダーフレームを基礎に、扱いやすい視界と機能を重視します。70は別軸のヘビーデューティー系です。</p></article></div></section>
+  <section class="lc-section" aria-label="サイズ比較"><p class="comparison-eyebrow">DIMENSIONS</p><h2>サイズ差は25mmの全長だけ</h2><div class="lc-table-wrap"><table class="lc-table"><thead><tr><th>公式諸元</th><th>300 VX ガソリン</th><th>250 VX ガソリン</th><th>300 − 250</th></tr></thead><tbody><tr><th>全長</th><td>4,950 mm</td><td>4,925 mm</td><td>+25 mm</td></tr><tr><th>全幅</th><td>1,980 mm</td><td>1,980 mm</td><td>0 mm</td></tr><tr><th>全高</th><td>1,925 mm</td><td>1,925 mm</td><td>0 mm</td></tr><tr><th>ホイールベース</th><td>2,850 mm</td><td>2,850 mm</td><td>0 mm</td></tr><tr><th>最低地上高</th><td>225 mm</td><td>215 mm</td><td>+10 mm</td></tr><tr><th>車両重量</th><td>2,440 kg</td><td>2,240 kg</td><td>+200 kg</td></tr><tr><th>最小回転半径</th><td>5.9 m</td><td>6.0 m</td><td>−0.1 m</td></tr><tr><th>乗車定員</th><td>7人</td><td>7人</td><td>同じ</td></tr></tbody></table></div><p class="lc-note">VXガソリン同士の比較。装備やグレードで重量等は変わります。250は角張って見えても、幅・高さ・ホイールベースは300と同じで、最小回転半径も0.1m大きいため「圧倒的にコンパクト」とはいえません。</p></section>
+  <section class="lc-section" aria-label="パワートレイン比較"><p class="comparison-eyebrow">POWERTRAIN</p><h2>力の余裕は300、構成の簡潔さは250</h2><div class="lc-table-wrap"><table class="lc-table"><thead><tr><th>公式諸元</th><th>300 VX ガソリン</th><th>250 VX ガソリン</th></tr></thead><tbody><tr><th>型式</th><td>3BA-VJA300W</td><td>3BA-TRJ250W</td></tr><tr><th>エンジン</th><td>V35A-FTS／3.444L V6ツインターボ</td><td>2TR-FE／2.693L 直4 自然吸気</td></tr><tr><th>最高出力</th><td>305 kW（415 PS）</td><td>120 kW（163 PS）</td></tr><tr><th>最大トルク</th><td>650 N・m</td><td>246 N・m</td></tr><tr><th>変速機</th><td>Direct Shift-10AT</td><td>6 Super ECT</td></tr><tr><th>駆動方式</th><td>フルタイム4WD</td><td>フルタイム4WD</td></tr><tr><th>燃料</th><td>無鉛プレミアム</td><td>無鉛レギュラー</td></tr><tr><th>WLTC燃費</th><td>7.9 km/L</td><td>7.5 km/L</td></tr></tbody></table></div></section>
+  <section class="lc-section" aria-label="走破性とメカニズム"><p class="comparison-eyebrow">4WD & MECHANISM</p><h2>どちらも本格ラダーフレーム</h2><div class="lc-grid"><article><h3>共通する土台</h3><p>両車ともGA-F系のラダーフレームとフルタイム4WDを採用。オンロードSUVの上下関係ではなく、ランドクルーザーとして耐久性・信頼性・悪路走破性を核にした別キャラクターです。</p></article><article><h3>制御と味付け</h3><p>300はトルセンLSD付きトランスファーやリヤ電動デフロックを採用。250もトルセンLSD、リヤ電動デフロック、SDMや電動パワーステアリングを備え、実用オフローダーとして視界と操作性を磨いています。</p></article></div></section>
+  <section class="lc-section" aria-label="価格比較"><p class="comparison-eyebrow">PRICE</p><h2>ガソリンVXの公式価格差</h2><div class="lc-grid"><article><h3>300 VX：6,436,100円</h3><p>2025年3月時点の公式カタログ価格。V6ツインターボ、10AT、フラッグシップ装備を含む価格です。</p></article><article><h3>250 VX：5,779,400円</h3><p>2026年4月一部改良時の公式価格。差は656,700円ですが、エンジン・装備・商品性が異なるため価格だけで上下を決められません。</p></article></div><p class="lc-note">価格は消費税込み、オプション・諸費用別。受注可否や納期は変動します。2026年8月15日確認時、Toyota公式300ページはガソリン車の注文停止を案内しているため、実際の購入可否は販売店で確認してください。</p></section>
+  <section class="lc-section" aria-label="見分け方"><p class="comparison-eyebrow">IDENTIFICATION</p><h2>街中での見分け方</h2><div class="lc-grid"><article><h3>300：横桟グリルと流麗な面</h3><p>大きな横桟グリルの中央にToyotaエンブレム。ヘッドランプはグリルと連続し、ボディ側面は250より滑らかで、リヤクォーターウインドウも丸みを帯びます。</p></article><article><h3>250：角目とTOYOTA文字</h3><p>通常VXは長方形の3眼LEDと、中央のTOYOTA文字グリルが決め手。直立したAピラー、角張ったフェンダー、水平基調のボディで識別できます。丸目仕様もあるため250全部が角目ではありません。</p></article></div></section>
+  <section class="lc-section" aria-label="選び方"><p class="comparison-eyebrow">WHICH ONE?</p><h2>自分ならどちらを選ぶ？</h2><div class="lc-grid"><article><h3>300が向く人</h3><p>高速道路や長距離を余裕ある加速で走りたい、7人乗りと大きな牽引・積載シーンでパワーを重視する、フラッグシップらしい快適性と装備を求める人。</p></article><article><h3>250が向く人</h3><p>角張った機能的なデザイン、良好な前方視界、レギュラーガソリンの実用性を重視し、生活の道具として本格4WDを使いたい人。外寸は300とほぼ同じなので駐車環境の確認は必須です。</p></article></div></section>
+  <section class="lc-section lc-source" aria-label="公式根拠"><p class="comparison-eyebrow">FACT CHECK</p><p class="lc-lead">発売日、位置づけ、装備、価格、主要諸元は、<a href="https://global.toyota/jp/newsroom/toyota/35758385.html" target="_blank" rel="noopener noreferrer">Toyota公式 300発売資料</a>、<a href="https://global.toyota/jp/newsroom/toyota/40643833.html" target="_blank" rel="noopener noreferrer">Toyota公式 250発売資料</a>、<a href="https://global.toyota/jp/newsroom/toyota/39526630.html" target="_blank" rel="noopener noreferrer">Toyota公式 250世界初公開資料</a>、および各車の公式主要諸元・Webカタログ（300：2026年1月版、250：2026年4月版）で照合しています。</p></section>
+  <a class="comparison-more" href="/">CarVistaの車種一覧へ戻る</a>`
+
+async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_comparison', { vehicle: 'LAND CRUISER', intent: '300-vs-250', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'ランドクルーザー300と250の違い', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_comparison_url', { vehicle: 'LAND CRUISER', intent: '300-vs-250' }); return copyUrl(event.currentTarget, 'コピーしました') })

@@ -103,6 +103,16 @@ const COMPARISON_PAGES = {
     image: '/images/cars/freed/gen2-gb5-post-facelift-v1.png',
     models: [{ name: 'ホンダ FREED 2代目 GB5/GB6', url: '/cars/freed.html' }],
   },
+  'land-cruiser-300-vs-250.html': {
+    name: 'LAND CRUISER 300・250の違い',
+    title: 'ランドクルーザー300と250の違い・サイズ・エンジン比較 | CarVista',
+    description: 'ランドクルーザー300と250をToyota公式情報で比較。サイズ、エンジン、価格、位置づけ、外観の見分け方と、どちらが向くかを解説します。',
+    image: '/images/cars/land-cruiser/300-2021-vja300w-vx.png',
+    models: [
+      { name: 'トヨタ LAND CRUISER 300 VX', url: '/land-cruiser-300-vs-250.html#lc300' },
+      { name: 'トヨタ LAND CRUISER 250 VX', url: '/land-cruiser-300-vs-250.html#lc250' },
+    ],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',
