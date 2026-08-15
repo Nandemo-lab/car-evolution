@@ -67,6 +67,7 @@ export default {
   },
   guides: [
     {
+      label: '60系 前期・後期の違い',
       eyebrow: '60 SERIES · FACELIFT GUIDE',
       title: '60系 前期・後期の違い',
       description: '2017年6月8日を境に変わったヘッドランプ、バンパー、フォグ周辺を統一画像で比較。中古車写真から判別する要点を確認できます。',
