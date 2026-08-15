@@ -105,7 +105,7 @@ const generations = [
     numeral: 'V',
     era: '5代目',
     title: 'C27型',
-    code: 'C27',
+    code: 'GC27 / GFC27 / HC27 / HFC27 ほか',
     startYear: '2016',
     yearRange: '2016–2022',
     period: '2016年〜2022年',
@@ -116,7 +116,7 @@ const generations = [
     ],
     facelift: {
       fromYear: '2019', toYear: '2019',
-      points: ['アダプティブLEDヘッドライトを採用', 'プロパイロットの機能を拡充'],
+      points: ['大型ダブルVモーショングリルへ刷新', 'Highway STARは宝石調クロームと専用バンパーを採用'],
     },
   },
   {
@@ -198,6 +198,10 @@ export default {
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
+  guides: [
+    { href: '/serena-c27-zenki-kouki.html', label: 'C27 Highway STAR 前期・後期の違い', description: '2019年8月を境に、同一条件の画像で詳しく見分ける。' },
+    { href: '/compare-noah-serena-stepwgn.html', label: 'NOAH・SERENA・STEP WGNを見比べる', description: 'Mクラスミニバン3台の個性を同じ視点で比較する。' },
+  ],
   seo: {
     title: 'SERENA 歴代モデル・C23〜C28型の違い — CarVista',
     description: '日産 セレナ全6世代を統一画像で比較。C23〜C28型の型式、販売期間、見分け方とデザイン進化が一目でわかる。',

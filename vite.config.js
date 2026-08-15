@@ -61,6 +61,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/voxy/80-zs-post-facelift-v1.png',
     models: [{ name: 'トヨタ VOXY 80系 ZS', url: '/cars/voxy.html' }],
   },
+  'serena-c27-zenki-kouki.html': {
+    name: 'SERENA C27 Highway STAR 前期・後期の違い',
+    title: 'SERENA C27 前期・後期の違い・見分け方 | CarVista',
+    description: '日産 SERENA C27 Highway STARの前期・後期を同一条件の画像で比較。2016〜2019年と2019〜2022年のグリル、ヘッドランプ、バンパー、型式と中古車の見分け方を解説します。',
+    image: '/images/cars/serena/c27-highwaystar-post-facelift-v1.png',
+    models: [{ name: '日産 SERENA C27 Highway STAR', url: '/cars/serena.html' }],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',
