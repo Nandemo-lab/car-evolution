@@ -75,6 +75,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/n-box/jf3-custom-post-facelift-v1.png',
     models: [{ name: 'ホンダ N-BOX 2代目 JF3/JF4', url: '/cars/n-box.html' }],
   },
+  'prius-50-zenki-kouki.html': {
+    name: 'PRIUS 50系 前期・後期の違い',
+    title: 'PRIUS 50系 前期・後期の違い・見分け方 | CarVista',
+    description: 'トヨタ PRIUS 50系の前期・後期を同一条件の画像で比較。2018年12月のマイナーチェンジで変わったヘッドランプ、グリル、バンパーと中古車の見分け方を解説します。',
+    image: '/images/cars/prius/gen4-2018-zvw51-post-facelift.png',
+    models: [{ name: 'トヨタ PRIUS 50系', url: '/cars/prius.html' }],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',

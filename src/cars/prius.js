@@ -76,7 +76,16 @@ export default {
       { title: '60系', description: '低く長いモノフォルムと、薄いハンマーヘッドランプを採用。', meta: '2023年〜現在 · MXWH60 / MXWH65 / ZVW60 / ZVW65' },
     ],
   },
-  guides: [],
+  guides: [
+    {
+      eyebrow: '50 SERIES · FACELIFT GUIDE',
+      title: '50系 前期・後期の違い',
+      description: '2018年12月を境に変わったヘッドランプ、グリル、バンパーを統一画像で比較。中古車写真から見分ける要点を確認できます。',
+      href: '/prius-50-zenki-kouki.html',
+      cta: '前期・後期を見分ける',
+      image: '/images/cars/prius/gen4-2018-zvw51-post-facelift.png',
+    },
+  ],
   seo: {
     title: 'PRIUS 歴代モデル・10系/20系/30系/50系/60系の違い — CarVista',
     description: 'トヨタ プリウス歴代5世代を統一画像で比較。初代から30系・50系・60系まで、販売期間、代表型式、見分け方とデザイン進化が一目でわかる。',
