@@ -131,6 +131,7 @@ export default {
     ],
   },
   guides: [
+    { href: '/n-box-jf3-zenki-kouki.html', label: 'N-BOX 2代目（JF3/JF4）前期・後期の違い', description: '2020年12月の変更をCustomの統一画像で見分ける。' },
     { href: '/compare-n-box-spacia.html', label: 'N-BOX・SPACIAの違い', description: '現行の軽スーパーハイトワゴンを同じ視点で比べる。' },
   ],
   // User-supplied TOP composition (2026-08-07): low, front-emphasised

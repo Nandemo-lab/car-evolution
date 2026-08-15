@@ -68,6 +68,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/serena/c27-highwaystar-post-facelift-v1.png',
     models: [{ name: '日産 SERENA C27 Highway STAR', url: '/cars/serena.html' }],
   },
+  'n-box-jf3-zenki-kouki.html': {
+    name: 'N-BOX 2代目 JF3/JF4 前期・後期の違い',
+    title: 'N-BOX 2代目（JF3/JF4）前期・後期の違い・見分け方 | CarVista',
+    description: 'ホンダ N-BOX 2代目 JF3/JF4の前期・後期を統一画像で比較。2020年12月のマイナーチェンジで変わったCustomのグリル、ナンバー位置、型式と中古車の見分け方を解説。',
+    image: '/images/cars/n-box/jf3-custom-post-facelift-v1.png',
+    models: [{ name: 'ホンダ N-BOX 2代目 JF3/JF4', url: '/cars/n-box.html' }],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',
