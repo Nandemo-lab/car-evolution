@@ -167,6 +167,51 @@ const COMPARISON_PAGES = {
       { name: 'スズキ SPACIA', url: '/cars/spacia.html' },
     ],
   },
+  'voxy-70-80-90.html': {
+    name: 'VOXY 70・80・90系の見分け方',
+    title: 'VOXY 70・80・90系の見分け方 | CarVista',
+    description: 'VOXYの70系・80系・90系を統一画像で比較。フロントマスク、年式の目安、型式から世代を見分けるポイントを解説します。',
+    image: '/images/cars/voxy/top-90-standard-v3.jpg',
+    models: [{ name: 'トヨタ VOXY', url: '/cars/voxy.html' }],
+  },
+  'n-box-generations.html': {
+    name: 'N-BOX 初代・2代目・3代目の違い',
+    title: 'N-BOX 初代・2代目・3代目の違い・見分け方 | CarVista',
+    description: 'N-BOXの初代・2代目・3代目を統一画像、型式、販売年で比較。JF1/JF2、JF3/JF4、JF5/JF6の見分け方を解説します。',
+    image: '/images/cars/n-box/gen3-2023.webp',
+    models: [{ name: 'ホンダ N-BOX', url: '/cars/n-box.html' }],
+  },
+  'alphard-history-identification.html': {
+    name: 'アルファード歴代の見分け方',
+    title: 'アルファード歴代の見分け方｜10系・20系・30系・40系 | CarVista',
+    description: 'アルファード10系・20系・30系・40系を統一画像と型式で比較。歴代モデルの外観と販売年の見分け方を解説します。',
+    image: '/images/cars/alphard/40-2023-agh40w.png',
+    models: [{ name: 'トヨタ アルファード', url: '/cars/alphard.html' }],
+  },
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character])
+}
+
+// The visual catalogue remains client-rendered, but its meaningful starting
+// content must not be absent from the source response. This concise fallback
+// is generated from the same car data and comparison definitions as the live
+// UI. The app removes it immediately after JavaScript begins, so readers see
+// one interface while non-JS crawlers still receive the page topic, key facts,
+// and a natural internal link.
+function buildStaticVehicleFallback(car) {
+  const generations = car.generations.map((generation) => `<li><strong>${escapeHtml(generation.title)}</strong>｜${escapeHtml(generation.period)}｜主な型式：${escapeHtml(generation.code)}</li>`).join('')
+  return `<section class="static-crawl-fallback"><h1>${escapeHtml(car.brand)} ${escapeHtml(car.vehicleName)}の歴代モデル</h1><p>${escapeHtml(car.seo.description)}</p><h2>世代一覧</h2><ul>${generations}</ul><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・免責事項</a></p></section>`
+}
+
+function buildStaticComparisonFallback(comparison) {
+  const models = comparison.models.map((model) => `<li><a href="${escapeHtml(model.url)}">${escapeHtml(model.name)}</a></li>`).join('')
+  return `<section class="static-crawl-fallback"><h1>${escapeHtml(comparison.name)}</h1><p>${escapeHtml(comparison.description)}</p><h2>比較対象</h2><ul>${models}</ul><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・免責事項</a></p></section>`
+}
+
+function injectStaticFallback(html, fallback) {
+  return html.replace(/(<main id="[^"]+">)/, `$1${fallback}`)
 }
 
 // Every file in cars/*.html, plus every other *.html at the project
@@ -436,7 +481,10 @@ function seoInjectPlugin() {
       }
 
       if (COMPARISON_PAGES[filename]) {
-        return { html, tags: withAdSenseVerification(buildComparisonTags(filename)) }
+        return {
+          html: injectStaticFallback(html, buildStaticComparisonFallback(COMPARISON_PAGES[filename])),
+          tags: withAdSenseVerification(buildComparisonTags(filename)),
+        }
       }
 
       const slug = filename.replace(/\.html$/, '')
@@ -476,7 +524,10 @@ function seoInjectPlugin() {
         { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(jsonLd), injectTo: 'head' },
         { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(breadcrumbJsonLd), injectTo: 'head' },
       ]
-      return { html, tags: withAdSenseVerification(tags) }
+      return {
+        html: injectStaticFallback(html, buildStaticVehicleFallback(car)),
+        tags: withAdSenseVerification(tags),
+      }
     },
   }
 }

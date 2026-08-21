@@ -2,6 +2,11 @@ import './car-page.css'
 import './click-glow.js'
 import { getDiscoveryImage, getDiscoveryStyle, getSlugFromPath, relatedCars } from './discovery.js'
 import { trackEvent } from './analytics.js'
+
+// vite.config.js supplies a compact, data-derived HTML fallback for
+// non-JavaScript crawlers. The interactive catalogue takes over as soon as
+// this module starts, so users never see duplicate page content.
+document.querySelector('.static-crawl-fallback')?.remove()
 import { officialSources } from './official-sources.js'
 
 const carModules = import.meta.glob('./cars/*.js', { eager: true })
