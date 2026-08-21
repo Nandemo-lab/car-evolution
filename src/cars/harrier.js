@@ -67,6 +67,10 @@ export default {
   },
   guides: [
     {
+      label: '60系・80系の違い', eyebrow: '60 VS 80 · GENERATION GUIDE', title: '60系と80系の違い', description: '3代目と4代目を外観・サイズ・装備で比較。',
+      href: '/harrier-60-vs-80.html', cta: '世代の違いを見る', image: '/images/cars/harrier/gen4-2020-mxua80.png',
+    },
+    {
       label: '60系 前期・後期の違い',
       eyebrow: '60 SERIES · FACELIFT GUIDE',
       title: '60系 前期・後期の違い',

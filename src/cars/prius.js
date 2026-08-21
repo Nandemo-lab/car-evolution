@@ -79,6 +79,10 @@ export default {
   },
   guides: [
     {
+      eyebrow: '50 VS 60 · GENERATION GUIDE', title: '50系と60系の違い', description: '4代目と5代目を外観・サイズ・ハイブリッドで比較。',
+      href: '/prius-50-vs-60.html', cta: '世代の違いを見る', image: '/images/cars/prius/gen5-2023-mxwh60.png',
+    },
+    {
       eyebrow: '50 SERIES · FACELIFT GUIDE',
       title: '50系 前期・後期の違い',
       description: '2018年12月を境に変わったヘッドランプ、グリル、バンパーを統一画像で比較。中古車写真から見分ける要点を確認できます。',

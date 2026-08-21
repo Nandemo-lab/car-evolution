@@ -15,6 +15,31 @@ const SITE_NAME = 'CarVista'
 const SITE_ORIGIN = 'https://carvista.jp'
 
 const COMPARISON_PAGES = {
+  'serena-c27-vs-c28.html': {
+    name: 'SERENA C27・C28の違い', title: 'セレナ C27とC28の違い・サイズ・見分け方 | CarVista',
+    description: '日産セレナC27とC28を画像、型式、サイズ、装備で比較。中古車の見分け方と、5代目・6代目のどちらが向くかを解説します。',
+    image: '/images/cars/serena/gen6-2022.webp', models: [{ name: '日産 SERENA C27', url: '/serena-c27-vs-c28.html#c27' }, { name: '日産 SERENA C28', url: '/serena-c27-vs-c28.html#c28' }],
+  },
+  'stepwgn-rp-vs-rp6.html': {
+    name: 'STEPWGN 5代目・6代目の違い', title: 'ステップワゴン RP系 5代目と6代目の違い | CarVista',
+    description: 'ステップワゴン5代目RP1〜RP5と6代目RP6〜RP8を画像と公式諸元で比較。サイズ、外観、装備と見分け方を解説します。',
+    image: '/images/cars/stepwgn/gen6-2022.webp', models: [{ name: 'ホンダ STEPWGN 5代目', url: '/stepwgn-rp-vs-rp6.html#rp5' }, { name: 'ホンダ STEPWGN 6代目', url: '/stepwgn-rp-vs-rp6.html#rp6' }],
+  },
+  'freed-gen2-vs-gen3.html': {
+    name: 'FREED 2代目・3代目の違い', title: 'フリード 2代目と3代目の違い・サイズ・見分け方 | CarVista',
+    description: 'ホンダFREEDの2代目GB5〜GB8と3代目GT1〜GT8を画像、サイズ、装備で比較。中古車の見分け方を解説します。',
+    image: '/images/cars/freed/gen3-2024.webp', models: [{ name: 'ホンダ FREED 2代目', url: '/freed-gen2-vs-gen3.html#freed2' }, { name: 'ホンダ FREED 3代目', url: '/freed-gen2-vs-gen3.html#freed3' }],
+  },
+  'harrier-60-vs-80.html': {
+    name: 'HARRIER 60系・80系の違い', title: 'ハリアー 60系と80系の違い・サイズ・見分け方 | CarVista',
+    description: 'トヨタHARRIER 60系と80系を同一条件の画像と公式諸元で比較。サイズ、外観、装備、中古車の見分け方を解説します。',
+    image: '/images/cars/harrier/gen4-2020-mxua80.png', models: [{ name: 'トヨタ HARRIER 60系', url: '/harrier-60-vs-80.html#harrier60' }, { name: 'トヨタ HARRIER 80系', url: '/harrier-60-vs-80.html#harrier80' }],
+  },
+  'prius-50-vs-60.html': {
+    name: 'PRIUS 50系・60系の違い', title: 'プリウス 50系と60系の違い・サイズ・見分け方 | CarVista',
+    description: 'トヨタPRIUS 50系と60系を同一条件の画像と公式諸元で比較。サイズ、ハイブリッド、外観、中古車の見分け方を解説します。',
+    image: '/images/cars/prius/gen5-2023-mxwh60.png', models: [{ name: 'トヨタ PRIUS 50系', url: '/prius-50-vs-60.html#prius50' }, { name: 'トヨタ PRIUS 60系', url: '/prius-50-vs-60.html#prius60' }],
+  },
   'compare-noah-serena-stepwgn.html': {
     name: 'NOAH・SERENA・STEP WGNの違い',
     title: 'NOAH・SERENA・STEP WGNの違い | CarVista',
