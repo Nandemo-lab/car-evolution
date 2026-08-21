@@ -149,8 +149,8 @@ export default {
   // CarVista depicts throughout. White Pearl Crystal Shine is sourced
   // as softening a body's outline and reading calmer than black --
   // the color equivalent of "Composed," not just a popular pick.
-  representativeGrade: 'Standard model',
-  representativeColor: 'White Pearl Crystal Shine',
+  representativeGrade: '各世代の通常販売ガソリン・2WD代表仕様',
+  representativeColor: '各年式で設定されたブラック系Toyota純正色',
   // Hero vignette tint (see .hero-vignette in car-page.css) -- a soft
   // warm neutral vs. the base (11,12,14), matching Composed/Substantial.
   // Whisper-subtle by design, not a color filter.
@@ -171,14 +171,29 @@ export default {
       { generations: '90系', label: 'トヨタ WEBカタログ ノア', url: 'https://toyota.jp/request/webcatalog/noah/' },
     ],
   },
-  tagline: 'かたちは、時代を語る。',
+  tagline: 'NOAHは4世代。60系から90系へ。',
   heroImage: '/images/cars/noah/hero-gen4-3q.webp',
+  generationGuide: {
+    title: '60・70・80・90系を見分ける代表ポイント',
+    intro: 'NOAHは2001年登場の初代60系、2007年の70系、2014年の80系、2022年の現行90系という4世代です。まず画像で顔つきを見比べ、販売期間と車検証の型式で確定します。',
+    items: [
+      { title: '初代・60系', description: '横長の4本グリルと大きく丸いヘッドランプ、直立した背高ボディが目印です。掲載車は発売時世代のガソリン2WD代表仕様です。', meta: '2001年11月〜2007年6月 · AZR60G / AZR65G' },
+      { title: '2代目・70系', description: '上下に厚みを持たせた横基調グリルと縦長のヘッドランプへ進化。親しみやすい表情を保ちながら、フロントの存在感を強めました。', meta: '2007年6月〜2014年1月 · ZRR70G / ZRR75G' },
+      { title: '3代目・80系', description: '大型の台形グリルと上下に分かれた開口部が特徴です。掲載車は2014年発売時の前期型で、将来の前期・後期比較にも再利用できる代表Assetです。', meta: '2014年1月〜2022年1月の90系登場前 · ZRR80G / ZRR85G / ZWR80G ほか' },
+      { title: '4代目・90系', description: '薄型ランプと横に広いメッキグリルで、堂々感とモダンさを強調。掲載車は2022年発売世代の通常販売モデル代表仕様です。', meta: '2022年1月〜現在 · MZRA90W / ZWR90W ほか' },
+    ],
+  },
+  guides: [
+    { href: '/compare-voxy-noah.html', label: 'VOXY・NOAHの違い', description: '兄弟車2台のフロントマスクとデザインの狙いを、同じ視点で比べる。' },
+    { href: '/compare-voxy-noah-esquire.html', label: 'VOXY・NOAH・ESQUIREを見比べる', description: 'トヨタの兄弟ミニバン3台を画像で比較し、それぞれの個性を確認する。' },
+    { href: '/compare-noah-serena-stepwgn.html', label: 'NOAH・SERENA・STEP WGNの違い', description: 'Mクラスミニバン3台の顔つきとキャラクターを同じ視点で比べる。' },
+  ],
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
   seo: {
-    title: 'NOAH 歴代モデル一覧 — CarVista',
-    description: 'トヨタ ノア全4世代を画像で比較。型式・販売期間・デザインの進化が一目でわかる。',
+    title: 'NOAH 歴代モデル・60系/70系/80系/90系の違い — CarVista',
+    description: 'トヨタ ノア歴代4世代を統一画像で比較。初代60系から70系、80系、現行90系まで、販売期間、代表型式、見分け方とデザインの進化が一目でわかります。',
   },
   defaultIndex: 3,
   generations,
