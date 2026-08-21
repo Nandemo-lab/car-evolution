@@ -19,11 +19,11 @@ const generations = [
     numeral: 'I',
     era: '初代',
     title: '20系',
-    code: 'ANH20W / GGH20W ほか',
+    code: 'ANH20W / GGH20W / ATH20W',
     startYear: '2008',
     yearRange: '2008–2015',
-    period: '2008年〜2015年',
-    image: '/images/cars/vellfire/gen1-2008.webp',
+    period: '2008年5月〜2015年1月',
+    image: '/images/cars/vellfire/gen1-2008.png',
     annotations: [
       { x: 24, y: 46, label: 'メッキ主体の押し出し感のある<wbr>グリル', dir: 'bottom', labelX: 24 },
       { x: 58, y: 14, label: '直線的で張りのある<wbr>グリーンハウス', dir: 'top', labelX: 60 },
@@ -40,8 +40,8 @@ const generations = [
     code: 'AGH30W / GGH30W / AYH30W',
     startYear: '2015',
     yearRange: '2015–2023',
-    period: '2015年〜2023年',
-    image: '/images/cars/vellfire/gen2-2015.webp',
+    period: '2015年1月〜2023年6月',
+    image: '/images/cars/vellfire/30-z-a-edition-pre-facelift-v1.png',
     annotations: [
       { x: 20, y: 48, label: '大型グリルと一体化した<wbr>ヘッドランプ', dir: 'bottom', labelX: 20 },
       { x: 48, y: 44, label: '鋭く抜ける<wbr>キャラクターライン', dir: 'bottom', labelX: 60 },
@@ -58,8 +58,8 @@ const generations = [
     code: 'TAHA40W / AAHH40W ほか',
     startYear: '2023',
     yearRange: '2023–現在',
-    period: '2023年〜現在',
-    image: '/images/cars/vellfire/gen3-2023.webp',
+    period: '2023年6月〜現在',
+    image: '/images/cars/vellfire/gen3-2023.png',
     // Timeline's shared 1.55x crop (see --timeline-object-position in
     // car-page.css) cut the front wheel right at the card's edge on
     // this generation's photo -- shifted left just for this thumbnail
@@ -113,8 +113,8 @@ export default {
   // "Z Premier" is the mainstream signature-face grade, distinct from
   // the cabin-focused Executive Lounge halo trim -- same reasoning
   // Alphard's own representativeGrade choice already applies.
-  representativeGrade: 'Z Premier',
-  representativeColor: 'Black',
+  representativeGrade: '各世代の通常販売ガソリン・2WD代表仕様',
+  representativeColor: '各年式で設定されたブラック系Toyota純正色',
   // Hero vignette tint (see .hero-vignette in car-page.css) -- cool and
   // dark with a faint magenta undertone vs. the base (11,12,14),
   // matching Bold/Individual and distinct from both VOXY's steel-blue
@@ -128,21 +128,22 @@ export default {
   // Internal production metadata only -- never render this as a spec
   // on the page.
   referenceLengthMm: 4995,
-  tagline: 'かたちは、時代を語る。',
+  tagline: 'ヴェルファイアは3世代。20系から40系へ。',
   heroImage: '/images/cars/vellfire/hero-gen3-3q.webp',
   generationGuide: {
     title: '20・30・40系を見分ける代表ポイント',
-    intro: 'VELLFIREは20系から始まるALPHARDの兄弟車です。世代の基本差は、フロントマスク・型式・販売期間の順に照合します。ALPHARDとの違いは比較ページで詳しく確認できます。',
+    intro: 'VELLFIREは2008年登場の初代20系、2015年の2代目30系、2023年の3代目40系という3世代です。まず画像で顔つきを見比べ、販売期間と車検証の型式で確定します。',
     items: [
-      { title: '20系', description: '切れ長のライトと、上下に分かれた力強いフロントが入口。', meta: '2008年〜2015年 · ANH20W / GGH20W ほか' },
-      { title: '30系', description: '縦に大きく開くグリルと、鋭い灯火類が特徴。', meta: '2015年〜2023年 · AGH30W / GGH30W / AYH30W' },
-      { title: '40系', description: 'ワイドに広がるグリルと、より立体的なフロントが現行の目印。', meta: '2023年〜現在 · TAHA40W / AAHH40W ほか' },
+      { title: '初代・20系', description: '二段積みのヘッドランプと横基調グリルで、力強く先進的な個性を確立。掲載車はブラック系のガソリン2WD代表仕様です。', meta: '2008年5月〜2015年1月 · ANH20W / GGH20W / ATH20W' },
+      { title: '2代目・30系', description: '上下に分かれた鋭い灯火と大型グリルへ進化。掲載車は2015年発売時のAGH30W Z“Aエディション”・2.5Lガソリン・2WDです。', meta: '2015年1月〜2023年6月 · AGH30W / GGH30W / AYH30W' },
+      { title: '3代目・40系', description: '逆スラント基調の立体的な顔とワイドなグリルが目印。掲載車はZ Premier・2.4Lターボガソリン・2WD・ブラックです。', meta: '2023年6月〜現在 · TAHA40W / AAHH40W ほか' },
     ],
   },
   guides: [
     {
       href: '/vellfire-30-zenki-kouki.html',
       eyebrow: '30 SERIES GUIDE',
+      title: '30系 前期・後期の違い',
       label: '30系 前期・後期の違い',
       description: '2018年1月のマイナーチェンジ前後を、同一条件の画像と年式・型式で見分ける。',
       image: '/images/cars/vellfire/30-z-a-edition-post-facelift-v1.png',
