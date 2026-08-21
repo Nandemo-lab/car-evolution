@@ -188,6 +188,7 @@ export default {
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/stepwgn/hero-gen6-3q.webp',
   guides: [
+    { href:'/stepwgn-rk-vs-rp.html', label:'ステップワゴン RK・RPの違い', description:'4代目と5代目の標準車を画像、型式、装備で比較する。', image:'/images/cars/stepwgn/gen5-2015.webp' },
     {
       eyebrow: '5TH VS 6TH · GENERATION GUIDE', title: '5代目RP系と6代目の違い', description: 'RP1〜RP5とRP6〜RP8を、外観・サイズ・装備で比較。',
       href: '/stepwgn-rp-vs-rp6.html', cta: '世代の違いを見る', image: '/images/cars/stepwgn/gen6-2022.webp',

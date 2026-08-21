@@ -78,6 +78,7 @@ export default {
     ],
   },
   guides: [
+    { href:'/prius-30-vs-50.html', label:'プリウス 30系・50系の違い', description:'3代目と4代目を画像、型式、サイズで比較する。', image:'/images/cars/prius/gen4-2015-zvw51-pre-facelift.png' },
     {
       eyebrow: '50 VS 60 · GENERATION GUIDE', title: '50系と60系の違い', description: '4代目と5代目を外観・サイズ・ハイブリッドで比較。',
       href: '/prius-50-vs-60.html', cta: '世代の違いを見る', image: '/images/cars/prius/gen5-2023-mxwh60.png',

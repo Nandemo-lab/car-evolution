@@ -184,6 +184,7 @@ export default {
     ],
   },
   guides: [
+    { href:'/noah-70-vs-80.html', label:'ノア 70系・80系の違い', description:'2代目と3代目の標準ボディを画像、型式、装備で比較する。', image:'/images/cars/noah/gen3-2014.webp' },
     { href: '/noah-80-vs-90.html', eyebrow: '80 VS 90 · GENERATION GUIDE', title: '80系と90系の違い', label: '80系と90系の違い', description: '3代目と4代目を標準ボディの画像・サイズ・装備で比較する。', image: '/images/cars/noah/gen4-2022.webp' },
     {
       href: '/noah-80-zenki-kouki.html',

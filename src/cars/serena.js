@@ -199,6 +199,7 @@ export default {
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
   guides: [
+    { href:'/serena-c25-vs-c26.html', label:'セレナ C25・C26の違い', description:'3代目と4代目の標準系を画像、型式、装備で比較する。', image:'/images/cars/serena/gen4-2010.webp' },
     { href:'/serena-c26-vs-c27.html', label:'セレナ C26・C27の違い', description:'4代目と5代目を外観、型式、装備で比較する。', image:'/images/cars/serena/gen5-2016.webp' },
     { href: '/serena-c27-vs-c28.html', label: 'C27とC28の違い', description: '5代目と6代目を外観・サイズ・装備で比較する。', image: '/images/cars/serena/gen6-2022.webp' },
     { href: '/serena-c27-zenki-kouki.html', label: 'C27 Highway STAR 前期・後期の違い', description: '2019年8月を境に、同一条件の画像で詳しく見分ける。' },

@@ -66,6 +66,7 @@ export default {
     ],
   },
   guides: [
+    { href:'/harrier-30-vs-60.html', label:'ハリアー 30系・60系の違い', description:'2代目と3代目を画像、型式、サイズで比較する。', image:'/images/cars/harrier/gen3-2013-zsu60w.png' },
     {
       label: '60系・80系の違い', eyebrow: '60 VS 80 · GENERATION GUIDE', title: '60系と80系の違い', description: '3代目と4代目を外観・サイズ・装備で比較。',
       href: '/harrier-60-vs-80.html', cta: '世代の違いを見る', image: '/images/cars/harrier/gen4-2020-mxua80.png',
