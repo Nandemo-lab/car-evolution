@@ -184,6 +184,14 @@ export default {
     ],
   },
   guides: [
+    {
+      href: '/noah-80-zenki-kouki.html',
+      eyebrow: '80 SERIES · FACELIFT GUIDE',
+      title: '80系 前期・後期の違い',
+      label: '80系 前期・後期の違い',
+      description: '2017年7月3日の改良前後を、標準ボディGの統一画像と年式・型式で見分ける。',
+      image: '/images/cars/noah/gen3-2017-zwr80g-post-facelift.png',
+    },
     { href: '/compare-voxy-noah.html', label: 'VOXY・NOAHの違い', description: '兄弟車2台のフロントマスクとデザインの狙いを、同じ視点で比べる。' },
     { href: '/compare-voxy-noah-esquire.html', label: 'VOXY・NOAH・ESQUIREを見比べる', description: 'トヨタの兄弟ミニバン3台を画像で比較し、それぞれの個性を確認する。' },
     { href: '/compare-noah-serena-stepwgn.html', label: 'NOAH・SERENA・STEP WGNの違い', description: 'Mクラスミニバン3台の顔つきとキャラクターを同じ視点で比べる。' },

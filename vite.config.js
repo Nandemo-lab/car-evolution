@@ -68,6 +68,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/voxy/80-zs-post-facelift-v1.png',
     models: [{ name: 'トヨタ VOXY 80系 ZS', url: '/cars/voxy.html' }],
   },
+  'noah-80-zenki-kouki.html': {
+    name: 'NOAH 80系 前期・後期の違い',
+    title: 'NOAH 80系 前期・後期の違い・見分け方 | CarVista',
+    description: 'トヨタ NOAH 80系の前期・後期を同一条件の画像で比較。2017年7月のマイナーチェンジで変わったLEDヘッドランプ、グリル、バンパーと中古車の見分け方を解説します。',
+    image: '/images/cars/noah/gen3-2017-zwr80g-post-facelift.png',
+    models: [{ name: 'トヨタ NOAH 80系 HYBRID G', url: '/cars/noah.html' }],
+  },
   'serena-c27-zenki-kouki.html': {
     name: 'SERENA C27 Highway STAR 前期・後期の違い',
     title: 'SERENA C27 前期・後期の違い・見分け方 | CarVista',
