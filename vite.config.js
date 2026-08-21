@@ -15,6 +15,21 @@ const SITE_NAME = 'CarVista'
 const SITE_ORIGIN = 'https://carvista.jp'
 
 const COMPARISON_PAGES = {
+  'alphard-30-vs-40.html': {
+    name: 'ALPHARD 30系・40系の違い', title: 'アルファード30系と40系の違い・サイズ・見分け方 | CarVista', description: 'トヨタ アルファード30系と40系を画像と公式情報で比較。サイズ、型式、装備、中古車の見分け方と選び方を解説します。', image: '/images/cars/alphard/gen4-2023.webp', models: [{ name: 'トヨタ ALPHARD 30系', url: '/alphard-30-vs-40.html#alphard30' }, { name: 'トヨタ ALPHARD 40系', url: '/alphard-30-vs-40.html#alphard40' }],
+  },
+  'noah-80-vs-90.html': {
+    name: 'NOAH 80系・90系の違い', title: 'ノア80系と90系の違い・サイズ・見分け方 | CarVista', description: 'トヨタ ノア80系と90系を標準ボディの画像と公式情報で比較。サイズ、型式、装備、中古車の見分け方を解説します。', image: '/images/cars/noah/gen4-2022.webp', models: [{ name: 'トヨタ NOAH 80系', url: '/noah-80-vs-90.html#noah80' }, { name: 'トヨタ NOAH 90系', url: '/noah-80-vs-90.html#noah90' }],
+  },
+  'n-box-jf3-vs-jf5.html': {
+    name: 'N-BOX JF3・JF5の違い', title: 'N-BOX JF3とJF5の違い｜2代目・3代目の見分け方 | CarVista', description: 'ホンダN-BOX標準車のJF3/JF4とJF5/JF6を画像で比較。型式、装備、中古車の見分け方を解説します。', image: '/images/cars/n-box/gen3-2023.webp', models: [{ name: 'ホンダ N-BOX JF3/JF4', url: '/n-box-jf3-vs-jf5.html#jf3' }, { name: 'ホンダ N-BOX JF5/JF6', url: '/n-box-jf3-vs-jf5.html#jf5' }],
+  },
+  'sienta-gen2-vs-gen3.html': {
+    name: 'SIENTA 2代目・3代目の違い', title: 'シエンタ2代目と3代目の違い・サイズ・見分け方 | CarVista', description: 'トヨタ シエンタ170系と10系を画像と公式情報で比較。サイズ、型式、装備、中古車の見分け方を解説します。', image: '/images/cars/sienta/gen3-2022.webp', models: [{ name: 'トヨタ SIENTA 2代目', url: '/sienta-gen2-vs-gen3.html#sienta2' }, { name: 'トヨタ SIENTA 3代目', url: '/sienta-gen2-vs-gen3.html#sienta3' }],
+  },
+  'solio-ma36s-vs-ma37s.html': {
+    name: 'SOLIO MA36S・MA37Sの違い', title: 'ソリオMA36SとMA37Sの違い｜3代目・4代目の見分け方 | CarVista', description: 'スズキ ソリオMA36SとMA37Sを標準車の画像と公式情報で比較。サイズ、荷室、装備、中古車の見分け方を解説します。', image: '/images/cars/solio/gen4-2020.webp', models: [{ name: 'スズキ SOLIO MA36S', url: '/solio-ma36s-vs-ma37s.html#ma36s' }, { name: 'スズキ SOLIO MA37S', url: '/solio-ma36s-vs-ma37s.html#ma37s' }],
+  },
   'serena-c27-vs-c28.html': {
     name: 'SERENA C27・C28の違い', title: 'セレナ C27とC28の違い・サイズ・見分け方 | CarVista',
     description: '日産セレナC27とC28を画像、型式、サイズ、装備で比較。中古車の見分け方と、5代目・6代目のどちらが向くかを解説します。',

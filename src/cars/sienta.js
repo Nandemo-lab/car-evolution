@@ -107,6 +107,10 @@ export default {
   referenceLengthMm: 4260,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/sienta/hero-mxpl10-3q.webp',
+  guides: [
+    { href: '/sienta-gen2-vs-gen3.html', label: '2代目と3代目の違い', description: '170系と10系を外観・サイズ・装備で比較する。', image: '/images/cars/sienta/gen3-2022.webp' },
+    { href: '/compare-freed-sienta.html', label: 'FREEDとSIENTAの違い', description: '現行コンパクトミニバン同士を同じ視点で比較する。' },
+  ],
   // Home's mini-card (see the doc comment in src/home.js) -- SIENTA's
   // own Hero photo is a wider full-car product shot (whole vehicle
   // visible, camera further back) unlike VOXY/Alphard's tight close-up

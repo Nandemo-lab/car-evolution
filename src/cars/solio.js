@@ -132,6 +132,9 @@ export default {
   referenceLengthMm: 3810,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/solio/hero-ma37s-3q.webp',
+  guides: [
+    { href: '/solio-ma36s-vs-ma37s.html', label: 'MA36SとMA37Sの違い', description: '3代目と4代目を外観・サイズ・荷室で比較する。', image: '/images/cars/solio/gen4-2020.webp' },
+  ],
   // gen1's supplied photo originally depicted a beige/champagne example
   // -- recolored (hue/saturation remapped, original lightness/shading
   // preserved) to ピュアホワイトパール to match Hero/gen2-4, per
