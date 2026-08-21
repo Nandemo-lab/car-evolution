@@ -62,7 +62,15 @@ export default {
       { title: 'LA650系', description: 'DNGA第1弾。黒い水平ガーニッシュとスクエアな面構成で、視界と乗降性をさらに磨きました。', meta: '2019年〜現在 · LA650S / LA660S' },
     ],
   },
-  guides: [],
+  guides: [
+    {
+      eyebrow: 'GENERATION COMPARE',
+      title: 'LA600SとLA650Sの違いを見る',
+      description: '3代目と4代目の標準タントを画像で比較。フロントの見分け方、型式、サイズ、2019年の世代交代を短く整理します。',
+      href: '/tanto-la600s-vs-la650s.html',
+      image: '/images/cars/tanto/gen4-2019-la650s.png',
+    },
+  ],
   seo: {
     title: 'TANTO 歴代モデル・L350/L375/LA600/LA650系の違い — CarVista',
     description: 'ダイハツ タント歴代4世代を統一画像で比較。初代L350系からL375系、LA600系、現行LA650系まで、販売期間・型式・標準タントの見分け方とデザイン進化が一目でわかります。',

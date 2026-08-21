@@ -113,6 +113,16 @@ const COMPARISON_PAGES = {
       { name: 'トヨタ LAND CRUISER 250 VX', url: '/land-cruiser-300-vs-250.html#lc250' },
     ],
   },
+  'tanto-la600s-vs-la650s.html': {
+    name: 'タント LA600S・LA650Sの違い',
+    title: 'タント LA600SとLA650Sの違い｜3代目・4代目の見分け方 | CarVista',
+    description: 'タント LA600SとLA650Sを画像で比較。3代目・4代目の外観、型式、サイズ、2019年フルモデルチェンジの違いと中古車の見分け方を解説します。',
+    image: '/images/cars/tanto/gen4-2019-la650s.png',
+    models: [
+      { name: 'ダイハツ タント LA600S', url: '/tanto-la600s-vs-la650s.html#la600s' },
+      { name: 'ダイハツ タント LA650S', url: '/tanto-la600s-vs-la650s.html#la650s' },
+    ],
+  },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
     title: 'Alphard・Vellfireの違い | CarVista',
