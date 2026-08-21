@@ -25,9 +25,10 @@ const topCardImages = Object.fromEntries(
   Object.keys(relatedCars).map((slug) => [slug, `/images/cars/${slug}/top-card-v2.webp`])
 )
 topCardImages.stepwgn = '/images/cars/stepwgn/top-card-v3.webp'
+topCardImages.harrier = '/images/cars/harrier/home-card-v2.png'
 
 const topCardPresentation = {
-  harrier: '-1 1',
+  tanto: '-1 1',
   'n-box': 1.07,
   spacia: 1.07,
 }
