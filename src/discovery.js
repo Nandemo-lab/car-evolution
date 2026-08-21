@@ -27,6 +27,7 @@ const topCardImages = Object.fromEntries(
 topCardImages.stepwgn = '/images/cars/stepwgn/top-card-v3.webp'
 
 const topCardPresentation = {
+  harrier: '-1 1',
   'n-box': 1.07,
   spacia: 1.07,
 }
