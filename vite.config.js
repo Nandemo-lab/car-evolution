@@ -15,6 +15,21 @@ const SITE_NAME = 'CarVista'
 const SITE_ORIGIN = 'https://carvista.jp'
 
 const COMPARISON_PAGES = {
+  'vellfire-30-vs-40.html': {
+    name: 'VELLFIRE 30系・40系の違い', title: 'ヴェルファイア30系と40系の違い・サイズ・見分け方 | CarVista', description: 'ヴェルファイア30系と40系を画像と公式情報で比較。外観、サイズ、装備、中古車での見分け方を解説します。', image: '/images/cars/vellfire/gen3-2023.webp', models: [{ name: 'トヨタ VELLFIRE 30系', url: '/vellfire-30-vs-40.html#vellfire30' }, { name: 'トヨタ VELLFIRE 40系', url: '/vellfire-30-vs-40.html#vellfire40' }],
+  },
+  'spacia-mk53s-vs-mk94s.html': {
+    name: 'SPACIA MK53S・MK94Sの違い', title: 'スペーシア MK53SとMK94Sの違い・見分け方 | CarVista', description: '標準スペーシアの2代目MK53Sと3代目MK94Sを画像と公式情報で比較。型式、装備、中古車での見分け方を解説します。', image: '/images/cars/spacia/gen3-2023.webp', models: [{ name: 'スズキ SPACIA MK53S', url: '/spacia-mk53s-vs-mk94s.html#mk53s' }, { name: 'スズキ SPACIA MK94S', url: '/spacia-mk53s-vs-mk94s.html#mk94s' }],
+  },
+  'delica-d5-before-after-2019.html': {
+    name: 'DELICA D:5 2007年型・2019年改良型の違い', title: 'デリカD:5 2007年型と2019年大幅改良型の違い | CarVista', description: 'デリカD:5の2007年発売時タイプと2019年大幅改良型を画像で比較。外観、型式、装備と中古車の見分け方を解説します。', image: '/images/cars/delica-d5/gen2-2019.webp', models: [{ name: '三菱 DELICA D:5 2007年型', url: '/delica-d5-before-after-2019.html#d5early' }, { name: '三菱 DELICA D:5 2019年改良型', url: '/delica-d5-before-after-2019.html#d5late' }],
+  },
+  'tanto-l375s-vs-la600s.html': {
+    name: 'TANTO L375S・LA600Sの違い', title: 'タント L375SとLA600Sの違い・見分け方 | CarVista', description: '標準タントの2代目L375Sと3代目LA600Sを画像と公式情報で比較。型式、ドア、装備、中古車での見分け方を解説します。', image: '/images/cars/tanto/gen3-2013-la600s.png', models: [{ name: 'ダイハツ TANTO L375S', url: '/tanto-l375s-vs-la600s.html#l375s' }, { name: 'ダイハツ TANTO LA600S', url: '/tanto-l375s-vs-la600s.html#la600s' }],
+  },
+  'alphard-20-vs-30.html': {
+    name: 'ALPHARD 20系・30系の違い', title: 'アルファード20系と30系の違い・サイズ・見分け方 | CarVista', description: 'アルファード20系と30系を画像と公式情報で比較。外観、サイズ、乗り心地、中古車での見分け方を解説します。', image: '/images/cars/alphard/gen3-2015.webp', models: [{ name: 'トヨタ ALPHARD 20系', url: '/alphard-20-vs-30.html#alphard20' }, { name: 'トヨタ ALPHARD 30系', url: '/alphard-20-vs-30.html#alphard30' }],
+  },
   'alphard-30-vs-40.html': {
     name: 'ALPHARD 30系・40系の違い', title: 'アルファード30系と40系の違い・サイズ・見分け方 | CarVista', description: 'トヨタ アルファード30系と40系を画像と公式情報で比較。サイズ、型式、装備、中古車の見分け方と選び方を解説します。', image: '/images/cars/alphard/gen4-2023.webp', models: [{ name: 'トヨタ ALPHARD 30系', url: '/alphard-30-vs-40.html#alphard30' }, { name: 'トヨタ ALPHARD 40系', url: '/alphard-30-vs-40.html#alphard40' }],
   },

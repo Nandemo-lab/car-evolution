@@ -223,6 +223,9 @@ export default {
   // cropped/padded to the shared 1408x668 hero canvas; not recolored,
   // background-processed, or zoomed beyond that.
   heroImage: '/images/cars/delica-d5/hero-cv1w-3q.webp',
+  guides: [
+    { href: '/delica-d5-before-after-2019.html', label: '2007年型と2019年大幅改良型の違い', description: '同一世代で大きく変わったフロント、型式、パワートレーンを比較する。', image: '/images/cars/delica-d5/gen2-2019.webp' },
+  ],
   seo: {
     title: 'DELICA D:5 歴代モデル一覧 — CarVista',
     description: '三菱 デリカD:5の前期・後期モデルを画像で比較。オールラウンドミニバンとしての外観の変化が一目でわかる。',

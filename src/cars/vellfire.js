@@ -140,6 +140,7 @@ export default {
     ],
   },
   guides: [
+    { href: '/vellfire-30-vs-40.html', label: 'ヴェルファイア30系・40系の違い', description: '2代目と3代目を外観・サイズ・装備で比較する。', image: '/images/cars/vellfire/gen3-2023.webp' },
     {
       href: '/vellfire-30-zenki-kouki.html',
       eyebrow: '30 SERIES GUIDE',

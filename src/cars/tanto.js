@@ -64,6 +64,11 @@ export default {
   },
   guides: [
     {
+      eyebrow: 'GENERATION COMPARE', title: 'L375SとLA600Sの違いを見る',
+      description: '2代目と3代目の標準タントを画像で比較。型式、顔つき、装備の違いを整理します。',
+      href: '/tanto-l375s-vs-la600s.html', image: '/images/cars/tanto/gen3-2013-la600s.png',
+    },
+    {
       eyebrow: 'GENERATION COMPARE',
       title: 'LA600SとLA650Sの違いを見る',
       description: '3代目と4代目の標準タントを画像で比較。フロントの見分け方、型式、サイズ、2019年の世代交代を短く整理します。',

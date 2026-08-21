@@ -283,6 +283,7 @@ export default {
     ],
   },
   guides: [
+    { href: '/alphard-20-vs-30.html', label: 'アルファード20系・30系の違い', description: '2代目と3代目を外観・サイズ・乗り心地で比較する。', image: '/images/cars/alphard/gen3-2015.webp' },
     { href: '/alphard-30-vs-40.html', label: 'アルファード30系・40系の違い', description: '3代目と4代目を外観・サイズ・装備で比較する。', image: '/images/cars/alphard/gen4-2023.webp' },
     { href: '/alphard-30-zenki-kouki.html', label: 'アルファード30系 前期・後期の違い', description: '30系を前期・後期まで、同一画角で見分ける。' },
   ],

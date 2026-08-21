@@ -125,6 +125,9 @@ export default {
   referenceLengthMm: 3395,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/spacia/hero-mk94s-3q.webp',
+  guides: [
+    { href: '/spacia-mk53s-vs-mk94s.html', label: 'スペーシア MK53S・MK94Sの違い', description: '2代目と3代目の標準スペーシアを画像、型式、装備で比較する。', image: '/images/cars/spacia/gen3-2023.webp' },
+  ],
   // 2026-08-04: a homeCardImage override (a very tight recrop) was tried
   // here to fix Home's mini-card reading smaller/different-scale than
   // SOLIO's -- but heroImage itself has since been directly rescaled to
