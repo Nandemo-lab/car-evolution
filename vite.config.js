@@ -54,6 +54,13 @@ const COMPARISON_PAGES = {
     image: '/images/cars/alphard/30-post-facelift-v1.png',
     models: [{ name: 'トヨタ アルファード 30系', url: '/cars/alphard.html' }],
   },
+  'vellfire-30-zenki-kouki.html': {
+    name: 'VELLFIRE 30系 前期・後期の違い',
+    title: 'ヴェルファイア30系 前期・後期の違い・見分け方 | CarVista',
+    description: 'トヨタ ヴェルファイア30系 Z“Aエディション”の前期・後期を同一条件の画像で比較。2018年1月改良前後のランプ、グリル、バンパー、型式と中古車の見分け方を解説します。',
+    image: '/images/cars/vellfire/30-z-a-edition-post-facelift-v1.png',
+    models: [{ name: 'トヨタ VELLFIRE 30系 Z“Aエディション”', url: '/cars/vellfire.html' }],
+  },
   'voxy-80-zenki-kouki.html': {
     name: 'VOXY 80系 ZS 前期・後期の違い',
     title: 'VOXY 80系 ZS 前期・後期の違い・見分け方 | CarVista',

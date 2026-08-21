@@ -140,6 +140,13 @@ export default {
     ],
   },
   guides: [
+    {
+      href: '/vellfire-30-zenki-kouki.html',
+      eyebrow: '30 SERIES GUIDE',
+      label: '30系 前期・後期の違い',
+      description: '2018年1月のマイナーチェンジ前後を、同一条件の画像と年式・型式で見分ける。',
+      image: '/images/cars/vellfire/30-z-a-edition-post-facelift-v1.png',
+    },
     { href: '/compare-alphard-vellfire.html', label: 'ALPHARD・VELLFIREの違い', description: '兄弟車の表情とデザインの狙いを、同じ視点で比べる。' },
   ],
   // Home's mini-card (see the doc comment in src/home.js) -- a
