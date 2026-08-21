@@ -132,6 +132,7 @@ export default {
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/freed/hero-gen3-3q.webp',
   guides: [
+    { href:'/freed-gen1-vs-gen2.html', label:'フリード 初代・2代目の違い', description:'初代GB3系と2代目GB5系を画像、型式、装備で比較する。', image:'/images/cars/freed/gen2-2016.webp' },
     {
       label: '2代目と3代目の違い', eyebrow: '2ND VS 3RD · GENERATION GUIDE', title: '2代目と3代目の違い', description: 'GB5〜GB8とGT1〜GT8を外観・サイズ・装備で比較。',
       href: '/freed-gen2-vs-gen3.html', cta: '世代の違いを見る', image: '/images/cars/freed/gen3-2024.webp',

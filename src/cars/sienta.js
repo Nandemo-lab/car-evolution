@@ -108,6 +108,7 @@ export default {
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/sienta/hero-mxpl10-3q.webp',
   guides: [
+    { href:'/sienta-gen1-vs-gen2.html', label:'シエンタ 初代・2代目の違い', description:'丸目の初代と2代目を画像、型式、装備で比較する。', image:'/images/cars/sienta/gen2-2015.webp' },
     { href: '/sienta-gen2-vs-gen3.html', label: '2代目と3代目の違い', description: '170系と10系を外観・サイズ・装備で比較する。', image: '/images/cars/sienta/gen3-2022.webp' },
     { href: '/compare-freed-sienta.html', label: 'FREEDとSIENTAの違い', description: '現行コンパクトミニバン同士を同じ視点で比較する。' },
   ],

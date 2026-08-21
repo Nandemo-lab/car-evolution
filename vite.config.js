@@ -15,6 +15,11 @@ const SITE_NAME = 'CarVista'
 const SITE_ORIGIN = 'https://carvista.jp'
 
 const COMPARISON_PAGES = {
+  'serena-c26-vs-c27.html': { name:'SERENA C26・C27の違い', title:'セレナ C26とC27の違い・サイズ・見分け方 | CarVista', description:'セレナC26とC27を画像と公式情報で比較。型式、サイズ、装備、中古車の見分け方を解説します。', image:'/images/cars/serena/gen5-2016.webp', models:[{name:'日産 SERENA C26',url:'/serena-c26-vs-c27.html#c26'},{name:'日産 SERENA C27',url:'/serena-c26-vs-c27.html#c27'}] },
+  'freed-gen1-vs-gen2.html': { name:'FREED 初代・2代目の違い', title:'フリード 初代と2代目の違い・見分け方 | CarVista', description:'Hondaフリード初代と2代目を画像と公式情報で比較。型式、サイズ、安全装備、中古車の見分け方を解説します。', image:'/images/cars/freed/gen2-2016.webp', models:[{name:'Honda FREED 初代',url:'/freed-gen1-vs-gen2.html#freed1'},{name:'Honda FREED 2代目',url:'/freed-gen1-vs-gen2.html#freed2'}] },
+  'solio-ma15s-vs-ma36s.html': { name:'SOLIO MA15S・MA36Sの違い', title:'ソリオ MA15SとMA36Sの違い・見分け方 | CarVista', description:'標準ソリオMA15SとMA36Sを画像と公式情報で比較。型式、サイズ、装備、中古車の見分け方を解説します。', image:'/images/cars/solio/gen3-2015.webp', models:[{name:'スズキ SOLIO MA15S',url:'/solio-ma15s-vs-ma36s.html#ma15s'},{name:'スズキ SOLIO MA36S',url:'/solio-ma15s-vs-ma36s.html#ma36s'}] },
+  'sienta-gen1-vs-gen2.html': { name:'SIENTA 初代・2代目の違い', title:'シエンタ 初代と2代目の違い・見分け方 | CarVista', description:'トヨタ シエンタ初代と2代目を画像と公式情報で比較。型式、サイズ、装備、中古車の見分け方を解説します。', image:'/images/cars/sienta/gen2-2015.webp', models:[{name:'トヨタ SIENTA 初代',url:'/sienta-gen1-vs-gen2.html#sienta1'},{name:'トヨタ SIENTA 2代目',url:'/sienta-gen1-vs-gen2.html#sienta2'}] },
+  'n-box-jf1-vs-jf3.html': { name:'N-BOX JF1・JF3の違い', title:'N-BOX JF1とJF3の違い・初代と2代目の見分け方 | CarVista', description:'標準N-BOXのJF1とJF3を画像と公式情報で比較。型式、サイズ、安全装備、中古車の見分け方を解説します。', image:'/images/cars/n-box/gen2-2017.webp', models:[{name:'Honda N-BOX JF1',url:'/n-box-jf1-vs-jf3.html#jf1'},{name:'Honda N-BOX JF3',url:'/n-box-jf1-vs-jf3.html#jf3'}] },
   'vellfire-30-vs-40.html': {
     name: 'VELLFIRE 30系・40系の違い', title: 'ヴェルファイア30系と40系の違い・サイズ・見分け方 | CarVista', description: 'ヴェルファイア30系と40系を画像と公式情報で比較。外観、サイズ、装備、中古車での見分け方を解説します。', image: '/images/cars/vellfire/gen3-2023.webp', models: [{ name: 'トヨタ VELLFIRE 30系', url: '/vellfire-30-vs-40.html#vellfire30' }, { name: 'トヨタ VELLFIRE 40系', url: '/vellfire-30-vs-40.html#vellfire40' }],
   },
