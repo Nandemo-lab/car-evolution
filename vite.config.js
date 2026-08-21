@@ -57,7 +57,7 @@ const COMPARISON_PAGES = {
   'voxy-80-zenki-kouki.html': {
     name: 'VOXY 80系 ZS 前期・後期の違い',
     title: 'VOXY 80系 ZS 前期・後期の違い・見分け方 | CarVista',
-    description: 'トヨタ VOXY 80系 ZSの前期・後期を同一条件の画像で比較。2014〜2017年と2017〜2021年のヘッドランプ、グリル、バンパー、フォグ周辺、型式の見分け方を解説します。',
+    description: 'トヨタ VOXY 80系 ZSの前期・後期を同一条件の画像で比較。2014年〜2017年7月改良前と2017年7月〜2022年1月のヘッドランプ、グリル、バンパー、フォグ周辺、型式の見分け方を解説します。',
     image: '/images/cars/voxy/80-zs-post-facelift-v1.png',
     models: [{ name: 'トヨタ VOXY 80系 ZS', url: '/cars/voxy.html' }],
   },

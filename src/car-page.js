@@ -132,7 +132,10 @@ function renderGenerationGuide(config) {
   section.setAttribute('aria-labelledby', 'generation-guide-title')
   section.innerHTML = `
     <div class="generation-guide-heading"><p>IDENTIFICATION</p><h2 id="generation-guide-title">${guide.title}</h2><span>${guide.intro}</span></div>
-    <div class="generation-guide-grid">${guide.items.map((item) => `<article><strong>${item.title}</strong><span>${item.description}</span><b>${item.meta}</b></article>`).join('')}</div>`
+    <div class="generation-guide-grid">${guide.items.map((item, index) => {
+      const generation = config.generations[index]
+      return `<article><img src="${generation?.image || ''}" alt="${config.vehicleName} ${item.title}" loading="lazy" decoding="async" /><div><strong>${item.title}</strong><span>${item.description}</span><b>主な型式・販売期間：${item.meta}</b></div></article>`
+    }).join('')}</div>`
   document.querySelector('.back-home').before(section)
 }
 
@@ -205,7 +208,7 @@ function renderGuideLinks(config) {
   section.setAttribute('aria-labelledby', 'vehicle-guides-title')
   section.innerHTML = `
     <div class="vehicle-guides-heading"><p>GUIDES</p><h2 id="vehicle-guides-title">見分け方・比較ガイド</h2><span>${config.vehicleName}を、目的別にさらに詳しく見る。</span></div>
-    <div class="vehicle-guides-grid">${config.guides.map((guide) => `<a href="${guide.href}" data-vehicle-guide><strong>${guide.label}</strong><span>${guide.description}</span><b>見る →</b></a>`).join('')}</div>`
+    <div class="vehicle-guides-grid">${config.guides.map((guide) => `<a href="${guide.href}" data-vehicle-guide>${guide.image ? `<img src="${guide.image}" alt="${guide.title}" loading="lazy" decoding="async" />` : ''}<span class="vehicle-guides-copy"><strong>${guide.label}</strong><span>${guide.description}</span><b>見る →</b></span></a>`).join('')}</div>`
 
   section.querySelectorAll('[data-vehicle-guide]').forEach((link) => link.addEventListener('click', () => {
     trackEvent('open_vehicle_guide', { vehicle: config.vehicleName, destination: link.getAttribute('href') })

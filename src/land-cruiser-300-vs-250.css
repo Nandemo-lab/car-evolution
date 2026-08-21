@@ -12,6 +12,11 @@
 .lc-car-copy small { color: #c9aa63; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .14em; }
 .lc-car-copy h3 { margin: 9px 0 0; font-size: 22px; }
 .lc-car-copy p { margin: 10px 0 0; color: rgba(244,243,240,.65); font-size: 13px; font-weight: 300; line-height: 1.75; }
+.lc-quick-facts { display: grid; gap: 12px; margin-top: 16px; }
+.lc-quick-facts article { min-height: 136px; display: flex; flex-direction: column; justify-content: center; padding: 19px; border: 1px solid rgba(244,243,240,.14); border-radius: 15px; background: linear-gradient(135deg, rgba(201,170,99,.09), rgba(18,20,23,.98) 56%); }
+.lc-quick-facts small { color: #c9aa63; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .14em; }
+.lc-quick-facts strong { margin-top: 10px; font-size: clamp(22px, 6vw, 30px); line-height: 1.15; letter-spacing: -.03em; }
+.lc-quick-facts span { margin-top: 9px; color: rgba(244,243,240,.6); font-size: 12px; font-weight: 300; line-height: 1.6; }
 .lc-table-wrap { max-width: 100%; margin-top: 26px; overflow-x: auto; border: 1px solid rgba(244,243,240,.12); border-radius: 16px; background: #121417; }
 .lc-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13px; }
 .lc-table th, .lc-table td { padding: 14px 16px; border-bottom: 1px solid rgba(244,243,240,.09); text-align: left; vertical-align: top; }
@@ -30,5 +35,5 @@
   .lc-section { padding-left: 8vw; padding-right: 8vw; }
   .lc-answer { grid-template-columns: 170px 1fr; align-items: center; }
   .lc-answer .comparison-eyebrow { grid-row: span 2; }
-  .lc-cars, .lc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lc-cars, .lc-grid, .lc-quick-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
