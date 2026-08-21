@@ -63,6 +63,7 @@ export default {
     ],
   },
   guides: [
+    { eyebrow: 'FACELIFT GUIDE', title: 'LA600S 前期・後期の違い', description: '2015年12月改良前後を標準タント同士で比較します。', href: '/tanto-la600s-zenki-kouki.html', image: '/images/cars/tanto/la600s-2015-post-facelift-v1.png' },
     {
       eyebrow: 'GENERATION COMPARE', title: 'L375SとLA600Sの違いを見る',
       description: '2代目と3代目の標準タントを画像で比較。型式、顔つき、装備の違いを整理します。',

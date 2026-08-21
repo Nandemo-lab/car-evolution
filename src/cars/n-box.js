@@ -131,6 +131,7 @@ export default {
     ],
   },
   guides: [
+    { href: '/n-box-jf1-zenki-kouki.html', label: 'JF1/JF2 前期・後期の違い', description: '2015年2月改良前後を標準N-BOX同士で比較する。', image: '/images/cars/n-box/jf1-2015-post-facelift-v1.png' },
     { href:'/n-box-jf1-vs-jf3.html', label:'N-BOX JF1・JF3の違い', description:'初代と2代目の標準N-BOXを画像、型式、装備で比較する。', image:'/images/cars/n-box/gen2-2017.webp' },
     { href: '/n-box-jf3-vs-jf5.html', label: 'N-BOX JF3とJF5の違い', description: '標準車の2代目と3代目を画像・型式・装備で比較する。', image: '/images/cars/n-box/gen3-2023.webp' },
     { href: '/n-box-jf3-zenki-kouki.html', label: 'N-BOX 2代目（JF3/JF4）前期・後期の違い', description: '2020年12月の変更をCustomの統一画像で見分ける。' },
