@@ -224,7 +224,7 @@ if (page.focus) {
 
 if (page.related) {
   document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
-    <section class="comparison-next" aria-label="次に見比べる"><p class="comparison-eyebrow">KEEP EXPLORING</p><h2>次に見比べる</h2><div class="comparison-next-grid">${page.related.map((item) => `<a href="${item.href}" data-related-link><strong>${item.label}</strong><span>${item.description}</span><b>見る →</b></a>`).join('')}</div></section>`)
+    <section class="comparison-next" aria-label="次に見比べる"><p class="comparison-eyebrow">KEEP EXPLORING</p><h2>次に見比べる</h2><div class="comparison-next-grid">${page.related.map((item, index) => `<a class="comparison-next-card" href="${item.href}" data-related-link><img src="${item.image || page.images?.[page.cars[index % page.cars.length]?.vehicleName]?.standard || page.cars[index % page.cars.length]?.generations.at(-1)?.image}" alt="" loading="lazy" decoding="async" /><span><strong>${item.label}</strong><small>${item.description}</small><b>見る →</b></span></a>`).join('')}</div></section>`)
 }
 
 function renderUsedCarCta() {

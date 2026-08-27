@@ -45,6 +45,10 @@ body { margin: 0; background: #0b0c0e; }
 .comparison-next h2 { margin: 0 0 22px; font-size: clamp(25px, 5vw, 36px); letter-spacing: -.025em; }
 .comparison-next-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
 .comparison-next-grid a { min-height: 148px; display: flex; flex-direction: column; align-items: flex-start; color: inherit; padding: 20px; border: 1px solid rgba(244,243,240,.13); border-radius: 15px; text-decoration: none; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+.comparison-next-grid .comparison-next-card { min-height: 124px; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px; align-items: center; padding: 12px; }
+.comparison-next-card > img { width: 112px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #0b0c0e; }
+.comparison-next-card > span { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.comparison-next-card small { margin-top: 7px; color: rgba(244,243,240,.62); font-size: 12px; line-height: 1.6; }
 .comparison-next-grid > div { min-height: 148px; display: flex; flex-direction: column; align-items: flex-start; color: inherit; padding: 20px; border: 1px solid rgba(244,243,240,.13); border-radius: 15px; }
 .comparison-next-grid a:hover, .comparison-next-grid a:focus-visible { background: rgba(244,243,240,.06); border-color: rgba(244,243,240,.32); transform: translateY(-2px); }
 .comparison-next-grid strong { font-size: 15px; line-height: 1.45; }
@@ -58,4 +62,12 @@ body { margin: 0; background: #0b0c0e; }
 .comparison-cta a:hover, .comparison-cta a:focus-visible { background: rgba(244,243,240,.08); }
 .comparison-cta b { font: 400 14px/1 'Inter', sans-serif; opacity: .7; }
 .comparison-more { display: block; padding: 20px 22px 60px; color: inherit; font: 500 12px/1 'Inter', sans-serif; letter-spacing: .04em; opacity: .65; }
+@media (max-width: 699px) {
+  .comparison-hero { padding-bottom: 30px; }
+  .comparison-hero .comparison-eyebrow { margin-top: 48px; }
+  .comparison-intro { margin-top: 16px; line-height: 1.7; }
+  .comparison-actions { margin-top: 20px; }
+  .lc-section { padding-bottom: 56px; }
+  .facelift-answer { margin-bottom: 44px; }
+}
 @media (min-width: 700px) { .comparison-hero, .comparison-grid, .comparison-more, .comparison-guide-note, .comparison-reading, .comparison-focus, .comparison-next, .comparison-cta { padding-left: 8vw; padding-right: 8vw; } .comparison-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
