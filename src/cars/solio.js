@@ -132,6 +132,16 @@ export default {
   referenceLengthMm: 3810,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/solio/hero-ma37s-3q.webp',
+  generationGuide: {
+    title: 'MA34SからMA37Sまで、標準ソリオの進化',
+    intro: 'BANDITの専用フェイスを混ぜず、標準ソリオ4世代を比較します。背高ボディは共通でも、スライドドアとハイブリッドの採用が大きな境目です。',
+    items: [
+      { title: '初代・MA34S', description: '細いクロームバーと直立した小柄なボディが目印。ワゴンRソリオから車名を改めた時代の、シンプルな5ドア車です。', meta: '2005年〜2010年 · MA34S' },
+      { title: '2代目・MA15S', description: '水平グリルと両側スライドドアで、現在につながる小型ハイトワゴン像を確立。初代との違いはドア構成を見ると明快です。', meta: '2011年〜2015年 · MA15S' },
+      { title: '3代目・MA36S', description: 'シャープなランプとメッシュ基調グリルへ刷新し、マイルドハイブリッドを採用。標準車とBANDITは顔を分けて扱います。', meta: '2015年〜2020年 · MA36S' },
+      { title: '4代目・MA27S/MA37S', description: 'ランプとグリルを横方向につなげ、室内幅も拡大。MA27SとMA37Sはパワートレイン差を含むため、型式だけで装備を断定しません。', meta: '2020年〜現在 · MA27S / MA37S' },
+    ],
+  },
   guides: [
     { href: '/solio-ma36s-zenki-kouki.html', label: 'MA36S 前期・後期の違い', description: '2018年7月仕様変更前後を標準ソリオ同士で比較する。', image: '/images/cars/solio/ma36s-2018-post-update-v1.png' },
     { href:'/solio-ma15s-vs-ma36s.html', label:'ソリオ MA15S・MA36Sの違い', description:'2代目と3代目の標準ソリオを画像、型式、装備で比較する。', image:'/images/cars/solio/gen3-2015.webp' },

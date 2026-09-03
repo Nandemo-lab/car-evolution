@@ -187,6 +187,18 @@ export default {
   },
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/stepwgn/hero-gen6-3q.webp',
+  generationGuide: {
+    title: 'RF・RG・RK・RP系を見分ける転換点',
+    intro: '6世代の変化を、背高ボディ、床の低さ、テールゲートの考え方で整理します。標準車とSPADAの外装差は世代差として扱いません。',
+    items: [
+      { title: '初代・RF1/RF2', description: '四角い1BOX風ボディとシンプルな横長ランプが原点。FFベースの低床パッケージで、乗用ミニバンの使いやすさを広げました。', meta: '1996年〜2001年 · RF1 / RF2' },
+      { title: '2代目・RF3〜RF8', description: '初代の箱型を継承しつつ、前後デザインを立体化。SPADA追加後は標準車と専用外装を分けて見る必要があります。', meta: '2001年〜2005年 · RF3〜RF8' },
+      { title: '3代目・RG1〜RG4', description: '全高を抑えたワンモーション形状と低床・低重心が目印。歴代の中でもシルエットの変化が最も大きい世代です。', meta: '2005年〜2009年 · RG1〜RG4' },
+      { title: '4代目・RK1〜RK7', description: '背の高いスクエアな室内へ回帰し、標準車は穏やかなフロントに。型式範囲にはSPADAも含むため、外観はグレード名も照合します。', meta: '2009年〜2015年 · RK1〜RK7' },
+      { title: '5代目・RP1〜RP5', description: '横開きもできる「わくわくゲート」が世代固有の識別点。2017年改良ではSPADAの顔とハイブリッド設定が大きく変わりました。', meta: '2015年〜2022年 · RP1〜RP5' },
+      { title: '6代目・RP6〜RP8', description: '水平基調の箱型デザインへ転換し、通常の上開きテールゲートに戻りました。AIRとSPADAでフロント表現が異なります。', meta: '2022年〜現在 · RP6〜RP8' },
+    ],
+  },
   guides: [
     { href:'/stepwgn-rk-vs-rp.html', label:'ステップワゴン RK・RPの違い', description:'4代目と5代目の標準車を画像、型式、装備で比較する。', image:'/images/cars/stepwgn/gen5-2015.webp' },
     {

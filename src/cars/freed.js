@@ -131,6 +131,15 @@ export default {
   referenceLengthMm: 4310,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/freed/hero-gen3-3q.webp',
+  generationGuide: {
+    title: 'GB3・GB5・GT系をシルエットと顔で判別',
+    intro: '標準FREEDの3世代を比較します。FREED+やCROSSTARの専用外装を世代差にせず、基本ボディと型式で見分けます。',
+    items: [
+      { title: '初代・GB3/GB4/GP3', description: '直立した箱型シルエットと太いクロームバーが特徴。ガソリンのGB3/GB4に加え、後からハイブリッドのGP3が加わりました。', meta: '2008年〜2016年 · GB3 / GB4 / GP3' },
+      { title: '2代目・GB5〜GB8', description: '丸みのある顔と水平グリルへ進化。ガソリンとハイブリッド、FFと4WDで型式が分かれ、2019年改良後も同じ2代目です。', meta: '2016年〜2024年 · GB5 / GB6 / GB7 / GB8' },
+      { title: '3代目・GT1〜GT8', description: '薄い水平ランプとすっきりした面構成に転換。AIRとCROSSTARは外装の方向性が異なるため、掲載する標準系AIRと分けて確認します。', meta: '2024年〜現在 · GT1〜GT8' },
+    ],
+  },
   guides: [
     { href:'/freed-gen1-vs-gen2.html', label:'フリード 初代・2代目の違い', description:'初代GB3系と2代目GB5系を画像、型式、装備で比較する。', image:'/images/cars/freed/gen2-2016.webp' },
     {

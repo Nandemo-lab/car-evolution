@@ -107,6 +107,15 @@ export default {
   referenceLengthMm: 4260,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/sienta/hero-mxpl10-3q.webp',
+  generationGuide: {
+    title: '丸目・170系・10系を顔と用途で見分ける',
+    intro: 'シエンタは3世代ともコンパクトな3列車ですが、見た目の方向性と乗り降りの考え方が大きく異なります。型式と画像を合わせて確認します。',
+    items: [
+      { title: '初代・NCP80系', description: '丸型2灯と短いボンネットが決め手。長期販売された初代は、親しみやすい顔とコンパクトな3列パッケージが特徴です。', meta: '2003年〜2015年 · NCP81G / NCP85G' },
+      { title: '2代目・170系', description: '切れ長ランプと、バンパーへ流れ落ちる黒いガーニッシュで一目瞭然。後期の2列FUNBASEは、通常の3列車と用途を分けて確認します。', meta: '2015年〜2022年 · NSP170G / NHP170G ほか' },
+      { title: '3代目・10系', description: '「シカクマル」の面構成と低いベルトラインで、道具感のある姿へ転換。TNGA化と低床化により、外観だけでなく乗降性も進化しました。', meta: '2022年〜現在 · MXPL10G / MXPC10G ほか' },
+    ],
+  },
   guides: [
     { href: '/sienta-gen2-zenki-kouki.html', label: '2代目 前期・後期の違い', description: '2018年9月改良前後を標準3列仕様で比較する。', image: '/images/cars/sienta/gen2-2015.png' },
     { href:'/sienta-gen1-vs-gen2.html', label:'シエンタ 初代・2代目の違い', description:'丸目の初代と2代目を画像、型式、装備で比較する。', image:'/images/cars/sienta/gen2-2015.webp' },

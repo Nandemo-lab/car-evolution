@@ -125,6 +125,15 @@ export default {
   referenceLengthMm: 3395,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/spacia/hero-mk94s-3q.webp',
+  generationGuide: {
+    title: 'MK32S・MK53S・MK94Sを見分ける3つの顔',
+    intro: '標準スペーシアの歴代3世代を対象に、カスタム固有の大型グリルを混ぜず、フロントと箱型ボディの変化を整理します。',
+    items: [
+      { title: '初代・MK32S/MK42S', description: '丸みのあるランプと縦基調の細いグリルが目印。軽量な背高ワゴンとして登場し、後期にはマイルドハイブリッド系を展開しました。', meta: '2013年〜2017年 · MK32S / MK42S' },
+      { title: '2代目・MK53S', description: 'Sマークを囲む太いクロームと、より四角く水平なボディへ変化。標準車の穏やかな顔とカスタムの迫力ある顔は分けて判別します。', meta: '2017年〜2023年 · MK53S' },
+      { title: '3代目・MK54S/MK94S', description: 'シャープなランプと大きな中央エンブレムで表情を刷新。後席の使い方を広げるマルチユースフラップも、この世代の実用面の転換点です。', meta: '2023年〜現在 · MK54S / MK94S' },
+    ],
+  },
   guides: [
     { href: '/spacia-mk53s-vs-mk94s.html', label: 'スペーシア MK53S・MK94Sの違い', description: '2代目と3代目の標準スペーシアを画像、型式、装備で比較する。', image: '/images/cars/spacia/gen3-2023.webp' },
   ],
