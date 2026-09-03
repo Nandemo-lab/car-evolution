@@ -87,8 +87,8 @@ const COMPARISON_PAGES = {
   },
   'compare-noah-serena-stepwgn.html': {
     name: 'NOAH・SERENA・STEP WGNの違い',
-    title: 'NOAH・SERENA・STEP WGNの違い | CarVista',
-    description: 'NOAH、SERENA、STEP WGNを同じ視点で比較。Mクラスミニバン3台のフロントマスクとキャラクターの違いを見比べます。',
+    title: 'NOAH・SERENA・STEP WGNの違い｜3台を比較 | CarVista',
+    description: 'NOAH、SERENA、STEP WGNを画像、電動化、座席、使い方で比較。家族向けMクラスミニバン3台の違いと選び方が分かります。',
     image: '/images/og/noah-serena-stepwgn.webp',
     models: [
       { name: 'トヨタ NOAH', url: '/cars/noah.html' },
@@ -98,8 +98,8 @@ const COMPARISON_PAGES = {
   },
   'compare-voxy-noah.html': {
     name: 'VOXY・NOAHの違い',
-    title: 'VOXY・NOAHの違い | CarVista',
-    description: 'VOXYとNOAHを同じ視点で比較。兄弟車2台のフロントマスクとデザインの違いを見比べます。',
+    title: 'VOXYとNOAHの違い｜兄弟車の選び方・見分け方 | CarVista',
+    description: '現行VOXYとNOAHを同じ視点で比較。共通する基本性能、異なるフロントマスクとグレード構成から選び方を整理します。',
     image: '/images/og/voxy-noah.webp',
     models: [
       { name: 'トヨタ VOXY', url: '/cars/voxy.html' },
@@ -108,8 +108,8 @@ const COMPARISON_PAGES = {
   },
   'compare-voxy-noah-esquire.html': {
     name: 'VOXY・NOAH・ESQUIREを見比べる',
-    title: 'VOXY・NOAH・ESQUIREを見比べる | CarVista',
-    description: 'VOXY、NOAH、ESQUIREを同じ視点で比較。フロントマスクと世代の違いを見比べます。',
+    title: 'VOXY・NOAH・ESQUIREの違い｜世代と選び方 | CarVista',
+    description: '現行90系VOXY・NOAHと80系ESQUIREを画像で比較。世代、フロントマスク、新車・中古車としての選び方を整理します。',
     image: '/images/og/voxy-noah-esquire.png',
     models: [
       { name: 'トヨタ VOXY', url: '/cars/voxy.html' },
@@ -209,8 +209,8 @@ const COMPARISON_PAGES = {
   },
   'compare-alphard-vellfire.html': {
     name: 'Alphard・Vellfireの違い',
-    title: 'Alphard・Vellfireの違い | CarVista',
-    description: 'AlphardとVellfireを同じ視点で比較。2台のフロントマスクがつくるデザイン上の違いを見比べます。',
+    title: 'アルファードとヴェルファイアの違い｜40系比較 | CarVista',
+    description: '40系アルファードとヴェルファイアを画像、エンジン、キャラクターで比較。共通点と違い、どちらが向くかを整理します。',
     image: '/images/og/alphard-vellfire.png',
     models: [
       { name: 'トヨタ Alphard', url: '/cars/alphard.html' },
@@ -219,8 +219,8 @@ const COMPARISON_PAGES = {
   },
   'compare-freed-sienta.html': {
     name: 'FREED・SIENTAの違い',
-    title: 'FREED・SIENTAの違い | CarVista',
-    description: 'FREEDとSIENTAを同じ視点で比較。コンパクトミニバン2台のフロントマスクとキャラクターの違いを見比べます。',
+    title: 'フリードとシエンタの違い｜サイズ・座席・選び方 | CarVista',
+    description: '現行FREEDとSIENTAを画像、シート構成、パワートレイン、日常の扱いやすさで比較。家族に合う選び方を整理します。',
     image: '/images/og/freed-sienta.webp',
     models: [
       { name: 'ホンダ FREED', url: '/cars/freed.html' },
@@ -229,8 +229,8 @@ const COMPARISON_PAGES = {
   },
   'compare-n-box-spacia.html': {
     name: 'N-BOX・SPACIAの違い',
-    title: 'N-BOX・SPACIAの違い | CarVista',
-    description: 'N-BOXとSPACIAを同じ視点で比較。軽スーパーハイトワゴン2台のフロントマスクと個性の違いを見比べます。',
+    title: 'N-BOXとスペーシアの違い｜後席・装備・選び方 | CarVista',
+    description: '現行N-BOXとSPACIAを画像、後席、パワートレイン、使い勝手で比較。軽スーパーハイトワゴン2台の選び方を整理します。',
     image: '/images/og/n-box-spacia.webp',
     models: [
       { name: 'ホンダ N-BOX', url: '/cars/n-box.html' },
@@ -419,10 +419,18 @@ function buildHomeTags(cars) {
 // with no per-vehicle data behind it, so unlike buildHomeTags there's
 // no JSON-LD list to generate; just title/description/canonical/OGP
 // like any other static page.
-function buildEditorialPolicyTags() {
-  const url = `${SITE_ORIGIN}/editorial-policy.html`
-  const title = `制作方針・免責事項 — ${SITE_NAME}`
-  const description = `${SITE_NAME}が参考にしている情報源、自動車メーカーとの関係、画像の制作方針についてまとめています。`
+const TRUST_PAGES = {
+  'editorial-policy.html': { title: `制作方針・免責事項 — ${SITE_NAME}`, description: `${SITE_NAME}が参考にしている情報源、自動車メーカーとの関係、画像の制作方針についてまとめています。` },
+  'about.html': { title: `CarVistaについて — 運営・編集方針`, description: 'CarVistaの目的、編集で大切にしていること、比較画像の考え方を紹介します。' },
+  'privacy.html': { title: `プライバシーポリシー — ${SITE_NAME}`, description: 'CarVistaのアクセス解析、広告Cookie、外部リンクに関する取り扱いを掲載しています。' },
+  'contact.html': { title: `お問い合わせ — ${SITE_NAME}`, description: 'CarVistaの記事訂正、画像、サイト不具合、その他のお問い合わせ窓口です。' },
+}
+
+function buildTrustPageTags(filename) {
+  const page = TRUST_PAGES[filename]
+  const url = `${SITE_ORIGIN}/${filename}`
+  const title = page.title
+  const description = page.description
   const image = `${SITE_ORIGIN}/images/cars/voxy/hero-gen4-3q.webp`
   const meta = (attrs) => ({ tag: 'meta', attrs, injectTo: 'head' })
   return [
@@ -546,8 +554,8 @@ function seoInjectPlugin() {
         return { html, tags: withAdSenseVerification(buildHomeTags(await loadAllCars())) }
       }
 
-      if (filename === 'editorial-policy.html') {
-        return { html, tags: withAdSenseVerification(buildEditorialPolicyTags()) }
+      if (TRUST_PAGES[filename]) {
+        return { html, tags: withAdSenseVerification(buildTrustPageTags(filename)) }
       }
 
       if (COMPARISON_PAGES[filename]) {
@@ -615,7 +623,7 @@ function sitemapPlugin() {
       const cars = await loadAllCars()
       const staticUrls = [
         `${SITE_ORIGIN}/`,
-        `${SITE_ORIGIN}/editorial-policy.html`,
+        ...Object.keys(TRUST_PAGES).map((filename) => `${SITE_ORIGIN}/${filename}`),
         ...Object.keys(COMPARISON_PAGES).map((filename) => `${SITE_ORIGIN}/${filename}`),
       ]
       const carUrls = cars.map((car) => `${SITE_ORIGIN}/cars/${car.slug}.html`)

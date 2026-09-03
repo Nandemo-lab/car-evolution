@@ -124,9 +124,27 @@ export function initCarPage(config) {
 
   if (document.getElementById('compare')) initCompare(generations, config.vehicleName)
   renderGenerationGuide(config)
+  renderEvolutionNotes(config)
   renderNextDiscovery(config)
   renderGuideLinks(config)
   renderReferences(config)
+  renderTrustNav()
+}
+
+function renderTrustNav() {
+  const footer = document.createElement('footer')
+  footer.className = 'page-trust-nav'
+  footer.innerHTML = '<a href="/#all-cars">車種一覧</a><a href="/#comparison-links-title">比較ガイド</a><a href="/about.html">運営情報</a><a href="/editorial-policy.html">制作方針</a><a href="/privacy.html">プライバシー</a><a href="/contact.html">お問い合わせ</a>'
+  document.querySelector('.back-home').before(footer)
+}
+
+function renderEvolutionNotes(config) {
+  if (!config.evolutionNotes?.length) return
+  const section = document.createElement('section')
+  section.className = 'generation-guide evolution-notes'
+  section.setAttribute('aria-labelledby', 'evolution-notes-title')
+  section.innerHTML = `<div class="generation-guide-heading"><p>WHAT CHANGED</p><h2 id="evolution-notes-title">世代ごとに変わったこと</h2><span>外観だけでなく、プリウスが担った役割と技術の変化を短く整理します。</span></div><div class="generation-guide-grid">${config.evolutionNotes.map((item) => `<article><div><strong>${item.title}</strong><span>${item.text}</span><b>${item.meta}</b></div></article>`).join('')}</div>`
+  document.querySelector('.back-home').before(section)
 }
 
 function renderGenerationGuide(config) {

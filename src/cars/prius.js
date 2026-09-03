@@ -77,6 +77,13 @@ export default {
       { title: '60系', description: '低く長いモノフォルムと、薄いハンマーヘッドランプを採用。', meta: '2023年〜現在 · MXWH60 / MXWH65 / ZVW60 / ZVW65' },
     ],
   },
+  evolutionNotes: [
+    { title: '初代・10系', text: '量産ハイブリッド乗用車として登場。独立トランクの4ドアセダンで、電動化を日常の車へ持ち込みました。', meta: '1997年 · THS' },
+    { title: '2代目・20系', text: '5ドアへ転換し、空力を意識したトライアングルシルエットを確立。室内と荷室の使い勝手も広げました。', meta: '2003年 · THS II' },
+    { title: '3代目・30系', text: 'シルエットを継承しつつ1.8L化。ハイブリッド専用車としての効率と実用性を磨きました。', meta: '2009年 · 1.8L hybrid' },
+    { title: '4代目・50系', text: 'TNGAを初採用し、低重心化と走行性能を強化。E-Fourも設定し、選択肢を広げました。', meta: '2015年 · TNGA / E-Four' },
+    { title: '5代目・60系', text: 'モノフォルムを低くワイドに再構成。環境性能に加え、デザインと走りの魅力を前面に出しました。', meta: '2023年 · 2.0L / 1.8L hybrid' },
+  ],
   guides: [
     { href:'/prius-30-vs-50.html', label:'プリウス 30系・50系の違い', description:'3代目と4代目を画像、型式、サイズで比較する。', image:'/images/cars/prius/gen4-2015-zvw51-pre-facelift.png' },
     {

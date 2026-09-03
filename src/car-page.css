@@ -568,9 +568,11 @@ body { margin: 0; background: #0b0c0e; }
 .discovery-card-name { grid-column: 1; font: 600 14px/1.2 'Inter', sans-serif; }
 .discovery-card-arrow { grid-column: 2; grid-row: 1 / 3; font: 400 15px/1 'Inter', sans-serif; opacity: .38; transition: transform .3s, opacity .3s; }
 .discovery-card:hover .discovery-card-arrow, .discovery-card:focus-visible .discovery-card-arrow { transform: translateX(3px); opacity: .8; }
+.page-trust-nav { max-width: 1120px; display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 0 auto; padding: 24px 22px 36px; border-top: 1px solid rgba(244,243,240,.1); }
+.page-trust-nav a { color: rgba(244,243,240,.58); font-size: 11px; text-underline-offset: 3px; }
 
 @media (min-width: 700px) {
-  .hero-copy, .page-share, .heritage, .timeline, .detail, .compare, .generation-guide, .next-discovery, .vehicle-guides, .page-references, .policy, .back-home { padding-left: 8vw; padding-right: 8vw; }
+  .hero-copy, .page-share, .heritage, .timeline, .detail, .compare, .generation-guide, .next-discovery, .vehicle-guides, .page-references, .policy, .back-home, .page-trust-nav { padding-left: 8vw; padding-right: 8vw; }
   .timeline-rail { left: 8vw; right: 8vw; }
   .detail { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
   .next-discovery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }

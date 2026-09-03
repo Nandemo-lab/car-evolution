@@ -174,6 +174,71 @@ const slug = document.documentElement.dataset.comparison
 const page = pages[slug]
 if (!page) throw new Error(`Unknown comparison page: ${slug}`)
 
+const decisionGuides = {
+  'freed-sienta': {
+    answer: 'どちらも扱いやすい3列コンパクトミニバン。FREEDは直線的で見切りをつかみやすい道具感、SIENTAは丸みのある親しみやすさと2列・3列の選択肢が判断軸です。',
+    points: [
+      ['シート構成', 'FREEDは6人・7人乗りを中心に選択。SIENTAは5人乗りと7人乗りを用意。必要な列数から先に絞れます。'],
+      ['パワートレイン', 'FREEDはガソリン／e:HEV、SIENTAはガソリン／ハイブリッド。名称は違っても、どちらも電動車を選べます。'],
+      ['日常の扱いやすさ', '全幅はいずれも5ナンバー幅。駐車環境だけでなく、2列目の使い方と荷室を実車で確認するのが近道です。'],
+    ],
+    choices: [['FREEDが向く人', '四角い見切り、6人乗りの独立2列目、すっきりした内外装を重視する人。'], ['SIENTAが向く人', '5人乗りも含めて選びたい人、丸みのあるデザインと低い乗降口を重視する人。']],
+    sources: [['Honda FREED 公式情報', 'https://www.honda.co.jp/FREED/'], ['トヨタ SIENTA 公式情報', 'https://toyota.jp/sienta/']],
+  },
+  'n-box-spacia': {
+    answer: '軽規格の外寸は近くても、後席の工夫が違います。N-BOXは自然で落ち着いた操作感、SPACIAは後席のマルチユースフラップなど装備のアイデアで選び分けると明快です。',
+    points: [
+      ['後席', 'N-BOXは広い足元と左右独立スライド、SPACIAは座面先端のマルチユースフラップが特徴。後席に誰が乗るかで評価が変わります。'],
+      ['走行系', '両車ともNA／ターボと2WD／4WDを設定。比較時は標準系とCustom系、同じ過給・駆動条件をそろえてください。'],
+      ['見分け方', 'N-BOXは丸い灯火と水平基調、SPACIAはコンテナを思わせる四角いモチーフが入口です。'],
+    ],
+    choices: [['N-BOXが向く人', '穏やかな視界と素直な操作、生活になじむ標準車の表情を重視する人。'], ['SPACIAが向く人', '後席のサポート機能や遊び心のある道具感を重視する人。']],
+    sources: [['Honda N-BOX 公式情報', 'https://www.honda.co.jp/Nbox/'], ['スズキ SPACIA 公式情報', 'https://www.suzuki.co.jp/car/spacia/']],
+  },
+  'noah-serena-stepwgn': {
+    answer: '3台とも家族向けMクラスですが、選び方は顔だけではありません。NOAHは総合バランス、SERENAは運転支援とe-POWER、STEP WGNは水平視界と落ち着いた室内を軸に比べると違いが見えます。',
+    points: [
+      ['電動化', 'NOAHはハイブリッド、SERENAはe-POWER、STEP WGNはe:HEVを設定。仕組みと運転感覚が異なります。'],
+      ['座席', 'いずれも7人乗り・8人乗りの設定がありますが、グレードで組み合わせが変わります。2列目を先に決めるのが実用的です。'],
+      ['車幅と顔', '標準／エアロ系で寸法や表情が変わるため、比較画像の代表仕様と購入候補のグレードを混同しないでください。'],
+    ],
+    choices: [['NOAHが向く人', '家族用途のバランスと、ハイブリッドを含む選択肢の広さを重視。'], ['SERENAが向く人', 'e-POWERの走りや運転支援を優先。'], ['STEP WGNが向く人', '四角い見切りと水平基調の落ち着いた空間を優先。']],
+    sources: [['トヨタ NOAH 公式情報', 'https://toyota.jp/noah/'], ['日産 SERENA 公式情報', 'https://www3.nissan.co.jp/vehicles/new/serena.html'], ['Honda STEP WGN 公式情報', 'https://www.honda.co.jp/STEPWGN/']],
+  },
+  'voxy-noah': {
+    answer: '現行VOXYとNOAHは基本メカニズムや室内の骨格を共有する兄弟車です。大きな選び分けは、VOXYの精悍さとNOAHの堂々とした表情、そして選べるグレード構成です。',
+    points: [
+      ['基本性能', 'プラットフォーム、パワートレイン、主要な室内寸法は共通。顔つきだけで性能差があるように捉えないことが大切です。'],
+      ['外観', 'VOXYは細い上部ランプと大きな下部開口、NOAHは横方向へ広がる大きなグリルが目印です。'],
+      ['グレード', 'VOXYはエアロ系を中心に展開。NOAHは標準系とエアロ系があり、選択幅が異なります。'],
+    ],
+    choices: [['VOXYが向く人', '精悍で低く見える顔つきと、エアロ系の統一感を優先。'], ['NOAHが向く人', '落ち着いた標準系も含め、外観の選択幅を優先。']],
+    sources: [['トヨタ VOXY 公式情報', 'https://toyota.jp/voxy/'], ['トヨタ NOAH 公式情報', 'https://toyota.jp/noah/']],
+  },
+  'alphard-vellfire': {
+    answer: '40系の2台は車体の基本を共有しつつ、ALPHARDは品格、VELLFIREは運転する喜びとアグレッシブさを明確に分けています。単純な上下ではなく、外観とパワートレインの好みで選ぶ兄弟車です。',
+    points: [
+      ['キャラクター', 'ALPHARDは正統的な高級感、VELLFIREは力強い個性を公式に打ち出しています。'],
+      ['エンジン', '代表的なガソリン車はALPHARDが2.5L、VELLFIREが2.4Lターボ。ハイブリッド系も設定されます。'],
+      ['室内と車体', '基本パッケージは共通。外観の違いだけで室内の広さが大きく変わる車種関係ではありません。'],
+    ],
+    choices: [['ALPHARDが向く人', '落ち着いた品格と、同乗者中心の高級感を優先。'], ['VELLFIREが向く人', '力強い外観と、ターボを含む走りの個性を優先。']],
+    sources: [['トヨタ ALPHARD 公式情報', 'https://toyota.jp/alphard/'], ['トヨタ VELLFIRE 公式情報', 'https://toyota.jp/vellfire/']],
+  },
+  'voxy-noah-esquire': {
+    answer: 'ESQUIREは80系時代の上級兄弟車で、現行90系VOXY／NOAHとは世代が異なります。新車の兄弟比較ではなく、現行2台と中古ESQUIREをどう選ぶかを見るページです。',
+    points: [
+      ['世代', 'ESQUIREは2014年登場・2021年終了の80系。VOXY／NOAHの掲載車は2022年登場の90系です。'],
+      ['選び方', '現行の安全・運転支援やパッケージを優先するなら90系、80系の上質な内外装を中古で選ぶならESQUIREが候補です。'],
+      ['見分け方', 'ESQUIREは盾を思わせる縦長メッキグリル。90系VOXY／NOAHとはライトと開口部の構成が明確に違います。'],
+    ],
+    choices: [['VOXYが向く人', '現行装備と精悍なエアロ系デザインを優先。'], ['NOAHが向く人', '現行装備と、標準系を含む選択幅を優先。'], ['ESQUIREが向く人', '中古車前提で80系の上質な内外装を重視。']],
+    sources: [['トヨタ NOAH／VOXY 2022年発売資料', 'https://global.toyota/jp/newsroom/toyota/36614622.html'], ['トヨタ ESQUIRE 2014年発売資料', 'https://global.toyota/jp/newsroom/toyota/21796684.html']],
+  },
+}
+
+Object.assign(page, decisionGuides[slug] || {})
+
 const cards = page.cars.flatMap((car) => {
   const generations = page.cars.length === 1 ? car.generations : [car.generations.at(-1)]
   return generations.map((generation) => `
@@ -196,6 +261,27 @@ document.querySelector('#comparison-page').innerHTML = `
   <section class="comparison-grid" aria-label="比較一覧">${cards}</section>
   ${page.guideNote ? `<section class="comparison-guide-note" aria-label="比較の基準"><p>${page.guideNote}</p></section>` : ''}
   <a class="comparison-more" href="/#all-cars">ほかの車種の進化を見る</a>`
+
+if (page.answer) {
+  document.querySelector('.comparison-grid').insertAdjacentHTML('beforebegin', `<section class="comparison-answer" aria-label="3秒で分かる結論"><p class="comparison-eyebrow">3-SECOND ANSWER</p><h2>先に結論</h2><p>${page.answer}</p></section>`)
+}
+
+if (page.points) {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+    <section class="comparison-decision" aria-label="購入判断のポイント"><p class="comparison-eyebrow">DECISION GUIDE</p><h2>買う前に比べたいポイント</h2><div class="comparison-decision-grid">${page.points.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>`)
+}
+
+if (page.choices) {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+    <section class="comparison-decision" aria-label="どちらを選ぶ"><p class="comparison-eyebrow">WHICH ONE?</p><h2>どれが向く？</h2><div class="comparison-decision-grid">${page.choices.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>`)
+}
+
+if (page.sources) {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+    <section class="comparison-sources" aria-label="公式根拠"><p class="comparison-eyebrow">FACT CHECK</p><h2>情報の確認</h2><p>${page.sources.map(([label, href]) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`).join('、')}を優先して、車種の位置づけ・装備・仕様を確認しています。</p><p class="comparison-byline">編集：CarVista編集部 · 確認日：2026年9月3日 · <a href="/editorial-policy.html">制作方針</a></p></section>`)
+}
+
+document.querySelector('.comparison-more').insertAdjacentHTML('afterend', `<footer class="comparison-trust"><nav><a href="/#all-cars">車種一覧</a><a href="/#comparison-links-title">比較ガイド</a><a href="/about.html">運営情報</a><a href="/editorial-policy.html">制作方針</a><a href="/privacy.html">プライバシー</a><a href="/contact.html">お問い合わせ</a></nav></footer>`)
 
 if (page.reading) {
   document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
