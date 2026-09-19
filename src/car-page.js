@@ -231,7 +231,11 @@ function renderGuideLinks(config) {
   section.setAttribute('aria-labelledby', 'vehicle-guides-title')
   section.innerHTML = `
     <div class="vehicle-guides-heading"><p>GUIDES</p><h2 id="vehicle-guides-title">見分け方・比較ガイド</h2><span>${config.vehicleName}を、目的別にさらに詳しく見る。</span></div>
-    <div class="vehicle-guides-grid">${config.guides.map((guide) => `<a href="${guide.href}" data-vehicle-guide>${guide.image ? `<img src="${guide.image}" alt="${guide.title}" loading="lazy" decoding="async" />` : ''}<span class="vehicle-guides-copy"><strong>${guide.label}</strong><span>${guide.description}</span><b>見る →</b></span></a>`).join('')}</div>`
+    <div class="vehicle-guides-grid">${config.guides.map((guide) => {
+      const alt = guide.alt ?? guide.title ?? guide.label ?? ''
+      const label = guide.label ?? guide.title ?? ''
+      return `<a href="${guide.href}" data-vehicle-guide>${guide.image ? `<img src="${guide.image}" alt="${alt}" loading="lazy" decoding="async" />` : ''}<span class="vehicle-guides-copy"><strong>${label}</strong><span>${guide.description}</span><b>見る →</b></span></a>`
+    }).join('')}</div>`
 
   section.querySelectorAll('[data-vehicle-guide]').forEach((link) => link.addEventListener('click', () => {
     trackEvent('open_vehicle_guide', { vehicle: config.vehicleName, destination: link.getAttribute('href') })
