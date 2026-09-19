@@ -140,7 +140,7 @@ export default {
     ],
   },
   guides: [
-    { href: '/vellfire-20-vs-30.html', label: 'ヴェルファイア20系・30系の違い', description: '初代と2代目を外観・サイズ・乗り心地で比較する。', image: '/images/cars/vellfire/gen2-2015.webp' },
+    { href: '/vellfire-20-vs-30.html', title: 'ヴェルファイア30系前期 Z Aエディションの比較画像', label: 'ヴェルファイア20系・30系の違い', description: '初代と2代目を外観・サイズ・乗り心地で比較する。', image: '/images/cars/vellfire/30-z-a-edition-pre-facelift-v1.png' },
     { href: '/vellfire-30-vs-40.html', label: 'ヴェルファイア30系・40系の違い', description: '2代目と3代目を外観・サイズ・装備で比較する。', image: '/images/cars/vellfire/gen3-2023.webp' },
     {
       href: '/vellfire-30-zenki-kouki.html',
