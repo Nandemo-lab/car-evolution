@@ -85,6 +85,7 @@ export default {
     { title: '5代目・60系', text: 'モノフォルムを低くワイドに再構成。環境性能に加え、デザインと走りの魅力を前面に出しました。', meta: '2023年 · 2.0L / 1.8L hybrid' },
   ],
   guides: [
+    { href:'/prius-30-zenki-kouki.html', label:'プリウス 30系 前期・後期の違い', description:'2011年12月改良前後をS・2WDの同条件画像で比較する。', image:'/images/cars/prius/zvw30-post-facelift-comparison-v1.png' },
     { href:'/prius-30-vs-50.html', label:'プリウス 30系・50系の違い', description:'3代目と4代目を画像、型式、サイズで比較する。', image:'/images/cars/prius/gen4-2015-zvw51-pre-facelift.png' },
     {
       eyebrow: '50 VS 60 · GENERATION GUIDE', title: '50系と60系の違い', description: '4代目と5代目を外観・サイズ・ハイブリッドで比較。',

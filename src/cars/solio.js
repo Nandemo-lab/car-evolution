@@ -143,6 +143,7 @@ export default {
     ],
   },
   guides: [
+    { href: '/solio-ma15s-zenki-kouki.html', label: 'MA15S 前期・後期の違い', description: '2013年11月改良前後を標準ソリオ同士で比較する。', image: '/images/cars/solio/ma15s-2013-post-update-v1.png' },
     { href: '/solio-ma36s-zenki-kouki.html', label: 'MA36S 前期・後期の違い', description: '2018年7月仕様変更前後を標準ソリオ同士で比較する。', image: '/images/cars/solio/ma36s-2018-post-update-v1.png' },
     { href:'/solio-ma15s-vs-ma36s.html', label:'ソリオ MA15S・MA36Sの違い', description:'2代目と3代目の標準ソリオを画像、型式、装備で比較する。', image:'/images/cars/solio/gen3-2015.webp' },
     { href: '/solio-ma36s-vs-ma37s.html', label: 'MA36SとMA37Sの違い', description: '3代目と4代目を外観・サイズ・荷室で比較する。', image: '/images/cars/solio/gen4-2020.webp' },

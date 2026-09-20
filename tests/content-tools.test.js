@@ -24,9 +24,9 @@ test('型式・全角・日本語・複数条件・該当なしを区別する',
   assert.equal(findModels(cars,'<script>unmatched').length,0)
   assert.equal(findModels(cars,'   ').length,0)
 })
-test('30比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
+test('34比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
   const files=readdirSync(new URL('../src/data/comparisons/',import.meta.url))
-  assert.equal(files.length,30)
+  assert.equal(files.length,34)
   for(const file of files){
     const data=(await import(`../src/data/comparisons/${file}`)).default
     const html=generationComparisonHtml(data)
@@ -51,10 +51,10 @@ test('個別の配列形式出典を優先し、確認日を捏造しない',()=
   assert.ok(refs.items.every(item=>item.url.startsWith('https://www.daihatsu.com/')))
   for(const car of cars) assert.ok(resolveReferences(car)?.items.length>0,car.slug)
 })
-test('公開69 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
+test('公開73 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
   const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
-  assert.equal(urls.length,69)
+  assert.equal(urls.length,73)
   for(const url of urls){
     const pathname=new URL(url).pathname
     const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')
@@ -65,5 +65,5 @@ test('公開69 URLの初期HTMLとサイトマップに欠落・重複見出し�
   }
   const redirects=JSON.parse(readFileSync(new URL('../vercel.json',import.meta.url),'utf8')).redirects
   for(const redirect of redirects) assert.ok(!urls.includes(`https://carvista.jp${redirect.source}`))
-  for(const draft of ['voxy-60-vs-70','solio-ma15s-zenki-kouki','vellfire-20-zenki-kouki']) assert.ok(!existsSync(new URL(`../dist/${draft}.html`,import.meta.url)))
+  for(const page of ['voxy-60-vs-70','solio-ma15s-zenki-kouki','vellfire-20-zenki-kouki','prius-30-zenki-kouki']) assert.ok(existsSync(new URL(`../dist/${page}.html`,import.meta.url)))
 })
