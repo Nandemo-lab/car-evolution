@@ -45,3 +45,17 @@
   .lc-answer .comparison-eyebrow { grid-row: span 2; }
   .lc-cars, .lc-grid, .lc-quick-facts, .lc-related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+.comparison-notebook { margin-top: 28px; padding: 22px; border: 1px solid #555; border-radius: 14px; background: #121417; }
+.comparison-notebook summary { cursor: pointer; font-size: 18px; font-weight: 600; }
+.comparison-notebook p { line-height: 1.8; color: #c6c6c6; }
+.inspection-checks { display: grid; gap: 18px; margin: 24px 0; }
+.inspection-checks label { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+.inspection-checks input { margin-top: 5px; width: 20px; height: 20px; flex-shrink: 0; accent-color: #c9aa63; }
+.inspection-checks small { display: block; margin-top: 6px; line-height: 1.8; color: #c6c6c6; }
+.inspection-notes-label { display: block; margin: 20px 0 10px; }
+.comparison-notebook textarea { box-sizing: border-box; width: 100%; padding: 12px; border: 1px solid #666; border-radius: 8px; color: #f4f3f0; background: #0b0c0e; font: inherit; resize: vertical; }
+.comparison-notebook button { margin-top: 14px; padding: 14px 18px; border: 1px solid #c9aa63; border-radius: 8px; background: #c9aa63; color: #111; font: inherit; cursor: pointer; }
+.comparison-notebook :focus-visible { outline: 3px solid #e1c679; outline-offset: 4px; }
+.lc-note { color: #aaa; }
+.lc-note a { color: #d4ba7f; text-underline-offset: 3px; }
+.lc-note a:focus-visible { outline: 2px solid #e1c679; outline-offset: 4px; }

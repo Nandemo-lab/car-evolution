@@ -14,7 +14,7 @@
          build+dev time by the seo-inject Vite plugin (see vite.config.js),
          which aggregates every src/cars/*.js file for the JSON-LD list of
          published vehicles. Do not hand-add SEO tags here. -->
-  </head>
+  <noscript><style>.fade-in{opacity:1!important;transform:none!important}</style></noscript></head>
   <body>
     <main id="home">
       <header class="home-hero">
@@ -85,7 +85,7 @@
           <p class="all-cars-intro">Explore every generation, side by side.</p>
           <p class="all-cars-count" id="all-cars-count"></p>
         </div>
-        <div class="maker-groups" id="maker-groups"></div>
+        <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式から、世代の候補を探す</label><p>車検証や中古車情報にある型式の一部を入力。例：JF1、AGH30、MA36S。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" maxlength="60" placeholder="車名・型式（例：JF1）" autocomplete="off"><button type="submit">候補を探す</button></div><div data-model-results aria-live="polite"></div><noscript><p>型式検索にはJavaScriptが必要です。下の車種一覧から歴代モデルを確認できます。</p></noscript></form><div class="maker-groups" id="maker-groups"></div>
       </section>
 
       <section class="comparison-links" aria-labelledby="comparison-links-title">

@@ -1,9 +1,14 @@
-import { existsSync, readdirSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { defineConfig } from 'vite'
+import { homeCarsHtml } from './src/home-cars-html.js'
+import { resolveReferences } from './src/official-sources.js'
+import roadmap from './src/roadmap.js'
+import { generationComparisonHtml } from './src/generation-comparison-html.js'
 
 const root = fileURLToPath(new URL('.', import.meta.url))
+const redirects = JSON.parse(readFileSync(resolve(root, 'vercel.json'), 'utf8')).redirects || []
 
 // Single source of truth for the brand name -- every title/og:site_name/
 // JSON-LD name below reads from this constant instead of a repeated
@@ -271,8 +276,9 @@ function escapeHtml(value) {
 // one interface while non-JS crawlers still receive the page topic, key facts,
 // and a natural internal link.
 function buildStaticVehicleFallback(car) {
-  const generations = car.generations.map((generation) => `<li><strong>${escapeHtml(generation.title)}</strong>｜${escapeHtml(generation.period)}｜主な型式：${escapeHtml(generation.code)}</li>`).join('')
-  return `<section class="static-crawl-fallback"><h1>${escapeHtml(car.brand)} ${escapeHtml(car.vehicleName)}の歴代モデル</h1><p>${escapeHtml(car.seo.description)}</p><h2>世代一覧</h2><ul>${generations}</ul><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・免責事項</a></p></section>`
+  const generations = car.generations.map((generation) => `<li><strong>${escapeHtml(generation.title)}</strong>｜${escapeHtml(generation.period)}｜主な型式：${escapeHtml(generation.code)}<p>${(generation.annotations || []).map(note => escapeHtml(note.label.replace(/<[^>]*>/g,''))).join(' ／ ')}</p></li>`).join('')
+  const sources = (resolveReferences(car)?.items || []).map(source => `<li><a href="${escapeHtml(source.url)}">${escapeHtml(source.label)}</a></li>`).join('')
+  return `<section class="static-crawl-fallback"><h2>世代一覧・外観の手がかり</h2><p>${escapeHtml(car.seo.description)}</p><ul>${generations}</ul><h2>参考資料</h2><ul>${sources}</ul><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・免責事項</a></p></section>`
 }
 
 function buildStaticComparisonFallback(comparison) {
@@ -285,16 +291,13 @@ function injectStaticFallback(html, fallback) {
 }
 
 // Every file in cars/*.html, plus every other *.html at the project
-// root (editorial-policy.html, and whatever site-wide page comes next),
-// becomes a build entry automatically -- adding a new page can never
-// again silently vanish from `dist/` the way voxy.html did before this
-// file existed (see project memory). index.html keeps the entry key
-// "main" (its established chunk-naming); every other root page is
-// keyed by its own filename.
+// Root pages are published only after registration in the SEO/page catalog.
+// Unregistered local drafts remain available in dev, but cannot leak into dist.
+// Vehicle pages retain directory discovery. index.html keeps its entry key.
 function discoverEntries() {
   const entries = { main: resolve(root, 'index.html') }
   for (const file of readdirSync(root)) {
-    if (file.endsWith('.html') && file !== 'index.html') {
+    if (file.endsWith('.html') && (COMPARISON_PAGES[file] || TRUST_PAGES[file])) {
       entries[file.replace(/\.html$/, '')] = resolve(root, file)
     }
   }
@@ -551,7 +554,8 @@ function seoInjectPlugin() {
       ]
 
       if (filename === 'index.html') {
-        return { html, tags: withAdSenseVerification(buildHomeTags(await loadAllCars())) }
+        const cars = await loadAllCars()
+        return { html: html.replace('<div class="maker-groups" id="maker-groups"></div>', `<div class="maker-groups" id="maker-groups">${homeCarsHtml(cars, roadmap)}</div>`), tags: withAdSenseVerification(buildHomeTags(cars)) }
       }
 
       if (TRUST_PAGES[filename]) {
@@ -559,8 +563,14 @@ function seoInjectPlugin() {
       }
 
       if (COMPARISON_PAGES[filename]) {
+        const comparisonDataPath = resolve(root, 'src/data/comparisons', filename.replace(/\.html$/, '.js'))
+        const comparisonData = existsSync(comparisonDataPath)
+          ? (await import(`${pathToFileURL(comparisonDataPath).href}?t=${Date.now()}`)).default
+          : null
+        const body = comparisonData ? generationComparisonHtml(comparisonData) : buildStaticComparisonFallback(COMPARISON_PAGES[filename])
+        const rendered = injectStaticFallback(html, body)
         return {
-          html: injectStaticFallback(html, buildStaticComparisonFallback(COMPARISON_PAGES[filename])),
+          html: comparisonData ? rendered.replace(/<main id="([^"]+)">/, '<main id="$1" data-prerendered="true">') : rendered,
           tags: withAdSenseVerification(buildComparisonTags(filename)),
         }
       }
@@ -603,7 +613,7 @@ function seoInjectPlugin() {
         { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(breadcrumbJsonLd), injectTo: 'head' },
       ]
       return {
-        html: injectStaticFallback(html, buildStaticVehicleFallback(car)),
+        html: html.replace(/<img[^>]*id="hero-image"[^>]*>/, tag => tag.replace(/\s*\/?>$/, ` src="${escapeHtml(car.heroImage)}" />`)).replace('<h1 id="hero-title"></h1>', `<h1 id="hero-title">${escapeHtml(car.vehicleName)}</h1>`).replace(/<\/header>/, `</header>${buildStaticVehicleFallback(car)}`),
         tags: withAdSenseVerification(tags),
       }
     },
@@ -627,7 +637,8 @@ function sitemapPlugin() {
         ...Object.keys(COMPARISON_PAGES).map((filename) => `${SITE_ORIGIN}/${filename}`),
       ]
       const carUrls = cars.map((car) => `${SITE_ORIGIN}/cars/${car.slug}.html`)
-      const urls = [...staticUrls, ...carUrls]
+      const redirected = new Set(redirects.map(item => `${SITE_ORIGIN}${item.source}`))
+      const urls = [...new Set([...staticUrls, ...carUrls])].filter(url => !redirected.has(url))
       const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
         .map((url) => `  <url><loc>${url}</loc></url>`)
         .join('\n')}\n</urlset>\n`

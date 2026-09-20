@@ -1,9 +1,17 @@
 const checkedAt = '2026年8月14日'
 
+export function resolveReferences(config) {
+  if (Array.isArray(config.references) && config.references.length) {
+    return { items: config.references.map(item => ({ ...item, url: item.href, generations: item.generations || '参考資料' })) }
+  }
+  return config.references?.items?.length ? config.references : officialSources[config.vehicleName]
+}
+
 // Fallback sources for vehicles whose data module does not yet list
 // generation-specific references. Vehicle modules may override these with
 // their own `references` object when they need a more detailed breakdown.
 export const officialSources = {
+  PRIUS: { items: [{ generations: '歴代モデル・年式別仕様', label: 'トヨタ認定中古車 プリウス車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-PRIUS/' }] },
   ALPHARD: { checkedAt, items: [{ generations: '全世代', label: 'トヨタ認定中古車 アルファード車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ALPHARD/' }] },
   VELLFIRE: { checkedAt, items: [{ generations: '全世代', label: 'トヨタ認定中古車 ヴェルファイア車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-VELLFIRE/' }] },
   ESQUIRE: { checkedAt, items: [{ generations: '80系', label: 'トヨタ認定中古車 エスクァイア車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ESQUIRE/' }] },

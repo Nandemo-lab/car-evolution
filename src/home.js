@@ -1,7 +1,8 @@
+import { bindModelFinder } from './model-finder.js'
 import './home.css'
 import './click-glow.js'
 import roadmap from './roadmap.js'
-import { getDiscoveryImage, getDiscoveryStyle } from './discovery.js'
+import { homeCarsHtml } from './home-cars-html.js'
 import { trackEvent } from './analytics.js'
 
 // CarVista -- Home page engine ---------------------------------
@@ -39,54 +40,6 @@ const cars = Object.entries(carModules)
 // roadmap entries under the same maker heading. A maker with only
 // roadmap entries (no published cars yet) still gets its own group --
 // that's how a brand-new maker first appears on the site.
-function groupByMaker(cars, roadmap) {
-  const groups = new Map()
-  for (const car of cars) {
-    if (!groups.has(car.maker)) groups.set(car.maker, { maker: car.maker, cars: [], comingSoon: [] })
-    groups.get(car.maker).cars.push(car)
-  }
-  for (const item of roadmap) {
-    if (!groups.has(item.maker)) groups.set(item.maker, { maker: item.maker, cars: [], comingSoon: [] })
-    groups.get(item.maker).comingSoon.push(item)
-  }
-  return [...groups.values()]
-}
-
-function renderAllCars(cars, roadmap) {
-  const container = document.getElementById('maker-groups')
-  const groups = groupByMaker(cars, roadmap)
-
-  container.innerHTML = groups
-    .map(
-      (group) => `
-    <div class="maker-group fade-in">
-      <h2 class="maker-name">${group.maker}</h2>
-      <div class="maker-cars">
-        ${group.cars
-          .map(
-            (car) => `
-          <a class="mini-card" href="/cars/${car.slug}.html">
-            <span class="mini-card-photo"><img src="${getDiscoveryImage(car)}" style="${getDiscoveryStyle(car)}" alt="${car.vehicleName}" loading="lazy" decoding="async" /></span>
-            <span class="mini-card-name">${car.vehicleName}</span>
-          </a>`
-          )
-          .join('')}
-        ${group.comingSoon
-          .map(
-            (item) => `
-          <div class="mini-card mini-card--soon" aria-disabled="true">
-            <span class="mini-card-photo"></span>
-            <span class="mini-card-name">${item.name}</span>
-            <span class="mini-card-soon-label">Coming Soon</span>
-          </div>`
-          )
-          .join('')}
-      </div>
-    </div>`
-    )
-    .join('')
-}
-
 // Discovery before explanation, applied at the page level: sections
 // settle in with a quiet fade instead of announcing themselves.
 function initScrollFade() {
@@ -151,8 +104,10 @@ function renderAllCarsSummary(cars, roadmap) {
   el.textContent = text
 }
 
-renderAllCars(cars, roadmap)
+document.getElementById('maker-groups').innerHTML = homeCarsHtml(cars, roadmap)
 renderAllCarsSummary(cars, roadmap)
 initScrollFade()
 initHeroCta()
 initGrowthEvents()
+
+bindModelFinder(cars)

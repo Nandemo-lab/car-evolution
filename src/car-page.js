@@ -7,7 +7,7 @@ import { trackEvent } from './analytics.js'
 // non-JavaScript crawlers. The interactive catalogue takes over as soon as
 // this module starts, so users never see duplicate page content.
 document.querySelector('.static-crawl-fallback')?.remove()
-import { officialSources } from './official-sources.js'
+import { resolveReferences } from './official-sources.js'
 
 const carModules = import.meta.glob('./cars/*.js', { eager: true })
 const discoveryCars = Object.entries(carModules).map(([path, mod]) => ({
@@ -244,7 +244,7 @@ function renderGuideLinks(config) {
 }
 
 function renderReferences(config) {
-  const references = config.references?.items?.length ? config.references : officialSources[config.vehicleName]
+  const references = resolveReferences(config)
   if (!references?.items?.length) return
 
   const section = document.createElement('section')
@@ -254,7 +254,7 @@ function renderReferences(config) {
     <div class="page-references-heading">
       <p>REFERENCES</p>
       <h2 id="page-references-title">情報の確認</h2>
-      <span>確認日：${references.checkedAt}</span>
+      ${references.checkedAt ? `<span>確認日：${references.checkedAt}</span>` : ''}
     </div>
     <p class="page-references-note">年式・型式・世代区分は、各メーカーの公開情報を優先して確認しています。掲載画像は比較しやすいようCarVistaが統一条件で制作したビジュアル表現で、実車のグレード・色・装備とは異なる場合があります。</p>
     <ul class="page-references-list">${references.items.map((item) => `

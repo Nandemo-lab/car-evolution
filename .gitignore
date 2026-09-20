@@ -25,3 +25,6 @@ desktop.ini
 # run the site, kept out of the public repo for size/scope reasons.
 production/
 __pycache__/
+
+# Local dependency cache
+.tmp-npm-cache/
