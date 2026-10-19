@@ -107,6 +107,32 @@ export default {
   referenceLengthMm: 4695,
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/esquire/hero-gen1-3q.webp',
+  generationGuide: {
+    title: 'ESQUIREは「何代目」より、2017年7月改良の前後を確認する',
+    intro: 'ESQUIREは2014年から2021年まで1世代のみです。中古車を見分けるときは、世代番号ではなく2017年7月3日のマイナーチェンジ、Xi／Gi、ガソリン／ハイブリッドを分けて確認します。',
+    items: [
+      {
+        title: '80系・2014年発売時',
+        description: 'バンパー下部まで伸びる縦基調グリルとメッキ加飾が発売時からの特徴です。2017年改良後も同じ80系なので、型式だけでは改良前後を確定できません。',
+        meta: 'ZRR80G / ZRR85G / ZWR80G・2014年10月発売',
+      },
+    ],
+  },
+  evolutionNotes: [
+    {
+      title: '2017年7月：薄型LEDランプとグリル意匠を変更',
+      text: 'トヨタ公式発表ではBi-Beam LEDヘッドランプ、面発光LEDクリアランスランプ、フロントグリルとリヤコンビネーションランプの意匠変更が示されています。外観写真はランプとグリルを一組で確認します。',
+      meta: '同時にGi “Premium Package”を新設定。専用内装を全車共通の改良差として扱いません。',
+    },
+    {
+      title: '中古車確認：兄弟車・グレード・パワートレーンを分ける',
+      text: 'VOXY／NOAHと基本構成を共有しますが、ESQUIREは専用の縦基調グリルとメッキ表現を持ちます。写真で絞った後、正式グレード、初度登録、型式、ガソリン／ハイブリッドを車両情報で照合します。',
+      meta: '初度登録時期だけで2017年改良前後を断定せず、現車仕様を販売店へ確認します。',
+    },
+  ],
+  guides: [
+    { href: '/compare-voxy-noah-esquire.html', label: 'VOXY・NOAH・ESQUIREの違い', description: '兄弟車の位置づけとフロントマスクを、世代条件を明示して比較する。', image: '/images/cars/esquire/compare-standard-v1.png' },
+  ],
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written. Keep this Japanese, matching every other

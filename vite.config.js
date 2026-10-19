@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { runInNewContext } from 'node:vm'
 import { defineConfig } from 'vite'
 import { homeCarsHtml } from './src/home-cars-html.js'
 import { resolveReferences } from './src/official-sources.js'
@@ -280,18 +281,111 @@ function escapeHtml(value) {
 // one interface while non-JS crawlers still receive the page topic, key facts,
 // and a natural internal link.
 function buildStaticVehicleFallback(car) {
-  const generations = car.generations.map((generation) => `<li><strong>${escapeHtml(generation.title)}</strong>｜${escapeHtml(generation.period)}｜主な型式：${escapeHtml(generation.code)}<p>${(generation.annotations || []).map(note => escapeHtml(note.label.replace(/<[^>]*>/g,''))).join(' ／ ')}</p></li>`).join('')
+  const generations = car.generations.map((generation, index) => {
+    const clues = (generation.annotations || []).map(note => escapeHtml(note.label.replace(/<[^>]*>/g,''))).join(' ／ ')
+    const changes = generation.facelift?.points?.length
+      ? `<h4>${escapeHtml(generation.facelift.fromYear)}年から${escapeHtml(generation.facelift.toYear)}年までの主な変化</h4><ul>${generation.facelift.points.map(point => `<li>${escapeHtml(point)}</li>`).join('')}</ul>`
+      : ''
+    return `<article class="static-generation-card"><img src="${escapeHtml(generation.image)}" alt="${escapeHtml(`${car.vehicleName} ${generation.title}の代表画像`)}" ${index ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async" /><h3>${escapeHtml(generation.era)}・${escapeHtml(generation.title)}</h3><p>${escapeHtml(generation.period)}｜主な型式：${escapeHtml(generation.code)}</p>${clues ? `<p><strong>画像で見る手がかり：</strong>${clues}</p>` : ''}${changes}</article>`
+  }).join('')
+  const guide = car.generationGuide?.items?.length
+    ? `<h2>${escapeHtml(car.generationGuide.title)}</h2><p>${escapeHtml(car.generationGuide.intro)}</p><div>${car.generationGuide.items.map(item => `<article><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p><p>${escapeHtml(item.meta)}</p></article>`).join('')}</div>`
+    : ''
+  const evolution = car.evolutionNotes?.length
+    ? `<h2>世代ごとに変わったこと</h2><div>${car.evolutionNotes.map(item => `<article><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p><p>${escapeHtml(item.meta)}</p></article>`).join('')}</div>`
+    : ''
+  const guides = car.guides?.length
+    ? `<h2>関連ガイド</h2><ul>${car.guides.map(item => `<li><a href="${escapeHtml(item.href)}">${escapeHtml(item.label || item.title)}</a> — ${escapeHtml(item.description || '')}</li>`).join('')}</ul>`
+    : ''
   const sources = (resolveReferences(car)?.items || []).map(source => `<li><a href="${escapeHtml(source.url)}">${escapeHtml(source.label)}</a></li>`).join('')
-  return `<section class="static-crawl-fallback"><h2>世代一覧・外観の手がかり</h2><p>${escapeHtml(car.seo.description)}</p><ul>${generations}</ul><h2>参考資料</h2><ul>${sources}</ul><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・免責事項</a></p></section>`
+  return `<section class="static-crawl-fallback" aria-label="${escapeHtml(car.vehicleName)}の歴代モデル概要"><div class="static-fast-answer"><p>FAST ANSWER</p><strong>${escapeHtml(car.vehicleName)}は${car.generations.length}つの掲載区分を、型式・販売時期・外観の手がかりで確認できます。</strong><span>${escapeHtml(car.seo.description)}</span></div><h2>世代一覧・外観の手がかり</h2><div class="static-generation-grid">${generations}</div>${guide}${evolution}${guides}<h2>公式資料・参考資料</h2><ul>${sources}</ul><p>画像だけで年式やグレードを断定せず、型式・車台番号・装備情報を販売店の車両情報と照合してください。</p><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・画像利用・訂正方針</a></p></section>`
 }
 
-function buildStaticComparisonFallback(comparison) {
-  const models = comparison.models.map((model) => `<li><a href="${escapeHtml(model.url)}">${escapeHtml(model.name)}</a></li>`).join('')
-  return `<section class="static-crawl-fallback"><h1>${escapeHtml(comparison.name)}</h1><p>${escapeHtml(comparison.description)}</p><h2>比較対象</h2><ul>${models}</ul><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・免責事項</a></p></section>`
+function standaloneEntryHtml(filename, cars) {
+  const htmlPath = resolve(root, filename)
+  const html = readFileSync(htmlPath, 'utf8')
+  const sourcePath = html.match(/<script type="module" src="\/([^\"]+)"/)?.[1]
+  if (!sourcePath || sourcePath === 'src/comparison-page.js') return null
+  const source = readFileSync(resolve(root, sourcePath), 'utf8')
+  const assignment = source.match(/document\.querySelector\([^\n]+?\)\.innerHTML\s*=\s*`/)
+  if (!assignment) return null
+  const start = source.indexOf(assignment[0])
+  const interactive = source.indexOf('\nasync function copyUrl', start)
+  if (interactive < 0) return null
+  const bindings = 'const voxy=globalThis.voxy,alphard=globalThis.alphard;'
+  const executable = `${bindings}\n${source.slice(0, interactive)
+    .replace(/^import .*$/gm, '')}`
+  const context = {
+    __staticHtml: null,
+    voxy: cars.find(car => car.slug === 'voxy'),
+    alphard: cars.find(car => car.slug === 'alphard'),
+  }
+  const target = {
+    set innerHTML(value) { context.__staticHtml = value },
+    get innerHTML() { return context.__staticHtml },
+    insertAdjacentHTML(position, value) {
+      if (position !== 'beforebegin') throw new Error(`Unsupported prerender insertion: ${position}`)
+      context.__staticHtml = context.__staticHtml.replace('<a class="comparison-more"', `${value}<a class="comparison-more"`)
+    },
+  }
+  context.document = { querySelector: () => target }
+  try { runInNewContext(executable, context, { filename: sourcePath, timeout: 1000 }) }
+  catch (error) { throw new Error(`Unable to prerender ${filename} from ${sourcePath}: ${error.message}`) }
+  return context.__staticHtml
+}
+
+function genericComparisonData(filename, cars) {
+  const slug = filename.replace(/^compare-|\.html$/g, '')
+  const source = readFileSync(resolve(root, 'src/comparison-page.js'), 'utf8')
+  const renderStart = source.indexOf("document.querySelector('#comparison-page').innerHTML")
+  if (renderStart < 0) return null
+  const context = {
+    document: { documentElement: { dataset: { comparison: slug } } },
+    affiliateDestinations: {},
+    voxy: cars.find(car => car.slug === 'voxy'),
+    noah: cars.find(car => car.slug === 'noah'),
+    serena: cars.find(car => car.slug === 'serena'),
+    stepwgn: cars.find(car => car.slug === 'stepwgn'),
+    esquire: cars.find(car => car.slug === 'esquire'),
+    alphard: cars.find(car => car.slug === 'alphard'),
+    vellfire: cars.find(car => car.slug === 'vellfire'),
+    freed: cars.find(car => car.slug === 'freed'),
+    sienta: cars.find(car => car.slug === 'sienta'),
+    nBox: cars.find(car => car.slug === 'n-box'),
+    spacia: cars.find(car => car.slug === 'spacia'),
+  }
+  const bindings = 'const voxy=globalThis.voxy,noah=globalThis.noah,serena=globalThis.serena,stepwgn=globalThis.stepwgn,esquire=globalThis.esquire,alphard=globalThis.alphard,vellfire=globalThis.vellfire,freed=globalThis.freed,sienta=globalThis.sienta,nBox=globalThis.nBox,spacia=globalThis.spacia,affiliateDestinations=globalThis.affiliateDestinations;'
+  const executable = `${bindings}\n${source.slice(0, renderStart).replace(/^import .*$/gm, '')}\nglobalThis.__page = page; globalThis.__cards = cards;`
+  try { runInNewContext(executable, context, { filename: 'src/comparison-page.js', timeout: 1000 }) }
+  catch (error) { throw new Error(`Unable to prerender ${filename} from comparison-page.js: ${error.message}`) }
+  return { page: context.__page, cards: context.__cards }
+}
+
+function genericComparisonHtml(data) {
+  if (!data) return null
+  const { page, cards } = data
+  const articles = (items) => items?.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('') || ''
+  return `<header class="comparison-hero"><a class="comparison-home" href="/">CARVISTA</a><p class="comparison-eyebrow">${page.eyebrow}</p><h1>${page.title}</h1><p class="comparison-intro">${page.intro}</p></header>
+  ${page.answer ? `<section class="comparison-answer" aria-label="3秒で分かる結論"><p class="comparison-eyebrow">3-SECOND ANSWER</p><h2>先に結論</h2><p>${page.answer}</p></section>` : ''}
+  <section class="comparison-grid" aria-label="比較一覧">${cards}</section>
+  ${page.guideNote ? `<section class="comparison-guide-note" aria-label="比較の基準"><p>${page.guideNote}</p></section>` : ''}
+  ${page.timeline ? `<section class="comparison-focus" aria-label="比較する年式の整理"><h2>比較する世代を先に整理する</h2><div class="comparison-next-grid">${page.timeline.map(item => `<div><strong>${item.title}</strong><span>${item.text}</span></div>`).join('')}</div></section>` : ''}
+  ${page.reading ? `<section class="comparison-reading" aria-label="デザインの読み解き"><h2>見比べるポイント</h2>${page.reading.map(item => `<article><h3>${item.heading}</h3><p>${item.text}</p></article>`).join('')}</section>` : ''}
+  ${page.points ? `<section class="comparison-decision"><h2>買う前に比べたいポイント</h2><div class="comparison-decision-grid">${articles(page.points)}</div></section>` : ''}
+  ${page.choices ? `<section class="comparison-decision"><h2>どれが向く？</h2><div class="comparison-decision-grid">${articles(page.choices)}</div></section>` : ''}
+  ${page.focus ? `<section class="comparison-focus"><h2>顔つきを、同じ角度で読む</h2><div class="comparison-focus-grid">${page.focus.map(item => `<figure><img src="${item.image}" alt="${item.name}のフロントマスク" loading="lazy" decoding="async" /><figcaption><strong>${item.name}</strong><span>${item.label}</span></figcaption></figure>`).join('')}</div></section>` : ''}
+  ${page.sources ? `<section class="comparison-sources"><h2>公式資料で確認したこと</h2><p>${page.sources.map(([label, href]) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`).join('、')}を優先して、車種の位置づけ・装備・仕様を確認しています。</p></section>` : ''}
+  ${page.related ? `<section class="comparison-next"><h2>次に見比べる</h2><div class="comparison-next-grid">${page.related.map(item => `<a href="${item.href}"><strong>${item.label}</strong><span>${item.description}</span></a>`).join('')}</div></section>` : ''}
+  <a class="comparison-more" href="/#all-cars">ほかの車種の進化を見る</a><footer class="comparison-trust"><nav><a href="/about.html">運営情報</a><a href="/editorial-policy.html">制作方針</a><a href="/contact.html">お問い合わせ</a></nav></footer>`
 }
 
 function injectStaticFallback(html, fallback) {
   return html.replace(/(<main id="[^"]+">)/, `$1${fallback}`)
+}
+
+function condenseVehiclePolicy(html) {
+  const policy = `<footer class="policy" aria-label="CarVistaについて"><p class="policy-text">掲載画像は比較条件をそろえた制作ビジュアルです。実車の年式・グレード・装備は、各ページの公式資料と販売店の車両情報で確認してください。</p><p class="policy-text policy-text--invite"><a class="policy-link" href="/editorial-policy.html">制作・画像利用・訂正方針</a>｜<a class="policy-link" href="/about.html">運営情報</a>｜<a class="policy-link" href="/contact.html">お問い合わせ</a></p></footer>`
+  return html.replace(/<footer class="policy" aria-label="CarVistaについて">[\s\S]*?<\/footer>/, policy)
 }
 
 // Every file in cars/*.html, plus every other *.html at the project
@@ -571,7 +665,10 @@ function seoInjectPlugin() {
         const comparisonData = existsSync(comparisonDataPath)
           ? (await import(`${pathToFileURL(comparisonDataPath).href}?t=${Date.now()}`)).default
           : null
-        const body = comparisonData ? generationComparisonHtml(comparisonData) : buildStaticComparisonFallback(COMPARISON_PAGES[filename])
+        const cars = comparisonData ? [] : await loadAllCars()
+        let body = comparisonData ? generationComparisonHtml(comparisonData) : standaloneEntryHtml(filename, cars)
+        if (!body) body = genericComparisonHtml(genericComparisonData(filename, cars))
+        if (!body) throw new Error(`Static rendering is required for published comparison page: ${filename}`)
         const rendered = injectStaticFallback(html, body)
         return {
           html: comparisonData ? rendered.replace(/<main id="([^"]+)">/, '<main id="$1" data-prerendered="true">') : rendered,
@@ -617,7 +714,7 @@ function seoInjectPlugin() {
         { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(breadcrumbJsonLd), injectTo: 'head' },
       ]
       return {
-        html: html.replace(/<img[^>]*id="hero-image"[^>]*>/, tag => tag.replace(/\s*\/?>$/, ` src="${escapeHtml(car.heroImage)}" />`)).replace('<h1 id="hero-title"></h1>', `<h1 id="hero-title">${escapeHtml(car.vehicleName)}</h1>`).replace(/<\/header>/, `</header>${buildStaticVehicleFallback(car)}`),
+        html: condenseVehiclePolicy(html).replace(/<img[^>]*id="hero-image"[^>]*>/, tag => tag.replace(/\s*\/?>$/, ` src="${escapeHtml(car.heroImage)}" />`)).replace('<h1 id="hero-title"></h1>', `<h1 id="hero-title">${escapeHtml(car.vehicleName)}</h1>`).replace(/<\/header>/, `</header>${buildStaticVehicleFallback(car)}`),
         tags: withAdSenseVerification(tags),
       }
     },

@@ -67,3 +67,53 @@ test('公開73 URLの初期HTMLとサイトマップに欠落・重複見出し�
   for(const redirect of redirects) assert.ok(!urls.includes(`https://carvista.jp${redirect.source}`))
   for(const page of ['voxy-60-vs-70','solio-ma15s-zenki-kouki','vellfire-20-zenki-kouki','prius-30-zenki-kouki']) assert.ok(existsSync(new URL(`../dist/${page}.html`,import.meta.url)))
 })
+
+test('全index対象コンテンツはJavaScriptなしでも主要回答・画像・出典を持つ',()=>{
+  const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
+  const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
+  const trust=new Set(['/','/about.html','/contact.html','/privacy.html','/editorial-policy.html'])
+  for(const url of urls){
+    const pathname=new URL(url).pathname
+    if(trust.has(pathname)) continue
+    const html=readFileSync(new URL(`../dist${pathname}`,import.meta.url),'utf8')
+    const body=html.match(/<body[\s\S]*?<\/body>/)?.[0] || ''
+    const text=body
+      .replace(/<script[\s\S]*?<\/script>/g,' ')
+      .replace(/<style[\s\S]*?<\/style>/g,' ')
+      .replace(/<[^>]+>/g,' ')
+      .replace(/&[^;]+;/g,' ')
+      .replace(/\s+/g,' ')
+      .trim()
+    // This is a regression floor, not a claim that length equals quality:
+    // it prevents the old 120–200 character crawler shell from returning.
+    assert.ok(text.length>=800,`${pathname}: only ${text.length} static characters`)
+    assert.ok((body.match(/<img\b/g)||[]).length>=1,`${pathname}: no static comparison image`)
+    assert.ok(/<h2\b/.test(body),`${pathname}: no static information hierarchy`)
+    assert.ok(/https:\/\//.test(body),`${pathname}: no static source link`)
+    assert.ok(!/画像準備中|alt="(?:undefined|null)"/.test(body),`${pathname}: invalid static image fallback`)
+  }
+})
+
+test('SERENA C26後期HOLD画像は公開HTMLから参照しない',()=>{
+  const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
+  for(const match of xml.matchAll(/<loc>(.*?)<\/loc>/g)){
+    const pathname=new URL(match[1]).pathname
+    const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')
+    assert.ok(!html.includes('c26-2013-post-facelift-20x-v1.png'),pathname)
+  }
+})
+
+test('歴代ページ共通説明に特定車種名を固定しない',()=>{
+  const source=readFileSync(new URL('../src/car-page.js',import.meta.url),'utf8')
+  assert.ok(source.includes('${config.vehicleName}の役割と技術の変化'))
+  assert.ok(!source.includes('プリウスが担った役割'))
+})
+
+test('歴代ページは長い共通免責を繰り返さずTrustページへ集約する',()=>{
+  for(const car of cars){
+    const html=readFileSync(new URL(`../dist/cars/${car.slug}.html`,import.meta.url),'utf8')
+    assert.ok(html.includes('制作・画像利用・訂正方針'),car.slug)
+    assert.ok(!html.includes('CarVistaは各自動車メーカーとは一切関係のない独立したプロジェクトです'),car.slug)
+    assert.equal((html.match(/<footer class="policy"/g)||[]).length,1,car.slug)
+  }
+})

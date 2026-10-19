@@ -143,7 +143,7 @@ function renderEvolutionNotes(config) {
   const section = document.createElement('section')
   section.className = 'generation-guide evolution-notes'
   section.setAttribute('aria-labelledby', 'evolution-notes-title')
-  section.innerHTML = `<div class="generation-guide-heading"><p>WHAT CHANGED</p><h2 id="evolution-notes-title">世代ごとに変わったこと</h2><span>外観だけでなく、プリウスが担った役割と技術の変化を短く整理します。</span></div><div class="generation-guide-grid">${config.evolutionNotes.map((item) => `<article><div><strong>${item.title}</strong><span>${item.text}</span><b>${item.meta}</b></div></article>`).join('')}</div>`
+  section.innerHTML = `<div class="generation-guide-heading"><p>WHAT CHANGED</p><h2 id="evolution-notes-title">世代ごとに変わったこと</h2><span>外観だけでなく、${config.vehicleName}の役割と技術の変化を短く整理します。</span></div><div class="generation-guide-grid">${config.evolutionNotes.map((item) => `<article><div><strong>${item.title}</strong><span>${item.text}</span><b>${item.meta}</b></div></article>`).join('')}</div>`
   document.querySelector('.back-home').before(section)
 }
 

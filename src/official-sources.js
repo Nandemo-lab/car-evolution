@@ -14,7 +14,11 @@ export const officialSources = {
   PRIUS: { items: [{ generations: '歴代モデル・年式別仕様', label: 'トヨタ認定中古車 プリウス車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-PRIUS/' }] },
   ALPHARD: { checkedAt, items: [{ generations: '全世代', label: 'トヨタ認定中古車 アルファード車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ALPHARD/' }] },
   VELLFIRE: { checkedAt, items: [{ generations: '全世代', label: 'トヨタ認定中古車 ヴェルファイア車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-VELLFIRE/' }] },
-  ESQUIRE: { checkedAt, items: [{ generations: '80系', label: 'トヨタ認定中古車 エスクァイア車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ESQUIRE/' }] },
+  ESQUIRE: { checkedAt, items: [
+    { generations: '80系・発売時', label: 'トヨタ公式 2014年エスクァイア発売資料', url: 'https://global.toyota/jp/newsroom/toyota/21796684.html' },
+    { generations: '80系・2017年改良', label: 'トヨタ公式 VOXY・NOAH・ESQUIREマイナーチェンジ資料', url: 'https://global.toyota/jp/newsroom/toyota/21823080.html' },
+    { generations: '80系', label: 'トヨタ公式 エスクァイア旧車情報', url: 'https://toyota.jp/carlineup/archive/esquire/' },
+  ] },
   SERENA: { checkedAt, items: [{ generations: '現行モデル', label: '日産 セレナ公式サイト', url: 'https://www3.nissan.co.jp/vehicles/new/serena.html' }] },
   FREED: { checkedAt, items: [{ generations: '現行モデル', label: 'Honda フリード公式サイト', url: 'https://www.honda.co.jp/FREED/' }] },
   SIENTA: { checkedAt, items: [{ generations: '現行モデル', label: 'トヨタ シエンタ公式サイト', url: 'https://toyota.jp/sienta/' }] },
