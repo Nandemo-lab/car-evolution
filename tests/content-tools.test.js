@@ -130,3 +130,20 @@ test('Phase 2対象7ページは初期HTMLに固有の比較条件と購入確�
   const delica=readFileSync(new URL('../dist/cars/delica-d5.html',import.meta.url),'utf8')
   for(const phrase of ['2007年登場｜CV5W','2013年にCV1Wディーゼルを追加','2019年｜同一世代の大幅改良','フルモデルチェンジではありません']) assert.ok(delica.includes(phrase),phrase)
 })
+
+test('Phase 3重点3ページは仕様の異なる軸を混同しない',()=>{
+  const tanto=readFileSync(new URL('../dist/tanto-l375s-vs-la600s.html',import.meta.url),'utf8')
+  assert.ok(tanto.includes('2007年12月17日'))
+  assert.ok(tanto.includes('2013年10月3日'))
+  assert.ok(tanto.includes('Customは別外装'))
+
+  const harrier=readFileSync(new URL('../dist/harrier-30-vs-60.html',import.meta.url),'utf8')
+  assert.ok(harrier.includes('画像から個別グレードを断定せず'))
+  assert.ok(harrier.includes('30系240G・2.4Lガソリン・2WD'))
+  assert.ok(harrier.includes('掲載画像の仕様を数値の根拠にはしていません'))
+
+  const delica=readFileSync(new URL('../dist/delica-d5-before-after-2019.html',import.meta.url),'utf8')
+  assert.ok(delica.includes('外観の改良差とパワートレイン差を分けて確認'))
+  assert.ok(delica.includes('同一世代の大幅改良型'))
+  assert.ok(delica.includes('型式と燃料を別に確認'))
+})
