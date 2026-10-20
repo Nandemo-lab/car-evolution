@@ -128,5 +128,5 @@ test('Phase 2対象7ページは初期HTMLに固有の比較条件と購入確�
     assert.ok(html.includes('全長×全幅×全高'),page)
   }
   const delica=readFileSync(new URL('../dist/cars/delica-d5.html',import.meta.url),'utf8')
-  for(const phrase of ['2007年登場｜CV5W','2013年｜CV1Wディーゼル追加','2019年｜同一世代の大幅改良','フルモデルチェンジではありません']) assert.ok(delica.includes(phrase),phrase)
+  for(const phrase of ['2007年登場｜CV5W','2013年にCV1Wディーゼルを追加','2019年｜同一世代の大幅改良','フルモデルチェンジではありません']) assert.ok(delica.includes(phrase),phrase)
 })
