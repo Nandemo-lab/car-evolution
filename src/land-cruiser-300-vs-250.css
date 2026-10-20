@@ -59,6 +59,9 @@
 .inspection-notes-label { display: block; margin: 20px 0 10px; }
 .comparison-notebook textarea { box-sizing: border-box; width: 100%; padding: 12px; border: 1px solid #666; border-radius: 8px; color: #f4f3f0; background: #0b0c0e; font: inherit; resize: vertical; }
 .comparison-notebook button { margin-top: 14px; padding: 14px 18px; border: 1px solid #c9aa63; border-radius: 8px; background: #c9aa63; color: #111; font: inherit; cursor: pointer; }
+.inspection-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.inspection-actions button { flex: 1 1 180px; }
+.inspection-actions [data-clear-inspection] { background: transparent; color: #f4f3f0; border-color: #666; }
 .comparison-notebook :focus-visible { outline: 3px solid #e1c679; outline-offset: 4px; }
 .lc-note { color: #aaa; }
 .lc-note a { color: #d4ba7f; text-underline-offset: 3px; }

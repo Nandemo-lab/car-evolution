@@ -166,6 +166,14 @@ test('全generation比較ページは初期HTMLに3段階の現車確認フロ�
   }
 })
 
+test('購入確認メモは端末保存・消去・ダウンロードを選べる',()=>{
+  const html=readFileSync(new URL('../dist/prius-30-vs-50.html',import.meta.url),'utf8')
+  assert.match(html,/data-save-inspection/)
+  assert.match(html,/data-clear-inspection/)
+  assert.match(html,/data-download-inspection/)
+  assert.match(html,/内容は外部へ送信しません/)
+})
+
 test('全generation比較ページは画像ごとに固有の判別点を結び付ける',()=>{
   const pages=readdirSync(new URL('../dist',import.meta.url)).filter(name=>name.endsWith('.html'))
   const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').includes('comparison-notebook'))
