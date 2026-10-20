@@ -63,6 +63,17 @@ document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
     </div>
   </section>`)
 
+document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+  <section class="comparison-focus" aria-label="公式資料">
+    <p class="comparison-eyebrow">FACT CHECK</p><h2>世代と型式を公式資料で確かめる</h2>
+    <p class="comparison-focus-intro">写真は候補を絞る入口です。70系・80系・90系の確定には、車検証の型式とトヨタ公式の車両情報を照合してください。</p>
+    <div class="comparison-next-grid">
+      <a href="https://toyota.jp/ucar/catalog/brand-TOYOTA/car-VOXY/" target="_blank" rel="noopener noreferrer"><strong>60系・70系</strong><span>トヨタ認定中古車 ヴォクシー車両情報</span><b>公式資料 →</b></a>
+      <a href="https://toyota.jp/carlineup/archive/voxy/" target="_blank" rel="noopener noreferrer"><strong>80系</strong><span>トヨタ旧車情報 ヴォクシー</span><b>公式資料 →</b></a>
+      <a href="https://toyota.jp/request/webcatalog/voxy/?id=voxy_catalog" target="_blank" rel="noopener noreferrer"><strong>90系</strong><span>トヨタ WEBカタログ ヴォクシー</span><b>公式資料 →</b></a>
+    </div>
+  </section>`)
+
 async function copyUrl(button, message) {
   await navigator.clipboard.writeText(location.href)
   button.textContent = message

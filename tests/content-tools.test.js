@@ -165,3 +165,15 @@ test('全generation比較ページは初期HTMLに3段階の現車確認フロ�
     assert.ok(html.includes('車台番号と装備を照会する'),name)
   }
 })
+
+test('全generation比較ページは画像ごとに固有の判別点を結び付ける',()=>{
+  const pages=readdirSync(new URL('../dist',import.meta.url)).filter(name=>name.endsWith('.html'))
+  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').includes('comparison-notebook'))
+  for(const name of targets){
+    const html=readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8')
+    const imageCards=(html.match(/class="lc-car"/g)||[]).length
+    const imageCues=(html.match(/class="lc-image-cue"/g)||[]).length
+    assert.equal(imageCues,imageCards,name)
+    assert.ok(!html.includes('画像で見る場所</b><strong></strong>'),name)
+  }
+})

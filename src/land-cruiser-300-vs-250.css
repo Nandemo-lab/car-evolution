@@ -12,6 +12,10 @@
 .lc-car-copy small { color: #c9aa63; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .14em; }
 .lc-car-copy h3 { margin: 9px 0 0; font-size: 22px; }
 .lc-car-copy p { margin: 10px 0 0; color: rgba(244,243,240,.65); font-size: 13px; font-weight: 300; line-height: 1.75; }
+.lc-image-cue { display: grid; gap: 5px; margin-top: 16px; padding: 14px 15px; border: 1px solid rgba(244,243,240,.11); border-radius: 12px; background: rgba(244,243,240,.045); }
+.lc-image-cue b { color: #c9aa63; font-size: 10px; letter-spacing: .12em; }
+.lc-image-cue strong { color: #f4f3f0; font-size: 15px; }
+.lc-image-cue span { color: rgba(244,243,240,.68); font-size: 13px; line-height: 1.65; }
 .lc-quick-facts { display: grid; gap: 12px; margin-top: 16px; }
 .lc-quick-facts article { min-height: 136px; display: flex; flex-direction: column; justify-content: center; padding: 19px; border: 1px solid rgba(244,243,240,.14); border-radius: 15px; background: linear-gradient(135deg, rgba(201,170,99,.09), rgba(18,20,23,.98) 56%); }
 .lc-quick-facts small { color: #c9aa63; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .14em; }
