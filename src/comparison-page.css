@@ -25,6 +25,11 @@ body { margin: 0; background: #0b0c0e; }
 .comparison-guide-note { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
 .comparison-guide-note p { max-width: 720px; margin: 0; padding: 18px; border-left: 1px solid rgba(244,243,240,.25); font-size: 12px; font-weight: 300; line-height: 1.8; opacity: .58; }
 .comparison-answer, .comparison-decision, .comparison-specs, .comparison-sources { padding: 42px 22px; }
+.verification-flow { display: grid; gap: 10px; margin: 22px 0 14px; padding: 0; list-style: none; }
+.verification-flow li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 16px; border: 1px solid rgba(244,243,240,.13); border-radius: 14px; background: #121417; }
+.verification-flow li > span { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid rgba(225,198,121,.5); border-radius: 50%; color: #e1c679; font: 600 12px/1 'Inter', sans-serif; }
+.verification-flow strong { font-size: 14px; }
+.verification-flow p { margin: 6px 0 0; color: rgba(244,243,240,.67); font-size: 12px; line-height: 1.75; }
 .comparison-answer .comparison-eyebrow, .comparison-decision .comparison-eyebrow, .comparison-sources .comparison-eyebrow { margin: 0 0 12px; }
 .comparison-answer h2, .comparison-decision h2, .comparison-sources h2 { margin: 0 0 18px; font-size: clamp(24px, 5vw, 34px); letter-spacing: -.025em; }
 .comparison-answer > p:last-child { max-width: 760px; margin: 0; font-size: 16px; line-height: 1.9; overflow-wrap: anywhere; }

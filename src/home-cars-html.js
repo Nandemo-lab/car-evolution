@@ -45,3 +45,19 @@ export function homeCarsHtml(cars, roadmap = []) {
     )
     .join('')
 }
+
+export function modelDirectoryHtml(cars) {
+  const entries = cars.flatMap((car) => car.generations.map((generation) => ({ car, generation })))
+  const groups = new Map()
+  for (const entry of entries) {
+    const initial = String(entry.generation.code || '').match(/[A-Z]+/)?.[0]?.[0] || '他'
+    if (!groups.has(initial)) groups.set(initial, [])
+    groups.get(initial).push(entry)
+  }
+
+  return [...groups.entries()].sort(([a], [b]) => a.localeCompare(b, 'ja')).map(([initial, items]) => `
+    <details class="model-directory-group">
+      <summary>${initial}から始まる型式 <span>${items.length}件</span></summary>
+      <ul>${items.map(({ car, generation }) => `<li><a href="/cars/${car.slug}.html"><strong>${car.vehicleName} ${generation.title}</strong><span>${generation.period} ／ ${generation.code}</span></a></li>`).join('')}</ul>
+    </details>`).join('')
+}

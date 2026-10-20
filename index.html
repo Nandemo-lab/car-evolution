@@ -68,6 +68,18 @@
         </div>
       </header>
 
+      <nav class="task-paths" aria-label="目的から探す">
+        <p class="section-eyebrow">START HERE</p>
+        <h2>知りたいことから、すぐ比較へ。</h2>
+        <div class="task-paths-grid">
+          <a href="#all-cars"><strong>車種から探す</strong><span>歴代モデルと型式を見る</span></a>
+          <a href="#model-finder"><strong>型式から探す</strong><span>車検証・中古車情報から世代を絞る</span></a>
+          <a href="/n-box-jf1-zenki-kouki.html"><strong>前期／後期を見分ける</strong><span>改良境界と写真の手がかりを見る</span></a>
+          <a href="/prius-30-vs-50.html"><strong>世代を比較する</strong><span>寸法・型式・装備の転換点を見る</span></a>
+          <a href="#comparison-links-title"><strong>購入前に確認する</strong><span>比較条件と現車確認の手順を整理する</span></a>
+        </div>
+      </nav>
+
       <!-- CarVista is "pick a car, see its evolution," not a
            recommendation feed -- All Cars is the page's main content,
            directly after Hero. The former Featured Cars spotlight
@@ -85,7 +97,9 @@
           <p class="all-cars-intro">Explore every generation, side by side.</p>
           <p class="all-cars-count" id="all-cars-count"></p>
         </div>
-        <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式から、世代の候補を探す</label><p>車検証や中古車情報にある型式の一部を入力。例：JF1、AGH30、MA36S。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" maxlength="60" placeholder="車名・型式（例：JF1）" autocomplete="off"><button type="submit">候補を探す</button></div><div data-model-results aria-live="polite"></div><noscript><p>型式検索にはJavaScriptが必要です。下の車種一覧から歴代モデルを確認できます。</p></noscript></form><div class="maker-groups" id="maker-groups"></div>
+        <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式から、世代の候補を探す</label><p>車検証や中古車情報にある型式の一部を入力。例：JF1、AGH30、MA36S。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" maxlength="60" placeholder="車名・型式（例：JF1）" autocomplete="off"><button type="submit">候補を探す</button></div><div data-model-results aria-live="polite"></div></form>
+        <details class="model-directory-wrap"><summary>掲載中の型式を一覧から探す</summary><p>JavaScriptを使わずに、掲載している代表型式と世代を確認できます。型式はグレードや駆動方式で枝番が異なるため、最終確認は車検証と販売店で行ってください。</p><div class="model-directory" id="model-directory"></div></details>
+        <div class="maker-groups" id="maker-groups"></div>
       </section>
 
       <section class="comparison-links" aria-labelledby="comparison-links-title">

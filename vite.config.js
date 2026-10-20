@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { runInNewContext } from 'node:vm'
 import { defineConfig } from 'vite'
-import { homeCarsHtml } from './src/home-cars-html.js'
+import { homeCarsHtml, modelDirectoryHtml } from './src/home-cars-html.js'
 import { resolveReferences } from './src/official-sources.js'
 import roadmap from './src/roadmap.js'
 import { generationComparisonHtml } from './src/generation-comparison-html.js'
@@ -655,7 +655,9 @@ function seoInjectPlugin() {
 
       if (filename === 'index.html') {
         const cars = await loadAllCars()
-        return { html: html.replace('<div class="maker-groups" id="maker-groups"></div>', `<div class="maker-groups" id="maker-groups">${homeCarsHtml(cars, roadmap)}</div>`), tags: withAdSenseVerification(buildHomeTags(cars)) }
+        return { html: html
+          .replace('<div class="maker-groups" id="maker-groups"></div>', `<div class="maker-groups" id="maker-groups">${homeCarsHtml(cars, roadmap)}</div>`)
+          .replace('<div class="model-directory" id="model-directory"></div>', `<div class="model-directory" id="model-directory">${modelDirectoryHtml(cars)}</div>`), tags: withAdSenseVerification(buildHomeTags(cars)) }
       }
 
       if (TRUST_PAGES[filename]) {

@@ -147,3 +147,21 @@ test('Phase 3重点3ページは仕様の異なる軸を混同しない',()=>{
   assert.ok(delica.includes('同一世代の大幅改良型'))
   assert.ok(delica.includes('型式と燃料を別に確認'))
 })
+
+test('抜本リビルド後のホームは5つの目的入口とno-JS型式一覧を持つ',()=>{
+  const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
+  for(const label of ['車種から探す','型式から探す','前期／後期を見分ける','世代を比較する','購入前に確認する']) assert.ok(html.includes(label),label)
+  assert.ok(html.includes('class="model-directory-group"'))
+  for(const code of ['JF1','AGH30','MA36S']) assert.ok(html.includes(code),code)
+})
+
+test('全generation比較ページは初期HTMLに3段階の現車確認フローを持つ',()=>{
+  const pages=readdirSync(new URL('../dist',import.meta.url)).filter(name=>name.endsWith('.html'))
+  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').includes('comparison-notebook'))
+  assert.ok(targets.length>=30)
+  for(const name of targets){
+    const html=readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8')
+    assert.ok(html.includes('写真だけで決めず、3段階で確かめる'),name)
+    assert.ok(html.includes('車台番号と装備を照会する'),name)
+  }
+})
