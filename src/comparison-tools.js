@@ -1,4 +1,5 @@
 // Pure calculations shared by the initial HTML and the browser.
+import { trackEvent } from './analytics.js'
 export const escapeText = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
 
 export function millimetres(value) {
@@ -30,12 +31,28 @@ export function comparisonToolsHtml(data) {
 export function bindComparisonTools(root, data) {
   const button = root.querySelector('[data-download-inspection]')
   if (!button) return
+  const checklist = root.querySelector('.comparison-notebook')
+  checklist?.addEventListener('toggle', () => {
+    if (checklist.open) trackEvent('open_purchase_checklist', { comparison: data.intent })
+  })
+  root.querySelectorAll('[data-inspection-check]').forEach((input, itemIndex) => {
+    input.addEventListener('change', () => trackEvent('toggle_purchase_check', {
+      comparison: data.intent,
+      item_index: itemIndex + 1,
+      checked: input.checked,
+    }))
+  })
   button.addEventListener('click', () => {
     const lines = [...root.querySelectorAll('[data-inspection-check]')].map(input => `${input.checked ? '確認済み' : '未確認'}：${input.closest('label').innerText.trim()}`)
     const memo = [`CarVista ${data.vehicle} 比較確認メモ`, location.href, '', ...lines, '', '販売店への質問', root.querySelector('#inspection-notes').value, '', 'このメモは確認状況の整理用です。車両の仕様・状態・適合は販売店へ照会してください。'].join('\n')
     const url = URL.createObjectURL(new Blob(['\uFEFF'+memo], {type:'text/plain;charset=utf-8'}))
     const link = document.createElement('a')
     link.href = url; link.download = `carvista-${data.intent}-checklist.txt`; link.click()
+    trackEvent('download_purchase_checklist', {
+      comparison: data.intent,
+      checked_count: root.querySelectorAll('[data-inspection-check]:checked').length,
+      has_notes: Boolean(root.querySelector('#inspection-notes').value.trim()),
+    })
     setTimeout(() => URL.revokeObjectURL(url), 1000)
     root.querySelector('[data-inspection-status]').textContent = '確認メモをダウンロードしました。'
   })

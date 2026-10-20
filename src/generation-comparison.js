@@ -11,6 +11,14 @@ export function renderGenerationComparison(data) {
   if (!root.dataset.prerendered) root.innerHTML = generationComparisonHtml(data)
 
   bindComparisonTools(root, data)
+  trackEvent('view_generation_comparison', { vehicle: data.vehicle, comparison: data.intent })
+
+  root.querySelectorAll('.related-links a').forEach(link => {
+    link.addEventListener('click', () => trackEvent('open_related_generation_comparison', {
+      comparison: data.intent,
+      destination: new URL(link.href).pathname,
+    }))
+  })
 
   const copy = async (button, label) => {
     try { await navigator.clipboard.writeText(location.href); button.textContent = label }
