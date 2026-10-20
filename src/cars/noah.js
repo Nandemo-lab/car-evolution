@@ -166,9 +166,11 @@ export default {
   references: {
     checkedAt: '2026年8月9日',
     items: [
+      { generations: '60系', label: 'Toyota 2001年 NOAH・VOXY発売資料', url: 'https://global.toyota/jp/newsroom/toyota/21792373.html' },
+      { generations: '70系', label: 'Toyota 2007年 NOAH・VOXY発売資料', url: 'https://global.toyota/jp/detail/1509087' },
       { generations: '60系・70系', label: 'トヨタ認定中古車 ノア車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-NOAH/' },
-      { generations: '80系', label: 'トヨタ旧車情報 ノア', url: 'https://toyota.jp/carlineup/archive/noah/' },
-      { generations: '90系', label: 'トヨタ WEBカタログ ノア', url: 'https://toyota.jp/request/webcatalog/noah/' },
+      { generations: '80系', label: 'Toyota 2014年 NOAH・VOXY発売資料', url: 'https://global.toyota/jp/newsroom/toyota/21775271.html' },
+      { generations: '90系', label: 'Toyota 2022年 NOAH・VOXY発売資料', url: 'https://global.toyota/jp/newsroom/toyota/36614622.html' },
     ],
   },
   tagline: 'NOAHは4世代。60系から90系へ。',
@@ -183,6 +185,28 @@ export default {
       { title: '4代目・90系', description: '薄型ランプと横に広いメッキグリルで、堂々感とモダンさを強調。掲載車は2022年発売世代の通常販売モデル代表仕様です。', meta: '2022年1月〜現在 · MZRA90W / ZWR90W ほか' },
     ],
   },
+  evolutionNotes: [
+    {
+      title: '60系：背の高いFFミニバンとして登場',
+      text: '2001年にFFの低床パッケージ、両側スライドドア、2.0Lガソリンを採用。中古車ではAZR60G／AZR65Gなら初代です。',
+      meta: '2001年 · AZR60G / AZR65G',
+    },
+    {
+      title: '70系：型式とシート機構が転換',
+      text: '2007年のフルモデルチェンジでZRR70G／ZRR75Gへ移行。ワンタッチで格納できるサードシートと新しい2.0L系を採用し、60系との違いは顔だけでなく型式と室内機構でも確認できます。',
+      meta: '2007年 · ZRR70G / ZRR75G',
+    },
+    {
+      title: '80系：低床化とハイブリッドを追加',
+      text: '2014年にZRR80系へ移行し、低床フロアと1.8LハイブリッドのZWR80Gを設定。ガソリン車とハイブリッド車の違いを世代差と混同しないことが重要です。',
+      meta: '2014年 · ZRR80G / ZRR85G / ZWR80G',
+    },
+    {
+      title: '90系：TNGA世代へ刷新',
+      text: '2022年にMZRA90W／ZWR90W系へ移行。ガソリンとハイブリッドを継続しつつ、プラットフォームと運転支援を刷新しました。掲載画像だけでグレードや駆動方式までは断定しません。',
+      meta: '2022年 · MZRA90W / ZWR90W ほか',
+    },
+  ],
   guides: [
     { href:'/noah-70-vs-80.html', label:'ノア 70系・80系の違い', description:'2代目と3代目の標準ボディを画像、型式、装備で比較する。', image:'/images/cars/noah/gen3-2014.webp' },
     { href: '/noah-80-vs-90.html', eyebrow: '80 VS 90 · GENERATION GUIDE', title: '80系と90系の違い', label: '80系と90系の違い', description: '3代目と4代目を標準ボディの画像・サイズ・装備で比較する。', image: '/images/cars/noah/gen4-2022.webp' },
