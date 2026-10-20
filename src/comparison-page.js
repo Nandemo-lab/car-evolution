@@ -183,7 +183,10 @@ const decisionGuides = {
       ['日常の扱いやすさ', '全幅はいずれも5ナンバー幅。駐車環境だけでなく、2列目の使い方と荷室を実車で確認するのが近道です。'],
     ],
     choices: [['FREEDが向く人', '四角い見切り、6人乗りの独立2列目、すっきりした内外装を重視する人。'], ['SIENTAが向く人', '5人乗りも含めて選びたい人、丸みのあるデザインと低い乗降口を重視する人。']],
-    sources: [['Honda FREED 公式情報', 'https://www.honda.co.jp/FREED/'], ['トヨタ SIENTA 公式情報', 'https://toyota.jp/sienta/']],
+    comparisonBasis: '諸元は2024年FREED AIR EX e:HEV・FF・6人乗り（6AA-GT5）と、2022年SIENTA HYBRID Z・2WD・7人乗り（6AA-MXPL10G）の代表仕様。掲載画像は外観比較用で、画像からグレードを断定しません。',
+    representativeSpecs: [['FREED', '2024 AIR EX e:HEV／6AA-GT5／FF', '4,310×1,695×1,755mm', '6人／3列・2列目キャプテン', '1.5L e:HEV'], ['SIENTA', '2022 HYBRID Z／6AA-MXPL10G／2WD', '4,260×1,695×1,695mm', '7人／3列・2列目ベンチ', '1.5Lハイブリッド']],
+    usedChecks: [['座席を実車で動かす', '6人乗りFREEDの2列目通路と、7人乗りSIENTAの2列目ベンチ／3列目格納を実車で確認。5人乗りSIENTAは別構成です。'], ['車両情報で仕様を確定', 'GT1〜GT8、MXPC10G／MXPL10G・15Gでパワートレインと駆動が分かれます。車検証と販売店の仕様欄を照合します。']],
+    sources: [['Honda FREED 2024 Press Information', 'https://www.honda.co.jp/factbook/auto/FREED/202406/4240627-freed.pdf'], ['トヨタ SIENTA 2022年発売資料', 'https://global.toyota/jp/newsroom/toyota/37542166.html']],
   },
   'n-box-spacia': {
     answer: '軽規格の外寸は近くても、後席の工夫が違います。N-BOXは自然で落ち着いた操作感、SPACIAは後席のマルチユースフラップなど装備のアイデアで選び分けると明快です。',
@@ -193,7 +196,10 @@ const decisionGuides = {
       ['見分け方', 'N-BOXは丸い灯火と水平基調、SPACIAはコンテナを思わせる四角いモチーフが入口です。'],
     ],
     choices: [['N-BOXが向く人', '穏やかな視界と素直な操作、生活になじむ標準車の表情を重視する人。'], ['SPACIAが向く人', '後席のサポート機能や遊び心のある道具感を重視する人。']],
-    sources: [['Honda N-BOX 公式情報', 'https://www.honda.co.jp/Nbox/'], ['スズキ SPACIA 公式情報', 'https://www.suzuki.co.jp/car/spacia/']],
+    comparisonBasis: '諸元は現行標準車のNA・FFで統一し、N-BOX（6BA-JF5）とSPACIA HYBRID X（5AA-MK94S）を比較。Customやターボの外装・装備は混ぜません。',
+    representativeSpecs: [['N-BOX', '2023 標準NA／6BA-JF5／FF', '3,395×1,475×1,790mm', '4人／左右独立スライド後席', '658ccガソリン'], ['SPACIA', '2023 HYBRID X／5AA-MK94S／2WD', '3,395×1,475×1,785mm', '4人／マルチユースフラップ', '657ccマイルドハイブリッド']],
+    usedChecks: [['標準車とCustomを分ける', '大型グリルやエアロはCustom固有です。写真の顔だけでなく、車名・グレード欄を確認します。'], ['後席装備を現車確認', '電動スライドドア、後席スライド、フラップ等はグレードで異なります。左右両側の作動とシート固定を確認します。']],
+    sources: [['Honda N-BOX主要諸元', 'https://www.honda.co.jp/Nbox/common/pdf/nbox_spec_list.pdf'], ['スズキ SPACIA 2023年発売資料', 'https://www.suzuki.co.jp/release/a/2023/1109/index.html'], ['スズキ SPACIA主要諸元', 'https://www.suzuki.co.jp/car/spacia/detail/pdf/detail.pdf']],
   },
   'noah-serena-stepwgn': {
     answer: '3台とも家族向けMクラスですが、選び方は顔だけではありません。NOAHは総合バランス、SERENAは運転支援とe-POWER、STEP WGNは水平視界と落ち着いた室内を軸に比べると違いが見えます。',
@@ -203,7 +209,10 @@ const decisionGuides = {
       ['車幅と顔', '標準／エアロ系で寸法や表情が変わるため、比較画像の代表仕様と購入候補のグレードを混同しないでください。'],
     ],
     choices: [['NOAHが向く人', '家族用途のバランスと、ハイブリッドを含む選択肢の広さを重視。'], ['SERENAが向く人', 'e-POWERの走りや運転支援を優先。'], ['STEP WGNが向く人', '四角い見切りと水平基調の落ち着いた空間を優先。']],
-    sources: [['トヨタ NOAH 公式情報', 'https://toyota.jp/noah/'], ['日産 SERENA 公式情報', 'https://www3.nissan.co.jp/vehicles/new/serena.html'], ['Honda STEP WGN 公式情報', 'https://www.honda.co.jp/STEPWGN/']],
+    comparisonBasis: '電動2WDを軸に、NOAH HYBRID Z（ZWR90W）、SERENA e-POWER ハイウェイスターV（GFC28）、STEP WGN e:HEV SPADA（RP8）の代表仕様を比較。標準／エアロ系が混在するため、外観と装備の差を車種全体へ一般化しません。',
+    representativeSpecs: [['NOAH', '2022 HYBRID Z／6AA-ZWR90W／2WD', '4,695×1,730×1,895mm', '7人／2列目キャプテン', '1.8Lハイブリッド'], ['SERENA', '2022 e-POWER ハイウェイスターV／6AA-GFC28／2WD', '4,765×1,715×1,870mm', '8人／2列目ベンチ', '1.4L e-POWER'], ['STEP WGN', '2022 e:HEV SPADA／6AA-RP8／FF', '4,830×1,750×1,840mm', '7人／2列目キャプテン', '2.0L e:HEV']],
+    usedChecks: [['2列目と全高を現車確認', '7人／8人、キャプテン／ベンチはグレードで変わります。駐車場の高さとチャイルドシート装着時の動線も確認します。'], ['電動方式を混同しない', 'ハイブリッド、e-POWER、e:HEVは仕組みが異なります。型式とグレード名、試乗時の加減速感で候補を絞ります。']],
+    sources: [['トヨタ NOAH／VOXY 2022年発売資料', 'https://global.toyota/jp/newsroom/toyota/36614622.html'], ['日産 SERENA 2022年発表資料', 'https://global.nissannews.com/ja-JP/releases/221128-01-j'], ['Honda STEP WGN主要諸元', 'https://www.honda.co.jp/factbook/auto/STEPWGN/220526/P34.pdf']],
   },
   'voxy-noah': {
     answer: '現行VOXYとNOAHは基本メカニズムや室内の骨格を共有する兄弟車です。大きな選び分けは、VOXYの精悍さとNOAHの堂々とした表情、そして選べるグレード構成です。',
@@ -213,7 +222,10 @@ const decisionGuides = {
       ['グレード', 'VOXYはエアロ系を中心に展開。NOAHは標準系とエアロ系があり、選択幅が異なります。'],
     ],
     choices: [['VOXYが向く人', '精悍で低く見える顔つきと、エアロ系の統一感を優先。'], ['NOAHが向く人', '落ち着いた標準系も含め、外観の選択幅を優先。']],
-    sources: [['トヨタ VOXY 公式情報', 'https://toyota.jp/voxy/'], ['トヨタ NOAH 公式情報', 'https://toyota.jp/noah/']],
+    comparisonBasis: '2022年発売の90系、ガソリンS-Z・2WD・7人乗りで条件を統一。VOXY／NOAHともMZRA90Wで、主要寸法と2.0Lパワートレインは共通です。掲載画像は顔つきの比較用です。',
+    representativeSpecs: [['VOXY', '2022 S-Z／6BA-MZRA90W／2WD', '4,695×1,730×1,895mm', '7人／2列目キャプテン', '2.0Lガソリン'], ['NOAH', '2022 S-Z／6BA-MZRA90W／2WD', '4,695×1,730×1,895mm', '7人／2列目キャプテン', '2.0Lガソリン']],
+    usedChecks: [['顔以外は装備表で確認', '兄弟車でもオプションや内装色、装着装備は個体ごとに異なります。写真だけで安全装備の有無を判断しません。'], ['型式と座席数を照合', 'MZRA90W／95W、ZWR90W／95Wでエンジン・駆動が分かれます。車検証と7人／8人の座席構成を確認します。']],
+    sources: [['トヨタ NOAH／VOXY 2022年発売資料', 'https://global.toyota/jp/newsroom/toyota/36614622.html']],
   },
   'alphard-vellfire': {
     answer: '40系の2台は車体の基本を共有しつつ、ALPHARDは品格、VELLFIREは運転する喜びとアグレッシブさを明確に分けています。単純な上下ではなく、外観とパワートレインの好みで選ぶ兄弟車です。',
@@ -223,7 +235,10 @@ const decisionGuides = {
       ['室内と車体', '基本パッケージは共通。外観の違いだけで室内の広さが大きく変わる車種関係ではありません。'],
     ],
     choices: [['ALPHARDが向く人', '落ち着いた品格と、同乗者中心の高級感を優先。'], ['VELLFIREが向く人', '力強い外観と、ターボを含む走りの個性を優先。']],
-    sources: [['トヨタ ALPHARD 公式情報', 'https://toyota.jp/alphard/'], ['トヨタ VELLFIRE 公式情報', 'https://toyota.jp/vellfire/']],
+    comparisonBasis: '2023年発売の40系・7人乗り・2WDを基準に、ALPHARD Z 2.5Lガソリン（AGH40W）とVELLFIRE Z Premier 2.4Lターボ（TAHA40W）を比較。エンジン条件が異なるため、走りの差はこの代表仕様間の差です。',
+    representativeSpecs: [['ALPHARD', '2023 Z／3BA-AGH40W／2WD', '4,995×1,850×1,935mm', '7人／2列目キャプテン', '2.5Lガソリン'], ['VELLFIRE', '2023 Z Premier／5BA-TAHA40W／2WD', '4,995×1,850×1,945mm', '7人／2列目キャプテン', '2.4Lターボ']],
+    usedChecks: [['パワートレインを先に確認', 'VELLFIREのターボとALPHARDの2.5Lガソリンを同一条件とみなさず、型式・燃料種別・駆動方式を車検証で照合します。'], ['装備差を車名差にしない', 'Executive Lounge／Z系、ハイブリッド、オプションで装備は変わります。購入候補の装備表と現車を確認します。']],
+    sources: [['トヨタ ALPHARD／VELLFIRE 2023年発売資料', 'https://global.toyota/jp/newsroom/toyota/39287263.html']],
   },
   'voxy-noah-esquire': {
     answer: 'ESQUIREは80系時代の上級兄弟車で、現行90系VOXY／NOAHとは世代が異なります。新車の兄弟比較ではなく、現行2台と中古ESQUIREをどう選ぶかを見るページです。',
@@ -233,6 +248,9 @@ const decisionGuides = {
       ['見分け方', 'ESQUIREは盾を思わせる縦長メッキグリル。90系VOXY／NOAHとはライトと開口部の構成が明確に違います。'],
     ],
     choices: [['VOXYが向く人', '現行装備と精悍なエアロ系デザインを優先。'], ['NOAHが向く人', '現行装備と、標準系を含む選択幅を優先。'], ['ESQUIREが向く人', '中古車前提で80系の上質な内外装を重視。']],
+    comparisonBasis: '現行90系VOXY／NOAHと、生産終了した80系ESQUIREを同世代比較にはしません。諸元は90系ガソリンS-Z・2WD・7人乗りと、2014年ESQUIRE Gi・2WD・7人乗りの代表仕様です。',
+    representativeSpecs: [['VOXY', '2022 S-Z／6BA-MZRA90W／2WD', '4,695×1,730×1,895mm', '7人／2列目キャプテン', '2.0Lガソリン'], ['NOAH', '2022 S-Z／6BA-MZRA90W／2WD', '4,695×1,730×1,895mm', '7人／2列目キャプテン', '2.0Lガソリン'], ['ESQUIRE', '2014 Gi／DBA-ZRR80G／2WD', '4,695×1,695×1,825mm', '7人／2列目キャプテン', '2.0Lガソリン']],
+    usedChecks: [['新車と中古車の条件を分ける', 'ESQUIREは2021年に生産終了。価格だけでなく、初度登録、走行距離、保証、安全装備の世代差を含めて比較します。'], ['80系の仕様を確認', 'ZRR80G／85G、ZWR80Gで駆動・パワートレインが異なります。メッキ外装だけでGi等のグレードを断定しません。']],
     sources: [['トヨタ NOAH／VOXY 2022年発売資料', 'https://global.toyota/jp/newsroom/toyota/36614622.html'], ['トヨタ ESQUIRE 2014年発売資料', 'https://global.toyota/jp/newsroom/toyota/21796684.html']],
   },
 }
@@ -269,6 +287,15 @@ if (page.answer) {
 if (page.points) {
   document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
     <section class="comparison-decision" aria-label="購入判断のポイント"><p class="comparison-eyebrow">DECISION GUIDE</p><h2>買う前に比べたいポイント</h2><div class="comparison-decision-grid">${page.points.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>`)
+}
+
+if (page.representativeSpecs) {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+    <section class="comparison-specs" aria-label="代表仕様の比較"><p class="comparison-eyebrow">COMPARISON BASIS</p><h2>比較条件と代表仕様</h2><p class="comparison-basis">${page.comparisonBasis}</p><div class="comparison-spec-list">${page.representativeSpecs.map(([name, condition, size, seats, powertrain]) => `<article><h3>${name}</h3><p class="comparison-spec-condition">${condition}</p><dl><div><dt>全長×全幅×全高</dt><dd>${size}</dd></div><div><dt>乗車・シート</dt><dd>${seats}</dd></div><div><dt>パワートレイン</dt><dd>${powertrain}</dd></div></dl></article>`).join('')}</div></section>`)
+}
+
+if (page.usedChecks) {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `<section class="comparison-decision" aria-label="中古車で確認すること"><p class="comparison-eyebrow">USED CAR CHECK</p><h2>中古車で確認すること</h2><div class="comparison-decision-grid">${page.usedChecks.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>`)
 }
 
 if (page.choices) {

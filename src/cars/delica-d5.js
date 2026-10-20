@@ -223,12 +223,30 @@ export default {
   // cropped/padded to the shared 1408x668 hero canvas; not recolored,
   // background-processed, or zoomed beyond that.
   heroImage: '/images/cars/delica-d5/hero-cv1w-3q.webp',
+  generationGuide: {
+    title: '1世代を、改良とパワートレインで読む',
+    intro: 'DELICA D:5は2007年の登場から同じ5代目を継続しています。ここではフルモデルチェンジではなく、型式・燃料・2019年の大幅改良を分けて整理します。',
+    items: [
+      { title: '2007年登場｜CV5W', description: '発売時の代表は2.4LガソリンとINVECS-III 6速CVT。角形ボディとクロームスラットの顔が初期型の手がかりです。', meta: 'CV5Wは初期の2.4Lガソリン代表。駆動・年式は車検証で確認。' },
+      { title: '2013年｜CV1Wディーゼル追加', description: 'クリーンディーゼルを追加。CV1Wはディーゼル系の型式であり、「後期の顔」だけを示す記号ではありません。', meta: '燃料種別と型式を、前後期の呼び方から切り離して確認。' },
+      { title: '2019年｜同一世代の大幅改良', description: 'ダイナミックシールド、縦型マルチLED、8速ATなどを採用した大幅改良。新型という表現は使われましたが、D:5としてのフルモデルチェンジではありません。', meta: '3DA-CV1W・クリーンディーゼル・4WDが代表。' },
+    ],
+  },
+  evolutionNotes: [
+    { title: 'ガソリンとディーゼルは別軸', text: 'CV5Wの2.4LガソリンとCV1Wのディーゼルは、燃料・変速機・駆動条件が異なります。外観写真だけでパワートレインを断定しません。', meta: '車検証の型式・燃料欄と販売店の車両情報を照合。' },
+    { title: '中古車では改良時期を確認', text: '2019年型は顔つきだけでなくディーゼルと8速ATを軸に商品構成が変化。初度登録だけでなく製造時期、型式、装備、車台番号照会を併用します。', meta: '外装交換車や特別仕様車は写真判定を優先しない。' },
+  ],
+  references: [
+    { generations: '2007年発売・5代目', label: '三菱自動車 DELICA D:5の歴史', href: 'https://www.mitsubishi-motors.com/jp/company/history/car/?MID=124' },
+    { generations: '2019年大幅改良', label: '三菱自動車 2019年DELICA D:5発売資料', href: 'https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/2019/20190215_1.html' },
+    { generations: '現行CV1W主要諸元', label: '三菱自動車 DELICA D:5主要諸元', href: 'https://www.mitsubishi-motors.co.jp/lineup/delica_d5/spec/pdf/delica_d5_spec.pdf' },
+  ],
   guides: [
     { href: '/delica-d5-before-after-2019.html', label: '2007年型と2019年大幅改良型の違い', description: '同一世代で大きく変わったフロント、型式、パワートレーンを比較する。', image: '/images/cars/delica-d5/gen2-2019.webp' },
   ],
   seo: {
-    title: 'DELICA D:5 歴代モデル一覧 — CarVista',
-    description: '三菱 デリカD:5の前期・後期モデルを画像で比較。オールラウンドミニバンとしての外観の変化が一目でわかる。',
+    title: 'DELICA D:5 2007年型・2019年大幅改良の違い — CarVista',
+    description: '三菱デリカD:5は2007年から同一世代。CV5Wガソリン、CV1Wディーゼル、2019年大幅改良を画像・型式・公式資料で整理します。',
   },
   defaultIndex: 1,
   generations,

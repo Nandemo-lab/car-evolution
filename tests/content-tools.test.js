@@ -117,3 +117,16 @@ test('歴代ページは長い共通免責を繰り返さずTrustページへ集
     assert.equal((html.match(/<footer class="policy"/g)||[]).length,1,car.slug)
   }
 })
+
+test('Phase 2対象7ページは初期HTMLに固有の比較条件と購入確認情報を持つ',()=>{
+  const comparisons=['compare-alphard-vellfire','compare-voxy-noah','compare-freed-sienta','compare-noah-serena-stepwgn','compare-n-box-spacia','compare-voxy-noah-esquire']
+  for(const page of comparisons){
+    const html=readFileSync(new URL(`../dist/${page}.html`,import.meta.url),'utf8')
+    assert.ok(html.includes('比較条件と代表仕様'),page)
+    assert.ok(html.includes('中古車で確認すること'),page)
+    assert.ok(/(?:6AA|5AA|5BA|6BA|3BA|DBA)-[A-Z0-9]+/.test(html),`${page}: representative model code missing`)
+    assert.ok(html.includes('全長×全幅×全高'),page)
+  }
+  const delica=readFileSync(new URL('../dist/cars/delica-d5.html',import.meta.url),'utf8')
+  for(const phrase of ['2007年登場｜CV5W','2013年｜CV1Wディーゼル追加','2019年｜同一世代の大幅改良','フルモデルチェンジではありません']) assert.ok(delica.includes(phrase),phrase)
+})
