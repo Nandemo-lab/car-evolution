@@ -66,6 +66,7 @@ export default {
     ],
   },
   guides: [
+    { href: '/land-cruiser-300-vs-250.html', label: 'SUVの候補を広げる：ランドクルーザー300・250', description: 'ハリアー以外のSUVも検討する方へ。300と250のサイズ・位置づけ・選び方を確認する。' },
     { href:'/harrier-30-vs-60.html', label:'ハリアー 30系・60系の違い', description:'2代目と3代目を画像、型式、サイズで比較する。', image:'/images/cars/harrier/gen3-2013-zsu60w.png' },
     {
       label: '60系・80系の違い', eyebrow: '60 VS 80 · GENERATION GUIDE', title: '60系と80系の違い', description: '3代目と4代目を外観・サイズ・装備で比較。',

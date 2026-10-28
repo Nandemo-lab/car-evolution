@@ -363,14 +363,29 @@ renderUsedCarCta()
 } // end optional comparison render
 
 async function copyUrl(button, message) {
-  await navigator.clipboard.writeText(location.href)
-  button.textContent = message
+  button.setAttribute('aria-live', 'polite')
+  try {
+    await navigator.clipboard.writeText(location.href)
+    button.textContent = message
+    button.removeAttribute('title')
+  } catch {
+    button.textContent = 'コピーできませんでした'
+    button.title = 'ブラウザのアドレス欄からURLをコピーしてください'
+  }
 }
 
 document.querySelector('.share-button').addEventListener('click', async (event) => {
+  const button = event.currentTarget
   trackEvent('share_comparison', { comparison: slug, method: navigator.share ? 'native' : 'copy' })
-  if (navigator.share) return navigator.share({ title: document.title, text: page.title, url: location.href })
-  await copyUrl(event.currentTarget, 'URLをコピーしました')
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: document.title, text: page.title, url: location.href })
+      return
+    } catch (error) {
+      if (error?.name === 'AbortError') return
+    }
+  }
+  await copyUrl(button, 'URLをコピーしました')
 })
 
 document.querySelector('.copy-button').addEventListener('click', (event) => {
