@@ -1,3 +1,4 @@
+import { ninjaParserPlugin } from './scripts/ninja-parser-plugin.mjs'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -355,7 +356,7 @@ function genericComparisonData(filename, cars) {
     spacia: cars.find(car => car.slug === 'spacia'),
   }
   const bindings = 'const voxy=globalThis.voxy,noah=globalThis.noah,serena=globalThis.serena,stepwgn=globalThis.stepwgn,esquire=globalThis.esquire,alphard=globalThis.alphard,vellfire=globalThis.vellfire,freed=globalThis.freed,sienta=globalThis.sienta,nBox=globalThis.nBox,spacia=globalThis.spacia,affiliateDestinations=globalThis.affiliateDestinations;'
-  const executable = `${bindings}\n${source.slice(0, renderStart).replace(/^import .*$/gm, '')}\nglobalThis.__page = page; globalThis.__cards = cards;`
+  const executable = `${bindings}\n${source.slice(0, renderStart).replace("if (!document.querySelector('#comparison-page').hasAttribute('data-ninja-prerendered')) {", '').replace(/^import .*$/gm, '')}\nglobalThis.__page = page; globalThis.__cards = cards;`
   try { runInNewContext(executable, context, { filename: 'src/comparison-page.js', timeout: 1000 }) }
   catch (error) { throw new Error(`Unable to prerender ${filename} from comparison-page.js: ${error.message}`) }
   return { page: context.__page, cards: context.__cards }
@@ -738,7 +739,7 @@ function sitemapPlugin() {
 }
 
 export default defineConfig({
-  plugins: [seoInjectPlugin(), sitemapPlugin()],
+  plugins: [ninjaParserPlugin(root),seoInjectPlugin(), sitemapPlugin()],
   build: {
     rollupOptions: {
       input: discoverEntries(),

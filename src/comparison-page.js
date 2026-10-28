@@ -270,6 +270,8 @@ const cards = page.cars.flatMap((car) => {
     </a>`)
 }).join('')
 
+// Preserve the parser-inserted ad and exact prerendered comparison; handlers below still attach.
+if (!document.querySelector('#comparison-page').hasAttribute('data-ninja-prerendered')) {
 document.querySelector('#comparison-page').innerHTML = `
   <header class="comparison-hero">
     <a class="comparison-home" href="/">CARVISTA</a>
@@ -357,6 +359,8 @@ function renderUsedCarCta() {
 }
 
 renderUsedCarCta()
+
+} // end optional comparison render
 
 async function copyUrl(button, message) {
   await navigator.clipboard.writeText(location.href)
