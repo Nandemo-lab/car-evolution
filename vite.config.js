@@ -625,29 +625,14 @@ function seoInjectPlugin() {
     name: 'car-evolution-seo-inject',
     async transformIndexHtml(html, ctx) {
       const filename = ctx.filename.split(/[\\/]/).pop()
-      // AdSense uses this single verification script to establish that
-      // CarVista controls every published page. It loads no visible ad
-      // placements by itself; those remain deliberately absent until a
-      // later, user-approved monetization decision.
+      // Retain inert ownership metadata; do not load advertising JavaScript.
       const withAdSenseVerification = (tags) => [
         ...tags,
-        // The meta tag is an additional ownership signal recommended by
-        // AdSense for site verification. Keeping it alongside the script
-        // makes verification resilient while still creating no ad slots.
         {
           tag: 'meta',
           attrs: {
             name: 'google-adsense-account',
             content: 'ca-pub-7907331904833321',
-          },
-          injectTo: 'head',
-        },
-        {
-          tag: 'script',
-          attrs: {
-            async: true,
-            src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7907331904833321',
-            crossorigin: 'anonymous',
           },
           injectTo: 'head',
         },
