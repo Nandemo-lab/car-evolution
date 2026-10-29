@@ -100,116 +100,85 @@ export const newModelPages = {
     ]
   }
 }
-export const comparisonModels = [
-  {
-    "slug": "corolla-cross-2023-vs-2025",
-    "href": "/corolla-cross-2023-vs-2025.html",
-    "vehicleName": "COROLLA CROSS カローラクロス",
-    "maker": "Toyota",
-    "generations": [
-      { "era": "2023年仕様", "title": "HYBRID Z", "code": "ZVG13", "period": "2023年10月改良" },
-      { "era": "2025年改良", "title": "HYBRID Z", "code": "ZVG13", "period": "2025年5月改良" }
+// newModelPages is the publication registry used by vite.config.js.  The
+// catalog below deliberately derives cards from that same registry: adding a
+// registered comparison page now updates the TOP card list, type search and
+// no-JS model directory without another hand-maintained list.
+const comparisonCatalogDetails = {
+  'corolla-cross-2023-vs-2025': {
+    vehicleName: 'COROLLA CROSS カローラクロス', cardName: 'COROLLA CROSS', maker: 'Toyota', historySlug: 'corolla-cross', aliases: ['カローラ クロス', 'COROLLACROSS'],
+    generations: [
+      { era: '2023年仕様', title: 'HYBRID Z', code: 'ZVG13', period: '2023年10月改良' },
+      { era: '2025年改良', title: 'HYBRID Z', code: 'ZVG13', period: '2025年5月改良' },
     ],
-    "aliases": ["カローラ クロス", "COROLLACROSS"]
   },
-  {
-    "slug": "jimny-sierra-vs-nomade",
-    "href": "/jimny-sierra-vs-nomade.html",
-    "vehicleName": "JIMNY ジムニー",
-    "maker": "Suzuki",
-    "generations": [
-      { "era": "3ドア", "title": "ジムニーシエラ JC", "code": "JB74W", "period": "2018年7月発売" },
-      { "era": "5ドア", "title": "ジムニーノマド FC", "code": "JC74W", "period": "2025年4月発売" }
+  'vezel-ru-vs-rv': {
+    vehicleName: 'VEZEL', maker: 'Honda', historySlug: 'vezel',
+    aliases: ['ヴェゼル', 'ベゼル'],
+    generations: [
+      { era: '初代', title: 'RU系', code: 'RU1 / RU2 / RU3 / RU4', period: '2013年12月発売' },
+      { era: '2代目', title: 'RV系', code: 'RV3 / RV4 / RV5 / RV6', period: '2021年4月発売' },
     ],
-    "aliases": ["jimny", "ジムニーシエラ", "ジムニーノマド", "ノマド"]
   },
-  {
-    "slug": "rav4-50-vs-60",
-    "href": "/rav4-50-vs-60.html",
-    "vehicleName": "RAV4",
-    "maker": "Toyota",
-    "generations": [
-      {
-        "era": "5代目",
-        "title": "50系（画像はHYBRID G）",
-        "code": "AXAH52 / AXAH54",
-        "period": "2019年発売"
-      },
-      {
-        "era": "6代目",
-        "title": "60系（画像はHEV Z）",
-        "code": "AXAN64 / AXAP64",
-        "period": "2025年HEV発売・2026年PHEV追加"
-      }
+  'jimny-sierra-vs-nomade': {
+    vehicleName: 'JIMNY ジムニー', cardName: 'JIMNY', maker: 'Suzuki', aliases: ['jimny', 'ジムニーシエラ', 'ジムニーノマド', 'ノマド'],
+    generations: [
+      { era: '3ドア', title: 'ジムニーシエラ JC', code: 'JB74W', period: '2018年7月発売' },
+      { era: '5ドア', title: 'ジムニーノマド FC', code: 'JC74W', period: '2025年4月発売' },
     ],
-    "aliases": [
-      "ラヴフォー",
-      "ラブフォー"
-    ]
   },
-  {
-    "slug": "cx-5-kf-vs-km",
-    "href": "/cx-5-kf-vs-km.html",
-    "vehicleName": "CX-5",
-    "maker": "Mazda",
-    "generations": [
-      {
-        "era": "2代目",
-        "title": "KF系（画像は25S）",
-        "code": "KFEP / KF5P / KF2P",
-        "period": "2017年登場・2021年外観改良"
-      },
-      {
-        "era": "3代目",
-        "title": "KM系（画像はL・4WD）",
-        "code": "KMYSDP",
-        "period": "2026年5月国内発売"
-      }
+  'rav4-50-vs-60': {
+    vehicleName: 'RAV4', cardName: 'RAV4', maker: 'Toyota', aliases: ['ラヴフォー', 'ラブフォー'],
+    generations: [
+      { era: '5代目', title: '50系（画像はHYBRID G）', code: 'AXAH52 / AXAH54', period: '2019年発売' },
+      { era: '6代目', title: '60系（画像はHEV Z）', code: 'AXAN64 / AXAP64', period: '2025年HEV発売・2026年PHEV追加' },
     ],
-    "aliases": [
-      "シーエックスファイブ"
-    ]
   },
-  {
-    "slug": "roox-b4-vs-bb",
-    "href": "/roox-b4-vs-bb.html",
-    "vehicleName": "ROOX ルークス",
-    "maker": "Nissan",
-    "generations": [
-      {
-        "era": "旧型",
-        "title": "B4系（画像は2023年Gターボ）",
-        "code": "B44A / B45A / B47A / B48A",
-        "period": "2020年登場・2023年外観改良"
-      },
-      {
-        "era": "新型",
-        "title": "BB系（画像はGターボ）",
-        "code": "BB1A / BB2A / BB5A / BB6A",
-        "period": "2025年10月発売"
-      }
+  'cx-5-kf-vs-km': {
+    vehicleName: 'CX-5', cardName: 'CX-5', maker: 'Mazda', aliases: ['シーエックスファイブ'],
+    generations: [
+      { era: '2代目', title: 'KF系（画像は25S）', code: 'KFEP / KF5P / KF2P', period: '2017年登場・2021年外観改良' },
+      { era: '3代目', title: 'KM系（画像はL・4WD）', code: 'KMYSDP', period: '2026年5月国内発売' },
     ],
-    "aliases": []
   },
-  {
-    "slug": "delica-mini-b3-vs-ba",
-    "href": "/delica-mini-b3-vs-ba.html",
-    "vehicleName": "DELICA MINI デリカミニ",
-    "maker": "Mitsubishi",
-    "generations": [
-      {
-        "era": "初代",
-        "title": "B3系（画像はT Premium）",
-        "code": "B34A / B35A / B37A / B38A",
-        "period": "2023年5月発売"
-      },
-      {
-        "era": "2代目",
-        "title": "BA系（画像はT Premium DELIMARU）",
-        "code": "BA1A / BA2A / BA5A / BA6A",
-        "period": "2025年10月発売"
-      }
+  'roox-b4-vs-bb': {
+    vehicleName: 'ROOX ルークス', cardName: 'ROOX', maker: 'Nissan', aliases: ['ルークス'],
+    generations: [
+      { era: '旧型', title: 'B4系（画像は2023年Gターボ）', code: 'B44A / B45A / B47A / B48A', period: '2020年登場・2023年外観改良' },
+      { era: '新型', title: 'BB系（画像はGターボ）', code: 'BB1A / BB2A / BB5A / BB6A', period: '2025年10月発売' },
     ],
-    "aliases": []
+  },
+  'delica-mini-b3-vs-ba': {
+    vehicleName: 'DELICA MINI デリカミニ', cardName: 'DELICA MINI', maker: 'Mitsubishi', aliases: ['デリカミニ'],
+    generations: [
+      { era: '初代', title: 'B3系（画像はT Premium）', code: 'B34A / B35A / B37A / B38A', period: '2023年5月発売' },
+      { era: '2代目', title: 'BA系（画像はT Premium DELIMARU）', code: 'BA1A / BA2A / BA5A / BA6A', period: '2025年10月発売' },
+    ],
+  },
+}
+
+const fallbackMaker = '比較ガイド'
+const fallbackGenerations = page => page.models.map((model, index) => ({
+  era: `比較 ${index + 1}`,
+  title: model.name,
+  code: '',
+  period: '',
+}))
+
+export const comparisonModels = Object.entries(newModelPages).map(([filename, page]) => {
+  const slug = filename.replace(/\.html$/, '')
+  const details = comparisonCatalogDetails[slug] || {}
+  return {
+    slug,
+    href: `/${filename}`,
+    vehicleName: details.vehicleName || page.name.replace(/の違い$/, ''),
+    cardName: details.cardName || details.vehicleName || page.name.replace(/の違い$/, ''),
+    maker: details.maker || fallbackMaker,
+    aliases: details.aliases || [],
+    generations: details.generations || fallbackGenerations(page),
+    homeCardImage: page.image || '',
+    cardType: 'comparison',
+    cardLabel: '新旧比較',
+    historySlug: details.historySlug,
   }
-]
+}).filter((card) => !card.historySlug)

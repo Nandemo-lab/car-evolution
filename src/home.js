@@ -1,9 +1,8 @@
-import { comparisonModels } from './data/new-model-pages.js'
 import { bindModelFinder } from './model-finder.js'
 import './home.css'
 import './click-glow.js'
 import roadmap from './roadmap.js'
-import { homeCarsHtml } from './home-cars-html.js'
+import { homeCarsHtml, homeCatalog, homeComparisonLinksHtml } from './home-cars-html.js'
 import { trackEvent } from './analytics.js'
 
 // CarVista -- Home page engine ---------------------------------
@@ -97,8 +96,9 @@ function initGrowthEvents() {
 // pretends there's a queue when there isn't one yet.
 function renderAllCarsSummary(cars, roadmap) {
   const el = document.getElementById('all-cars-count')
-  const modelWord = cars.length === 1 ? 'Model' : 'Models'
-  let text = `${cars.length} ${modelWord}`
+  const count = homeCatalog(cars).length
+  const modelWord = count === 1 ? 'Model' : 'Models'
+  let text = `${count} ${modelWord}`
   if (roadmap.length > 0) {
     text += ` · ${roadmap.length} Coming Soon`
   }
@@ -106,9 +106,10 @@ function renderAllCarsSummary(cars, roadmap) {
 }
 
 document.getElementById('maker-groups').innerHTML = homeCarsHtml(cars, roadmap)
+document.getElementById('auto-comparison-links').innerHTML = homeComparisonLinksHtml()
 renderAllCarsSummary(cars, roadmap)
 initScrollFade()
 initHeroCta()
 initGrowthEvents()
 
-bindModelFinder([...cars, ...comparisonModels])
+bindModelFinder(homeCatalog(cars))

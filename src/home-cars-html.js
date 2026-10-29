@@ -1,5 +1,16 @@
-import { comparisonModels } from './data/new-model-pages.js'
+import { comparisonModels, newModelPages } from './data/new-model-pages.js'
 import { getDiscoveryImage, getDiscoveryStyle } from './discovery.js'
+
+export function homeCatalog(cars) {
+  const historyCards = cars.map(car => ({
+    ...car,
+    href: `/cars/${car.slug}.html`,
+    cardType: 'history',
+  }))
+  const comparisonCards = comparisonModels.filter(car => !car.historySlug)
+  return [...historyCards, ...comparisonCards]
+}
+
 function groupByMaker(cars, roadmap) {
   const groups = new Map()
   for (const car of cars) {
@@ -14,7 +25,7 @@ function groupByMaker(cars, roadmap) {
 }
 
 export function homeCarsHtml(cars, roadmap = []) {
-  const groups = groupByMaker(cars, roadmap)
+  const groups = groupByMaker(homeCatalog(cars), roadmap)
 
   return groups
     .map(
@@ -25,9 +36,9 @@ export function homeCarsHtml(cars, roadmap = []) {
         ${group.cars
           .map(
             (car) => `
-          <a class="mini-card" href="/cars/${car.slug}.html">
-            <span class="mini-card-photo"><img src="${getDiscoveryImage(car)}" style="${getDiscoveryStyle(car)}" alt="${car.vehicleName}" loading="lazy" decoding="async" /></span>
-            <span class="mini-card-name">${car.vehicleName}</span>
+          <a class="mini-card${car.cardType === 'comparison' ? ' mini-card--comparison' : ''}" href="${car.href}" aria-label="${car.vehicleName}${car.cardType === 'comparison' ? 'の新旧比較' : 'の歴代モデル'}">
+            <span class="mini-card-photo">${getDiscoveryImage(car) ? `<img src="${getDiscoveryImage(car)}" style="${getDiscoveryStyle(car)}" alt="${car.vehicleName}" loading="lazy" decoding="async" />` : '<span class="mini-card-text-visual">比較ガイド</span>'}${car.cardType === 'comparison' ? `<span class="mini-card-kind">${car.cardLabel}</span>` : ''}</span>
+            <span class="mini-card-name">${car.cardName || car.vehicleName}</span>
           </a>`
           )
           .join('')}
@@ -47,8 +58,14 @@ export function homeCarsHtml(cars, roadmap = []) {
     .join('')
 }
 
+export function homeComparisonLinksHtml() {
+  return Object.values(newModelPages)
+    .map((page) => `<a href="${page.models[0].url.split('#')[0]}">${page.name}<span>→</span></a>`)
+    .join('')
+}
+
 export function modelDirectoryHtml(cars) {
-  const entries = [...cars, ...comparisonModels].flatMap((car) => car.generations.map((generation) => ({ car, generation })))
+  const entries = homeCatalog(cars).flatMap((car) => car.generations.map((generation) => ({ car, generation })))
   const groups = new Map()
   for (const entry of entries) {
     const initial = String(entry.generation.code || '').match(/[A-Z]+/)?.[0]?.[0] || '他'

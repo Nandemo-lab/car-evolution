@@ -5,6 +5,7 @@ import { dimensionDifferences, escapeText, millimetres } from '../src/comparison
 import { findModels, findModelDestinations, normalizeModelQuery } from '../src/model-finder.js'
 import { generationComparisonHtml } from '../src/generation-comparison-html.js'
 import { resolveReferences } from '../src/official-sources.js'
+import { homeCatalog } from '../src/home-cars-html.js'
 
 test('寸法差は同じ単位の単一数値だけ計算する', () => {
   assert.equal(millimetres('1,750 mm'),1750)
@@ -52,9 +53,17 @@ test('42比較ページの初期HTMLに本文・出典・画像・メモが揃�
     assert.ok(built.includes(data.answer.title),file)
   }
 })
-test('ホームはJavaScript実行前から全17車種にリンクする',()=>{
+test('ホームはJavaScript実行前から歴代18車種と比較専用5車種にリンクする',()=>{
   const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
   for(const car of cars) assert.ok(html.includes(`/cars/${car.slug}.html`),car.slug)
+  const catalog=homeCatalog(cars)
+  assert.equal(catalog.length,23)
+  for(const slug of ['rav4-50-vs-60','cx-5-kf-vs-km','roox-b4-vs-bb','delica-mini-b3-vs-ba','jimny-sierra-vs-nomade']) {
+    assert.ok(catalog.some(car=>car.slug===slug && car.href===`/${slug}.html`),slug)
+    assert.ok(html.includes(`href="/${slug}.html"`),slug)
+  }
+  assert.ok(html.includes('23 Models'))
+  assert.ok(html.includes('新旧比較'))
 })
 test('個別の配列形式出典を優先し、確認日を捏造しない',()=>{
   const refs=resolveReferences(cars.find(car=>car.slug==='tanto'))
