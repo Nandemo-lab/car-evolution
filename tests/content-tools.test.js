@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { dimensionDifferences, escapeText, millimetres } from '../src/comparison-tools.js'
-import { findModels } from '../src/model-finder.js'
+import { findModels, findModelDestinations, normalizeModelQuery } from '../src/model-finder.js'
 import { generationComparisonHtml } from '../src/generation-comparison-html.js'
 import { resolveReferences } from '../src/official-sources.js'
 
@@ -23,6 +23,18 @@ test('型式・全角・日本語・複数条件・該当なしを区別する',
   assert.equal(findModels(cars,'タント LA600')[0].generation.code.includes('LA600'),true)
   assert.equal(findModels(cars,'<script>unmatched').length,0)
   assert.equal(findModels(cars,'   ').length,0)
+})
+test('車名検索はかな・英字・表記揺れ・軽微な誤字から歴代と比較へ進める', () => {
+  for (const query of ['NBOX','エヌボックス','えぬぼっくす']) assert.equal(findModels(cars,query)[0].car.slug,'n-box')
+  for (const query of ['ベルファイア','ヴェルファイヤ']) assert.equal(findModels(cars,query)[0].car.slug,'vellfire')
+  for (const query of ['ベゼル','べぜる','VEZEL']) assert.equal(findModels(cars,query)[0].car.slug,'vezel')
+  for (const query of ['ボクシー','ぼくしー','VOXY']) assert.equal(findModels(cars,query)[0].car.slug,'voxy')
+  assert.equal(findModels(cars,'プリウスス')[0].car.slug,'prius')
+  assert.equal(normalizeModelQuery('Ｎ－ＢＯＸ'),'nbox')
+  const destinations=findModelDestinations(cars,'ヴェルファイア')
+  assert.ok(destinations.some(item=>item.href==='/cars/vellfire.html' && item.kind==='歴代'))
+  assert.ok(destinations.some(item=>item.kind==='比較'))
+  assert.equal(findModelDestinations(cars,'NBOX').some(item=>item.href.includes('roox')),false)
 })
 test('40比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
   const files=readdirSync(new URL('../src/data/comparisons/',import.meta.url))

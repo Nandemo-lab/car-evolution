@@ -97,7 +97,7 @@
           <p class="all-cars-intro">Explore every generation, side by side.</p>
           <p class="all-cars-count" id="all-cars-count"></p>
         </div>
-        <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式から、世代の候補を探す</label><p>車検証や中古車情報にある型式の一部を入力。例：JF1、AGH30、MA36S。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" maxlength="60" placeholder="車名・型式（例：JF1）" autocomplete="off"><button type="submit">候補を探す</button></div><div data-model-results aria-live="polite"></div></form>
+        <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式から、歴代と比較を探す</label><p>車名だけでも検索できます。ひらがな・カタカナ・英字・型式の一部に対応。例：エヌボックス、VOXY、JF1。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" maxlength="60" placeholder="車名・型式（例：エヌボックス、JF1）" autocomplete="off" aria-autocomplete="list" aria-controls="model-results"><button type="submit">候補を探す</button></div><div id="model-results" data-model-results aria-live="polite"></div></form>
         <details class="model-directory-wrap"><summary>掲載中の型式を一覧から探す</summary><p>JavaScriptを使わずに、掲載している代表型式と世代を確認できます。型式はグレードや駆動方式で枝番が異なるため、最終確認は車検証と販売店で行ってください。</p><div class="model-directory" id="model-directory"></div></details>
         <div class="maker-groups" id="maker-groups"></div>
       </section>

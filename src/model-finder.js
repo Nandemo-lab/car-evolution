@@ -1,16 +1,120 @@
 import { escapeText } from './comparison-tools.js'
 import { trackEvent } from './analytics.js'
-const japaneseNames = {alphard:'アルファード',vellfire:'ヴェルファイア',noah:'ノア',voxy:'ヴォクシー',esquire:'エスクァイア',prius:'プリウス',harrier:'ハリアー',sienta:'シエンタ',serena:'セレナ',stepwgn:'ステップワゴン','n-box':'エヌボックス',freed:'フリード','delica-d5':'デリカ',solio:'ソリオ',spacia:'スペーシア',tanto:'タント',vezel:'ヴェゼル ベゼル'}
 
-export const normalizeModelQuery = value => String(value).normalize('NFKC').toLowerCase().replace(/[\s・－ー-]/g, '')
+const japaneseNames = {
+  alphard: 'アルファード',
+  vellfire: 'ヴェルファイア ベルファイア ヴェルファイヤ ベルファイヤ',
+  noah: 'ノア',
+  voxy: 'ヴォクシー ボクシー ヴォクシ',
+  esquire: 'エスクァイア エスクワイア',
+  prius: 'プリウス',
+  harrier: 'ハリアー',
+  sienta: 'シエンタ',
+  serena: 'セレナ',
+  stepwgn: 'ステップワゴン ステップワゴン',
+  'n-box': 'エヌボックス エヌボクス NBOX',
+  freed: 'フリード',
+  'delica-d5': 'デリカ デリカD5',
+  solio: 'ソリオ',
+  spacia: 'スペーシア',
+  tanto: 'タント',
+  vezel: 'ヴェゼル ベゼル VEZEL',
+}
+
+const hiragana = value => value.replace(/[ァ-ヶ]/g, char => String.fromCharCode(char.charCodeAt(0) - 0x60))
+
+export const normalizeModelQuery = value => hiragana(String(value).normalize('NFKC').toLowerCase())
+  .replace(/[\s・･－ー―—ｰ_./\\-]/g, '')
+
+function withinOneEdit(a, b) {
+  if (a === b) return true
+  if (Math.abs(a.length - b.length) > 1) return false
+  let i = 0
+  let j = 0
+  let edits = 0
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) { i += 1; j += 1; continue }
+    if (++edits > 1) return false
+    if (a.length > b.length) i += 1
+    else if (b.length > a.length) j += 1
+    else { i += 1; j += 1 }
+  }
+  return edits + Number(i < a.length || j < b.length) <= 1
+}
+
+function searchTokens(car, generation) {
+  return [
+    car.maker,
+    car.vehicleName,
+    ...(car.aliases || []),
+    japaneseNames[car.slug],
+    generation.title,
+    generation.code,
+    generation.era,
+  ]
+    .filter(Boolean)
+    .flatMap(value => String(value).split(/[\s/／・,、]+/))
+    .map(normalizeModelQuery)
+    .filter(Boolean)
+}
+
+function tokenMatches(term, tokens) {
+  if (tokens.some(token => token.includes(term))) return true
+  // One edit is accepted only for names of four or more characters. This
+  // catches small typing mistakes without making short model codes ambiguous.
+  return term.length >= 4 && tokens.some(token => token.length >= 4 && withinOneEdit(term, token))
+}
+
+function guideBelongsToCar(guide, car) {
+  const haystack = normalizeModelQuery([
+    guide.href,
+    guide.label,
+    guide.title,
+    guide.description,
+  ].filter(Boolean).join(' '))
+  const needles = [car.slug, car.vehicleName, ...(car.aliases || [])]
+    .map(normalizeModelQuery)
+    .filter(Boolean)
+  return needles.some(needle => haystack.includes(needle))
+}
 
 export function findModels(cars, query) {
   const terms = query.normalize('NFKC').trim().split(/\s+/).map(normalizeModelQuery).filter(Boolean)
   if (!terms.length) return []
   return cars.flatMap(car => car.generations.filter(g => {
-    const text = normalizeModelQuery([car.maker, car.vehicleName, ...(car.aliases || []), japaneseNames[car.slug], g.title, g.code, g.era].join(' '))
-    return terms.every(term => text.includes(term))
+    const tokens = searchTokens(car, g)
+    return terms.every(term => tokenMatches(term, tokens))
   }).map(g => ({car, generation:g})))
+}
+
+export function findModelDestinations(cars, query, limit = 8) {
+  const matches = findModels(cars, query)
+  const results = []
+  const seen = new Set()
+  for (const { car, generation } of matches) {
+    const historyHref = car.href || `/cars/${car.slug}.html`
+    if (!seen.has(historyHref)) {
+      seen.add(historyHref)
+      results.push({
+        href: historyHref,
+        label: car.href ? car.vehicleName : `${car.vehicleName}の歴代・型式`,
+        meta: `${generation.era} ${generation.title} ／ ${generation.code}`,
+        kind: car.href ? '比較' : '歴代',
+      })
+    }
+    for (const guide of (car.guides || []).filter(guide => guideBelongsToCar(guide, car))) {
+      if (!guide.href?.startsWith('/') || seen.has(guide.href)) continue
+      seen.add(guide.href)
+      results.push({
+        href: guide.href,
+        label: guide.label || guide.title,
+        meta: guide.description || `${car.vehicleName}の比較ガイド`,
+        kind: '比較',
+      })
+    }
+    if (results.length >= limit) break
+  }
+  return results.slice(0, limit)
 }
 
 export function classifyModelQuery(query) {
@@ -23,16 +127,28 @@ export function classifyModelQuery(query) {
 export function bindModelFinder(cars) {
   const form = document.querySelector('#model-finder')
   if (!form) return
+  const input = form.querySelector('input')
   const output = form.querySelector('[data-model-results]')
-  form.addEventListener('submit', event => {
-    event.preventDefault()
-    const query = form.querySelector('input').value.trim()
-    if (!query) { output.textContent='車名または型式を入力してください。'; return }
-    const found = findModels(cars, query)
-    trackEvent('search_model_finder', { query_type: classifyModelQuery(query), result_count: found.length })
-    output.innerHTML = found.length ? `<p>${found.length}件の候補。掲載している代表型式との照合結果です。</p><ul>${found.map(({car,generation:g})=>`<li><a href="${escapeText(car.href || `/cars/${car.slug}.html`)}"><strong>${escapeText(car.vehicleName)} ${escapeText(g.era)}・${escapeText(g.title)}</strong><span>${escapeText(g.period)} ／ ${escapeText(g.code)}</span></a></li>`).join('')}</ul>` : '<p>掲載データに一致する候補がありません。型式の一部（例：JF1）または車名で再検索してください。未掲載の型式もあるため、該当なしは車両の不存在を意味しません。</p>'
+  const render = (query, submitted = false) => {
+    const destinations = findModelDestinations(cars, query)
+    if (!query) { output.replaceChildren(); return [] }
+    output.innerHTML = destinations.length
+      ? `<p>${destinations.length}件の候補。車名だけでも、歴代と比較ガイドへ進めます。</p><ul>${destinations.map(item => `<li><a href="${escapeText(item.href)}"><span class="model-result-kind">${escapeText(item.kind)}</span><strong>${escapeText(item.label)}</strong><span>${escapeText(item.meta)}</span></a></li>`).join('')}</ul>`
+      : '<p>候補が見つかりません。車名・型式の一部で再検索してください。軽微な誤字は補正しますが、未掲載車種もあります。</p>'
     output.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
       trackEvent('open_model_finder_result', { destination: new URL(link.href).pathname })
     }))
+    if (submitted) trackEvent('search_model_finder', { query_type: classifyModelQuery(query), result_count: destinations.length })
+    return destinations
+  }
+  input.addEventListener('input', () => render(input.value.trim()))
+  input.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { input.value = ''; render('') }
+  })
+  form.addEventListener('submit', event => {
+    event.preventDefault()
+    const query = input.value.trim()
+    if (!query) { output.textContent='車名または型式を入力してください。'; return }
+    render(query, true)
   })
 }

@@ -26,6 +26,7 @@ const topCardImages = Object.fromEntries(
 )
 topCardImages.stepwgn = '/images/cars/stepwgn/top-card-v3.webp'
 topCardImages.harrier = '/images/cars/harrier/home-card-v2.png'
+topCardImages.vezel = '/images/cars/vezel/top-card-2026-v1.png'
 
 const topCardPresentation = {
   tanto: '-1 1',
