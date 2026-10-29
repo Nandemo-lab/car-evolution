@@ -363,6 +363,8 @@ renderUsedCarCta()
 } // end optional comparison render
 
 async function copyUrl(button, message) {
+  const originalText = button.textContent
+  const originalTitle = button.getAttribute('title')
   button.setAttribute('aria-live', 'polite')
   try {
     await navigator.clipboard.writeText(location.href)
@@ -371,6 +373,13 @@ async function copyUrl(button, message) {
   } catch {
     button.textContent = 'コピーできませんでした'
     button.title = 'ブラウザのアドレス欄からURLをコピーしてください'
+  } finally {
+    window.setTimeout(() => {
+      button.textContent = originalText
+      if (originalTitle === null) button.removeAttribute('title')
+      else button.setAttribute('title', originalTitle)
+      button.removeAttribute('aria-live')
+    }, 2400)
   }
 }
 
