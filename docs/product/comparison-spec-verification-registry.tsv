@@ -1,0 +1,44 @@
+slug	page_status	dimension_cells_verified	dimension_cells_hold	evidence_url	notes	last_reviewed
+alphard-20-vs-30	VERIFIED	8	0	https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ALPHARD/200805/10047783/ | https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ALPHARD/201801/10113530/	左右の代表仕様と8寸法セルを公式諸元で直接照合。	2026-10-30
+alphard-30-vs-40	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+corolla-cross-2023-vs-2025	CORRECTED	0	8	https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_CROSS/202310/10149552/ | https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_CROSS/202505/10158206/	代表仕様の駆動・型式根拠をZVG13・2WDへ修正済み。8寸法セルの直接証拠は継続HOLD。	2026-10-30
+cx-5-kf-vs-km	VERIFIED	8	0	https://www.mazda.co.jp/content/dam/mazda/official/mazda-co-jp/cars/cx-5_kf/common/pdf/cx-5_specification_202510.pdf | https://www.mazda.co.jp/content/dam/mazda/official/mazda-co-jp/cars/cx-5/common/pdf/cx-5_specification_202605.pdf	左右の代表仕様と8寸法セルを公式諸元で直接照合。	2026-10-30
+delica-d5-before-after-2019	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+delica-mini-b3-vs-ba	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+freed-gen1-vs-gen2	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+freed-gen2-vs-gen3	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+harrier-30-vs-60	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+harrier-60-vs-80	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+jimny-sierra-vs-nomade	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+n-box-jf1-vs-jf3	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+n-box-jf1-zenki-kouki	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+n-box-jf3-vs-jf5	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+noah-70-vs-80	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+noah-80-vs-90	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+prius-30-vs-50	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+prius-30-zenki-kouki	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+prius-50-vs-60	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+rav4-50-vs-60	VERIFIED	8	0	https://toyota.jp/ucar/catalog/brand-TOYOTA/car-RAV4/201904/10120929/ | https://toyota.jp/pages/contents/rav4/003_p_001/pdf/rav4_spec_202609.pdf	左右の代表仕様と8寸法セルを公式諸元で直接照合。	2026-10-30
+roox-b4-vs-bb	HOLD	4	4	https://history.nissan.co.jp/ARCHIVES/PDF/ROOX/BA2/20250919/roox_specsheet.pdf	BB系4寸法セルと型式は公式諸元で確認。B4側は継続HOLD。	2026-10-30
+serena-c25-vs-c26	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+serena-c26-vs-c27	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+serena-c27-vs-c28	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+sienta-gen1-vs-gen2	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+sienta-gen2-vs-gen3	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+sienta-gen2-zenki-kouki	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+solio-ma15s-vs-ma36s	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+solio-ma15s-zenki-kouki	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+solio-ma36s-vs-ma37s	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+solio-ma36s-zenki-kouki	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+spacia-mk53s-vs-mk94s	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+stepwgn-rk-vs-rp	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+stepwgn-rp-vs-rp6	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+tanto-l375s-vs-la600s	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+tanto-la600s-zenki-kouki	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+vellfire-20-vs-30	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+vellfire-20-zenki-kouki	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+vellfire-30-vs-40	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+vezel-2024-vs-2026	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+vezel-ru-vs-rv	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+voxy-60-vs-70	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+

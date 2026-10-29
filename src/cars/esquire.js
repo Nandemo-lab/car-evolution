@@ -3,13 +3,10 @@
 // src/car-page.js; the bootstrap that wires this data into it lives
 // in src/entries/esquire.js.
 //
-// All facts below are drawn from Toyota's own vehicle history plus
-// independent catalog sources -- no invented specs. ESQUIRE is
-// CarVista's first single-generation vehicle: launched 2014-10-01,
-// discontinued 2021-12 without ever receiving a full model change
-// (folded back into the NOAH/VOXY lineup at end of life) -- see
-// https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A8%E3%82%BF%E3%83%BB%E3%82%A8%E3%82%B9%E3%82%AF%E3%82%A1%E3%82%A4%E3%82%A2
-// and https://cobby.jp/esquire-minorchange.html. It shares its
+// All published facts below are checked against the Toyota sources in
+// `references`. ESQUIRE is CarVista's first single-generation vehicle:
+// launched 2014-10-29 and listed by Toyota through 2021-12 without a
+// full model change. It shares its
 // platform and model-code family with VOXY/NOAH's own 80系
 // (ZRR80G/ZRR85G) -- a third sibling on the same body-in-white, same
 // pattern as the NOAH/VOXY twin pair already established elsewhere on
@@ -61,6 +58,11 @@ const generations = [
 ]
 
 export default {
+  references: { items: [
+    { generations: '80系・発売時', label: 'トヨタ 2014年エスクァイア発売資料', url: 'https://global.toyota/jp/newsroom/toyota/21796684.html' },
+    { generations: '80系・2017年改良', label: 'トヨタ 2017年マイナーチェンジ資料', url: 'https://global.toyota/jp/newsroom/toyota/21823080.html' },
+    { generations: '販売期間', label: 'トヨタ認定中古車 エスクァイア歴代モデル', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ESQUIRE/' },
+  ] },
   eyebrow: 'CARVISTA',
   vehicleName: 'ESQUIRE',
   brand: 'トヨタ', // used only for JSON-LD ("トヨタ ESQUIRE 80系" etc.)

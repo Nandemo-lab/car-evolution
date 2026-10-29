@@ -92,6 +92,7 @@ export default {
   vehicleName: 'SPACIA',
   references: { items: [
     { generations: '初代 MK32S', label: 'スズキ 2013年スペーシア発売資料', url: 'https://www.suzuki.co.jp/release/a/2012/0226/' },
+    { generations: '初代 MK42S', label: 'スズキ 2015年5月一部改良資料', url: 'https://www.suzuki.co.jp/release/a/2015/0519/' },
     { generations: '初代・2代目', label: 'スズキ スペーシア100万台達成・歴代整理', url: 'https://www.suzuki.co.jp/release/a/2021/0406/' },
     { generations: '2代目 MK53S', label: 'スズキ 2017年全面改良資料', url: 'https://www.suzuki.co.jp/release/a/2017/1214/' },
     { generations: '3代目 MK54S/MK94S', label: 'スズキ 2023年全面改良資料', url: 'https://www.suzuki.co.jp/release/a/2023/1109/' },
@@ -135,7 +136,7 @@ export default {
     title: 'MK32S・MK53S・MK94Sを見分ける3つの顔',
     intro: '標準スペーシアの歴代3世代を対象に、カスタム固有の大型グリルを混ぜず、フロントと箱型ボディの変化を整理します。',
     items: [
-      { title: '初代・MK32S/MK42S', description: '丸みのあるランプと縦基調の細いグリルが目印。軽量な背高ワゴンとして登場し、後期にはマイルドハイブリッド系を展開しました。', meta: '2013年〜2017年 · MK32S / MK42S' },
+      { title: '初代・MK32S/MK42S', description: '丸みのあるランプと縦基調の細いグリルが目印。2015年5月の一部改良後は、S-エネチャージ搭載のMK42Sへ移行しました。', meta: '2013年〜2017年 · MK32S / MK42S' },
       { title: '2代目・MK53S', description: 'Sマークを囲む太いクロームと、より四角く水平なボディへ変化。標準車の穏やかな顔とカスタムの迫力ある顔は分けて判別します。', meta: '2017年〜2023年 · MK53S' },
       { title: '3代目・MK54S/MK94S', description: 'シャープなランプと大きな中央エンブレムで表情を刷新。後席の使い方を広げるマルチユースフラップも、この世代の実用面の転換点です。', meta: '2023年〜現在 · MK54S / MK94S' },
     ],

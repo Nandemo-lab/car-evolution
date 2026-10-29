@@ -163,6 +163,35 @@ test('SERENA C26後期HOLD画像は公開HTMLから参照しない',()=>{
   }
 })
 
+test('公開車両画像は考証台帳に登録され、未確認を検証済みとして扱わない',()=>{
+  const registry=readFileSync(new URL('../docs/product/vehicle-image-verification-registry.tsv',import.meta.url),'utf8')
+    .trim().split(/\r?\n/).slice(1).map(line=>line.split('\t'))
+  const byPath=new Map(registry.map(row=>[row[0],row]))
+  const published=new Set()
+  for(const file of readdirSync(new URL('../dist',import.meta.url),{recursive:true}).filter(name=>name.endsWith('.html'))){
+    const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
+    for(const match of html.matchAll(/(?:src|content)="(\/images\/cars\/[^"]+)"/g)) published.add(match[1])
+  }
+  assert.equal(published.size,160)
+  assert.equal(registry.length,160)
+  for(const image of published){
+    assert.ok(byPath.has(image),`${image}: verification registry missing`)
+    assert.ok(['VERIFIED','CORRECTED','HOLD'].includes(byPath.get(image)[3]),`${image}: invalid status`)
+  }
+  assert.equal(registry.filter(row=>row[3]==='VERIFIED').length,1)
+  assert.equal(registry.filter(row=>row[3]==='HOLD').length,159)
+})
+
+test('比較ページは仕様・寸法の一次資料照合状態を台帳管理する',()=>{
+  const registry=readFileSync(new URL('../docs/product/comparison-spec-verification-registry.tsv',import.meta.url),'utf8')
+    .trim().split(/\r?\n/).slice(1).map(line=>line.split('\t'))
+  const slugs=readdirSync(new URL('../src/data/comparisons/',import.meta.url)).filter(name=>name.endsWith('.js')).map(name=>name.replace('.js','')).sort()
+  assert.deepEqual(registry.map(row=>row[0]).sort(),slugs)
+  assert.equal(registry.reduce((sum,row)=>sum+Number(row[2]),0),28)
+  assert.equal(registry.reduce((sum,row)=>sum+Number(row[3]),0),308)
+  for(const row of registry) assert.ok(['VERIFIED','CORRECTED','HOLD'].includes(row[1]),row[0])
+})
+
 test('歴代ページ共通説明に特定車種名を固定しない',()=>{
   const source=readFileSync(new URL('../src/car-page.js',import.meta.url),'utf8')
   assert.ok(source.includes('${config.vehicleName}の役割と技術の変化'))

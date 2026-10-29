@@ -10,6 +10,7 @@ export default {
     { generations: '3代目B4系', label: '日産 2023年ルークス改良', url: 'https://global.nissannews.com/ja-JP/releases/230417-01-j' },
     { generations: '4代目BB系', label: '日産 2025年新型ルークス発表', url: 'https://global.nissannews.com/ja-JP/releases/250919-01-j' },
     { generations: '4代目BB系', label: '日産 新型ルークス機能紹介', url: 'https://global.nissannews.com/ja-JP/releases/250822-01-j' },
+    { generations: '4代目BB系', label: '日産 2025年ルークス主要諸元表', url: 'https://history.nissan.co.jp/ARCHIVES/PDF/ROOX/BA2/20250919/roox_specsheet.pdf' },
   ] },
   tagline: 'ルークス、デイズ ルークス、再びルークス。名前と型式を分ける。', heroImage: '/images/cars/roox/bb2a-2025-highway-star.webp', homeCardImage: '/images/cars/roox/top-card-front-right-v1.png',
   generationGuide: { title: 'ルークスの4世代と名称の変化', intro: '日産は2009年のOEMモデルを初代と数え、2014年は「デイズ ルークス」、2020年に再び「ルークス」、2025年にBB系へ世代交代しました。掲載画像は3代目2023年改良後と4代目のハイウェイスターGターボ・2WD代表です。', layout: 'chronology', items: [
