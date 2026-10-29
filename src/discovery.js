@@ -54,5 +54,8 @@ export function getDiscoveryImage(car) {
 }
 
 export function getDiscoveryStyle(car) {
-  return `--top-card-scale:${topCardPresentation[car.slug] || 1}`
+  const scale = car.topCardScale || topCardPresentation[car.slug] || 1
+  const flip = car.topCardFlip || 1
+  const position = car.topCardPosition || '50% 50%'
+  return `--top-card-scale:${scale};--top-card-flip:${flip};--top-card-position:${position}`
 }

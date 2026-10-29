@@ -36,8 +36,8 @@ export function homeCarsHtml(cars, roadmap = []) {
         ${group.cars
           .map(
             (car) => `
-          <a class="mini-card${car.cardType === 'comparison' ? ' mini-card--comparison' : ''}" href="${car.href}" aria-label="${car.vehicleName}${car.cardType === 'comparison' ? 'の新旧比較' : 'の歴代モデル'}">
-            <span class="mini-card-photo">${getDiscoveryImage(car) ? `<img src="${getDiscoveryImage(car)}" style="${getDiscoveryStyle(car)}" alt="${car.vehicleName}" loading="lazy" decoding="async" />` : '<span class="mini-card-text-visual">比較ガイド</span>'}${car.cardType === 'comparison' ? `<span class="mini-card-kind">${car.cardLabel}</span>` : ''}</span>
+          <a class="mini-card" href="${car.href}" aria-label="${car.vehicleName}${car.cardType === 'comparison' ? 'の新旧比較' : 'の歴代モデル'}">
+            <span class="mini-card-photo">${getDiscoveryImage(car) ? `<img src="${getDiscoveryImage(car)}" style="${getDiscoveryStyle(car)}" alt="${car.vehicleName}" loading="lazy" decoding="async" />` : '<span class="mini-card-text-visual">比較ガイド</span>'}</span>
             <span class="mini-card-name">${car.cardName || car.vehicleName}</span>
           </a>`
           )

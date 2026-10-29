@@ -121,35 +121,35 @@ const comparisonCatalogDetails = {
     ],
   },
   'jimny-sierra-vs-nomade': {
-    vehicleName: 'JIMNY ジムニー', cardName: 'JIMNY', maker: 'Suzuki', aliases: ['jimny', 'ジムニーシエラ', 'ジムニーノマド', 'ノマド'],
+    vehicleName: 'JIMNY ジムニー', cardName: 'JIMNY', maker: 'Suzuki', aliases: ['jimny', 'ジムニーシエラ', 'ジムニーノマド', 'ノマド'], topCardFlip: 1, topCardPosition: '50% 52%',
     generations: [
       { era: '3ドア', title: 'ジムニーシエラ JC', code: 'JB74W', period: '2018年7月発売' },
       { era: '5ドア', title: 'ジムニーノマド FC', code: 'JC74W', period: '2025年4月発売' },
     ],
   },
   'rav4-50-vs-60': {
-    vehicleName: 'RAV4', cardName: 'RAV4', maker: 'Toyota', aliases: ['ラヴフォー', 'ラブフォー'],
+    vehicleName: 'RAV4', cardName: 'RAV4', maker: 'Toyota', aliases: ['ラヴフォー', 'ラブフォー'], topCardFlip: -1, topCardPosition: '50% 52%',
     generations: [
       { era: '5代目', title: '50系（画像はHYBRID G）', code: 'AXAH52 / AXAH54', period: '2019年発売' },
       { era: '6代目', title: '60系（画像はHEV Z）', code: 'AXAN64 / AXAP64', period: '2025年HEV発売・2026年PHEV追加' },
     ],
   },
   'cx-5-kf-vs-km': {
-    vehicleName: 'CX-5', cardName: 'CX-5', maker: 'Mazda', aliases: ['シーエックスファイブ'],
+    vehicleName: 'CX-5', cardName: 'CX-5', maker: 'Mazda', aliases: ['シーエックスファイブ'], topCardFlip: -1, topCardPosition: '50% 52%',
     generations: [
       { era: '2代目', title: 'KF系（画像は25S）', code: 'KFEP / KF5P / KF2P', period: '2017年登場・2021年外観改良' },
       { era: '3代目', title: 'KM系（画像はL・4WD）', code: 'KMYSDP', period: '2026年5月国内発売' },
     ],
   },
   'roox-b4-vs-bb': {
-    vehicleName: 'ROOX ルークス', cardName: 'ROOX', maker: 'Nissan', aliases: ['ルークス'],
+    vehicleName: 'ROOX ルークス', cardName: 'ROOX', maker: 'Nissan', aliases: ['ルークス'], topCardFlip: -1, topCardScale: 1.16, topCardPosition: '50% 53%',
     generations: [
       { era: '旧型', title: 'B4系（画像は2023年Gターボ）', code: 'B44A / B45A / B47A / B48A', period: '2020年登場・2023年外観改良' },
       { era: '新型', title: 'BB系（画像はGターボ）', code: 'BB1A / BB2A / BB5A / BB6A', period: '2025年10月発売' },
     ],
   },
   'delica-mini-b3-vs-ba': {
-    vehicleName: 'DELICA MINI デリカミニ', cardName: 'DELICA MINI', maker: 'Mitsubishi', aliases: ['デリカミニ'],
+    vehicleName: 'DELICA MINI デリカミニ', cardName: 'DELICA MINI', maker: 'Mitsubishi', aliases: ['デリカミニ'], topCardFlip: -1, topCardPosition: '50% 52%',
     generations: [
       { era: '初代', title: 'B3系（画像はT Premium）', code: 'B34A / B35A / B37A / B38A', period: '2023年5月発売' },
       { era: '2代目', title: 'BA系（画像はT Premium DELIMARU）', code: 'BA1A / BA2A / BA5A / BA6A', period: '2025年10月発売' },
@@ -179,6 +179,9 @@ export const comparisonModels = Object.entries(newModelPages).map(([filename, pa
     homeCardImage: page.image || '',
     cardType: 'comparison',
     cardLabel: '新旧比較',
+    topCardScale: details.topCardScale,
+    topCardFlip: details.topCardFlip,
+    topCardPosition: details.topCardPosition,
     historySlug: details.historySlug,
   }
 }).filter((card) => !card.historySlug)

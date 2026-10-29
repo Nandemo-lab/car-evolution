@@ -64,7 +64,8 @@ test('ホームはJavaScript実行前から歴代18車種と比較専用5車種�
     assert.ok(html.includes(`href="/${slug}.html"`),slug)
   }
   assert.ok(html.includes('23 Models'))
-  assert.ok(html.includes('新旧比較'))
+  assert.ok(!html.includes('mini-card-kind'))
+  assert.ok(!html.includes('>新旧比較<'))
 })
 test('TOP車種カードは全車フロント右向き・フロント優勢3/4の目視監査を必須にする',()=>{
   assert.deepEqual(Object.keys(topCardVisualAudit).sort(),cars.map(car=>car.slug).sort())
