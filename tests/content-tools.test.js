@@ -89,7 +89,7 @@ test('TOP車種カードは全車フロント右向き・フロント優勢3/4�
     assert.ok(image && existsSync(new URL(`../public${image}`,import.meta.url)),`${car.slug}: missing audited TOP asset`)
   }
   const corollaCross=cars.find(car=>car.slug==='corolla-cross')
-  assert.equal(getDiscoveryImage(corollaCross),'/images/cars/corolla-cross/top-card-2025-front-right-v3.jpg')
+  assert.equal(getDiscoveryImage(corollaCross),'/images/cars/corolla-cross/top-card-front-right-v2.png')
   assert.notEqual(getDiscoveryImage(corollaCross),corollaCross.heroImage,'TOP image must stay independent from the comparison/hero asset')
 })
 test('個別の配列形式出典を優先し、確認日を捏造しない',()=>{
