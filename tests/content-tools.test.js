@@ -54,26 +54,26 @@ test('42比較ページの初期HTMLに本文・出典・画像・メモが揃�
     assert.ok(built.includes(data.answer.title),file)
   }
 })
-test('ホームはJavaScript実行前から歴代18車種と比較専用5車種にリンクする',()=>{
+test('ホームはJavaScript実行前から23車種すべての歴代ページにリンクする',()=>{
   const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
   for(const car of cars) assert.ok(html.includes(`/cars/${car.slug}.html`),car.slug)
   const catalog=homeCatalog(cars)
   assert.equal(catalog.length,23)
-  for(const slug of ['rav4-50-vs-60','cx-5-kf-vs-km','roox-b4-vs-bb','delica-mini-b3-vs-ba','jimny-sierra-vs-nomade']) {
-    assert.ok(catalog.some(car=>car.slug===slug && car.href===`/${slug}.html`),slug)
-    assert.ok(html.includes(`href="/${slug}.html"`),slug)
+  for(const slug of ['rav4','cx-5','roox','delica-mini','jimny']) {
+    assert.ok(catalog.some(car=>car.slug===slug && car.href===`/cars/${slug}.html`),slug)
+    assert.ok(html.includes(`href="/cars/${slug}.html"`),slug)
   }
   assert.ok(html.includes('23 Models'))
   assert.ok(!html.includes('mini-card-kind'))
   assert.ok(!html.includes('>新旧比較<'))
 })
-test('比較専用車種もTOP専用のフロント右向き三四半角アセットを使う',()=>{
+test('新規歴代車種もTOP専用のフロント右向き三四半角アセットを使う',()=>{
   const expected={
-    'rav4-50-vs-60':'/images/cars/rav4/top-card-front-right-v1.png',
-    'cx-5-kf-vs-km':'/images/cars/cx-5/top-card-front-right-v1.png',
-    'roox-b4-vs-bb':'/images/cars/roox/top-card-front-right-v1.png',
-    'delica-mini-b3-vs-ba':'/images/cars/delica-mini/top-card-front-right-v1.png',
-    'jimny-sierra-vs-nomade':'/images/cars/jimny/top-card-front-right-v1.png',
+    rav4:'/images/cars/rav4/top-card-front-right-v1.png',
+    'cx-5':'/images/cars/cx-5/top-card-front-right-v1.png',
+    roox:'/images/cars/roox/top-card-front-right-v1.png',
+    'delica-mini':'/images/cars/delica-mini/top-card-front-right-v1.png',
+    jimny:'/images/cars/jimny/top-card-front-right-v1.png',
   }
   for(const [slug,image] of Object.entries(expected)){
     const card=homeCatalog(cars).find(item=>item.slug===slug)
@@ -99,10 +99,10 @@ test('個別の配列形式出典を優先し、確認日を捏造しない',()=
   assert.ok(refs.items.every(item=>item.url.startsWith('https://www.daihatsu.com/')))
   for(const car of cars) assert.ok(resolveReferences(car)?.items.length>0,car.slug)
 })
-test('公開83 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
+test('公開88 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
   const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
-  assert.equal(urls.length,83)
+  assert.equal(urls.length,88)
   for(const url of urls){
     const pathname=new URL(url).pathname
     const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')

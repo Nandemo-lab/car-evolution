@@ -1,14 +1,12 @@
-import { comparisonModels, newModelPages } from './data/new-model-pages.js'
+import { newModelPages } from './data/new-model-pages.js'
 import { getDiscoveryImage, getDiscoveryStyle } from './discovery.js'
 
 export function homeCatalog(cars) {
-  const historyCards = cars.map(car => ({
+  return cars.map(car => ({
     ...car,
     href: `/cars/${car.slug}.html`,
     cardType: 'history',
   }))
-  const comparisonCards = comparisonModels.filter(car => !car.historySlug)
-  return [...historyCards, ...comparisonCards]
 }
 
 function groupByMaker(cars, roadmap) {

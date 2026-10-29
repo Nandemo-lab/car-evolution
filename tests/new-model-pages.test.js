@@ -1,12 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync,existsSync} from 'node:fs';
+import {readFileSync,existsSync,readdirSync} from 'node:fs';
 import {newModelPages,comparisonModels} from '../src/data/new-model-pages.js';
 import {findModels} from '../src/model-finder.js';
-import vezel from '../src/cars/vezel.js';
-const cars=[{...vezel,slug:'vezel'},...comparisonModels];
+const historyCars=await Promise.all(readdirSync(new URL('../src/cars/',import.meta.url)).filter(p=>p.endsWith('.js')).map(async p=>({...((await import(`../src/cars/${p}`)).default),slug:p.replace('.js','')})));
+const cars=[...historyCars,...comparisonModels];
 test('追加車種は日本語・型式から実在する公開先へ到達できる',()=>{
- for(const [q,slug] of [['ヴェゼル RV5','vezel'],['RAV4 AXAN64','rav4-50-vs-60'],['CX-5 KF2P','cx-5-kf-vs-km'],['ルークス BB2A','roox-b4-vs-bb'],['デリカミニ BA6A','delica-mini-b3-vs-ba'],['ジムニー JC74W','jimny-sierra-vs-nomade']]) {
+ for(const [q,slug] of [['ヴェゼル RV5','vezel'],['RAV4 AXAN64','rav4'],['CX-5 KF2P','cx-5'],['ルークス BB2A','roox'],['デリカミニ BA6A','delica-mini'],['ジムニー JC74W','jimny']]) {
   const results=findModels(cars,q);assert.ok(results.length,q);assert.ok(results.every(r=>r.car.slug===slug),q);
   for(const {car} of results)assert.ok(existsSync(new URL('../dist'+(car.href||`/cars/${car.slug}.html`),import.meta.url)));
  }

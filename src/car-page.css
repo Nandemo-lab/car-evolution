@@ -64,6 +64,7 @@ body { margin: 0; background: #0b0c0e; }
    320px; forcing it guarantees the browser never picks a different
    wrap point at some in-between width instead of leaving it to chance. */
 .tagline { margin: 10px 0 0; font-weight: 300; font-size: 15.5px; line-height: 1.65; opacity: .78; letter-spacing: .015em; white-space: nowrap; }
+@media (max-width: 699px) { .tagline { white-space: normal; } }
 
 /* Heritage -- a quiet four-point timeline of the model's own years,
    sitting between the hero and the interactive selector. No labels,

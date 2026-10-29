@@ -155,8 +155,8 @@ export default {
       "href": "https://www-asia.nissan-cdn.net/content/dam/Nissan/jp/vehicles/roox/2605/pdf/roox_2605_specsheet_01.pdf"
     }
   ],
-  "historyHref": "/#comparison-links-title",
-  "historyLabel": "軽自動車・世代比較ガイド一覧へ",
+  "historyHref": "/cars/roox.html",
+  "historyLabel": "ルークスの歴代・型式を見る",
   "shareText": "ルークスB4系とBB系の違い",
   "compactIdentification": true
 }

@@ -55,5 +55,5 @@ export default {
     { label: 'スズキ 2025年ジムニーノマド発表', href: 'https://www.suzuki.co.jp/release/a/2025/0130/index.html' },
     { label: 'スズキ ノマド／シエラ主要諸元', href: 'https://www.suzuki.co.jp/suzuki_digital_library/pdf/1_auto/jimnysmall/214.pdf' }
   ],
-  historyHref: '/#comparison-links-title', historyLabel: 'SUV・世代比較ガイド一覧へ', shareText: 'ジムニーシエラとノマドの違い', compactIdentification: true
+  historyHref: '/cars/jimny.html', historyLabel: 'ジムニー系の歴代・型式を見る', shareText: 'ジムニーシエラとノマドの違い', compactIdentification: true
 }

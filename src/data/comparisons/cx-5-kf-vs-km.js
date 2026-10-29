@@ -151,8 +151,8 @@ export default {
       "href": "https://www.mazda.co.jp/content/dam/mazda/official/mazda-co-jp/cars/cx-5/common/pdf/cx-5_specification_202605.pdf"
     }
   ],
-  "historyHref": "/#comparison-links-title",
-  "historyLabel": "SUV・世代比較ガイド一覧へ",
+  "historyHref": "/cars/cx-5.html",
+  "historyLabel": "CX-5の歴代・型式を見る",
   "shareText": "CX-5 KF系とKM系の違い",
   "compactIdentification": true,
   "changesTitle": "世代交代で変わったこと"

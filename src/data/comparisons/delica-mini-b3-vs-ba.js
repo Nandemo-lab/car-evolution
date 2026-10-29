@@ -155,8 +155,8 @@ export default {
       "href": "https://www.mitsubishi-motors.co.jp/lineup/delica_mini/spec/pdf/delica_mini_spec.pdf"
     }
   ],
-  "historyHref": "/#comparison-links-title",
-  "historyLabel": "軽自動車・世代比較ガイド一覧へ",
+  "historyHref": "/cars/delica-mini.html",
+  "historyLabel": "デリカミニの歴代・型式を見る",
   "shareText": "デリカミニ初代と2代目の違い",
   "compactIdentification": true
 }

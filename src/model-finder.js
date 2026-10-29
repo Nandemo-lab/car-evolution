@@ -20,6 +20,11 @@ const japaneseNames = {
   tanto: 'タント',
   vezel: 'ヴェゼル ベゼル VEZEL',
   'corolla-cross': 'カローラクロス かろーらくろす COROLLACROSS',
+  rav4: 'RAV4 ラブフォー ラヴフォー',
+  'cx-5': 'CX5 シーエックスファイブ',
+  roox: 'ルークス ROOX',
+  'delica-mini': 'デリカミニ DELICAMINI',
+  jimny: 'ジムニー シエラ ノマド JIMNY SIERRA NOMADE',
 }
 
 const hiragana = value => value.replace(/[ァ-ヶ]/g, char => String.fromCharCode(char.charCodeAt(0) - 0x60))

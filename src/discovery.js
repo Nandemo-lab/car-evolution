@@ -44,6 +44,7 @@ export const topCardVisualAudit = Object.fromEntries([
   'alphard', 'vellfire', 'noah', 'voxy', 'esquire', 'prius', 'harrier',
   'sienta', 'corolla-cross', 'serena', 'stepwgn', 'freed', 'n-box',
   'vezel', 'delica-d5', 'solio', 'spacia', 'tanto',
+  'rav4', 'cx-5', 'roox', 'delica-mini', 'jimny',
 ].map((slug) => [slug, { direction: 'front-right', angle: 'front-dominant-3q' }]))
 
 // TOP and NEXT DISCOVERY share one art-directed set: same 4:3 canvas,

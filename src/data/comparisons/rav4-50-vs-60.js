@@ -147,8 +147,8 @@ export default {
       "href": "https://toyotagazooracing.com/jp/pressrelease/2026/0219-01/"
     }
   ],
-  "historyHref": "/#comparison-links-title",
-  "historyLabel": "SUV・世代比較ガイド一覧へ",
+  "historyHref": "/cars/rav4.html",
+  "historyLabel": "RAV4の歴代・型式を見る",
   "shareText": "RAV4 50系と60系の違い",
   "compactIdentification": true
 }
