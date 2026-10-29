@@ -40,7 +40,7 @@ export default {
       { generations: '初代10系', label: 'Toyota 2021年カローラ クロス発売資料', url: 'https://global.toyota/jp/newsroom/toyota/35872053.html' },
       { generations: '初代10系', label: 'Toyota 2023年一部改良資料', url: 'https://global.toyota/jp/newsroom/toyota/39926142.html' },
       { generations: '初代10系', label: 'Toyota 2025年一部改良・GR SPORT設定資料', url: 'https://global.toyota/jp/newsroom/toyota/42821873.html' },
-      { generations: '2025年仕様', label: 'Toyota カローラ クロス主要諸元表', url: 'https://toyota.jp/pages/contents/request/webcatalog/corollacross/corollacross_main_202509.pdf' },
+      { generations: '2025年仕様', label: 'Toyota認定中古車 2025年5月 ハイブリッドZ車両情報', url: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_CROSS/202505/10158211/' },
     ],
   },
   tagline: '同じ初代でも、2023年と2025年で確認点が変わる。',

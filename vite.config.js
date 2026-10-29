@@ -549,6 +549,14 @@ function buildTrustPageTags(filename) {
   const title = page.title
   const description = page.description
   const image = `${SITE_ORIGIN}/images/cars/voxy/hero-gen4-3q.webp`
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url,
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: `${SITE_ORIGIN}/` },
+  }
   const meta = (attrs) => ({ tag: 'meta', attrs, injectTo: 'head' })
   return [
     { tag: 'title', children: title, injectTo: 'head' },
@@ -564,6 +572,7 @@ function buildTrustPageTags(filename) {
     meta({ name: 'twitter:title', content: title }),
     meta({ name: 'twitter:description', content: description }),
     meta({ name: 'twitter:image', content: image }),
+    { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(jsonLd), injectTo: 'head' },
   ]
 }
 
