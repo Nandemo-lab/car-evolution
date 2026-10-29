@@ -66,7 +66,7 @@ export default {
   },
   tagline: '型式と改良時期で、違いを見抜く。',
   heroImage: '/images/cars/vezel/rv5-2026-ehev-z-ff-v1.png',
-  homeCardImage: '/images/cars/vezel/top-card-2026-v2.png',
+  homeCardImage: '/images/cars/vezel/top-card-2026-v3.png',
   generationGuide: {
   "title": "ヴェゼルは国内2世代。改良年と型式を分けて確認",
   "intro": "国内VEZELは2013年12月の初代RU系と、2021年4月の2代目RV系です。このページは世代・発売時期・型式の入口を整理した年表です。2026年10月29日時点で確認した最新改良は同年10月23日で、3代目への世代交代ではありません。歴代ページの画像は初代2013年HYBRID Z・FFと2代目2026年e:HEV Z・FFの代表です。すべての改良型を描いたものではありません。発売時同士の2013年／2021年比較は関連ガイドへ分けています。海外HR-Vの呼称・世代区分とは分けています。",
