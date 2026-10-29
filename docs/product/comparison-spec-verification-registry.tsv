@@ -11,7 +11,7 @@ harrier-30-vs-60	HOLD	0	8		左右の正確な年式・グレード・駆動に�
 harrier-60-vs-80	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
 jimny-sierra-vs-nomade	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
 n-box-jf1-vs-jf3	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
-n-box-jf1-zenki-kouki	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
+n-box-jf1-zenki-kouki	CORRECTED	8	0	https://www.honda.co.jp/auto-archive/nbox/2012/webcatalog/spec/ | https://www.honda.co.jp/auto-archive/nbox/2015-10/webcatalog/performance/spec/	G・Lパッケージ系FFの前後8セルを年式別主要諸元で照合。前期全高を1,780から1,770mmへ訂正し、ナビ装着車の例外を注記。	2026-10-30
 n-box-jf3-vs-jf5	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
 noah-70-vs-80	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30
 noah-80-vs-90	HOLD	0	8		左右の正確な年式・グレード・駆動に対応する公式諸元セルの直接照合が未完了。	2026-10-30

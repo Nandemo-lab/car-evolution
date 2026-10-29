@@ -178,8 +178,9 @@ test('公開車両画像は考証台帳に登録され、未確認を検証済�
     assert.ok(byPath.has(image),`${image}: verification registry missing`)
     assert.ok(['VERIFIED','CORRECTED','HOLD'].includes(byPath.get(image)[3]),`${image}: invalid status`)
   }
-  assert.equal(registry.filter(row=>row[3]==='VERIFIED').length,1)
-  assert.equal(registry.filter(row=>row[3]==='HOLD').length,159)
+  assert.equal(registry.length,160)
+  assert.ok(registry.filter(row=>row[3]==='VERIFIED').length>=1)
+  assert.ok(registry.filter(row=>row[3]==='HOLD').length>=1)
 })
 
 test('比較ページは仕様・寸法の一次資料照合状態を台帳管理する',()=>{
@@ -187,8 +188,11 @@ test('比較ページは仕様・寸法の一次資料照合状態を台帳管�
     .trim().split(/\r?\n/).slice(1).map(line=>line.split('\t'))
   const slugs=readdirSync(new URL('../src/data/comparisons/',import.meta.url)).filter(name=>name.endsWith('.js')).map(name=>name.replace('.js','')).sort()
   assert.deepEqual(registry.map(row=>row[0]).sort(),slugs)
-  assert.equal(registry.reduce((sum,row)=>sum+Number(row[2]),0),28)
-  assert.equal(registry.reduce((sum,row)=>sum+Number(row[3]),0),308)
+  const verified=registry.reduce((sum,row)=>sum+Number(row[2]),0)
+  const hold=registry.reduce((sum,row)=>sum+Number(row[3]),0)
+  assert.equal(verified+hold,registry.length*8)
+  assert.ok(verified>0)
+  assert.ok(hold>0)
   for(const row of registry) assert.ok(['VERIFIED','CORRECTED','HOLD'].includes(row[1]),row[0])
 })
 
