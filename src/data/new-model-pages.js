@@ -78,9 +78,30 @@ export const newModelPages = {
         "url": "/delica-mini-b3-vs-ba.html#mini-ba6a"
       }
     ]
+  },
+  "jimny-sierra-vs-nomade.html": {
+    "name": "ジムニーシエラとノマドの違い",
+    "title": "ジムニーシエラとノマドの違い｜3ドア・5ドアを公式諸元で比較 | CarVista",
+    "description": "2018年ジムニーシエラJCと2025年ジムニーノマドFCを、1.5L・4WDで比較。3ドアと5ドア、全長340mm・ホイールベース330mmの差、4人乗車時の荷室と中古車確認点を整理します。軽のジムニーとは車幅・排気量が異なります。",
+    "image": "/images/cars/jimny/jc74w-2025-nomade-fc-v1.png",
+    "models": [
+      { "name": "JIMNY SIERRA JC", "url": "/jimny-sierra-vs-nomade.html#jimny-sierra" },
+      { "name": "JIMNY NOMADE FC", "url": "/jimny-sierra-vs-nomade.html#jimny-nomade" }
+    ]
   }
 }
 export const comparisonModels = [
+  {
+    "slug": "jimny-sierra-vs-nomade",
+    "href": "/jimny-sierra-vs-nomade.html",
+    "vehicleName": "JIMNY ジムニー",
+    "maker": "Suzuki",
+    "generations": [
+      { "era": "3ドア", "title": "ジムニーシエラ JC", "code": "JB74W", "period": "2018年7月発売" },
+      { "era": "5ドア", "title": "ジムニーノマド FC", "code": "JC74W", "period": "2025年4月発売" }
+    ],
+    "aliases": ["jimny", "ジムニーシエラ", "ジムニーノマド", "ノマド"]
+  },
   {
     "slug": "rav4-50-vs-60",
     "href": "/rav4-50-vs-60.html",

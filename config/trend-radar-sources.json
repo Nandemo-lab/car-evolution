@@ -39,5 +39,13 @@
     { "name": "RAV4", "aliases": ["rav4"] },
     { "name": "DELICA", "aliases": ["delica", "デリカ"] },
     { "name": "LAND CRUISER", "aliases": ["land cruiser", "ランドクルーザー", "ランクル"] }
+    ,{ "name": "PAJERO", "aliases": ["pajero", "パジェロ"] }
+    ,{ "name": "ROOMY", "aliases": ["roomy", "ルーミー"] }
+    ,{ "name": "HUSTLER", "aliases": ["hustler", "ハスラー"] }
+    ,{ "name": "JIMNY", "aliases": ["jimny", "ジムニー", "シエラ", "ノマド"] }
+    ,{ "name": "MOVE", "aliases": ["move", "ムーヴ", "ムーブ"] }
+    ,{ "name": "YARIS / VITZ", "aliases": ["yaris", "vitz", "ヤリス", "ヴィッツ"] }
+    ,{ "name": "RAIZE / ROCKY", "aliases": ["raize", "rocky", "ライズ", "ロッキー"] }
+    ,{ "name": "SUZUKI e SKY", "aliases": ["e sky", "e-sky", "イースカイ"] }
   ]
 }
