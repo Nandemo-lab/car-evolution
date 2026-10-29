@@ -32,15 +32,15 @@ GSC実測：検索タイプWeb、2026-09-30〜2026-10-27、サイト全体50ク�
 |候補|判定|理由|
 |---|---|---|
 |VEZEL歴代|既存へ統合|先行公開を維持し、年表と型式の入口を拡充|
-|VEZEL RU/RV比較|公開候補PASS|発売時Z・ハイブリッド・FF同士。既存2024/2026比較と目的を分離|
+|VEZEL RU/RV比較|公開済みPASS|発売時Z・ハイブリッド・FF同士。既存2024/2026比較と目的を分離|
 |RAV4歴代|HOLD|国内未導入世代との区分と全歴代画像の監査が未完。比較内容だけを複製しない|
-|RAV4 50/60比較|公開候補PASS|HYBRID G/HEV Z・E-Four。AdventureやPHEVを代表諸元と混ぜない|
+|RAV4 50/60比較|公開済みPASS|HYBRID G/HEV Z・E-Four。AdventureやPHEVを代表諸元と混ぜない|
 |CX-5歴代|HOLD|KEを含む歴代画像セット不足。独立ページの需要を実測していない|
-|CX-5 KF/KM比較|公開候補PASS|2.5L・4WD。KFは2025年仕様、KMは2026年国内L|
+|CX-5 KF/KM比較|公開済みPASS|2.5L・4WD。KFは2025年仕様、KMは2026年国内L|
 |ROOX歴代|HOLD|DAYZ ROOXを含む呼称区分と旧世代画像の裏付けが不足|
-|ROOX B4/BB比較|公開候補PASS|2023改良後と2025年型、ハイウェイスターGターボ・2WD|
+|ROOX B4/BB比較|公開済みPASS|2023改良後と2025年型、ハイウェイスターGターボ・2WD|
 |DELICA MINI歴代|HOLD|2世代の年表が新旧比較と重なる。独立した価値・需要の根拠不足|
-|DELICA MINI B3/BA比較|公開候補PASS|T Premium系ターボ4WD。DELIMARU装備差を明示|
+|DELICA MINI B3/BA比較|公開済みPASS|T Premium系ターボ4WD。DELIMARU装備差を明示|
 
 ## 新規URL
 
@@ -83,7 +83,16 @@ CX-5旧型の誤った赤いグリル縁と、デリカミニ新型の欠けた�
 
 ## 公開・通知
 
-公開commit、Vercel本番反映日時、各URLのSearch Console状態とIndexNow応答は、実行後の追記に記載する。
+公開commit：2a819ba2252753f2b8e8b1029757e2fe2172f57a。origin/mainへfast-forward push完了。
+Vercel Production Readyを確認。deployment: https://vercel.com/nandemo-labs-projects/car-evolution/3Pf1HVXS4PJX5Q7NmRf1DoiTUtWR
+本番HTTP確認：2026-10-29 20:41:54 JST。5ページと採用画像10点すべてHTTP 200。初期HTML・canonical・OGP・CollectionPage・BreadcrumbList正常。
+本番Chromeでも実測375/390/1440pxの15ケースを確認。ページ横overflowなし、H1各1、Console Error/Warning 0。初回採取時に未読込だった遅延画像2件は該当カードへ移動後、正常読込を確認。
+
+Search Console個別URL検査は新規5URLすべて実施。全件「URLがGoogleに認識されていません」、前回クロール「該当なし」。これは公開直後の状態であり、登録済みとは記録しない。
+VEZELの登録リクエストは公開URLテスト後、reCAPTCHAサービス接続エラーにより送信失敗。受付完了なし。同じ接続障害の表示が続いたため、他4URLのリクエストは未送信。認証回避・連続再試行は行っていない。新規5URLの登録リクエストは残課題。
+
+IndexNow：2026-10-29 20:47:46 JST。既存公開キーのHTTP 200と本文一致を検証して、新規5URLのみ一括POST。HTTP 200受理。検索エンジンへの登録完了を意味しない。
+証跡：outputs/five-model-launch/production-http.json、indexnow.json。ブラウザ証跡は元作業ディレクトリのoutputs/five-model-launch-proof/production-qa.json、gsc-inspections.jsonとPC・モバイル画像。
 AdSense再申請・ASP申請・課金・既存URL削除/noindex・SERENA HOLD解除は実施しない。
 
 ## 公式根拠
