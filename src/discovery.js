@@ -36,15 +36,15 @@ const topCardPresentation = {
 }
 
 // Every published TOP card must be visually checked before its slug is added
-// here. This explicit allow-list makes a newly added model fail the regression
-// suite until somebody confirms the shared CarVista composition: genuine
-// front-right three-quarter view (front points right), dark studio, full car,
-// consistent occupancy. A horizontal flip is not an acceptable audit fix.
-export const frontRightTopCardAudit = new Set([
+// here. Direction alone is insufficient: the nose must dominate the view and
+// the side must remain secondary. This explicit record makes a newly added
+// model fail the regression suite until somebody confirms both requirements.
+// A horizontal flip is not an acceptable audit fix.
+export const topCardVisualAudit = Object.fromEntries([
   'alphard', 'vellfire', 'noah', 'voxy', 'esquire', 'prius', 'harrier',
   'sienta', 'corolla-cross', 'serena', 'stepwgn', 'freed', 'n-box',
   'vezel', 'delica-d5', 'solio', 'spacia', 'tanto',
-])
+].map((slug) => [slug, { direction: 'front-right', angle: 'front-dominant-3q' }]))
 
 // TOP and NEXT DISCOVERY share one art-directed set: same 4:3 canvas,
 // camera, vehicle occupancy, wheel baseline and studio floor across all

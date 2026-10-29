@@ -48,7 +48,7 @@ export default {
   // TOP cards use a front-right three-quarter view (front points right).
   // Keep this independent from the comparison pair, whose camera matching
   // must not be changed just to satisfy the home-grid presentation rule.
-  homeCardImage: '/images/cars/corolla-cross/top-card-2025-front-right-v2.jpg',
+  homeCardImage: '/images/cars/corolla-cross/top-card-2025-front-right-v3.jpg',
   generationGuide: {
     title: '国内カローラ クロスは1世代。改良年を分けて確認',
     intro: '日本仕様は2021年9月に登場した10系が現行まで継続しています。2023年と2025年はフルモデルチェンジではなく同一世代内の改良です。型式はパワートレインと駆動方式で異なるため、外観だけでなく車検証と年式別装備表を組み合わせます。掲載画像は2025年5月改良のハイブリッドZ・2WD代表です。',
