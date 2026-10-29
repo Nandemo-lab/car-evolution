@@ -19,6 +19,7 @@ const japaneseNames = {
   spacia: 'スペーシア',
   tanto: 'タント',
   vezel: 'ヴェゼル ベゼル VEZEL',
+  'corolla-cross': 'カローラクロス かろーらくろす COROLLACROSS',
 }
 
 const hiragana = value => value.replace(/[ァ-ヶ]/g, char => String.fromCharCode(char.charCodeAt(0) - 0x60))

@@ -1,4 +1,14 @@
 export const newModelPages = {
+  "corolla-cross-2023-vs-2025.html": {
+    "name": "カローラ クロス2023年と2025年の違い",
+    "title": "カローラ クロス2023年と2025年の違い｜ハイブリッドZ比較 | CarVista",
+    "description": "カローラ クロスの2023年仕様と2025年改良をハイブリッドZ・2WDで比較。同色グリル、ヘッドランプ、全長、装備の違いと中古車の確認順を整理します。",
+    "image": "/images/cars/corolla-cross/zvg13-2025-hybrid-z-ff-v1.jpg",
+    "models": [
+      { "name": "COROLLA CROSS 2023 HYBRID Z", "url": "/corolla-cross-2023-vs-2025.html#corolla-cross-2023" },
+      { "name": "COROLLA CROSS 2025 HYBRID Z", "url": "/corolla-cross-2023-vs-2025.html#corolla-cross-2025" }
+    ]
+  },
   "vezel-ru-vs-rv.html": {
     "name": "ヴェゼルRU系とRV系の違い",
     "title": "ヴェゼルRU系とRV系の違い｜初代・2代目をZ・FFで比較 | CarVista",
@@ -91,6 +101,17 @@ export const newModelPages = {
   }
 }
 export const comparisonModels = [
+  {
+    "slug": "corolla-cross-2023-vs-2025",
+    "href": "/corolla-cross-2023-vs-2025.html",
+    "vehicleName": "COROLLA CROSS カローラクロス",
+    "maker": "Toyota",
+    "generations": [
+      { "era": "2023年仕様", "title": "HYBRID Z", "code": "ZVG13", "period": "2023年10月改良" },
+      { "era": "2025年改良", "title": "HYBRID Z", "code": "ZVG13", "period": "2025年5月改良" }
+    ],
+    "aliases": ["カローラ クロス", "COROLLACROSS"]
+  },
   {
     "slug": "jimny-sierra-vs-nomade",
     "href": "/jimny-sierra-vs-nomade.html",

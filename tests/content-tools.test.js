@@ -36,9 +36,9 @@ test('車名検索はかな・英字・表記揺れ・軽微な誤字から歴�
   assert.ok(destinations.some(item=>item.kind==='比較'))
   assert.equal(findModelDestinations(cars,'NBOX').some(item=>item.href.includes('roox')),false)
 })
-test('41比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
+test('42比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
   const files=readdirSync(new URL('../src/data/comparisons/',import.meta.url))
-  assert.equal(files.length,41)
+  assert.equal(files.length,42)
   for(const file of files){
     const data=(await import(`../src/data/comparisons/${file}`)).default
     const html=generationComparisonHtml(data)
@@ -63,10 +63,10 @@ test('個別の配列形式出典を優先し、確認日を捏造しない',()=
   assert.ok(refs.items.every(item=>item.url.startsWith('https://www.daihatsu.com/')))
   for(const car of cars) assert.ok(resolveReferences(car)?.items.length>0,car.slug)
 })
-test('公開81 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
+test('公開83 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
   const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
-  assert.equal(urls.length,81)
+  assert.equal(urls.length,83)
   for(const url of urls){
     const pathname=new URL(url).pathname
     const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')
