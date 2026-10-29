@@ -60,7 +60,7 @@ const generations = [
     image: '/images/cars/sienta/gen3-2022.webp',
     annotations: [
       { x: 28, y: 62, label: '丸みを帯びた<wbr>「シカクマル」グリル', dir: 'bottom', labelX: 26 },
-      { x: 40, y: 56, label: 'オレンジのラインが入る<wbr>丸型ヘッドライト', dir: 'top', labelX: 47 },
+      { x: 40, y: 56, label: '丸みのある<wbr>ヘッドランプ造形', dir: 'top', labelX: 47 },
     ],
     facelift: null,
   },
@@ -69,6 +69,12 @@ const generations = [
 export default {
   eyebrow: 'CARVISTA',
   vehicleName: 'SIENTA',
+  references: { items: [
+    { generations: '全3世代', label: 'Toyota公式 シエンタ歴代ギャラリー', url: 'https://global.toyota/jp/mobility/toyota-brand/gallery/sienta.html' },
+    { generations: '2代目 170系', label: 'Toyota 2015年シエンタ発売資料', url: 'https://global.toyota/jp/newsroom/toyota/21805713.html' },
+    { generations: '2代目 FUNBASE', label: 'Toyota 2018年マイナーチェンジ資料', url: 'https://global.toyota/jp/newsroom/toyota/24507657.html' },
+    { generations: '3代目 10系', label: 'Toyota 2022年シエンタ発売資料', url: 'https://global.toyota/jp/newsroom/toyota/37542166.html' },
+  ] },
   brand: 'トヨタ', // used only for JSON-LD ("トヨタ シエンタ MXPL10型" etc.)
   maker: 'Toyota', // English, for grouping cards on the Home page (see src/home.js)
   order: 9, // Home page display order within All Cars -- joins the existing Toyota group (appended after ESQUIRE/5) without disturbing Toyota-Nissan-Honda's own relative order.
@@ -109,7 +115,7 @@ export default {
   heroImage: '/images/cars/sienta/hero-mxpl10-3q.webp',
   generationGuide: {
     title: '丸目・170系・10系を顔と用途で見分ける',
-    intro: 'シエンタは3世代ともコンパクトな3列車ですが、見た目の方向性と乗り降りの考え方が大きく異なります。型式と画像を合わせて確認します。',
+    intro: 'シエンタは各世代に3列仕様を持つコンパクトミニバンです。2代目FUNBASEなどの2列仕様は用途が異なるため、型式・定員と画像を合わせて確認します。',
     items: [
       { title: '初代・NCP80系', description: '丸型2灯と短いボンネットが決め手。長期販売された初代は、親しみやすい顔とコンパクトな3列パッケージが特徴です。', meta: '2003年〜2015年 · NCP81G / NCP85G' },
       { title: '2代目・170系', description: '切れ長ランプと、バンパーへ流れ落ちる黒いガーニッシュで一目瞭然。後期の2列FUNBASEは、通常の3列車と用途を分けて確認します。', meta: '2015年〜2022年 · NSP170G / NHP170G ほか' },

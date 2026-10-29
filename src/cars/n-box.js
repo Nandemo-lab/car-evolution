@@ -80,6 +80,12 @@ const generations = [
 export default {
   eyebrow: 'CARVISTA',
   vehicleName: 'N-BOX',
+  references: { items: [
+    { generations: '初代 JF1/JF2', label: 'Honda 2011年N-BOX発売資料', url: 'https://global.honda/jp/news/2011/4111130-nbox.html' },
+    { generations: '2代目 JF3/JF4', label: 'Honda 2017年N-BOX発売資料', url: 'https://global.honda/jp/news/2017/4170831-n-box.html' },
+    { generations: '3代目 JF5/JF6', label: 'Honda 2023年N-BOX発売資料', url: 'https://global.honda/jp/news/2023/4231005-n-box.html' },
+    { generations: '全世代', label: 'Honda N-BOX累計販売台数・世代整理', url: 'https://global.honda/jp/news/2024/4240111.html' },
+  ] },
   brand: 'ホンダ', // used only for JSON-LD ("ホンダ N-BOX JF5/JF6型 後期" etc.)
   maker: 'Honda', // English, for grouping cards on the Home page (see src/home.js) -- joins the existing Honda group (STEPWGN/FREED)
   order: 12, // Home page display order within All Cars -- appended after FREED (8) within the existing Honda group.
@@ -127,11 +133,10 @@ export default {
     items: [
       { title: '初代', description: '細いグリルと、背の高い箱型シルエットが入口。', meta: '2011年〜2017年 · JF1 / JF2' },
       { title: '2代目', description: 'ライトとグリルの横方向のつながりがより明確。', meta: '2017年〜2023年 · JF3 / JF4' },
-      { title: '3代目', description: '水平基調の灯火類と、すっきりしたフロントが目印。', meta: '2023年〜現在 · JF5 / JF6' },
+      { title: '3代目', description: '丸型LEDヘッドライトと丸穴グリルが標準車の目印。', meta: '2023年〜現在 · JF5 / JF6' },
     ],
   },
   guides: [
-{"href":"/roox-b4-vs-bb.html","label":"ルークス旧型と新型の違い","title":"ルークス旧型と新型の違い","description":"代表仕様を固定し、型式・寸法・購入前の確認項目を整理。","image":"/images/cars/roox/bb2a-2025-highway-star.webp"},
     { href: '/n-box-jf1-zenki-kouki.html', label: 'JF1/JF2 前期・後期の違い', description: '2015年2月改良前後を標準N-BOX同士で比較する。', image: '/images/cars/n-box/jf1-2015-post-facelift-v1.png' },
     { href:'/n-box-jf1-vs-jf3.html', label:'N-BOX JF1・JF3の違い', description:'初代と2代目の標準N-BOXを画像、型式、装備で比較する。', image:'/images/cars/n-box/gen2-2017.webp' },
     { href: '/n-box-jf3-vs-jf5.html', label: 'N-BOX JF3とJF5の違い', description: '標準車の2代目と3代目を画像・型式・装備で比較する。', image: '/images/cars/n-box/gen3-2023.webp' },

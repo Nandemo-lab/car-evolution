@@ -90,6 +90,12 @@ const generations = [
 export default {
   eyebrow: 'CARVISTA',
   vehicleName: 'SPACIA',
+  references: { items: [
+    { generations: '初代 MK32S', label: 'スズキ 2013年スペーシア発売資料', url: 'https://www.suzuki.co.jp/release/a/2012/0226/' },
+    { generations: '初代・2代目', label: 'スズキ スペーシア100万台達成・歴代整理', url: 'https://www.suzuki.co.jp/release/a/2021/0406/' },
+    { generations: '2代目 MK53S', label: 'スズキ 2017年全面改良資料', url: 'https://www.suzuki.co.jp/release/a/2017/1214/' },
+    { generations: '3代目 MK54S/MK94S', label: 'スズキ 2023年全面改良資料', url: 'https://www.suzuki.co.jp/release/a/2023/1109/' },
+  ] },
   brand: 'スズキ', // used only for JSON-LD ("スズキ スペーシア MK94S型" etc.)
   maker: 'Suzuki', // English, for grouping cards on the Home page (see src/home.js) -- joins the existing Suzuki group (ソリオ)
   order: 13, // Home page display order within All Cars -- appended after ソリオ (11) and N-BOX (12) within/after the existing Suzuki group.

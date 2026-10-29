@@ -54,7 +54,7 @@ export default {
     { label: 'Toyota 2023年カローラ クロス一部改良', href: 'https://global.toyota/jp/newsroom/toyota/39926142.html' },
     { label: 'Toyota 2025年カローラ クロス一部改良', href: 'https://global.toyota/jp/newsroom/toyota/42821873.html' },
     { label: 'Toyota カローラ クロス公式中古車カタログ', href: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_CROSS/' },
-    { label: 'Toyota認定中古車 2025年5月 ハイブリッドZ車両情報', href: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_CROSS/202505/10158211/' },
+    { label: 'Toyota認定中古車 2025年5月 ハイブリッドZ・2WD車両情報', href: 'https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_CROSS/202505/10158206/' },
   ],
   historyHref: '/cars/corolla-cross.html', historyLabel: 'カローラ クロスの型式・改良履歴へ',
   shareText: 'カローラ クロス2023年と2025年の違い', compactIdentification: true,

@@ -33,7 +33,7 @@ const topCardImages = {
   harrier: '/images/cars/harrier/top-card-front-right-v2.png',
   sienta: '/images/cars/sienta/top-card-front-right-v2.png',
   'corolla-cross': '/images/cars/corolla-cross/top-card-front-right-v2.png',
-  serena: '/images/cars/serena/top-card-front-right-v2.png',
+  serena: '/images/cars/serena/top-card-v2.webp',
   stepwgn: '/images/cars/stepwgn/top-card-front-right-v2.png',
   freed: '/images/cars/freed/top-card-front-right-v2.png',
   'n-box': '/images/cars/n-box/top-card-front-right-v2.png',

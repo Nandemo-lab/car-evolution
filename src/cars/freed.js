@@ -79,6 +79,13 @@ const generations = [
 export default {
   eyebrow: 'CARVISTA',
   vehicleName: 'FREED',
+  references: { items: [
+    { generations: '初代', label: 'Honda 2008年FREED発売資料', url: 'https://global.honda/jp/news/2008/4080529-freed.html' },
+    { generations: '初代・ハイブリッド追加', label: 'Honda 2011年FREED改良資料', url: 'https://global.honda/jp/news/2011/4111027-freed.html' },
+    { generations: '2代目', label: 'Honda 2016年FREED発売資料', url: 'https://global.honda/jp/news/2016/4160916-freed.html' },
+    { generations: '2代目・2019年改良', label: 'Honda 2019年FREED改良資料', url: 'https://global.honda/jp/news/2019/4191018-freed.html' },
+    { generations: '3代目', label: 'Honda 2024年FREED発売資料', url: 'https://global.honda/jp/news/2024/4240627-freed.html' },
+  ] },
   brand: 'ホンダ', // used only for JSON-LD ("ホンダ FREED GT5型" etc.)
   maker: 'Honda', // English, for grouping cards on the Home page (see src/home.js) -- CSS uppercases it for display
   order: 8, // Home page display order within All Cars -- lower shows first. Appended after STEPWGN, joining the existing Honda group rather than starting a new one.

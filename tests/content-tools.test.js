@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import { dimensionDifferences, escapeText, millimetres } from '../src/comparison-tools.js'
 import { findModels, findModelDestinations, normalizeModelQuery } from '../src/model-finder.js'
 import { generationComparisonHtml } from '../src/generation-comparison-html.js'
@@ -18,6 +19,17 @@ test('ユーザー入力をHTMLとして扱わない', () => {
   assert.equal(escapeText('<script>"&'), '&lt;script&gt;&quot;&amp;')
 })
 const cars = await Promise.all(readdirSync(new URL('../src/cars/',import.meta.url)).filter(p=>p.endsWith('.js')).map(async p=>({...((await import(`../src/cars/${p}`)).default),slug:p.replace('.js','')})))
+
+test('TOP車種カードで別車種が同一画像データを共有しない', () => {
+  const seen = new Map()
+  for (const car of cars) {
+    const image = getDiscoveryImage(car)
+    const bytes = readFileSync(new URL(`../public${image}`, import.meta.url))
+    const hash = createHash('sha256').update(bytes).digest('hex')
+    assert.ok(!seen.has(hash), `${car.slug} duplicates ${seen.get(hash)}`)
+    seen.set(hash, car.slug)
+  }
+})
 test('型式・全角・日本語・複数条件・該当なしを区別する', () => {
   assert.equal(findModels(cars,'ＪＦ１')[0].car.slug,'n-box')
   assert.ok(findModels(cars,'タント').every(x=>x.car.slug==='tanto'))

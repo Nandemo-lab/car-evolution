@@ -96,6 +96,12 @@ const generations = [
 export default {
   eyebrow: 'CARVISTA',
   vehicleName: 'SOLIO',
+  references: { items: [
+    { generations: 'MA15S', label: 'スズキ 2010年ソリオ発売資料', url: 'https://www.suzuki.co.jp/release/a/2010/1224/' },
+    { generations: 'MA36S/MA46S', label: 'スズキ 2015年ソリオ発売資料', url: 'https://www.suzuki.co.jp/release/a/2015/0826/index.html' },
+    { generations: 'MA27S/MA37S', label: 'スズキ 2020年ソリオ発売資料', url: 'https://www.suzuki.co.jp/release/a/2020/1125/' },
+    { generations: '初期モデル', label: 'スズキデジタルライブラリー ワゴンRソリオ／ソリオ', url: 'https://www.suzuki.co.jp/suzuki_digital_library/1_auto/wagonrsolio.html' },
+  ] },
   brand: 'スズキ', // used only for JSON-LD ("スズキ ソリオ MA37S型" etc.)
   maker: 'Suzuki', // English, for grouping cards on the Home page (see src/home.js) -- CarVista's first Suzuki vehicle
   order: 11, // Home page display order within All Cars -- appended after every existing maker AND after Delica D:5's new Mitsubishi group, so existing brand order is untouched and Suzuki becomes the newest group.
