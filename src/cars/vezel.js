@@ -50,7 +50,7 @@ export default {
   designRole: 'The urban crossover.',
   designIdentity: ['Clean', 'Coupe-like', 'Versatile'],
   designAvoid: ['Off-road heavy', 'Minivan', 'Formal luxury'],
-  representativeGrade: 'Launch representative by generation',
+  representativeGrade: '初代2013年HYBRID Z・FF／2代目2026年e:HEV Z・FF',
   representativeColor: 'Slate gray pearl',
   heroScrim: '10, 13, 16',
   referenceLengthMm: 4340,
@@ -68,15 +68,49 @@ export default {
   heroImage: '/images/cars/vezel/rv5-2026-ehev-z-ff-v1.png',
   homeCardImage: '/images/cars/vezel/rv5-2026-ehev-z-ff-v1.png',
   generationGuide: {
-    title: 'RU系とRV系を見分ける代表ポイント',
-    intro: 'まず型式の先頭とボディーの面構成を確認します。2024年・2026年の改良はRV系の世代内変更で、フルモデルチェンジではありません。',
-    items: [
-      { title: '初代 RU系', description: '中央へ絞ったフロントと、張り出したフェンダーが目印。', meta: '2013年〜2021年 · RU1 / RU2 / RU3 / RU4' },
-      { title: '2代目 RV系', description: '水平基調のフロントと、面をそろえたクリーンなボディー。', meta: '2021年〜現在 · RV3 / RV4 / RV5 / RV6' },
-      { title: '2024・2026年改良', description: 'どちらもRV系。2026年はグレード別に外装色と快適装備を変更。', meta: '2024年4月／2026年10月' },
-    ],
-  },
+  "title": "ヴェゼルは国内2世代。改良年と型式を分けて確認",
+  "intro": "国内VEZELは2013年12月の初代RU系と、2021年4月の2代目RV系です。このページは世代・発売時期・型式の入口を整理した年表です。2026年10月29日時点で確認した最新改良は同年10月23日で、3代目への世代交代ではありません。歴代ページの画像は初代2013年HYBRID Z・FFと2代目2026年e:HEV Z・FFの代表です。すべての改良型を描いたものではありません。発売時同士の2013年／2021年比較は関連ガイドへ分けています。海外HR-Vの呼称・世代区分とは分けています。",
+  "items": [
+    {
+      "title": "2013年12月20日：RU系の発売",
+      "description": "ハイブリッドはRU3（FF）／RU4（4WD）、ガソリンはRU1（FF）／RU2（4WD）。1モーターのi-DCDに7速DCTを組み合わせたハイブリッドと、CVTのガソリン車を区別してください。掲載画像はHYBRID Z・FFで、他グレードの樹脂部やホイールは同じではありません。",
+      "meta": "初代 · RU1／RU2／RU3／RU4"
+    },
+    {
+      "title": "2018年2月16日：初代のマイナーチェンジ",
+      "description": "グリルやバンパー、灯火類の意匠を更新。Honda SENSINGは全タイプ標準装備と案内されていますが非装着仕様の設定もあり、年式だけで個体の装備を断定できません。RSや後年追加のTOURING等の専用意匠を、初代全体の前後期差と混同しないことが重要です。",
+      "meta": "同じRU系内の改良 · 掲載画像は改良前"
+    },
+    {
+      "title": "2021年4月23日：RV系へ世代交代",
+      "description": "ハイブリッドを2モーターのe:HEVへ刷新。RV5がFF、RV6が4WDで、発売時のガソリンGはRV3／RV4です。Z・FFの幅は1,790mm、全長は4,330mm。平らで長いボンネットと横方向を強調したフロントで初代と見分けられます。",
+      "meta": "2代目 · RV3／RV4／RV5／RV6"
+    },
+    {
+      "title": "2024年4月26日：RV系の外観・装備改良",
+      "description": "フロントグリルとバンパー、後部のLED灯火を変更。XにはHuNTパッケージ、ZにはPLaYパッケージを設定しました。2021年の独立したPLaYと2024年以降のZ・PLaYパッケージは商品構成が異なるため、中古車欄の略称だけで屋根や駆動方式を判断しないでください。",
+      "meta": "2代目の改良 · 新世代ではない"
+    },
+    {
+      "title": "2025年10月24日：e:HEV RS追加",
+      "description": "専用の低い車高、グリルなどを持つRSを追加。見た目が大きく違ってもRV系の一仕様です。RSの全高1,545mmを通常Zの駐車場適合判断に流用できません。立体駐車場は幅・高さに加えて重量や機械側の制限も確認します。",
+      "meta": "専用グレード · FF／4WD設定"
+    },
+    {
+      "title": "2026年10月23日：Z系の同色部を拡大",
+      "description": "ZとZ・PLaYパッケージではホイールアーチや前後・サイドのガーニッシュをボディ同色化し、ヘッドランプ内部をブラック基調へ。G／X系の後席向け装備も拡充されています。「樹脂アーチが黒いから初代」「同色だからRS」といった単独判定は成立しません。",
+      "meta": "確認済みの最新改良 · 2026年10月29日調査"
+    },
+    {
+      "title": "年式を特定するときの照合順",
+      "description": "車検証等で型式と駆動方式を確認し、製造時期とグレードを販売店に照会、最後に年式別装備表と外観を照合します。初度登録月と製造月は別です。ルーフ、グリル、ホイールが交換された車両では写真だけで決めず、車台番号による確認を優先してください。",
+      "meta": "書類 → 製造時期 → 仕様 → 外観"
+    }
+  ],
+  "layout": "chronology"
+},
   guides: [
+{"href":"/vezel-ru-vs-rv.html","label":"初代RU・2代目RVの違い","title":"ヴェゼルRU系とRV系の違い","description":"Z・FF同士でサイズ、ハイブリッド方式、中古車の確認手順を比較。","image":"/images/cars/vezel/rv5-2021-ehev-z.webp"},
     { href: '/vezel-2024-vs-2026.html', label: '2024年仕様・2026年改良の違い', description: 'e:HEV Z・FFを固定し、外装色と装備差を公式資料で確認する。', image: '/images/cars/vezel/rv5-2026-ehev-z-ff-v1.png' },
   ],
   seo: {

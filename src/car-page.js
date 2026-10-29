@@ -151,13 +151,13 @@ function renderGenerationGuide(config) {
   if (!config.generationGuide?.items?.length) return
   const guide = config.generationGuide
   const section = document.createElement('section')
-  section.className = 'generation-guide'
+  section.className = `generation-guide${guide.layout === 'chronology' ? ' generation-guide--chronology' : ''}`
   section.setAttribute('aria-labelledby', 'generation-guide-title')
   section.innerHTML = `
     <div class="generation-guide-heading"><p>IDENTIFICATION</p><h2 id="generation-guide-title">${guide.title}</h2><span>${guide.intro}</span></div>
     <div class="generation-guide-grid">${guide.items.map((item, index) => {
       const generation = config.generations[index]
-      return `<article><img src="${generation?.image || ''}" alt="${config.vehicleName} ${item.title}" loading="lazy" decoding="async" /><div><strong>${item.title}</strong><span>${item.description}</span><b>主な型式・販売期間：${item.meta}</b></div></article>`
+      return `<article>${guide.layout === 'chronology' ? '' : `<img src="${generation?.image || ''}" alt="${config.vehicleName} ${item.title}" loading="lazy" decoding="async" />`}<div><strong>${item.title}</strong><span>${item.description}</span><b>主な型式・販売期間：${item.meta}</b></div></article>`
     }).join('')}</div>`
   document.querySelector('.back-home').before(section)
 }

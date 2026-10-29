@@ -1,3 +1,4 @@
+import { comparisonModels } from './data/new-model-pages.js'
 import { bindModelFinder } from './model-finder.js'
 import './home.css'
 import './click-glow.js'
@@ -110,4 +111,4 @@ initScrollFade()
 initHeroCta()
 initGrowthEvents()
 
-bindModelFinder(cars)
+bindModelFinder([...cars, ...comparisonModels])

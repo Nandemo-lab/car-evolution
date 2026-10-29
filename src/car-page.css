@@ -629,3 +629,8 @@ body { margin: 0; background: #0b0c0e; }
   .static-generation-grid { grid-template-columns: 1fr; }
   .static-fast-answer, .static-generation-card { padding: 14px; border-radius: 14px; }
 }
+
+/* Dated changes do not imply a matching photograph for every year. */
+.generation-guide--chronology .generation-guide-grid { grid-template-columns:1fr; gap:0; }
+.generation-guide--chronology .generation-guide-grid article { display:block; min-height:0; padding:22px 0 22px 20px; border:0; border-left:2px solid #7a6b49; border-radius:0; background:none; }
+.generation-guide--chronology .generation-guide-grid span { max-width:760px; font-size:14px; line-height:1.85; }

@@ -66,3 +66,13 @@
 .lc-note { color: #aaa; }
 .lc-note a { color: #d4ba7f; text-underline-offset: 3px; }
 .lc-note a:focus-visible { outline: 2px solid #e1c679; outline-offset: 4px; }
+
+/* Calibrated studio pairs: retain aspect ratio and a shared tire baseline. */
+.lc-image-stage { aspect-ratio:1740/904; overflow:hidden; background:#0b0d0f; }
+.lc-image-stage img { aspect-ratio:1740/904; object-fit:contain; transform-origin:50% 100%; transform:translate(var(--car-x),var(--car-y)) scale(var(--car-scale)); }
+
+.lc-car-details { margin-top:12px; }
+.lc-car-details summary { min-height:44px; display:flex; align-items:center; gap:10px; cursor:pointer; color:#c9aa63; font-size:13px; }
+.lc-car-details summary::before { content:"＋"; }
+.lc-car-details[open] summary::before { content:"−"; }
+.lc-car-details summary:focus-visible { outline:2px solid #c9aa63; outline-offset:3px; }

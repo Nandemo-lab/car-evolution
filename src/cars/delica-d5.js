@@ -242,6 +242,7 @@ export default {
     { generations: '現行CV1W主要諸元', label: '三菱自動車 DELICA D:5主要諸元', href: 'https://www.mitsubishi-motors.co.jp/lineup/delica_d5/spec/pdf/delica_d5_spec.pdf' },
   ],
   guides: [
+{"href":"/delica-mini-b3-vs-ba.html","label":"デリカミニ初代と新型の違い","title":"デリカミニ初代と新型の違い","description":"代表仕様を固定し、型式・寸法・購入前の確認項目を整理。","image":"/images/cars/delica-mini/ba6a-2025-t-premium.webp"},
     { href: '/delica-d5-before-after-2019.html', label: '2007年型と2019年大幅改良型の違い', description: '同一世代で大きく変わったフロント、型式、パワートレーンを比較する。', image: '/images/cars/delica-d5/gen2-2019.webp' },
   ],
   seo: {

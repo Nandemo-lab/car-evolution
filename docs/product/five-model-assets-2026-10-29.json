@@ -1,0 +1,303 @@
+{
+  "reviewedAt": "2026-10-29",
+  "masterReference": "/images/cars/harrier/gen4-2020-mxua80.png",
+  "rendering": "Original AI-assisted illustration; not manufacturer photography. Proportions preserved. Display distance and ground line calibrated; not a photogrammetric dimension measurement.",
+  "assets": [
+    {
+      "page": "/vezel-ru-vs-rv.html",
+      "image": "/images/cars/vezel/ru3-2013-hybrid-z.webp",
+      "specification": "2013 · DAA-RU3 · FF / 初代 HYBRID Z",
+      "sha256": "6be521de42220cc04982de3a5fc811057aca6c4d4b686bfe367fddfa4f7b1d81",
+      "bytes": 75128,
+      "presentation": {
+        "scale": 1.0134,
+        "x": -0.466,
+        "y": 4.384
+      },
+      "officialSources": [
+        "https://global.honda/jp/news/2013/4131219-vezel.html",
+        "https://www.honda.co.jp/factbook/auto/VEZEL/201312/VEZEL_1312.pdf",
+        "https://global.honda/jp/news/2018/4180215-vezel.html",
+        "https://global.honda/jp/news/2021/4210422-vezel.html",
+        "https://www.honda.co.jp/factbook/auto/VEZEL/202104/202104_VEZEL.pdf",
+        "https://global.honda/jp/news/2024/4240425-vezel.html",
+        "https://global.honda/jp/news/2025/4251023-vezel.html",
+        "https://global.honda/jp/news/2026/4261022-vezel.html"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    },
+    {
+      "page": "/vezel-ru-vs-rv.html",
+      "image": "/images/cars/vezel/rv5-2021-ehev-z.webp",
+      "specification": "2021 · 6AA-RV5 · FF / 2代目 e:HEV Z",
+      "sha256": "9b7414b3733051843b1be100aecea86c8137d8c3c659dabfa764efa09f57799f",
+      "bytes": 74318,
+      "presentation": {
+        "scale": 1.056,
+        "x": -0.577,
+        "y": 6.559
+      },
+      "officialSources": [
+        "https://global.honda/jp/news/2013/4131219-vezel.html",
+        "https://www.honda.co.jp/factbook/auto/VEZEL/201312/VEZEL_1312.pdf",
+        "https://global.honda/jp/news/2018/4180215-vezel.html",
+        "https://global.honda/jp/news/2021/4210422-vezel.html",
+        "https://www.honda.co.jp/factbook/auto/VEZEL/202104/202104_VEZEL.pdf",
+        "https://global.honda/jp/news/2024/4240425-vezel.html",
+        "https://global.honda/jp/news/2025/4251023-vezel.html",
+        "https://global.honda/jp/news/2026/4261022-vezel.html"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    },
+    {
+      "page": "/rav4-50-vs-60.html",
+      "image": "/images/cars/rav4/axah54-2019-hybrid-g.webp",
+      "specification": "2019 · 6AA-AXAH54 · E-FOUR / 5代目 HYBRID G",
+      "sha256": "9c17a71619c7b4a4182b41a630dadd57947100aa146db9b8f82e7402ea9a1999",
+      "bytes": 91050,
+      "presentation": {
+        "scale": 1.0352,
+        "x": -0.119,
+        "y": 3.292
+      },
+      "officialSources": [
+        "https://global.toyota/jp/newsroom/toyota/27546080.html",
+        "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-RAV4/201904/10120929/",
+        "https://global.toyota/jp/newsroom/toyota/43738655.html",
+        "https://toyota.jp/pages/contents/rav4/003_p_001/pdf/rav4_spec_202609.pdf",
+        "https://toyotagazooracing.com/jp/pressrelease/2026/0219-01/"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    },
+    {
+      "page": "/rav4-50-vs-60.html",
+      "image": "/images/cars/rav4/axan64-2025-hev-z.webp",
+      "specification": "2025 · 6AA-AXAN64 · E-FOUR / 6代目 HEV Z",
+      "sha256": "a0a68857f63e145240ce4443009e387118fc059843321d1fa8de26462ac5339d",
+      "bytes": 90572,
+      "presentation": {
+        "scale": 1.071,
+        "x": -0.062,
+        "y": 6.023
+      },
+      "officialSources": [
+        "https://global.toyota/jp/newsroom/toyota/27546080.html",
+        "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-RAV4/201904/10120929/",
+        "https://global.toyota/jp/newsroom/toyota/43738655.html",
+        "https://toyota.jp/pages/contents/rav4/003_p_001/pdf/rav4_spec_202609.pdf",
+        "https://toyotagazooracing.com/jp/pressrelease/2026/0219-01/"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    },
+    {
+      "page": "/cx-5-kf-vs-km.html",
+      "image": "/images/cars/cx-5/kf5p-sports-appearance.webp",
+      "specification": "KF後期 · 6BA-KF5P · 4WD / 2代目 25S Sports Appearance",
+      "sha256": "7ce6922b865e4439aaf95084ce03ecb8ea5325b0b3af5a15d1b5f10b3bef4148",
+      "bytes": 101146,
+      "presentation": {
+        "scale": 1.0166,
+        "x": 0.117,
+        "y": 1.295
+      },
+      "officialSources": [
+        "https://newsroom.mazda.com/ja/publicity/release/2021/202111/211108a.html",
+        "https://www.mazda.co.jp/cars/passenger/cx-5_kf/grade/",
+        "https://www.mazda.co.jp/content/dam/mazda/official/mazda-co-jp/cars/cx-5_kf/common/pdf/cx-5_specification_202510.pdf",
+        "https://newsroom.mazda.com/ja/publicity/release/2026/202605/260521a.html",
+        "https://www.mazda.co.jp/cars/passenger/cx-5/grade/",
+        "https://www.mazda.co.jp/content/dam/mazda/official/mazda-co-jp/cars/cx-5/common/pdf/cx-5_specification_202605.pdf"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    },
+    {
+      "page": "/cx-5-kf-vs-km.html",
+      "image": "/images/cars/cx-5/kmysdp-2026-l.webp",
+      "specification": "2026 · 5AA-KMYSDP · 4WD / 3代目 L e-SKYACTIV G 2.5",
+      "sha256": "3adc6074236d8cfcd5e3bc5cbd27961f5c75230bec65ba06ceea77712eec465d",
+      "bytes": 89844,
+      "presentation": {
+        "scale": 1.058,
+        "x": -0.821,
+        "y": 3.087
+      },
+      "officialSources": [
+        "https://newsroom.mazda.com/ja/publicity/release/2021/202111/211108a.html",
+        "https://www.mazda.co.jp/cars/passenger/cx-5_kf/grade/",
+        "https://www.mazda.co.jp/content/dam/mazda/official/mazda-co-jp/cars/cx-5_kf/common/pdf/cx-5_specification_202510.pdf",
+        "https://newsroom.mazda.com/ja/publicity/release/2026/202605/260521a.html",
+        "https://www.mazda.co.jp/cars/passenger/cx-5/grade/",
+        "https://www.mazda.co.jp/content/dam/mazda/official/mazda-co-jp/cars/cx-5/common/pdf/cx-5_specification_202605.pdf"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    },
+    {
+      "page": "/roox-b4-vs-bb.html",
+      "image": "/images/cars/roox/b45a-2023-highway-star.webp",
+      "specification": "2023年改良後 · 4AA-B45A · 2WD / 旧型 ハイウェイスターGターボ",
+      "sha256": "771a102d26bab8c2437e640898689abc3c36e53b3a952798651ed546e7d9ab52",
+      "bytes": 77220,
+      "presentation": {
+        "scale": 1.2132,
+        "x": -0.174,
+        "y": 9.351
+      },
+      "officialSources": [
+        "https://global.nissannews.com/ja-JP/releases/230417-01-j",
+        "https://www3.nissan.co.jp/vehicles/old/roox_ba1_2304.html",
+        "https://www-asia.nissan-cdn.net/content/dam/Nissan/jp/vehicles/roox/2409/pdf/roox_specsheet.pdf",
+        "https://global.nissannews.com/ja-JP/releases/250919-01-j",
+        "https://global.nissannews.com/ja-JP/releases/250822-01-j",
+        "https://faq2.nissan.co.jp/faq/show/78825?category_id=63&site_domain=default",
+        "https://www-asia.nissan-cdn.net/content/dam/Nissan/jp/vehicles/roox/2605/pdf/roox_2605_specsheet_01.pdf"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    },
+    {
+      "page": "/roox-b4-vs-bb.html",
+      "image": "/images/cars/roox/bb2a-2025-highway-star.webp",
+      "specification": "2025年10月 · 4BA-BB2A · 2WD / 新型 ハイウェイスターGターボ",
+      "sha256": "c3937a0627399e8d86519decc390a912c5f9a4b8d9ef868e58b1f24463e09503",
+      "bytes": 84298,
+      "presentation": {
+        "scale": 1.0992,
+        "x": 0.411,
+        "y": 4.483
+      },
+      "officialSources": [
+        "https://global.nissannews.com/ja-JP/releases/230417-01-j",
+        "https://www3.nissan.co.jp/vehicles/old/roox_ba1_2304.html",
+        "https://www-asia.nissan-cdn.net/content/dam/Nissan/jp/vehicles/roox/2409/pdf/roox_specsheet.pdf",
+        "https://global.nissannews.com/ja-JP/releases/250919-01-j",
+        "https://global.nissannews.com/ja-JP/releases/250822-01-j",
+        "https://faq2.nissan.co.jp/faq/show/78825?category_id=63&site_domain=default",
+        "https://www-asia.nissan-cdn.net/content/dam/Nissan/jp/vehicles/roox/2605/pdf/roox_2605_specsheet_01.pdf"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    },
+    {
+      "page": "/delica-mini-b3-vs-ba.html",
+      "image": "/images/cars/delica-mini/b38a-2023-t-premium.webp",
+      "specification": "2023 · 4AA-B38A · TURBO / 初代 T Premium 4WD",
+      "sha256": "135d3e00b3292452f752db0c2b6530bafcfafd66b8813ab1cea7b47e2fa8d07c",
+      "bytes": 82388,
+      "presentation": {
+        "scale": 1.071,
+        "x": 1.231,
+        "y": 4.127
+      },
+      "officialSources": [
+        "https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/2023/20230406_2.html",
+        "https://www.mitsubishi-motors.co.jp/lineup/autosalon/tas2023/pdf/delicamini.pdf",
+        "https://www.mitsubishi-motors.co.jp/carlife/autosalon/tas2025/assets/pdf/axcr/delicamini_axcr2024_supportcar.pdf",
+        "https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/2025/20250403_1.html",
+        "https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/2025/20250918_3.html",
+        "https://www.mitsubishi-motors.co.jp/lineup/delica_mini/grade/t_premium_delimaru.html",
+        "https://www.mitsubishi-motors.co.jp/lineup/delica_mini/spec/pdf/delica_mini_spec.pdf"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    },
+    {
+      "page": "/delica-mini-b3-vs-ba.html",
+      "image": "/images/cars/delica-mini/ba6a-2025-t-premium.webp",
+      "specification": "2025 · 4BA-BA6A · TURBO 4WD / 2代目 T Premium DELIMARU Package",
+      "sha256": "ce3e30e025df38b8d3d989911d6bc3f08329df0fcdaa634c66affc7170a33036",
+      "bytes": 96348,
+      "presentation": {
+        "scale": 0.9893,
+        "x": -0.739,
+        "y": 2.306
+      },
+      "officialSources": [
+        "https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/2023/20230406_2.html",
+        "https://www.mitsubishi-motors.co.jp/lineup/autosalon/tas2023/pdf/delicamini.pdf",
+        "https://www.mitsubishi-motors.co.jp/carlife/autosalon/tas2025/assets/pdf/axcr/delicamini_axcr2024_supportcar.pdf",
+        "https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/2025/20250403_1.html",
+        "https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/2025/20250918_3.html",
+        "https://www.mitsubishi-motors.co.jp/lineup/delica_mini/grade/t_premium_delimaru.html",
+        "https://www.mitsubishi-motors.co.jp/lineup/delica_mini/spec/pdf/delica_mini_spec.pdf"
+      ],
+      "audit": {
+        "identity": "PASS",
+        "lampsGrilleBumper": "PASS",
+        "windowsWheelsTrim": "PASS",
+        "blankPlate": "PASS",
+        "pageSpecification": "PASS",
+        "studioPair": "PASS after proportional display calibration",
+        "method": "Separate source/grade review, post-generation visual review and rendered-pair review by the same agent; not an external expert certification"
+      }
+    }
+  ]
+}

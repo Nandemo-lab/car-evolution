@@ -1,3 +1,4 @@
+import { newModelPages } from './src/data/new-model-pages.js'
 import { ninjaParserPlugin } from './scripts/ninja-parser-plugin.mjs'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -22,6 +23,7 @@ const SITE_NAME = 'CarVista'
 const SITE_ORIGIN = 'https://carvista.jp'
 
 const COMPARISON_PAGES = {
+  ...newModelPages,
   'vezel-2024-vs-2026.html': {
     name: 'VEZEL 2024年仕様・2026年改良仕様の違い',
     title: 'ヴェゼル2024年仕様と2026年改良の違い｜e:HEV Zを比較 | CarVista',
@@ -32,6 +34,7 @@ const COMPARISON_PAGES = {
       { name: 'ホンダ VEZEL e:HEV Z 2026年改良仕様', url: '/vezel-2024-vs-2026.html#vezel2026' },
     ],
   },
+
   'vellfire-20-zenki-kouki.html': { name:'VELLFIRE 20系 前期・後期', title:'ヴェルファイア20系前期・後期の違い｜見分け方を画像比較 | CarVista', description:'20系ヴェルファイア2.4Z系の前期と2011年11月改良後を画像で比較。グリル、バンパー、型式と中古車での確認方法を解説します。', image:'/images/cars/vellfire/20-2.4z-post-facelift-v1.png', models:[{name:'トヨタ VELLFIRE 20系前期 2.4Z',url:'/vellfire-20-zenki-kouki.html#v20pre'},{name:'トヨタ VELLFIRE 20系後期 2.4Z',url:'/vellfire-20-zenki-kouki.html#v20post'}] },
   'vellfire-20-vs-30.html': { name:'VELLFIRE 20系・30系の違い', title:'ヴェルファイア20系と30系の違い・見分け方 | CarVista', description:'ヴェルファイア20系と30系を画像と公式情報で比較。型式、サイズ、乗り心地、中古車の見分け方を解説します。', image:'/images/cars/vellfire/30-z-a-edition-pre-facelift-v1.png', models:[{name:'トヨタ VELLFIRE 20系',url:'/vellfire-20-vs-30.html#v20'},{name:'トヨタ VELLFIRE 30系',url:'/vellfire-20-vs-30.html#v30'}] },
   'tanto-la600s-zenki-kouki.html': { name:'標準TANTO LA600S 前期・後期', title:'標準タントLA600S前期・後期の違い｜2015年12月改良を比較 | CarVista', description:'標準タントLA600Sの前期と2015年12月改良後を比較。内装や商品構成、SAⅡだけで判別できない理由、車台番号を使った確認方法を解説します。タントカスタムは対象外です。', image:'/images/cars/tanto/la600s-2015-post-facelift-v1.png', models:[{name:'標準タントLA600S前期',url:'/tanto-la600s-zenki-kouki.html#la600pre'},{name:'標準タントLA600S後期',url:'/tanto-la600s-zenki-kouki.html#la600post'}] },

@@ -66,6 +66,9 @@ export default {
     ],
   },
   guides: [
+{"href":"/vezel-ru-vs-rv.html","label":"ヴェゼルRU系とRV系の違い","title":"ヴェゼルRU系とRV系の違い","description":"代表仕様を固定し、型式・寸法・購入前の確認項目を整理。","image":"/images/cars/vezel/rv5-2021-ehev-z.webp"},
+{"href":"/rav4-50-vs-60.html","label":"RAV4 50系と60系の違い","title":"RAV4 50系と60系の違い","description":"代表仕様を固定し、型式・寸法・購入前の確認項目を整理。","image":"/images/cars/rav4/axan64-2025-hev-z.webp"},
+{"href":"/cx-5-kf-vs-km.html","label":"CX-5 KF系とKM系の違い","title":"CX-5 KF系とKM系の違い","description":"代表仕様を固定し、型式・寸法・購入前の確認項目を整理。","image":"/images/cars/cx-5/kmysdp-2026-l.webp"},
     { href: '/land-cruiser-300-vs-250.html', label: 'SUVの候補を広げる：ランドクルーザー300・250', description: 'ハリアー以外のSUVも検討する方へ。300と250のサイズ・位置づけ・選び方を確認する。' },
     { href:'/harrier-30-vs-60.html', label:'ハリアー 30系・60系の違い', description:'2代目と3代目を画像、型式、サイズで比較する。', image:'/images/cars/harrier/gen3-2013-zsu60w.png' },
     {

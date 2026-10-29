@@ -24,9 +24,9 @@ test('型式・全角・日本語・複数条件・該当なしを区別する',
   assert.equal(findModels(cars,'<script>unmatched').length,0)
   assert.equal(findModels(cars,'   ').length,0)
 })
-test('35比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
+test('40比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
   const files=readdirSync(new URL('../src/data/comparisons/',import.meta.url))
-  assert.equal(files.length,35)
+  assert.equal(files.length,40)
   for(const file of files){
     const data=(await import(`../src/data/comparisons/${file}`)).default
     const html=generationComparisonHtml(data)
@@ -40,7 +40,7 @@ test('35比較ページの初期HTMLに本文・出典・画像・メモが揃�
     assert.ok(built.includes(data.answer.title),file)
   }
 })
-test('ホームはJavaScript実行前から全16車種にリンクする',()=>{
+test('ホームはJavaScript実行前から全17車種にリンクする',()=>{
   const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
   for(const car of cars) assert.ok(html.includes(`/cars/${car.slug}.html`),car.slug)
 })
@@ -51,10 +51,10 @@ test('個別の配列形式出典を優先し、確認日を捏造しない',()=
   assert.ok(refs.items.every(item=>item.url.startsWith('https://www.daihatsu.com/')))
   for(const car of cars) assert.ok(resolveReferences(car)?.items.length>0,car.slug)
 })
-test('公開75 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
+test('公開80 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
   const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
-  assert.equal(urls.length,75)
+  assert.equal(urls.length,80)
   for(const url of urls){
     const pathname=new URL(url).pathname
     const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')
