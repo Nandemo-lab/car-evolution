@@ -35,6 +35,17 @@ const topCardPresentation = {
   spacia: 1.07,
 }
 
+// Every published TOP card must be visually checked before its slug is added
+// here. This explicit allow-list makes a newly added model fail the regression
+// suite until somebody confirms the shared CarVista composition: genuine
+// front-right three-quarter view (front points right), dark studio, full car,
+// consistent occupancy. A horizontal flip is not an acceptable audit fix.
+export const frontRightTopCardAudit = new Set([
+  'alphard', 'vellfire', 'noah', 'voxy', 'esquire', 'prius', 'harrier',
+  'sienta', 'corolla-cross', 'serena', 'stepwgn', 'freed', 'n-box',
+  'vezel', 'delica-d5', 'solio', 'spacia', 'tanto',
+])
+
 // TOP and NEXT DISCOVERY share one art-directed set: same 4:3 canvas,
 // camera, vehicle occupancy, wheel baseline and studio floor across all
 // published vehicles. Page Hero and comparison imagery remain independent.

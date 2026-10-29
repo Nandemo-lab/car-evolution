@@ -6,6 +6,7 @@ import { findModels, findModelDestinations, normalizeModelQuery } from '../src/m
 import { generationComparisonHtml } from '../src/generation-comparison-html.js'
 import { resolveReferences } from '../src/official-sources.js'
 import { homeCatalog } from '../src/home-cars-html.js'
+import { frontRightTopCardAudit, getDiscoveryImage } from '../src/discovery.js'
 
 test('寸法差は同じ単位の単一数値だけ計算する', () => {
   assert.equal(millimetres('1,750 mm'),1750)
@@ -64,6 +65,16 @@ test('ホームはJavaScript実行前から歴代18車種と比較専用5車種�
   }
   assert.ok(html.includes('23 Models'))
   assert.ok(html.includes('新旧比較'))
+})
+test('TOP車種カードは全車フロント右向きの目視監査を必須にする',()=>{
+  assert.deepEqual([...frontRightTopCardAudit].sort(),cars.map(car=>car.slug).sort())
+  for(const car of cars){
+    const image=getDiscoveryImage(car)
+    assert.ok(image && existsSync(new URL(`../public${image}`,import.meta.url)),`${car.slug}: missing audited TOP asset`)
+  }
+  const corollaCross=cars.find(car=>car.slug==='corolla-cross')
+  assert.equal(getDiscoveryImage(corollaCross),'/images/cars/corolla-cross/top-card-2025-front-right-v2.jpg')
+  assert.notEqual(getDiscoveryImage(corollaCross),corollaCross.heroImage,'TOP image must stay independent from the comparison/hero asset')
 })
 test('個別の配列形式出典を優先し、確認日を捏造しない',()=>{
   const refs=resolveReferences(cars.find(car=>car.slug==='tanto'))
