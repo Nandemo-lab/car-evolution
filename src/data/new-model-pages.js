@@ -83,7 +83,7 @@ export const newModelPages = {
     "name": "ジムニーシエラとノマドの違い",
     "title": "ジムニーシエラとノマドの違い｜3ドア・5ドアを公式諸元で比較 | CarVista",
     "description": "2018年ジムニーシエラJCと2025年ジムニーノマドFCを、1.5L・4WDで比較。3ドアと5ドア、全長340mm・ホイールベース330mmの差、4人乗車時の荷室と中古車確認点を整理します。軽のジムニーとは車幅・排気量が異なります。",
-    "image": "/images/cars/jimny/jc74w-2025-nomade-fc-v1.png",
+    "image": "/images/cars/jimny/jc74w-2025-nomade-fc-v1.jpg",
     "models": [
       { "name": "JIMNY SIERRA JC", "url": "/jimny-sierra-vs-nomade.html#jimny-sierra" },
       { "name": "JIMNY NOMADE FC", "url": "/jimny-sierra-vs-nomade.html#jimny-nomade" }

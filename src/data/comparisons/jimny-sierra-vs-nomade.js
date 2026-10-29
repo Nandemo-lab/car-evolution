@@ -13,12 +13,12 @@ export default {
   cars: [
     {
       id: 'jimny-sierra', short: 'SIERRA JC', name: 'ジムニーシエラ JC', label: '2018 · 3BA-JB74W · 3ドア',
-      image: '/images/cars/jimny/jb74w-2018-jc-v1.png', alt: '2018年ジムニーシエラJC JB74Wの比較用制作画像',
+      image: '/images/cars/jimny/jb74w-2018-jc-v1.jpg', alt: '2018年ジムニーシエラJC JB74Wの比較用制作画像',
       text: '1.5L・4人乗りの小型車。後席へは前席を倒して乗り降りします。軽のジムニーよりワイドなフェンダーを備えます。'
     },
     {
       id: 'jimny-nomade', short: 'NOMADE FC', name: 'ジムニーノマド FC', label: '2025 · 3BA-JC74W · 5ドア',
-      image: '/images/cars/jimny/jc74w-2025-nomade-fc-v1.png', alt: '2025年ジムニーノマドFC JC74Wの比較用制作画像',
+      image: '/images/cars/jimny/jc74w-2025-nomade-fc-v1.jpg', alt: '2025年ジムニーノマドFC JC74Wの比較用制作画像',
       text: '1.5L・4人乗りの5ドア。延長したホイールベースとリヤドアにより、後席アクセスと4名乗車時の荷室を改善しています。'
     }
   ],
