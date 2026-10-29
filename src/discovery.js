@@ -21,13 +21,28 @@ export function getSlugFromPath(pathname = window.location.pathname) {
   return pathname.split('/').pop()?.replace(/\.html$/, '') || ''
 }
 
-const topCardImages = Object.fromEntries(
-  Object.keys(relatedCars).map((slug) => [slug, `/images/cars/${slug}/top-card-v2.webp`])
-)
-topCardImages.stepwgn = '/images/cars/stepwgn/top-card-v3.webp'
-topCardImages.harrier = '/images/cars/harrier/top-card-v3.png'
-topCardImages.vezel = '/images/cars/vezel/top-card-2026-v3.png'
-topCardImages.tanto = '/images/cars/tanto/top-card-v1.png'
+// TOP is a single catalogue, not a collection of page hero crops. Every
+// non-anchor asset is rendered to the same front-right studio specification.
+const topCardImages = {
+  alphard: '/images/cars/alphard/top-card-v2.webp',
+  vellfire: '/images/cars/vellfire/top-card-v2.webp',
+  noah: '/images/cars/noah/top-card-front-right-v2.png',
+  voxy: '/images/cars/voxy/top-card-front-right-v2.png',
+  esquire: '/images/cars/esquire/top-card-front-right-v2.png',
+  prius: '/images/cars/prius/top-card-front-right-v2.png',
+  harrier: '/images/cars/harrier/top-card-front-right-v2.png',
+  sienta: '/images/cars/sienta/top-card-front-right-v2.png',
+  'corolla-cross': '/images/cars/corolla-cross/top-card-front-right-v2.png',
+  serena: '/images/cars/serena/top-card-front-right-v2.png',
+  stepwgn: '/images/cars/stepwgn/top-card-front-right-v2.png',
+  freed: '/images/cars/freed/top-card-front-right-v2.png',
+  'n-box': '/images/cars/n-box/top-card-front-right-v2.png',
+  vezel: '/images/cars/vezel/top-card-front-right-v2.png',
+  'delica-d5': '/images/cars/delica-d5/top-card-front-right-v2.png',
+  solio: '/images/cars/solio/top-card-front-right-v2.png',
+  spacia: '/images/cars/spacia/top-card-front-right-v2.png',
+  tanto: '/images/cars/tanto/top-card-front-right-v2.png',
+}
 
 const topCardPresentation = {
   tanto: 1.15,
@@ -56,7 +71,5 @@ export function getDiscoveryImage(car) {
 
 export function getDiscoveryStyle(car) {
   const scale = car.topCardScale || topCardPresentation[car.slug] || 1
-  const flip = car.topCardFlip || 1
-  const position = car.topCardPosition || '50% 50%'
-  return `--top-card-scale:${scale};--top-card-flip:${flip};--top-card-position:${position}`
+  return `--top-card-scale:${scale}`
 }

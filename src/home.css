@@ -220,7 +220,7 @@ body { margin: 0; background: #0b0c0e; }
 .mini-card:not(.mini-card--soon):hover::after, .mini-card:not(.mini-card--soon):focus-visible::after { opacity: 1; }
 .mini-card:not(.mini-card--soon):hover .mini-card-photo img, .mini-card:not(.mini-card--soon):focus-visible .mini-card-photo img { filter: brightness(1.08); }
 .mini-card-photo { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #0d0e10; }
-.mini-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--top-card-position, 50% 50%); transform: scaleX(var(--top-card-flip, 1)) scale(var(--top-card-scale, 1)); transition: filter .3s; }
+.mini-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; transform: scale(var(--top-card-scale, 1)); transition: filter .3s; }
 .mini-card-name { min-height: 20px; padding: 0 12px 12px; font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500; letter-spacing: -.005em; }
 .mini-card-text-visual { display: grid; width: 100%; height: 100%; place-items: center; color: rgba(244,243,240,.58); font: 500 11px/1 'Inter', sans-serif; letter-spacing: .12em; }
 .mini-card--soon { opacity: .38; cursor: default; }
