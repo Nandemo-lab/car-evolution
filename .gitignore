@@ -28,3 +28,6 @@ __pycache__/
 
 # Local dependency cache
 .tmp-npm-cache/
+
+# Local Trend Radar run output (GitHub Actions stores candidate reports as artifacts)
+outputs/trend-radar/

@@ -1,0 +1,120 @@
+name: CarVista Trend Radar
+
+on:
+  schedule:
+    # GitHub cron has no native "every 14 days" expression. Wake weekly,
+    # then let the deterministic 14-day gate perform the actual research.
+    - cron: '17 0 * * 3'
+      timezone: 'Asia/Tokyo'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Run the research even when the 14-day gate is closed'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: carvista-trend-radar
+  cancel-in-progress: false
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run dependency-free radar
+        id: radar
+        env:
+          TREND_RADAR_OUTPUT: outputs/trend-radar
+        run: |
+          FORCE_FLAG=''
+          if [ "${{ inputs.force }}" = 'true' ]; then FORCE_FLAG='--force'; fi
+          node scripts/trend-radar.mjs $FORCE_FLAG
+          node scripts/trend-radar-output.mjs
+
+      - name: Add concise run summary
+        if: steps.radar.outputs.due == 'true'
+        run: cat outputs/trend-radar/report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Save candidate evidence for 30 days
+        if: steps.radar.outputs.candidate_count != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: trend-radar-${{ steps.radar.outputs.fingerprint }}
+          path: outputs/trend-radar/
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Notify only for a new evidence-backed candidate
+        if: steps.radar.outputs.candidate_count != '0'
+        uses: actions/github-script@v7
+        env:
+          RADAR_FINGERPRINT: ${{ steps.radar.outputs.fingerprint }}
+        with:
+          script: |
+            const fs = require('fs');
+            const result = JSON.parse(fs.readFileSync('outputs/trend-radar/result.json', 'utf8'));
+            const report = fs.readFileSync('outputs/trend-radar/report.md', 'utf8');
+            const marker = `<!-- trend-radar:${process.env.RADAR_FINGERPRINT} -->`;
+            const existing = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'trend-radar',
+              state: 'all',
+              per_page: 100,
+            });
+            if (existing.some(issue => (issue.body || '').includes(marker))) {
+              core.info('Duplicate candidate fingerprint; no issue created.');
+              return;
+            }
+            try {
+              await github.rest.issues.getLabel({ ...context.repo, name: 'trend-radar' });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              await github.rest.issues.createLabel({
+                ...context.repo,
+                name: 'trend-radar',
+                color: '1d76db',
+                description: 'CarVistaの隔週トレンド候補',
+              });
+            }
+            await github.rest.issues.create({
+              ...context.repo,
+              title: `[Trend Radar] 要確認候補 ${result.candidates.map(c => c.model).join(' / ')}`,
+              body: `${marker}\n${report}\n\n> 自動制作・画像生成・本番公開は行っていません。`,
+              labels: ['trend-radar'],
+            });
+
+      - name: Report source degradation without fabricating a candidate
+        if: steps.radar.outputs.due == 'true' && steps.radar.outputs.source_errors != '0'
+        run: echo "一部ソースの取得に失敗しました。候補判定には成功取得分だけを使用しています。" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open one deduplicated failure issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '[Trend Radar] 定期調査の実行失敗';
+            const existing = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            if (existing.some(issue => issue.title === title)) return;
+            await github.rest.issues.create({
+              ...context.repo,
+              title,
+              body: `実行に失敗しました: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}\n\n同名Issueが開いている間は重複通知しません。`,
+            });

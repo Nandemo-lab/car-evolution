@@ -1,0 +1,43 @@
+{
+  "lookbackDays": 14,
+  "candidateThreshold": 60,
+  "officialSources": [
+    { "maker": "Toyota", "url": "https://global.toyota/jp/newsroom/toyota/" },
+    { "maker": "Honda", "url": "https://global.honda/jp/news/" },
+    { "maker": "Nissan", "url": "https://global.nissannews.com/ja-JP" },
+    { "maker": "Suzuki", "url": "https://www.suzuki.co.jp/release/a/" },
+    { "maker": "Daihatsu", "url": "https://www.daihatsu.com/jp/news/" },
+    { "maker": "Mazda", "url": "https://newsroom.mazda.com/ja/publicity/release/" },
+    { "maker": "Subaru", "url": "https://www.subaru.co.jp/news/" },
+    { "maker": "Mitsubishi", "url": "https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/" }
+  ],
+  "trendSources": [
+    { "name": "Google Trends Japan RSS", "url": "https://trends.google.com/trending/rss?geo=JP" }
+  ],
+  "announcementTerms": [
+    "新型", "発売", "発表", "一部改良", "仕様変更", "マイナーチェンジ",
+    "フルモデルチェンジ", "モデルチェンジ", "特別仕様車", "先行公開", "受注開始"
+  ],
+  "models": [
+    { "name": "N-BOX", "aliases": ["n-box", "nbox", "エヌボックス"] },
+    { "name": "VEZEL", "aliases": ["vezel", "ヴェゼル", "ベゼル"] },
+    { "name": "STEP WGN", "aliases": ["step wgn", "ステップワゴン"] },
+    { "name": "FREED", "aliases": ["freed", "フリード"] },
+    { "name": "VOXY", "aliases": ["voxy", "ヴォクシー", "ボクシー"] },
+    { "name": "NOAH", "aliases": ["noah", "ノア"] },
+    { "name": "VELLFIRE", "aliases": ["vellfire", "ヴェルファイア", "ベルファイア"] },
+    { "name": "ALPHARD", "aliases": ["alphard", "アルファード"] },
+    { "name": "PRIUS", "aliases": ["prius", "プリウス"] },
+    { "name": "HARRIER", "aliases": ["harrier", "ハリアー"] },
+    { "name": "SIENTA", "aliases": ["sienta", "シエンタ"] },
+    { "name": "SERENA", "aliases": ["serena", "セレナ"] },
+    { "name": "ROOX", "aliases": ["roox", "ルークス"] },
+    { "name": "TANTO", "aliases": ["tanto", "タント"] },
+    { "name": "SOLIO", "aliases": ["solio", "ソリオ"] },
+    { "name": "SPACIA", "aliases": ["spacia", "スペーシア"] },
+    { "name": "CX-5", "aliases": ["cx-5", "cx5"] },
+    { "name": "RAV4", "aliases": ["rav4"] },
+    { "name": "DELICA", "aliases": ["delica", "デリカ"] },
+    { "name": "LAND CRUISER", "aliases": ["land cruiser", "ランドクルーザー", "ランクル"] }
+  ]
+}
