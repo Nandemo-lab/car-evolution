@@ -112,6 +112,7 @@ const pages = {
     related: [
       { href: '/compare-freed-sienta.html', label: 'FREEDとSIENTAの違い', description: 'コンパクトミニバン2台の表情を比べる。' },
       { href: '/cars/n-box.html', label: 'N-BOXの歴代モデル', description: '世代ごとのデザインの変化を見る。' },
+      { href: '/spacia-mk53s-vs-mk94s.html', label: 'SPACIA 2代目・3代目の違い', description: 'MK53SとMK94Sの世代差を画像と型式で確認する。' },
     ],
   },
   'voxy-noah-esquire': {
