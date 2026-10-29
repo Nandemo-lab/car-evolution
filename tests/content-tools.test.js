@@ -67,6 +67,20 @@ test('ホームはJavaScript実行前から歴代18車種と比較専用5車種�
   assert.ok(!html.includes('mini-card-kind'))
   assert.ok(!html.includes('>新旧比較<'))
 })
+test('比較専用車種もTOP専用のフロント右向き三四半角アセットを使う',()=>{
+  const expected={
+    'rav4-50-vs-60':'/images/cars/rav4/top-card-front-right-v1.png',
+    'cx-5-kf-vs-km':'/images/cars/cx-5/top-card-front-right-v1.png',
+    'roox-b4-vs-bb':'/images/cars/roox/top-card-front-right-v1.png',
+    'delica-mini-b3-vs-ba':'/images/cars/delica-mini/top-card-front-right-v1.png',
+    'jimny-sierra-vs-nomade':'/images/cars/jimny/top-card-front-right-v1.png',
+  }
+  for(const [slug,image] of Object.entries(expected)){
+    const card=homeCatalog(cars).find(item=>item.slug===slug)
+    assert.equal(card?.homeCardImage,image,slug)
+    assert.ok(existsSync(new URL(`../public${image}`,import.meta.url)),image)
+  }
+})
 test('TOP車種カードは全車フロント右向き・フロント優勢3/4の目視監査を必須にする',()=>{
   assert.deepEqual(Object.keys(topCardVisualAudit).sort(),cars.map(car=>car.slug).sort())
   for(const car of cars){
