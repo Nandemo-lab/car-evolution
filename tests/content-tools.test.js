@@ -125,7 +125,7 @@ test('新規歴代車種もTOP専用のフロント右向き三四半角アセ�
     'delica-mini':'/images/cars/delica-mini/top-card-front-right-v2.png',
     jimny:'/images/cars/jimny/top-card-front-right-v2.png',
     hustler:'/images/cars/hustler/top-card-front-right-v2.png',
-    roomy:'/images/cars/roomy/top-card-front-right-v2.png',
+    roomy:'/images/cars/roomy/top-card-front-right-v3.png',
     'n-one':'/images/cars/n-one/jg3-2020-original-ff-v1.png',
     'wagon-r-smile':'/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png',
     move:'/images/cars/move/top-card-front-right-v2.png',
@@ -174,6 +174,23 @@ test('公開97 URLの初期HTMLとサイトマップに欠落・重複見出し�
   for(const page of ['voxy-60-vs-70','solio-ma15s-zenki-kouki','vellfire-20-zenki-kouki','prius-30-zenki-kouki']) assert.ok(existsSync(new URL(`../dist/${page}.html`,import.meta.url)))
 })
 
+test('ROOMY兄弟ガイドはTrustページではなく固有の編集ガイドとして配信する',()=>{
+  const html=readFileSync(new URL('../dist/roomy-tank-thor-justy.html',import.meta.url),'utf8')
+  assert.ok(html.includes('"@type":"Article"'))
+  assert.ok(html.includes('"@type":"ItemList"'))
+  assert.ok(html.includes('"@type":"BreadcrumbList"'))
+  assert.ok(html.includes('https://carvista.jp/images/cars/roomy/top-card-front-right-v2.png'))
+  assert.ok(!html.includes('/images/cars/voxy/hero-gen4-3q.webp'))
+  assert.equal((html.match(/rel="canonical"/g)||[]).length,1)
+})
+
+test('N-ONE歴代はガソリン車に範囲を限定しN-ONE e:を混同しない',()=>{
+  const html=readFileSync(new URL('../dist/cars/n-one.html',import.meta.url),'utf8')
+  assert.ok(html.includes('N-ONE e:は対象外'))
+  assert.ok(html.includes('別車種・別型式（JG5）'))
+  assert.ok(html.includes('公式G・Lパッケージ／Originalを参照した標準系の制作画像'))
+})
+
 test('全index対象コンテンツはJavaScriptなしでも主要回答・画像・出典を持つ',()=>{
   const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
@@ -218,13 +235,13 @@ test('公開車両画像は考証台帳に登録され、未確認を検証済�
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
     for(const match of html.matchAll(/(?:src|content)="(\/images\/cars\/[^"]+)"/g)) published.add(match[1])
   }
-  assert.equal(published.size,178)
-  assert.equal(registry.length,178)
+  assert.equal(published.size,179)
+  assert.equal(registry.length,179)
   for(const image of published){
     assert.ok(byPath.has(image),`${image}: verification registry missing`)
     assert.ok(['VERIFIED','CORRECTED','HOLD'].includes(byPath.get(image)[3]),`${image}: invalid status`)
   }
-  assert.equal(registry.length,178)
+  assert.equal(registry.length,179)
   assert.ok(registry.filter(row=>row[3]==='VERIFIED').length>=1)
   assert.ok(registry.filter(row=>row[3]==='HOLD').length>=1)
 })

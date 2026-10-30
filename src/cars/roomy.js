@@ -15,7 +15,7 @@ export default {
     { generations: '初代', label: 'Toyota 2026年ROOMY一部改良資料', url: 'https://global.toyota/jp/newsroom/toyota/44782616.html' },
     { generations: '現行諸元', label: 'Toyota ROOMY主要諸元', url: 'https://toyota.jp/pages/contents/roomy/001_p_006/pdf/roomy_spec_202610.pdf' },
   ] },
-  tagline: '1世代のまま継続。2020年の顔変更と標準／カスタムを分ける。', heroImage: '/images/cars/roomy/m900a-2026-custom-gt-ff-v1.webp', homeCardImage: '/images/cars/roomy/top-card-front-right-v2.png',
+  tagline: '1世代のまま継続。2020年の顔変更と標準／カスタムを分ける。', heroImage: '/images/cars/roomy/m900a-2026-custom-gt-ff-v1.webp', homeCardImage: '/images/cars/roomy/top-card-front-right-v3.png',
   generationGuide: { title: 'ROOMYは2016年から続く1世代', intro: 'M900Aは2WD、M910Aは4WDの型式軸です。掲載画像は2026年8月改良のカスタムG-T・2WD代表。標準車G／Xとカスタムでは顔が異なるため、カスタムの外観を全グレード共通とは扱いません。', layout: 'chronology', items: [
     { title: '2016年11月9日：初代を発売', description: '1.0L自然吸気とターボ、2WDと4WDを設定。背の高い室内と両側スライドドアを持ちます。カスタム系と標準系はグリル・バンパー意匠が異なります。', meta: 'M900A／M910A · 5人乗り' },
     { title: '2020年9月15日：マイナーチェンジ', description: 'フロントフェイスを刷新し、衝突回避支援機能を更新。2020年以前と以後の写真は、まずカスタム同士・標準車同士に条件をそろえて比較します。', meta: '同一世代内の外観改良' },

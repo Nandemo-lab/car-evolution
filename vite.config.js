@@ -417,7 +417,7 @@ function condenseVehiclePolicy(html) {
 function discoverEntries() {
   const entries = { main: resolve(root, 'index.html') }
   for (const file of readdirSync(root)) {
-    if (file.endsWith('.html') && (COMPARISON_PAGES[file] || TRUST_PAGES[file])) {
+    if (file.endsWith('.html') && (COMPARISON_PAGES[file] || EDITORIAL_GUIDES[file] || TRUST_PAGES[file])) {
       entries[file.replace(/\.html$/, '')] = resolve(root, file)
     }
   }
@@ -542,8 +542,22 @@ function buildHomeTags(cars) {
 // with no per-vehicle data behind it, so unlike buildHomeTags there's
 // no JSON-LD list to generate; just title/description/canonical/OGP
 // like any other static page.
+const EDITORIAL_GUIDES = {
+  'roomy-tank-thor-justy.html': {
+    name: 'ROOMY・TANK・THOR・JUSTY 4兄弟の違い',
+    title: `ルーミー・タンク・トール・ジャスティの違い｜型式と見分け方 | ${SITE_NAME}`,
+    description: 'ROOMY、TANK、THOR、JUSTYの兄弟関係と型式の違い、標準／カスタム、2020年改良、中古車での確認順を公式資料で解説します。',
+    image: '/images/cars/roomy/top-card-front-right-v2.png',
+    models: [
+      { name: 'TOYOTA ROOMY', url: '/roomy-tank-thor-justy.html#roomy' },
+      { name: 'TOYOTA TANK', url: '/roomy-tank-thor-justy.html#tank' },
+      { name: 'DAIHATSU THOR', url: '/roomy-tank-thor-justy.html#thor' },
+      { name: 'SUBARU JUSTY', url: '/roomy-tank-thor-justy.html#justy' },
+    ],
+  },
+}
+
 const TRUST_PAGES = {
-  'roomy-tank-thor-justy.html': { title: `ルーミー・タンク・トール・ジャスティの違い｜型式と見分け方 | ${SITE_NAME}`, description: 'ROOMY、TANK、THOR、JUSTYの兄弟関係と型式の違い、標準／カスタム、2020年改良、中古車での確認順を公式資料で解説します。' },
   'editorial-policy.html': { title: `制作方針・免責事項 — ${SITE_NAME}`, description: `${SITE_NAME}が参考にしている情報源、自動車メーカーとの関係、画像の制作方針についてまとめています。` },
   'about.html': { title: `CarVistaについて — 運営・編集方針`, description: 'CarVistaの目的、編集で大切にしていること、比較画像の考え方を紹介します。' },
   'privacy.html': { title: `プライバシーポリシー — ${SITE_NAME}`, description: 'CarVistaのアクセス解析、広告Cookie、外部リンクに関する取り扱いを掲載しています。' },
@@ -580,6 +594,50 @@ function buildTrustPageTags(filename) {
     meta({ name: 'twitter:description', content: description }),
     meta({ name: 'twitter:image', content: image }),
     { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(jsonLd), injectTo: 'head' },
+  ]
+}
+
+function buildEditorialGuideTags(filename) {
+  const guide = EDITORIAL_GUIDES[filename]
+  const url = `${SITE_ORIGIN}/${filename}`
+  const image = `${SITE_ORIGIN}${guide.image}`
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.name,
+    description: guide.description,
+    url,
+    image,
+    author: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_ORIGIN}/about.html` },
+    publisher: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_ORIGIN}/` },
+    mainEntity: {
+      '@type': 'ItemList',
+      name: `${guide.name}の対象車`,
+      itemListElement: guide.models.map((model, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: { '@type': 'Car', name: model.name, url: `${SITE_ORIGIN}${model.url}` },
+      })),
+    },
+  }
+  const breadcrumbJsonLd = buildComparisonBreadcrumbJsonLd(guide, url)
+  const meta = (attrs) => ({ tag: 'meta', attrs, injectTo: 'head' })
+  return [
+    { tag: 'title', children: guide.title, injectTo: 'head' },
+    meta({ name: 'description', content: guide.description }),
+    { tag: 'link', attrs: { rel: 'canonical', href: url }, injectTo: 'head' },
+    meta({ property: 'og:type', content: 'article' }),
+    meta({ property: 'og:site_name', content: SITE_NAME }),
+    meta({ property: 'og:title', content: guide.title }),
+    meta({ property: 'og:description', content: guide.description }),
+    meta({ property: 'og:url', content: url }),
+    meta({ property: 'og:image', content: image }),
+    meta({ name: 'twitter:card', content: 'summary_large_image' }),
+    meta({ name: 'twitter:title', content: guide.title }),
+    meta({ name: 'twitter:description', content: guide.description }),
+    meta({ name: 'twitter:image', content: image }),
+    { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(jsonLd), injectTo: 'head' },
+    { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(breadcrumbJsonLd), injectTo: 'head' },
   ]
 }
 
@@ -681,6 +739,10 @@ function seoInjectPlugin() {
         return { html, tags: withAdSenseVerification(buildTrustPageTags(filename)) }
       }
 
+      if (EDITORIAL_GUIDES[filename]) {
+        return { html, tags: withAdSenseVerification(buildEditorialGuideTags(filename)) }
+      }
+
       if (COMPARISON_PAGES[filename]) {
         const comparisonDataPath = resolve(root, 'src/data/comparisons', filename.replace(/\.html$/, '.js'))
         const comparisonData = existsSync(comparisonDataPath)
@@ -756,6 +818,7 @@ function sitemapPlugin() {
       const staticUrls = [
         `${SITE_ORIGIN}/`,
         ...Object.keys(TRUST_PAGES).map((filename) => `${SITE_ORIGIN}/${filename}`),
+        ...Object.keys(EDITORIAL_GUIDES).map((filename) => `${SITE_ORIGIN}/${filename}`),
         ...Object.keys(COMPARISON_PAGES).map((filename) => `${SITE_ORIGIN}/${filename}`),
       ]
       const carUrls = cars.map((car) => `${SITE_ORIGIN}/cars/${car.slug}.html`)

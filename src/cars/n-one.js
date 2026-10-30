@@ -15,23 +15,25 @@ export default {
   eyebrow: 'CARVISTA', vehicleName: 'N-ONE', brand: 'ホンダ', maker: 'Honda', order: 30,
   aliases: ['N-ONE', 'NONE', 'N ONE', 'エヌワン', 'えぬわん', 'JG1', 'JG2', 'JG3', 'JG4'],
   designRole: '初代の造形を継承しながら、型式と骨格を更新した軽ハッチ。', designIdentity: ['Round lamps', 'Short overhang', 'Tall cabin'], designAvoid: ['N-BOX face', 'RS aero on Original', 'Aftermarket grille'],
-  representativeGrade: '初代G・Lパッケージ／2代目Original・FF', representativeColor: 'Beige / White', heroScrim: '9, 9, 10', referenceLengthMm: 3395,
+  representativeGrade: '初代標準系／2代目標準系（公式G・Lパッケージ／Originalを参照した制作画像）', representativeColor: 'Beige / White', heroScrim: '9, 9, 10', referenceLengthMm: 3395,
   references: { checkedAt: '2026年10月30日', items: [
     { generations: '初代', label: 'Honda 2012年N-ONE発売資料', url: 'https://global.honda/jp/news/2012/4121101-n-one.html' },
     { generations: '2代目', label: 'Honda 2020年N-ONE発売資料', url: 'https://global.honda/jp/news/2020/4201119-n-one.html' },
     { generations: '現行諸元', label: 'Honda N-ONE主要諸元', url: 'https://www.honda.co.jp/N-ONE/common/pdf/n-one_spec_list.pdf' },
+    { generations: '対象外', label: 'Honda N-ONE e: 公式情報', url: 'https://www.honda.co.jp/N-ONE-e/' },
   ] },
   tagline: '顔が似ていても世代は別。JG1/JG2とJG3/JG4を型式で確かめる。', heroImage: '/images/cars/n-one/jg3-2020-original-ff-v1.png', homeCardImage: '/images/cars/n-one/jg3-2020-original-ff-v1.png',
-  generationGuide: { title: 'N-ONEは「似た顔のまま世代交代」した', intro: '2代目は初代の丸目と台形キャビンを意図的に継承しています。中古車写真だけで初代・2代目を断定せず、型式と初度登録時期を併用します。', layout: 'chronology', items: [
+  generationGuide: { title: 'N-ONEは「似た顔のまま世代交代」した', intro: '2代目は初代の丸目と台形キャビンを意図的に継承しています。掲載画像は公式G・Lパッケージ／Originalを参照した標準系の制作画像で、個体装備の確定資料ではありません。中古車写真だけで初代・2代目を断定せず、型式と初度登録時期を併用します。', layout: 'chronology', items: [
     { title: '2012年11月2日：初代を発売', description: 'JG1はFF、JG2は4WD。G、Premium、Tourerなどで外装・ターボ有無が異なるため、掲載画像の顔を全グレード共通とは扱いません。', meta: 'JG1／JG2' },
     { title: '2020年11月20日：2代目を発売', description: 'JG3はFF、JG4は4WD。丸目を継承しつつ、Honda SENSINGやRSの6MTなど商品構成を更新しました。', meta: 'JG3／JG4' },
     { title: '写真では灯火とバンパーを合わせて見る', description: '丸目だけでは世代判別できません。グリル、バンパー下部、灯火内部と、車両情報の型式を同時に確認します。', meta: '顔つき単独で断定しない' },
     { title: '購入時は外装系統と動力を固定', description: 'Original／Premium／RS、自然吸気／ターボ、FF／4WDを分け、車台番号から販売店へ仕様照会します。', meta: 'グレード差を世代差にしない' },
+    { title: 'このページはガソリン車のN-ONEが対象', description: '2025年登場の軽乗用EV「N-ONE e:」は別車種・別型式（JG5）として扱い、この歴代整理には含めません。中古車検索では「N-ONE」と「N-ONE e:」を分けて確認してください。', meta: 'N-ONE e:は対象外' },
   ] },
   guides: [
     { href: '/cars/n-box.html', label: 'N-BOXの歴代を見る', title: 'N-BOX 歴代・型式', description: '同じHonda軽の世代と型式を比較。', image: '/images/cars/n-box/top-card-front-right-v2.png' },
     { href: '/cars/wagon-r-smile.html', label: 'ワゴンRスマイルを見る', title: 'WAGON R SMILE 歴代・型式', description: '丸目とスライドドアを持つ軽ワゴンを確認。', image: '/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png' },
   ],
-  seo: { title: 'N-ONE 歴代・型式｜JG1/JG2とJG3/JG4の違い | CarVista', description: 'ホンダN-ONEの初代JG1/JG2と2代目JG3/JG4を整理。似た丸目でも世代を間違えない型式、グレード、外観と中古車確認手順を公式資料で解説します。' },
+  seo: { title: 'N-ONE 歴代・型式｜JG1/JG2とJG3/JG4の違い | CarVista', description: 'Honda N-ONEのガソリン車、初代JG1/JG2と2代目JG3/JG4を整理。N-ONE e:を分け、型式、外観と中古車確認手順を公式資料で解説します。' },
   defaultIndex: 1, generations,
 }

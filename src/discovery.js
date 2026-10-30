@@ -51,7 +51,7 @@ const topCardImages = {
   spacia: '/images/cars/spacia/top-card-front-right-v2.png',
   tanto: '/images/cars/tanto/top-card-front-right-v2.png',
   hustler: '/images/cars/hustler/top-card-front-right-v2.png',
-  roomy: '/images/cars/roomy/top-card-front-right-v2.png',
+  roomy: '/images/cars/roomy/top-card-front-right-v3.png',
   'n-one': '/images/cars/n-one/jg3-2020-original-ff-v1.png',
   'wagon-r-smile': '/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png',
   move: '/images/cars/move/top-card-front-right-v2.png',

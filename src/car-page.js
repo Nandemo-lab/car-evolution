@@ -109,7 +109,7 @@ export function initCarPage(config) {
   // compare. Single-generation pages move directly from the hero/share row
   // to one enlarged vehicle explanation.
   if (document.getElementById('heritage')) renderHeritage(generations)
-  if (!isSingleGeneration) renderTimeline(generations, config.vehicleName)
+  if (!isSingleGeneration && document.getElementById('timeline')) renderTimeline(generations, config.vehicleName)
 
   const detailRefs = getDetailRefs()
   // Below the fold on every vehicle page's initial load -- defer the
@@ -125,8 +125,9 @@ export function initCarPage(config) {
   // generation is shown in place, scroll position untouched. An earlier
   // version auto-scrolled to the detail section on every click, which
   // fought a reader who was scrolling through the timeline itself.
-  if (!isSingleGeneration) {
-    document.getElementById('timeline').addEventListener('click', (event) => {
+  const timeline = document.getElementById('timeline')
+  if (!isSingleGeneration && timeline) {
+    timeline.addEventListener('click', (event) => {
       const btn = event.target.closest('.timeline-item')
       if (!btn) return
       trackEvent('select_generation', { vehicle: config.vehicleName, generation: Number(btn.dataset.gen) + 1 })
@@ -666,8 +667,11 @@ function initCompare(generations, vehicleName) {
     // interface" surface on the page: no markers, just the two photos
     // and the drag divider. The detail section above is where features
     // are actually called out (dot + leader line + label).
-    document.getElementById('compare-annotations-base').innerHTML = ''
-    document.getElementById('compare-annotations-overlay').innerHTML = ''
+    // Some current comparison shells intentionally omit annotation layers.
+    // Clear them only when present so the slider still initializes and loads
+    // both vehicle images instead of aborting on a missing decorative node.
+    document.getElementById('compare-annotations-base')?.replaceChildren()
+    document.getElementById('compare-annotations-overlay')?.replaceChildren()
 
     setSplit(50)
   }
