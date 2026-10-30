@@ -25,6 +25,9 @@ const japaneseNames = {
   roox: 'ルークス ROOX',
   'delica-mini': 'デリカミニ DELICAMINI',
   jimny: 'ジムニー シエラ ノマド JIMNY SIERRA NOMADE',
+  aqua: 'アクア AQUA',
+  yaris: 'ヤリス ヴィッツ ビッツ YARIS VITZ',
+  raize: 'ライズ RAIZE',
 }
 
 const hiragana = value => value.replace(/[ァ-ヶ]/g, char => String.fromCharCode(char.charCodeAt(0) - 0x60))

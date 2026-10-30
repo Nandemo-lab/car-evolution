@@ -18,6 +18,9 @@ export const relatedCars = {
   hustler: ['spacia', 'jimny', 'n-box'],
   roomy: ['solio', 'sienta', 'freed'],
   move: ['tanto', 'n-box', 'spacia'],
+  aqua: ['yaris', 'prius', 'raize'],
+  yaris: ['aqua', 'raize', 'sienta'],
+  raize: ['yaris', 'corolla-cross', 'rav4'],
 }
 
 export function getSlugFromPath(pathname = window.location.pathname) {
@@ -48,6 +51,9 @@ const topCardImages = {
   hustler: '/images/cars/hustler/top-card-front-right-v2.png',
   roomy: '/images/cars/roomy/m900a-2026-custom-gt-ff-v1.webp',
   move: '/images/cars/move/top-card-front-right-v2.png',
+  aqua: '/images/cars/aqua/mxpk11-2021-z-ff-v1.png',
+  yaris: '/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png',
+  raize: '/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png',
 }
 
 const topCardPresentation = {
@@ -66,7 +72,7 @@ export const topCardVisualAudit = Object.fromEntries([
   'sienta', 'corolla-cross', 'serena', 'stepwgn', 'freed', 'n-box',
   'vezel', 'delica-d5', 'solio', 'spacia', 'tanto',
   'rav4', 'cx-5', 'roox', 'delica-mini', 'jimny',
-  'hustler', 'roomy', 'move',
+  'hustler', 'roomy', 'move', 'aqua', 'yaris', 'raize',
 ].map((slug) => [slug, { direction: 'front-right', angle: 'front-dominant-3q' }]))
 
 // TOP and NEXT DISCOVERY share one art-directed set: same 4:3 canvas,

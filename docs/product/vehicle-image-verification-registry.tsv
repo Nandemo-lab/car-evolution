@@ -166,4 +166,11 @@ path	pages	manufacturer	status	evidence_url	evidence_scope	notes	last_reviewed
 /images/cars/delica-mini/top-card-front-right-v2.png	/index.html	MITSUBISHI	HOLD	https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/2025/20250918_1.html	公式発表と既存DELICA MINI Assetを基にTOP構図を補正	灯火、グリル、バンパー、スライドドアとホイールは維持。グレード1対1の証拠不足はHOLDを継続。	2026-10-30
 /images/cars/move/top-card-front-right-v2.png	/index.html	DAIHATSU	VERIFIED	https://www.daihatsu.com/jp/news/2025/20250605-1.html	公式7代目X外観とTOP構図を個別照合	薄型灯火、黒色グリル、下部開口、ホイール、後席スライドドアを維持し、フロント寄り左前3/4へ補正。	2026-10-30
 /images/cars/cx-5/top-card-front-right-v2.png	/index.html	MAZDA	HOLD	https://www.mazda.co.jp/cars/cx-5/	公式車種ページと既存CX-5 Assetを基にTOP構図を補正	灯火、グリル、バンパー、5ドア、ホイールは維持。年式・グレード1対1の証拠不足はHOLDを継続。	2026-10-30
+/images/cars/aqua/nhp10-2011-s-ff-v1.png	/cars/aqua.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/21780024.html	2011年発売時S・2WDの公式外観を制作参照	車種・世代・標準系外観は照合。灯火・ホイールを個体装備まで1対1に固定する証拠は継続確認対象。	2026-10-30
+/images/cars/aqua/mxpk11-2021-z-ff-v1.png	/index.html|/cars/aqua.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/35550666.html	2021年発売時Z・2WDの公式外観を制作参照	車種・世代・Z系外観は照合。オプションを含む個体装備までの1対1証拠は継続確認対象。	2026-10-30
+/images/cars/yaris/scp10-1999-u-ff-v1.png	/cars/yaris.html	TOYOTA	HOLD	https://global.toyota/jp/detail/11662965	1999年初代VITZ発売資料を制作参照	初代ボディと灯火形状は照合。U・2WDの細部装備を1対1に固定する公式画像証拠は不足。	2026-10-30
+/images/cars/yaris/ksp90-2005-f-ff-v1.png	/cars/yaris.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/21788515.html	2005年2代目VITZ発売資料を制作参照	2代目標準系外観は照合。F・2WDのホイール等を1対1に固定する証拠は不足。	2026-10-30
+/images/cars/yaris/nsp130-2010-f-ff-v1.png	/cars/yaris.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/21782374.html	2010年3代目VITZ発売資料を制作参照	3代目標準系外観は照合。F・2WDの個体装備までの1対1証拠は不足。	2026-10-30
+/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png	/index.html|/cars/yaris.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/30486400.html	2020年YARIS発売時HYBRID G・2WDの公式外観を制作参照	現行標準系の車種・世代・灯火・グリルは照合。個体オプションまでの1対1証拠は不足。	2026-10-30
+/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png	/index.html|/cars/raize.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/36254806.html	2021年追加のZ・ハイブリッド・2WD公式外観を制作参照	A202Aの車種・改良時期・Z系外観は照合。ホイール等を個体装備まで固定する証拠は継続確認対象。	2026-10-30
 

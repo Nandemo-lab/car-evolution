@@ -69,22 +69,22 @@ test('42比較ページの初期HTMLに本文・出典・画像・メモが揃�
     assert.ok(built.includes(data.answer.title),file)
   }
 })
-test('ホームはJavaScript実行前から26車種すべての歴代ページにリンクする',()=>{
+test('ホームはJavaScript実行前から29車種すべての歴代ページにリンクする',()=>{
   const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
   for(const car of cars) assert.ok(html.includes(`/cars/${car.slug}.html`),car.slug)
   const catalog=homeCatalog(cars)
-  assert.equal(catalog.length,26)
+  assert.equal(catalog.length,29)
   for(const slug of ['rav4','cx-5','roox','delica-mini','jimny']) {
     assert.ok(catalog.some(car=>car.slug===slug && car.href===`/cars/${slug}.html`),slug)
     assert.ok(html.includes(`href="/cars/${slug}.html"`),slug)
   }
-  assert.ok(html.includes('26 Models'))
+  assert.ok(html.includes('29 Models'))
   assert.ok(!html.includes('mini-card-kind'))
   assert.ok(!html.includes('>新旧比較<'))
 })
 test('1世代のみの車種は同じ画像を比較せず単一モデルとして表示する',()=>{
   const singleGenerationCars=cars.filter(car=>car.generations.length===1)
-  assert.deepEqual(singleGenerationCars.map(car=>car.slug).sort(),['corolla-cross','esquire','roomy'])
+  assert.deepEqual(singleGenerationCars.map(car=>car.slug).sort(),['corolla-cross','esquire','raize','roomy'])
   for(const car of singleGenerationCars){
     const html=readFileSync(new URL(`../dist/cars/${car.slug}.html`,import.meta.url),'utf8')
     assert.ok(html.includes('static-crawl-fallback--single-generation'),car.slug)
@@ -127,6 +127,9 @@ test('新規歴代車種もTOP専用のフロント右向き三四半角アセ�
     hustler:'/images/cars/hustler/top-card-front-right-v2.png',
     roomy:'/images/cars/roomy/m900a-2026-custom-gt-ff-v1.webp',
     move:'/images/cars/move/top-card-front-right-v2.png',
+    aqua:'/images/cars/aqua/mxpk11-2021-z-ff-v1.png',
+    yaris:'/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png',
+    raize:'/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png',
   }
   for(const [slug,image] of Object.entries(expected)){
     const card=homeCatalog(cars).find(item=>item.slug===slug)
@@ -152,10 +155,10 @@ test('個別の配列形式出典を優先し、確認日を捏造しない',()=
   assert.ok(refs.items.every(item=>item.url.startsWith('https://www.daihatsu.com/')))
   for(const car of cars) assert.ok(resolveReferences(car)?.items.length>0,car.slug)
 })
-test('公開91 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
+test('公開94 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
   const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
-  assert.equal(urls.length,91)
+  assert.equal(urls.length,94)
   for(const url of urls){
     const pathname=new URL(url).pathname
     const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')
@@ -213,13 +216,13 @@ test('公開車両画像は考証台帳に登録され、未確認を検証済�
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
     for(const match of html.matchAll(/(?:src|content)="(\/images\/cars\/[^"]+)"/g)) published.add(match[1])
   }
-  assert.equal(published.size,167)
-  assert.equal(registry.length,167)
+  assert.equal(published.size,174)
+  assert.equal(registry.length,174)
   for(const image of published){
     assert.ok(byPath.has(image),`${image}: verification registry missing`)
     assert.ok(['VERIFIED','CORRECTED','HOLD'].includes(byPath.get(image)[3]),`${image}: invalid status`)
   }
-  assert.equal(registry.length,167)
+  assert.equal(registry.length,174)
   assert.ok(registry.filter(row=>row[3]==='VERIFIED').length>=1)
   assert.ok(registry.filter(row=>row[3]==='HOLD').length>=1)
 })
