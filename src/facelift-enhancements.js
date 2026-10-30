@@ -15,9 +15,9 @@ const nbox = {
       { label: '後期', src: '/images/cars/n-box/jf1-2015-post-facelift-v1.png', alt: 'N-BOX JF1後期' },
     ],
     parts: [
-      { id: 'headlamp', label: 'ヘッドライト周辺', focus: [{ x: 38, y: 52, scale: 2.45 }, { x: 42, y: 51, scale: 2.35 }], notes: ['前期の灯火とグリル端のつながり。', '後期の灯火周辺とグリル端。'] },
-      { id: 'grille', label: 'フロントグリル', focus: [{ x: 34, y: 57, scale: 2.55 }, { x: 38, y: 56, scale: 2.45 }], notes: ['前期の横桟とエンブレム周辺。', '後期の横桟と開口形状。'] },
-      { id: 'bumper', label: 'フロントバンパー', focus: [{ x: 34, y: 68, scale: 2.35 }, { x: 37, y: 68, scale: 2.3 }], notes: ['前期の下部開口とナンバー周辺。', '後期の下部開口とバンパー面。'] },
+      { id: 'headlamp', label: 'ヘッドライト周辺', focus: [{ x: 38, y: 51, scale: 2.42 }, { x: 41, y: 51, scale: 2.35 }], notes: ['前期', '後期'], point: '公式発表は標準車の外観刷新を示しますが、灯体単独の仕様変更は明記していません。灯火とグリル端のつながりを補助的に比較します。' },
+      { id: 'grille', label: 'フロントグリル', focus: [{ x: 35, y: 56, scale: 2.5 }, { x: 38, y: 55, scale: 2.42 }], notes: ['前期', '後期'], point: '公式掲載のG・Lパッケージ画像で、横桟とエンブレム周辺、下側開口の組み合わせが変わったことを確認できます。' },
+      { id: 'bumper', label: 'フロントバンパー', focus: [{ x: 35, y: 67, scale: 2.32 }, { x: 38, y: 67, scale: 2.28 }], notes: ['前期', '後期'], point: '下部開口とナンバー周辺を一組で確認します。グレード、オプション、交換部品がある車両は外観だけで断定しません。' },
     ],
   },
 }
@@ -39,9 +39,9 @@ export const voxy80Enhancement = {
       { label: '後期ZS', src: '/images/cars/voxy/80-zs-post-facelift-v1.png', alt: 'VOXY 80系ZS後期' },
     ],
     parts: [
-      { id: 'headlamp', label: 'ヘッドライト', focus: [{ x: 34, y: 47, scale: 2.35 }, { x: 35, y: 46, scale: 2.35 }], notes: ['前期の丸いプロジェクターを含む二段灯。', '後期の薄型Bi-Beam LEDと面発光部。'] },
-      { id: 'grille', label: 'フロントグリル', focus: [{ x: 29, y: 55, scale: 2.25 }, { x: 30, y: 54, scale: 2.25 }], notes: ['前期の横基調グリル。', '後期の中央開口と上側グリル。'] },
-      { id: 'bumper', label: 'ZSバンパー', focus: [{ x: 28, y: 67, scale: 2.15 }, { x: 29, y: 66, scale: 2.15 }], notes: ['前期の横桟主体のフォグ周辺。', '後期の［ハ］字フレームと低いフォグ位置。'] },
+      { id: 'headlamp', label: 'ヘッドライト', focus: [{ x: 34, y: 46, scale: 2.32 }, { x: 35, y: 46, scale: 2.32 }], notes: ['前期ZS', '後期ZS'], point: '前期の丸いプロジェクターを含む二段灯に対し、後期は薄型Bi-Beam LEDと面発光LEDクリアランスランプを採用しています。' },
+      { id: 'grille', label: 'フロントグリル', focus: [{ x: 29, y: 54, scale: 2.2 }, { x: 30, y: 54, scale: 2.2 }], notes: ['前期ZS', '後期ZS'], point: '後期はフロントグリル意匠を変更。ランプだけでなく中央開口と上側グリルのつながりを見ます。' },
+      { id: 'bumper', label: 'ZSバンパー', focus: [{ x: 28, y: 65, scale: 2.1 }, { x: 29, y: 65, scale: 2.1 }], notes: ['前期ZS', '後期ZS'], point: '後期ZSは外側フレームが［ハ］字を描き、フォグを低い位置へ置く専用意匠です。標準X／Vとは分けて確認します。' },
     ],
   },
 }

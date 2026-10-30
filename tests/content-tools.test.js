@@ -141,6 +141,10 @@ test('部位拡大はページ固有座標を使い、GA4へ部位ID以外の入
       assert.match(part.id, /^(headlamp|grille|bumper)$/)
       assert.equal(part.focus.length, 2)
       assert.notDeepEqual(part.focus[0], part.focus[1])
+      assert.ok(part.point.length >= 25, `${part.id}: 判別ポイントが具体的でない`)
+      assert.ok(Math.abs(part.focus[0].y - part.focus[1].y) <= 1, `${part.id}: 上下基準が不一致`)
+      const scaleRatio = Math.max(part.focus[0].scale, part.focus[1].scale) / Math.min(part.focus[0].scale, part.focus[1].scale)
+      assert.ok(scaleRatio <= 1.04, `${part.id}: 表示倍率差が大きい`)
     }
   }
   assert.notDeepEqual(nbox.detailCompare.parts[0].focus, voxy80Enhancement.detailCompare.parts[0].focus)
