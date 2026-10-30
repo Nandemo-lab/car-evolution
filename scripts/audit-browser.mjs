@@ -42,7 +42,11 @@ for (const path of paths) {
   await page.close()
 }
 
-const representatives = ['/', '/cars/voxy.html', '/voxy-80-zenki-kouki.html', '/compare-freed-sienta.html', '/cars/corolla-cross.html', '/privacy.html']
+const representatives = [
+  '/', '/cars/voxy.html', '/voxy-80-zenki-kouki.html', '/compare-freed-sienta.html',
+  '/cars/corolla-cross.html', '/cars/hustler.html', '/cars/roomy.html', '/cars/move.html',
+  '/privacy.html',
+]
 const viewportIssues = []
 for (const width of [375, 390, 1440]) {
   for (const path of representatives) {

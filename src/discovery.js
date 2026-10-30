@@ -15,6 +15,9 @@ export const relatedCars = {
   solio: ['sienta', 'freed', 'spacia'],
   'n-box': ['spacia', 'solio', 'freed'],
   spacia: ['n-box', 'solio', 'sienta'],
+  hustler: ['spacia', 'jimny', 'n-box'],
+  roomy: ['solio', 'sienta', 'freed'],
+  move: ['tanto', 'n-box', 'spacia'],
 }
 
 export function getSlugFromPath(pathname = window.location.pathname) {
@@ -42,6 +45,9 @@ const topCardImages = {
   solio: '/images/cars/solio/top-card-front-right-v2.png',
   spacia: '/images/cars/spacia/top-card-front-right-v2.png',
   tanto: '/images/cars/tanto/top-card-front-right-v2.png',
+  hustler: '/images/cars/hustler/mr92s-2026-hybrid-x-ff-v1.webp',
+  roomy: '/images/cars/roomy/m900a-2026-custom-gt-ff-v1.webp',
+  move: '/images/cars/move/la850s-2025-x-ff-v1.webp',
 }
 
 const topCardPresentation = {
@@ -60,6 +66,7 @@ export const topCardVisualAudit = Object.fromEntries([
   'sienta', 'corolla-cross', 'serena', 'stepwgn', 'freed', 'n-box',
   'vezel', 'delica-d5', 'solio', 'spacia', 'tanto',
   'rav4', 'cx-5', 'roox', 'delica-mini', 'jimny',
+  'hustler', 'roomy', 'move',
 ].map((slug) => [slug, { direction: 'front-right', angle: 'front-dominant-3q' }]))
 
 // TOP and NEXT DISCOVERY share one art-directed set: same 4:3 canvas,
