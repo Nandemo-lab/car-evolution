@@ -62,6 +62,58 @@ test('車名と初度登録年は境界年を単一世代に断定しない', ()
   assert.ok(boundary.some(item => item.code.includes('ZVW50')))
   assert.deepEqual(generationYearBounds(prius.generations.find(item => item.code.includes('ZVW30'))), { start: 2009, end: 2015 })
 })
+test('YEAR FINDERは全31車種の全販売境界年と前後年を欠落なく判定する', () => {
+  assert.equal(cars.length, 31)
+  let checkedYears = 0
+  for (const car of cars) {
+    const bounds = car.generations.map(generation => ({ generation, ...generationYearBounds(generation) }))
+    assert.ok(bounds.length > 0, `${car.slug}: 世代定義なし`)
+    for (const { generation, start, end } of bounds) {
+      assert.ok(Number.isInteger(start) && Number.isInteger(end) && start <= end, `${car.slug}: ${generation.code} の期間が不正`)
+      const years = new Set([start - 1, start, start + 1, end - 1, end, end + 1])
+      for (const year of years) {
+        const actual = findGenerationsByYear(car, year).map(item => item.code).sort()
+        const expected = bounds
+          .filter(item => year >= item.start && year <= item.end)
+          .map(item => item.generation.code)
+          .sort()
+        assert.deepEqual(actual, expected, `${car.slug} ${year}年`)
+        checkedYears += 1
+      }
+      assert.ok(findGenerationsByYear(car, start).includes(generation), `${car.slug}: 発売年を候補から落としている`)
+      assert.ok(findGenerationsByYear(car, end).includes(generation), `${car.slug}: 終了年を候補から落としている`)
+    }
+  }
+  assert.ok(checkedYears >= 400, `境界年前後の検査数が不足: ${checkedYears}`)
+})
+
+test('YEAR FINDERは改良年を世代交代と誤認せず、併売・空白年・未対応年を保守的に扱う', () => {
+  const bySlug = slug => cars.find(car => car.slug === slug)
+
+  // 2代目EXは3代目発売後も2011年12月まで公式に併売された。
+  assert.deepEqual(findGenerationsByYear(bySlug('prius'), 2010).map(item => item.code), ['NHW20', 'ZVW30'])
+  assert.deepEqual(findGenerationsByYear(bySlug('prius'), 2012).map(item => item.code), ['ZVW30'])
+
+  // 初度登録年だけでは同一年内の切替月を確定できないため両候補を残す。
+  for (const [slug, year] of [['n-box', 2017], ['n-one', 2020], ['delica-mini', 2025], ['roox', 2025]]) {
+    assert.ok(findGenerationsByYear(bySlug(slug), year).length >= 2, `${slug} ${year}年は複数候補`)
+  }
+
+  // シエラとノマドは世代交代ではなく併売される別仕様。
+  assert.deepEqual(findGenerationsByYear(bySlug('jimny'), 2025).map(item => item.code), ['JB74W', 'JC74W'])
+
+  // 6代目終了後、新型発売前の2024年は掲載世代なし。近い世代へ丸めない。
+  assert.deepEqual(findGenerationsByYear(bySlug('move'), 2024), [])
+
+  // 改良年は同一世代内の変更であり、別世代を作らない。
+  assert.equal(findGenerationsByYear(bySlug('tanto'), 2015).length, 1)
+  assert.equal(findGenerationsByYear(bySlug('roomy'), 2020).length, 1)
+  assert.equal(findGenerationsByYear(bySlug('spacia'), 2021).length, 1)
+
+  // 掲載範囲外の年は推測で最古・最新世代へ寄せない。
+  assert.deepEqual(findGenerationsByYear(bySlug('vezel'), 2012), [])
+  assert.deepEqual(findGenerationsByYear(bySlug('corolla-cross'), 2020), [])
+})
 test('販売店質問は確定に必要な項目だけを作り車台番号入力を要求しない', () => {
   const nbox = cars.find(car => car.slug === 'n-box')
   const candidates = findGenerationsByYear(nbox, 2017)
