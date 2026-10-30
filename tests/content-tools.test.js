@@ -95,6 +95,12 @@ test('1世代のみの車種は同じ画像を比較せず単一モデルとし�
     assert.ok(!html.includes('1つの掲載区分'),car.slug)
   }
 })
+
+test('歴代カードは車体全体を表示し、共通ズームで見切れさせない',()=>{
+  const css=readFileSync(new URL('../src/car-page.css',import.meta.url),'utf8')
+  assert.match(css,/\.timeline-thumb img\s*\{[^}]*object-fit:\s*contain/s)
+  assert.match(css,/\.timeline-thumb img\s*\{[^}]*transform:\s*none/s)
+})
 test('新規歴代車種もTOP専用のフロント右向き三四半角アセットを使う',()=>{
   const expected={
     rav4:'/images/cars/rav4/top-card-front-right-v1.png',

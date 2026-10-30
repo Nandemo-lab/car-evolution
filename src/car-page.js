@@ -366,15 +366,6 @@ function renderTimeline(generations, vehicleName) {
     `
     const thumbImg = btn.querySelector('.timeline-thumb img')
     withImageFallback(thumbImg)
-    // Per-generation escape hatch for the shared 1.55x Timeline crop
-    // (see --timeline-object-position in car-page.css) -- only set on
-    // the small number of generations whose own source photo frames
-    // the car close to the full width of its canvas, where the shared
-    // crop would otherwise cut into the body. Absent field = untouched
-    // shared default.
-    if (gen.timelineObjectPosition) {
-      thumbImg.style.setProperty('--timeline-object-position', gen.timelineObjectPosition)
-    }
     nav.appendChild(btn)
   })
 }

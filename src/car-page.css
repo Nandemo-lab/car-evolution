@@ -115,21 +115,14 @@ body { margin: 0; background: #0b0c0e; }
   filter: grayscale(.15) brightness(.85);
 }
 .timeline-item:not([aria-current="true"]):hover::before, .timeline-item:not([aria-current="true"]):focus-visible::before { opacity: 1; }
-.timeline-thumb { position: relative; display: block; width: 100%; height: 108px; flex: 0 0 auto; }
-/* The tight 1.55x zoom is deliberate -- Timeline is a gallery of front-
-   design close-ups, not a comparison diagram (that's Detail/Compare's
-   job, both shown at true full-frame, zero crop). Zooming every
-   generation out to remove all cropping was tried and reverted
-   (2026-07-31): it made every card read as a smaller, more distant
-   photo and weakened exactly the "impressive front shot" character
-   this section is for. Cropping is only a real problem on the small
-   number of generations whose own source photo happens to frame the
-   car close to the full width of its 1408px canvas -- those get a
-   per-generation override (see --timeline-object-position, set inline
-   via car-page.js from generations[].timelineObjectPosition) rather
-   than changing this shared rule for every vehicle. */
+.timeline-thumb { position: relative; display: grid; place-items: center; width: 100%; height: 108px; flex: 0 0 auto; overflow: hidden; background: #0b0c0e; }
+/* Timeline cards must keep the complete vehicle visible. A previous
+   shared 1.55x zoom cut the roof or body edges on tall, upright models
+   such as JIMNY. `contain` makes this guarantee independent of each
+   source image's framing, while the detail image below remains the
+   large, close view. */
 .timeline-thumb img {
-  width: 100%; height: 100%; object-fit: cover; object-position: var(--timeline-object-position, 40% 55%); transform: scale(1.55);
+  width: 100%; height: 100%; object-fit: contain; object-position: center; transform: none;
   filter: grayscale(.4) brightness(.68); transition: filter .35s;
 }
 .timeline-item[aria-current="true"] .timeline-thumb img { filter: grayscale(0) brightness(1.05) saturate(1.15); }
