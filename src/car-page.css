@@ -395,11 +395,12 @@ body { margin: 0; background: #0b0c0e; }
 }
 .compare-chip:disabled { opacity: .12; cursor: not-allowed; }
 .compare-image-wrap {
-  position: relative; border-radius: 18px; overflow: hidden; background: #111316; aspect-ratio: 1408 / 668;
+  position: relative; border-radius: 18px; overflow: hidden; background: #111316;
+  aspect-ratio: var(--compare-image-ratio, 1408 / 668);
   cursor: ew-resize; touch-action: pan-y; user-select: none; outline: none;
 }
 .compare-image-wrap:focus-visible { box-shadow: 0 0 0 3px rgba(225,198,121,.72); }
-.compare-base, .compare-overlay img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.compare-base, .compare-overlay img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
 .compare-overlay { position: absolute; inset: 0; overflow: hidden; }
 /* Each side's own evolution-point annotations ride along with its
    photo -- the overlay's are clipped together with its image, and the

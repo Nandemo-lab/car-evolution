@@ -559,6 +559,17 @@ function initCompare(generations, vehicleName) {
   stage.tabIndex = 0
   stage.setAttribute('role', 'slider')
   stage.setAttribute('aria-label', `${vehicleName}の新旧画像を比較`)
+
+  // Match the slider canvas to the selected newer image. Both layers use
+  // `contain`, so even a mixed-ratio pair remains fully visible rather
+  // than losing its roof, wheels or body edges to the legacy 2.1:1 crop.
+  function syncCompareAspect() {
+    const image = baseImage.naturalWidth ? baseImage : overlayImage
+    if (!image.naturalWidth || !image.naturalHeight) return
+    stage.style.setProperty('--compare-image-ratio', String(image.naturalWidth / image.naturalHeight))
+  }
+  baseImage.addEventListener('load', syncCompareAspect)
+  overlayImage.addEventListener('load', syncCompareAspect)
   stage.setAttribute('aria-valuemin', '0')
   stage.setAttribute('aria-valuemax', '100')
 

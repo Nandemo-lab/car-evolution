@@ -109,6 +109,14 @@ test('歴代詳細画像は実画像比率に合わせ、4:3車両の屋根や�
   assert.match(js,/naturalWidth\s*\/\s*refs\.image\.naturalHeight/)
   assert.match(js,/VISUAL_IMAGE_PCT\s*\/\s*100/)
 })
+
+test('歴代比較スライダーも実画像比率とcontainで車体を見切れさせない',()=>{
+  const css=readFileSync(new URL('../src/car-page.css',import.meta.url),'utf8')
+  const js=readFileSync(new URL('../src/car-page.js',import.meta.url),'utf8')
+  assert.match(css,/aspect-ratio:\s*var\(--compare-image-ratio/)
+  assert.match(css,/\.compare-base,[^{]+\{[^}]*object-fit:\s*contain/s)
+  assert.match(js,/--compare-image-ratio/)
+})
 test('新規歴代車種もTOP専用のフロント右向き三四半角アセットを使う',()=>{
   const expected={
     rav4:'/images/cars/rav4/top-card-front-right-v1.png',
