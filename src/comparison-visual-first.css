@@ -29,12 +29,35 @@
 .lc-progressive > summary small { color:#a0d3ff; }
 .lc-progressive-body > section { padding-top:36px; }
 .lc-progressive-body .facelift-change-matrix { padding-right:0; padding-left:0; }
+.comparison-hero-compact { padding-bottom:24px; }
+.comparison-hero-compact .comparison-actions { margin-top:18px; }
+.lc-visual-first { padding-bottom:48px; }
+.lc-visual-first > h2 { margin-bottom:14px; }
+.lc-visual-context { margin-top:12px; color:rgba(244,243,240,.55); font-size:12px; }
+.lc-visual-context summary { min-height:44px; display:flex; align-items:center; width:fit-content; color:rgba(244,243,240,.72); cursor:pointer; }
+.lc-visual-context p { max-width:760px; margin:6px 0 0; line-height:1.7; }
+.lc-context-intro { margin:0 0 8px; }
+.lc-lower-details .lc-progressive-body > section { padding-top:30px; }
+.lc-lower-details .comparison-tools { padding:28px 0 0; }
+.lc-lower-details .comparison-tools.is-compact .comparison-notebook { margin-top:0; }
+.comparison-compact-reminder { display:grid; gap:5px; margin:0 0 14px; color:rgba(244,243,240,.62); font-size:12px; line-height:1.6; }
+.comparison-compact-reminder strong { color:#f4f3f0; font-size:14px; }
 .comparison-view-toggle { display:flex; width:fit-content; margin:0 0 10px; padding:3px; border:1px solid rgba(244,243,240,.15); border-radius:999px; background:rgba(18,20,23,.8); }
 .comparison-view-toggle button { min-width:82px; min-height:44px; padding:0 14px; border:0; border-radius:999px; background:transparent; color:rgba(244,243,240,.62); font:600 12px/1 inherit; cursor:pointer; }
 .comparison-view-toggle button[aria-pressed="true"] { background:#f4f3f0; color:#101214; }
 .comparison-view-toggle button:focus-visible { outline:2px solid #a0d3ff; outline-offset:2px; }
 .comparison-view-hint { min-height:1.5em; margin:0 0 10px; color:rgba(244,243,240,.52); font-size:11px; }
 @media (max-width:699px) {
+  .comparison-hero-compact { padding-top:22px; padding-bottom:18px; }
+  .comparison-hero-compact .comparison-eyebrow { margin-top:28px; }
+  .comparison-hero-compact h1 { font-size:clamp(29px,9vw,39px); line-height:1.08; }
+  .comparison-hero-compact .comparison-actions { margin-top:14px; }
+  .lc-answer { padding-top:16px; padding-bottom:18px; }
+  .lc-answer strong { font-size:18px; line-height:1.35; }
+  .lc-answer span { line-height:1.6; }
+  .lc-visual-first { padding-top:0; padding-bottom:42px; }
+  .lc-visual-first > .comparison-eyebrow { margin-bottom:8px; }
+  .lc-visual-first > h2 { font-size:24px; margin-bottom:12px; }
   .lc-visual-points { grid-template-columns:1fr; }
   .lc-visual-first .lc-cars { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
   .lc-visual-first .lc-car-copy { padding:12px; }

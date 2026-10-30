@@ -1,4 +1,5 @@
 const nbox = {
+  compactFinalUi: true,
   imageViewToggle: true,
   comparisonTitle: '前期・後期を画像で比較',
   changesTitle: '2015年改良で変わったこと',
