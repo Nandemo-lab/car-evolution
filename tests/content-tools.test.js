@@ -85,13 +85,13 @@ test('ホームはJavaScript実行前から26車種すべての歴代ページ�
 test('新規歴代車種もTOP専用のフロント右向き三四半角アセットを使う',()=>{
   const expected={
     rav4:'/images/cars/rav4/top-card-front-right-v1.png',
-    'cx-5':'/images/cars/cx-5/top-card-front-right-v1.png',
+    'cx-5':'/images/cars/cx-5/top-card-front-right-v2.png',
     roox:'/images/cars/roox/top-card-front-right-v1.png',
-    'delica-mini':'/images/cars/delica-mini/top-card-front-right-v1.png',
-    jimny:'/images/cars/jimny/top-card-front-right-v1.png',
-    hustler:'/images/cars/hustler/mr92s-2026-hybrid-x-ff-v1.webp',
+    'delica-mini':'/images/cars/delica-mini/top-card-front-right-v2.png',
+    jimny:'/images/cars/jimny/top-card-front-right-v2.png',
+    hustler:'/images/cars/hustler/top-card-front-right-v2.png',
     roomy:'/images/cars/roomy/m900a-2026-custom-gt-ff-v1.webp',
-    move:'/images/cars/move/la850s-2025-x-ff-v1.webp',
+    move:'/images/cars/move/top-card-front-right-v2.png',
   }
   for(const [slug,image] of Object.entries(expected)){
     const card=homeCatalog(cars).find(item=>item.slug===slug)
@@ -178,13 +178,13 @@ test('公開車両画像は考証台帳に登録され、未確認を検証済�
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
     for(const match of html.matchAll(/(?:src|content)="(\/images\/cars\/[^"]+)"/g)) published.add(match[1])
   }
-  assert.equal(published.size,165)
-  assert.equal(registry.length,165)
+  assert.equal(published.size,167)
+  assert.equal(registry.length,167)
   for(const image of published){
     assert.ok(byPath.has(image),`${image}: verification registry missing`)
     assert.ok(['VERIFIED','CORRECTED','HOLD'].includes(byPath.get(image)[3]),`${image}: invalid status`)
   }
-  assert.equal(registry.length,165)
+  assert.equal(registry.length,167)
   assert.ok(registry.filter(row=>row[3]==='VERIFIED').length>=1)
   assert.ok(registry.filter(row=>row[3]==='HOLD').length>=1)
 })

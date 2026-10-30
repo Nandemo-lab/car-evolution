@@ -12,7 +12,7 @@ export default {
     { generations: '2代目KF系', label: 'Mazda 2021年商品改良資料', url: 'https://newsroom.mazda.com/ja/publicity/release/2021/202111/211108a.html' },
     { generations: '3代目KM系', label: 'Mazda 新型CX-5国内発売資料', url: 'https://newsroom.mazda.com/ja/publicity/release/2026/202605/260521a.html' },
   ] },
-  tagline: '2012年、2017年、2026年。型式と動力をそろえて読む。', heroImage: '/images/cars/cx-5/kmysdp-2026-l.webp', homeCardImage: '/images/cars/cx-5/top-card-front-right-v1.png',
+  tagline: '2012年、2017年、2026年。型式と動力をそろえて読む。', heroImage: '/images/cars/cx-5/kmysdp-2026-l.webp', homeCardImage: '/images/cars/cx-5/top-card-front-right-v2.png',
   generationGuide: { title: 'CX-5は国内3世代。KF後期とKMを混同しない', intro: 'CX-5は2012年の初代KE、2017年の2代目KF、2026年の3代目KMへ移行しました。掲載画像は2代目後期25S Sports Appearanceと3代目L・4WDで、グレード外装を世代全体へ一般化しません。', layout: 'chronology', items: [
     { title: '2012年：初代KE系', description: 'SKYACTIV技術と魂動デザインを全面採用した最初の量産車。ガソリンとディーゼル、2WDと4WDで型式が分かれます。', meta: 'KE系 · 初代' },
     { title: '2017年：2代目KF系', description: '低い灯火と大型グリルへ進化。2021年の商品改良で前後意匠が変わったため、初期KFと後期KFを別世代と誤認しないようにします。', meta: 'KFEP／KF5P／KF2P' },

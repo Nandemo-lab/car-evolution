@@ -121,7 +121,7 @@ const comparisonCatalogDetails = {
     ],
   },
   'jimny-sierra-vs-nomade': {
-    vehicleName: 'JIMNY ジムニー', cardName: 'JIMNY', maker: 'Suzuki', historySlug: 'jimny', aliases: ['jimny', 'ジムニーシエラ', 'ジムニーノマド', 'ノマド'], homeCardImage: '/images/cars/jimny/top-card-front-right-v1.png',
+    vehicleName: 'JIMNY ジムニー', cardName: 'JIMNY', maker: 'Suzuki', historySlug: 'jimny', aliases: ['jimny', 'ジムニーシエラ', 'ジムニーノマド', 'ノマド'], homeCardImage: '/images/cars/jimny/top-card-front-right-v2.png',
     generations: [
       { era: '3ドア', title: 'ジムニーシエラ JC', code: 'JB74W', period: '2018年7月発売' },
       { era: '5ドア', title: 'ジムニーノマド FC', code: 'JC74W', period: '2025年4月発売' },
@@ -135,7 +135,7 @@ const comparisonCatalogDetails = {
     ],
   },
   'cx-5-kf-vs-km': {
-    vehicleName: 'CX-5', cardName: 'CX-5', maker: 'Mazda', historySlug: 'cx-5', aliases: ['シーエックスファイブ'], homeCardImage: '/images/cars/cx-5/top-card-front-right-v1.png',
+    vehicleName: 'CX-5', cardName: 'CX-5', maker: 'Mazda', historySlug: 'cx-5', aliases: ['シーエックスファイブ'], homeCardImage: '/images/cars/cx-5/top-card-front-right-v2.png',
     generations: [
       { era: '2代目', title: 'KF系（画像は25S）', code: 'KFEP / KF5P / KF2P', period: '2017年登場・2021年外観改良' },
       { era: '3代目', title: 'KM系（画像はL・4WD）', code: 'KMYSDP', period: '2026年5月国内発売' },
@@ -149,7 +149,7 @@ const comparisonCatalogDetails = {
     ],
   },
   'delica-mini-b3-vs-ba': {
-    vehicleName: 'DELICA MINI デリカミニ', cardName: 'DELICA MINI', maker: 'Mitsubishi', historySlug: 'delica-mini', aliases: ['デリカミニ'], homeCardImage: '/images/cars/delica-mini/top-card-front-right-v1.png',
+    vehicleName: 'DELICA MINI デリカミニ', cardName: 'DELICA MINI', maker: 'Mitsubishi', historySlug: 'delica-mini', aliases: ['デリカミニ'], homeCardImage: '/images/cars/delica-mini/top-card-front-right-v2.png',
     generations: [
       { era: '初代', title: 'B3系（画像はT Premium）', code: 'B34A / B35A / B37A / B38A', period: '2023年5月発売' },
       { era: '2代目', title: 'BA系（画像はT Premium DELIMARU）', code: 'BA1A / BA2A / BA5A / BA6A', period: '2025年10月発売' },

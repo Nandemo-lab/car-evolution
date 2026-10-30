@@ -45,9 +45,9 @@ const topCardImages = {
   solio: '/images/cars/solio/top-card-front-right-v2.png',
   spacia: '/images/cars/spacia/top-card-front-right-v2.png',
   tanto: '/images/cars/tanto/top-card-front-right-v2.png',
-  hustler: '/images/cars/hustler/mr92s-2026-hybrid-x-ff-v1.webp',
+  hustler: '/images/cars/hustler/top-card-front-right-v2.png',
   roomy: '/images/cars/roomy/m900a-2026-custom-gt-ff-v1.webp',
-  move: '/images/cars/move/la850s-2025-x-ff-v1.webp',
+  move: '/images/cars/move/top-card-front-right-v2.png',
 }
 
 const topCardPresentation = {

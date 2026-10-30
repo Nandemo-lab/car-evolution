@@ -11,7 +11,7 @@ export default {
     { generations: 'ノマドJC74W', label: 'スズキ 2025年ジムニーノマド発表', url: 'https://www.suzuki.co.jp/release/a/2025/0130/index.html' },
     { generations: '小型ジムニー系譜', label: 'スズキ デジタルライブラリー', url: 'https://www.suzuki.co.jp/suzuki_digital_library/1_auto/jimnysmall.html' },
   ] },
-  tagline: '軽、3ドア小型、5ドア小型。世代ではなく区分から選ぶ。', heroImage: '/images/cars/jimny/jc74w-2025-nomade-fc-v1.jpg', homeCardImage: '/images/cars/jimny/top-card-front-right-v1.png',
+  tagline: '軽、3ドア小型、5ドア小型。世代ではなく区分から選ぶ。', heroImage: '/images/cars/jimny/jc74w-2025-nomade-fc-v1.jpg', homeCardImage: '/images/cars/jimny/top-card-front-right-v2.png',
   generationGuide: { title: 'ジムニー・シエラ・ノマドは同じ名前の「世代順」ではない', intro: '現行は軽自動車のジムニーJB64W、小型3ドアのシエラJB74W、小型5ドアのノマドJC74Wという別区分です。ノマドはシエラを置き換える次世代ではありません。掲載画像は小型車同士のシエラJCとノマドFCです。', layout: 'chronology', items: [
     { title: '1970年〜：軽ジムニーの系譜', description: 'LJ10から始まり、現行は2018年登場のJB64W。軽規格の0.66L・3ドアで、シエラやノマドの1.5L諸元を当てはめません。', meta: '軽自動車 · 現行JB64W' },
     { title: '1977年〜：小型ジムニーの系譜', description: 'ジムニー8、1000、1300、ワイド、シエラへ続く小型車系譜。1993年からシエラ名が使われ、現行JB74Wは2018年登場です。', meta: '小型乗用車 · 3ドア' },

@@ -11,7 +11,7 @@ export default {
     { generations: '2代目BA系', label: '三菱 2代目デリカミニ発表資料', url: 'https://www.mitsubishi-motors.com/jp/newsroom/newsrelease/2025/20250918_3.html' },
     { generations: '2代目BA系', label: '三菱 2代目デリカミニ発売資料', url: 'https://www.mitsubishi-motors.com/file.jsp?id=234592' },
   ] },
-  tagline: '2025年の特別仕様とフルモデルチェンジを取り違えない。', heroImage: '/images/cars/delica-mini/ba6a-2025-t-premium.webp', homeCardImage: '/images/cars/delica-mini/top-card-front-right-v1.png',
+  tagline: '2025年の特別仕様とフルモデルチェンジを取り違えない。', heroImage: '/images/cars/delica-mini/ba6a-2025-t-premium.webp', homeCardImage: '/images/cars/delica-mini/top-card-front-right-v2.png',
   generationGuide: { title: 'デリカミニは2023年初代、2025年2代目', intro: 'デリカミニは2023年に独立車名として登場し、2025年10月に2代目へフルモデルチェンジしました。掲載画像は初代T Premiumと2代目T Premium DELIMARU Packageの4WD代表。パッケージ装備を世代差に含めません。', layout: 'chronology', items: [
     { title: '2023年5月：初代B3系', description: 'G／T、Premium、2WD／4WDを設定。Tはターボを示しますが、駆動方式やPremium装備までは決まりません。', meta: 'B34A／B35A／B37A／B38A' },
     { title: '2025年6月：初代Premium Limited', description: '装備をまとめた特別仕様車で、初代のままです。同年10月発売の2代目と登録年だけで混同しないようにします。', meta: '特別仕様 · 世代交代ではない' },

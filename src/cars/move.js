@@ -15,7 +15,7 @@ export default {
     { generations: '7代目', label: 'ダイハツ 2025年7代目ムーヴ発売資料', url: 'https://www.daihatsu.com/jp/news/2025/20250605-1.html' },
     { generations: '7代目諸元', label: 'ダイハツ認定中古車 2025年ムーヴ車両情報', url: 'https://u-catch.daihatsu.co.jp/catalog/MOVE/MODEL__202506/' },
   ] },
-  tagline: '2025年、ヒンジドアの軽ワゴンからスライドドア車へ。', heroImage: '/images/cars/move/la850s-2025-x-ff-v1.webp', homeCardImage: '/images/cars/move/la850s-2025-x-ff-v1.webp',
+  tagline: '2025年、ヒンジドアの軽ワゴンからスライドドア車へ。', heroImage: '/images/cars/move/la850s-2025-x-ff-v1.webp', homeCardImage: '/images/cars/move/top-card-front-right-v2.png',
   generationGuide: { title: 'ムーヴは7世代。中古車では6代目と7代目を重点確認', intro: 'ムーヴは1995年に登場し、2025年6月に7代目へ移行しました。このページでは流通上の比較機会が多い6代目LA150S／LA160Sと、後席スライドドアへ変わった7代目LA850S／LA860Sを画像で整理します。', layout: 'chronology', items: [
     { title: '1995年から5世代：軽ワゴンとして進化', description: '初代から5代目までは軽ワゴンの基本形を磨いてきました。年式だけで型式を推測せず、車検証の型式とメーカーの世代資料を組み合わせて確認します。', meta: '1995年初代 → 2010年5代目' },
     { title: '2014年12月：6代目LA150S／LA160S', description: '標準車X“SA”は横長ランプと細いグリルを採用し、後席はヒンジ式ドアです。カスタムは専用フロントを持つため、標準車の顔を世代共通とは扱いません。', meta: 'LA150S＝2WD／LA160S＝4WD' },
