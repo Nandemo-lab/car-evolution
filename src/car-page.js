@@ -375,6 +375,7 @@ function renderTimeline(generations, vehicleName) {
 function getDetailRefs() {
   return {
     detail: document.getElementById('detail'),
+    visual: document.querySelector('.detail-visual'),
     image: document.getElementById('detail-image'),
     dots: document.getElementById('detail-dots'),
     callouts: document.getElementById('detail-callouts'),
@@ -456,6 +457,17 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
   let currentIndex = defaultIndex
   let detailSweepTimer
 
+  // History assets are not all the legacy 1408x668 ratio. Newer masters
+  // also use 4:3 and several intermediate ratios. Keep the 13/74/13
+  // annotation canvas, but derive its aspect ratio from the actual image
+  // so `object-fit: cover` no longer cuts the roof, wheels or body edges.
+  function syncDetailAspect() {
+    if (!refs.image.naturalWidth || !refs.image.naturalHeight) return
+    const visualRatio = (refs.image.naturalWidth / refs.image.naturalHeight) * (VISUAL_IMAGE_PCT / 100)
+    refs.visual.style.setProperty('--detail-visual-ratio', String(visualRatio))
+  }
+  refs.image.addEventListener('load', syncDetailAspect)
+
   refs.facelistToggle.addEventListener('click', () => {
     const isOpen = refs.facelistToggle.getAttribute('aria-expanded') === 'true'
     refs.facelistToggle.setAttribute('aria-expanded', String(!isOpen))
@@ -473,6 +485,7 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
   function render(gen) {
     refs.image.src = gen.image
     refs.image.alt = `${gen.era} ${vehicleName} ${gen.title}`
+    if (refs.image.complete) syncDetailAspect()
     refs.numeral.textContent = gen.numeral
     refs.era.textContent = gen.era
     refs.title.textContent = gen.title

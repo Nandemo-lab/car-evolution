@@ -195,7 +195,14 @@ body { margin: 0; background: #0b0c0e; }
    10%, see car-page.js) keeps real pixel margin usable for a label
    even on small phones, including generations with two labels sharing
    one margin row. */
-.detail-visual { position: relative; aspect-ratio: 1408 / 903; }
+.detail-visual {
+  position: relative;
+  /* Set from the selected image's natural dimensions by car-page.js.
+     The fallback preserves the original 1408x668 master layout. This
+     prevents 4:3 masters (ROOMY and other newer assets) from being
+     forced into a 2.1:1 photo frame and losing their roof/wheels. */
+  aspect-ratio: var(--detail-visual-ratio, 1408 / 903);
+}
 .detail.is-switching .detail-visual::after {
   content: ''; position: absolute; z-index: 5; top: 13%; bottom: 13%; width: 28%; left: 0;
   pointer-events: none; opacity: 0; mix-blend-mode: screen;
