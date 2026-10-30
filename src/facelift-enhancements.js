@@ -1,4 +1,5 @@
 const nbox = {
+  imageViewToggle: true,
   comparisonTitle: '前期・後期を画像で比較',
   changesTitle: '2015年改良で変わったこと',
   visualHighlights: [
@@ -52,7 +53,12 @@ export const voxy80Enhancement = {
 }
 
 export function withFaceliftEnhancement(data) {
-  if (data.vehicle === 'N-BOX' && data.intent === 'jf1-pre-post') return { ...data, ...nbox, visualFirst: true }
+  if (data.vehicle === 'N-BOX' && data.intent === 'jf1-pre-post') return {
+    ...data,
+    ...nbox,
+    cars: data.cars.map(car => ({ ...car, markers: [{ label: '1', x: car.id === 'jf1pre' ? 35 : 36, y: car.id === 'jf1pre' ? 57 : 54 }] })),
+    visualFirst: true,
+  }
   const shortNames = data.cars.map(car => car.short).join(' ')
   return {
     ...data,

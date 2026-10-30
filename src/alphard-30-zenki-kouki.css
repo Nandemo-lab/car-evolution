@@ -10,7 +10,7 @@
 .facelift-section-intro { max-width: 700px; margin: 14px 0 28px; color: rgba(244,243,240,.58); font-size: 12px; font-weight: 300; line-height: 1.8; }
 .facelift-grid { display: grid; gap: 16px; }
 .facelift-card { overflow: hidden; border: 1px solid rgba(244,243,240,.1); border-radius: 18px; background: #121417; }
-.facelift-card-image { overflow: hidden; background: #1a1c20; }
+.facelift-card-image { position: relative; overflow: hidden; background: #1a1c20; }
 .facelift-card-image img { display: block; width: 100%; aspect-ratio: 1.52 / 1; object-fit: cover; }
 .facelift-card-copy { padding: 20px; }
 .facelift-card-label { margin: 0; color: #c9aa63; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .14em; }
@@ -19,6 +19,11 @@
 .facelift-card ul { margin: 18px 0 0; padding: 0; list-style: none; border-top: 1px solid rgba(244,243,240,.1); }
 .facelift-card li { position: relative; padding: 10px 0 10px 15px; border-bottom: 1px solid rgba(244,243,240,.08); color: rgba(244,243,240,.7); font-size: 12px; font-weight: 300; line-height: 1.6; }
 .facelift-card li::before { position: absolute; left: 0; content: '—'; color: #c9aa63; }
+.facelift-card-details { margin-top:12px; }
+.facelift-card-details summary { min-height:44px; display:flex; align-items:center; gap:8px; color:#c9aa63; font-size:13px; cursor:pointer; }
+.facelift-card-details summary::before { content:'＋'; }
+.facelift-card-details[open] summary::before { content:'−'; }
+.facelift-card-details > p { margin:8px 0 0; color:rgba(244,243,240,.67); font-size:13px; font-weight:300; line-height:1.75; }
 .facelift-timeline { padding-bottom: 72px; }
 .timeline-track { display: grid; gap: 0; margin-top: 28px; border-left: 1px solid rgba(244,243,240,.22); }
 .timeline-track article { position: relative; padding: 0 0 28px 24px; }
@@ -38,3 +43,4 @@
 .facelift-source span { max-width: 760px; color: rgba(244,243,240,.45); font-size: 11px; font-weight: 300; line-height: 1.8; }
 .facelift-source a { color: rgba(244,243,240,.78); text-underline-offset: 3px; }
 @media (min-width: 700px) { .facelift-answer, .facelift-compare, .facelift-timeline, .facelift-checklist, .facelift-source { padding-left: 8vw; padding-right: 8vw; } .facelift-answer { grid-template-columns: 160px 1fr; align-items: center; } .facelift-answer p { grid-row: span 2; } .facelift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .nbox-generation-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .alphard-history-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .timeline-track { grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(244,243,240,.22); border-left: 0; } .timeline-track article { padding: 24px 20px 0 0; } .timeline-track article::before { top: -5px; left: 0; } .facelift-checklist ol { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width:699px) { .facelift-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; } .facelift-card-copy { padding:12px; } .facelift-card h2 { font-size:16px; } .facelift-grid.is-single-view { display:grid; grid-auto-flow:column; grid-auto-columns:88%; grid-template-columns:none; gap:10px; margin-right:-22px; padding-right:22px; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-inline:contain; scrollbar-width:none; } .facelift-grid.is-single-view::-webkit-scrollbar { display:none; } .facelift-grid.is-single-view > * { scroll-snap-align:start; } .facelift-grid.is-single-view .facelift-card-image img { aspect-ratio:1.42/1; } }

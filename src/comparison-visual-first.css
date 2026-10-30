@@ -29,9 +29,20 @@
 .lc-progressive > summary small { color:#a0d3ff; }
 .lc-progressive-body > section { padding-top:36px; }
 .lc-progressive-body .facelift-change-matrix { padding-right:0; padding-left:0; }
+.comparison-view-toggle { display:flex; width:fit-content; margin:0 0 10px; padding:3px; border:1px solid rgba(244,243,240,.15); border-radius:999px; background:rgba(18,20,23,.8); }
+.comparison-view-toggle button { min-width:82px; min-height:44px; padding:0 14px; border:0; border-radius:999px; background:transparent; color:rgba(244,243,240,.62); font:600 12px/1 inherit; cursor:pointer; }
+.comparison-view-toggle button[aria-pressed="true"] { background:#f4f3f0; color:#101214; }
+.comparison-view-toggle button:focus-visible { outline:2px solid #a0d3ff; outline-offset:2px; }
+.comparison-view-hint { min-height:1.5em; margin:0 0 10px; color:rgba(244,243,240,.52); font-size:11px; }
 @media (max-width:699px) {
   .lc-visual-points { grid-template-columns:1fr; }
-  .lc-visual-first .lc-cars { gap:8px; }
+  .lc-visual-first .lc-cars { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
   .lc-visual-first .lc-car-copy { padding:12px; }
   .lc-visual-first .lc-car-copy h3 { font-size:16px; }
+  [data-comparison-view-target].is-single-view { display:grid; grid-auto-flow:column; grid-auto-columns:88%; grid-template-columns:none; gap:10px; margin-right:-22px; padding-right:22px; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-inline:contain; scrollbar-width:none; }
+  [data-comparison-view-target].is-single-view::-webkit-scrollbar { display:none; }
+  [data-comparison-view-target].is-single-view > * { scroll-snap-align:start; }
+  [data-comparison-view-target].is-single-view .lc-car img { aspect-ratio:1.45/1; }
 }
+@media (min-width:700px) { .comparison-view-toggle,.comparison-view-hint { display:none; } }
+@media (prefers-reduced-motion:reduce) { .comparison-view-toggle button { transition:none; } }

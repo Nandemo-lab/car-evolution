@@ -175,6 +175,17 @@ test('42比較ページの初期HTMLに本文・出典・画像・メモが揃�
     assert.ok(built.includes(data.answer.title),file)
   }
 })
+test('N-BOXとVOXYの比較画像は横並びと単独表示を安全に切り替えられる', async () => {
+  const nbox=(await import('../src/data/comparisons/n-box-jf1-zenki-kouki.js')).default
+  const nboxHtml=generationComparisonHtml(nbox)
+  assert.ok(nboxHtml.includes('data-comparison-view="pair"'))
+  assert.ok(nboxHtml.includes('data-comparison-view="single"'))
+  assert.equal((nboxHtml.match(/class="lc-image-marker"/g)||[]).length,2)
+  const voxy=readFileSync(new URL('../src/voxy-80-zenki-kouki.js',import.meta.url),'utf8')
+  assert.ok(voxy.includes('data-comparison-view-target'))
+  assert.ok(voxy.includes('bindComparisonViewToggle'))
+  assert.ok(voxy.includes('facelift-card-details'))
+})
 test('ホームはJavaScript実行前から31車種すべての歴代ページにリンクする',()=>{
   const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
   for(const car of cars) assert.ok(html.includes(`/cars/${car.slug}.html`),car.slug)

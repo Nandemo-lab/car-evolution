@@ -7,7 +7,9 @@
 .lc-answer span { color: rgba(244,243,240,.62); font-size: 13px; line-height: 1.8; }
 .lc-cars { display: grid; gap: 16px; }
 .lc-car { overflow: hidden; border: 1px solid rgba(244,243,240,.1); border-radius: 18px; background: #121417; }
+.lc-car-visual { position:relative; overflow:hidden; }
 .lc-car img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.lc-image-marker { position:absolute; z-index:2; left:var(--marker-x); top:var(--marker-y); display:grid; width:24px; height:24px; place-items:center; border:1px solid rgba(255,255,255,.84); border-radius:50%; background:rgba(7,9,11,.78); color:#fff; font:700 11px/1 'Inter',sans-serif; box-shadow:0 2px 10px rgba(0,0,0,.55); transform:translate(-50%,-50%); pointer-events:none; }
 .lc-car-copy { padding: 20px; }
 .lc-car-copy small { color: #c9aa63; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .14em; }
 .lc-car-copy h3 { margin: 9px 0 0; font-size: 22px; }

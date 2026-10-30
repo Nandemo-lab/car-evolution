@@ -18,6 +18,7 @@ export function renderGenerationComparison(data) {
 
   bindComparisonTools(root, data)
   bindFaceliftDetailTools(root, data.detailCompare, { vehicle: data.vehicle, comparison: data.intent })
+  bindComparisonViewToggle(root, data)
   root.querySelectorAll('.lc-table-wrap').forEach(table => {
     const dismissHint = () => table.classList.remove('has-scroll-hint')
     if (table.scrollWidth <= table.clientWidth + 1) dismissHint()
@@ -45,4 +46,19 @@ export function renderGenerationComparison(data) {
     catch (error) { if (error.name !== 'AbortError') button.textContent = 'URLをコピーして共有してください' }
   })
   document.querySelector('.copy-button').addEventListener('click', (event) => copy(event.currentTarget, 'コピーしました'))
+}
+
+export function bindComparisonViewToggle(root, data = {}) {
+  const target = root.querySelector('[data-comparison-view-target]')
+  const controls = [...root.querySelectorAll('[data-comparison-view]')]
+  const hint = root.querySelector('.comparison-view-hint')
+  if (!target || controls.length !== 2) return
+  controls.forEach(button => button.addEventListener('click', () => {
+    const mode = button.dataset.comparisonView
+    target.classList.toggle('is-single-view', mode === 'single')
+    controls.forEach(control => control.setAttribute('aria-pressed', String(control === button)))
+    if (hint) hint.textContent = mode === 'single' ? '横にスワイプして、1台ずつ大きく見られます' : '2台を同時に見比べます'
+    if (mode === 'single') target.scrollTo({ left: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+    trackEvent('change_comparison_image_view', { vehicle: data.vehicle, comparison: data.intent, mode })
+  }))
 }
