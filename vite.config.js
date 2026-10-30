@@ -9,6 +9,8 @@ import { homeCarsHtml, homeCatalog, homeComparisonLinksHtml, modelDirectoryHtml 
 import { resolveReferences } from './src/official-sources.js'
 import roadmap from './src/roadmap.js'
 import { generationComparisonHtml } from './src/generation-comparison-html.js'
+import { faceliftChangeMatrixHtml, faceliftDetailCompareHtml } from './src/facelift-detail-tools.js'
+import { voxy80Enhancement } from './src/facelift-enhancements.js'
 
 const root = fileURLToPath(new URL('.', import.meta.url))
 const redirects = JSON.parse(readFileSync(resolve(root, 'vercel.json'), 'utf8')).redirects || []
@@ -332,13 +334,16 @@ function standaloneEntryHtml(filename, cars) {
   const start = source.indexOf(assignment[0])
   const interactive = source.indexOf('\nasync function copyUrl', start)
   if (interactive < 0) return null
-  const bindings = 'const voxy=globalThis.voxy,alphard=globalThis.alphard;'
+  const bindings = 'const voxy=globalThis.voxy,alphard=globalThis.alphard,faceliftChangeMatrixHtml=globalThis.faceliftChangeMatrixHtml,faceliftDetailCompareHtml=globalThis.faceliftDetailCompareHtml,voxy80Enhancement=globalThis.voxy80Enhancement;'
   const executable = `${bindings}\n${source.slice(0, interactive)
     .replace(/^import .*$/gm, '')}`
   const context = {
     __staticHtml: null,
     voxy: cars.find(car => car.slug === 'voxy'),
     alphard: cars.find(car => car.slug === 'alphard'),
+    faceliftChangeMatrixHtml,
+    faceliftDetailCompareHtml,
+    voxy80Enhancement,
   }
   const target = {
     set innerHTML(value) { context.__staticHtml = value },

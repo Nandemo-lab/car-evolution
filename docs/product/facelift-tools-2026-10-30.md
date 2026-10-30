@@ -1,0 +1,25 @@
+# 前期・後期変更点／部位拡大ツール 根拠記録（2026-10-30）
+
+対象は `/n-box-jf1-zenki-kouki.html` と `/voxy-80-zenki-kouki.html`。未確認項目を「変更なし」と扱わず、公式発表で確認できる範囲だけを初期HTMLへ掲載する。
+
+## N-BOX JF1/JF2
+
+- Honda「N-BOX」マイナーモデルチェンジ（2015-02-05）: https://global.honda/jp/news/2015/4150205-n-box.html
+- 該当箇所: 標準車の外観刷新、後席スライド新設定、IRカット／スーパーUVカットガラス等のタイプ別設定、Custom／Plus Customターボ車の内装、特定FFタイプのJC08燃費25.6km/L。
+- ヘッドライト単体と安全装備の前後差は同資料に明記がないため `未確認`。
+- 拡大対象は、考証台帳でVERIFIEDの `gen1-2011.png` と `jf1-2015-post-facelift-v1.png`。ヘッドライト周辺、グリル、バンパーを画像ごとの個別座標で指定する。
+
+## VOXY 80系 ZS
+
+- Toyota 2014年フルモデルチェンジ: https://global.toyota/jp/newsroom/toyota/21775271.html
+- Toyota 2017年マイナーチェンジ: https://global.toyota/jp/newsroom/toyota/21823080.html
+- 該当箇所: 薄型Bi-Beam LEDヘッドランプ、面発光LEDクリアランスランプ、フロントグリル／リヤコンビネーションランプ、ZSの［ハ］字テーマ、内装色・メーター・収納／テーブル／USBの改良。
+- バンパーは掲載するZS固有、標準X／Vとは異なるため `仕様による`。安全装備とパワートレインの機構変更は同資料から断定せず `未確認`。
+- 拡大対象は `80-zs-pre-facelift-v1.png` と `80-zs-post-facelift-v1.png`。ヘッドライト、グリル、ZSバンパーを画像ごとの個別座標で指定する。
+
+## 表示・計測条件
+
+- 元画像は改変せず、CSSの表示範囲だけを切り替える。
+- 3部位はページごとに別座標。未考証ページへ自動適用しない。
+- GA4イベントは `open_facelift_detail_compare`。送信値は車種、比較ID、部位IDのみで、入力原文や個人情報は送らない。
+- 実ブラウザQAは375px、390px、1440pxで、44pxタップ領域、Enter／Escape、フォーカス復帰、画像2枚、横overflow、Console Errorを確認する。

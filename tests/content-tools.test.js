@@ -121,6 +121,33 @@ test('販売店質問は確定に必要な項目だけを作り車台番号入�
   for (const term of ['型式', '車台番号の先頭部分', '製造時期', 'グレード', '2WD／4WD', '交換・社外部品']) assert.ok(questions.includes(term), term)
   assert.equal(questions.includes('車台番号を入力'), false)
 })
+test('N-BOX JF1とVOXY 80系は考証済み変更表と車種別部位拡大を初期HTMLに持つ', () => {
+  for (const page of ['n-box-jf1-zenki-kouki', 'voxy-80-zenki-kouki']) {
+    const html = readFileSync(new URL(`../dist/${page}.html`, import.meta.url), 'utf8')
+    for (const label of ['何が変わった？', '変更あり', '仕様による', '未確認', '部位を拡大して比べる', 'ヘッドライト', 'フロントグリル', 'バンパー']) {
+      assert.ok(html.includes(label), `${page}: ${label}`)
+    }
+    assert.equal((html.match(/data-facelift-part=/g) || []).length, 3, page)
+    assert.ok(html.includes('aria-label="拡大比較を閉じる"'), page)
+  }
+})
+
+test('部位拡大はページ固有座標を使い、GA4へ部位ID以外の入力値を送らない', async () => {
+  const { withFaceliftEnhancement, voxy80Enhancement } = await import('../src/facelift-enhancements.js')
+  const nbox = withFaceliftEnhancement((await import('../src/data/comparisons/n-box-jf1-zenki-kouki.js')).default)
+  for (const config of [nbox.detailCompare, voxy80Enhancement.detailCompare]) {
+    assert.equal(config.parts.length, 3)
+    for (const part of config.parts) {
+      assert.match(part.id, /^(headlamp|grille|bumper)$/)
+      assert.equal(part.focus.length, 2)
+      assert.notDeepEqual(part.focus[0], part.focus[1])
+    }
+  }
+  assert.notDeepEqual(nbox.detailCompare.parts[0].focus, voxy80Enhancement.detailCompare.parts[0].focus)
+  const source = readFileSync(new URL('../src/facelift-detail-tools.js', import.meta.url), 'utf8')
+  assert.ok(source.includes("part: part.id"))
+  assert.ok(!source.includes('focus.x') || source.includes('--focus-x'))
+})
 test('42比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
   const files=readdirSync(new URL('../src/data/comparisons/',import.meta.url))
   assert.equal(files.length,42)

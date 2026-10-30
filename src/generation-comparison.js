@@ -1,16 +1,21 @@
 import './comparison-page.css'
 import './land-cruiser-300-vs-250.css'
 import './click-glow.js'
+import './facelift-detail-tools.css'
 import { trackEvent } from './analytics.js'
 
 import { bindComparisonTools } from './comparison-tools.js'
 import { generationComparisonHtml } from './generation-comparison-html.js'
+import { bindFaceliftDetailTools } from './facelift-detail-tools.js'
+import { withFaceliftEnhancement } from './facelift-enhancements.js'
 
 export function renderGenerationComparison(data) {
+  data = withFaceliftEnhancement(data)
   const root = document.querySelector(data.root)
   if (!root.dataset.prerendered) root.innerHTML = generationComparisonHtml(data)
 
   bindComparisonTools(root, data)
+  bindFaceliftDetailTools(root, data.detailCompare, { vehicle: data.vehicle, comparison: data.intent })
   root.querySelectorAll('.lc-table-wrap').forEach(table => {
     const dismissHint = () => table.classList.remove('has-scroll-hint')
     if (table.scrollWidth <= table.clientWidth + 1) dismissHint()
