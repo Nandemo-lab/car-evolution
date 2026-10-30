@@ -46,7 +46,7 @@ try {
     await send('Page.navigate', { url: `${baseUrl}/${page}` }, sessionId)
     await wait(350)
     await send('Runtime.evaluate', { expression: `document.querySelector('.lc-related-grid')?.scrollIntoView({block:'center'})` }, sessionId)
-    await wait(350)
+    await send('Runtime.evaluate', { awaitPromise: true, expression: `(async()=>{const images=[...document.querySelectorAll('.lc-related-card img')];await Promise.race([Promise.all(images.map(img=>img.complete&&img.naturalWidth?Promise.resolve():new Promise(resolve=>{img.addEventListener('load',resolve,{once:true});img.addEventListener('error',resolve,{once:true})}))),new Promise(resolve=>setTimeout(resolve,5000))])})()` }, sessionId)
     const evaluated = await send('Runtime.evaluate', { returnByValue: true, expression: `(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,images:[...document.querySelectorAll('.lc-related-card img')].map(img=>({src:img.currentSrc||img.src,complete:img.complete,width:img.naturalWidth,height:img.naturalHeight,loading:img.loading}))}))()` }, sessionId)
     results.push({ page, ...evaluated.result.value })
     if (page === 'n-box-jf1-zenki-kouki.html') {
