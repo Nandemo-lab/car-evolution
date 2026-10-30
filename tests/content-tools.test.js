@@ -127,7 +127,7 @@ test('N-BOX JF1とVOXY 80系は考証済み変更表と車種別部位拡大を�
     for (const label of ['何が変わった？', '変更あり', '仕様による', '未確認', '部位を拡大して比べる', 'ヘッドライト', 'フロントグリル', 'バンパー']) {
       assert.ok(html.includes(label), `${page}: ${label}`)
     }
-    const expectedParts = page.startsWith('n-box') ? 2 : 3
+    const expectedParts = page.startsWith('n-box') ? 1 : 3
     assert.equal((html.match(/data-facelift-part=/g) || []).length, expectedParts, page)
     assert.ok(html.includes('aria-label="拡大比較を閉じる"'), page)
   }
@@ -137,7 +137,7 @@ test('部位拡大はページ固有座標を使い、GA4へ部位ID以外の入
   const { withFaceliftEnhancement, voxy80Enhancement } = await import('../src/facelift-enhancements.js')
   const nbox = withFaceliftEnhancement((await import('../src/data/comparisons/n-box-jf1-zenki-kouki.js')).default)
   for (const config of [nbox.detailCompare, voxy80Enhancement.detailCompare]) {
-    assert.ok(config.parts.length >= 2 && config.parts.length <= 3)
+    assert.ok(config.parts.length >= 1 && config.parts.length <= 3)
     for (const part of config.parts) {
       assert.match(part.id, /^(headlamp|grille|bumper)$/)
       assert.equal(part.focus.length, 2)
@@ -166,6 +166,7 @@ test('42比較ページの初期HTMLに本文・出典・画像・メモが揃�
     const html=generationComparisonHtml(data)
     assert.ok(!/\bundefined\b|\bnull\b/.test(html),file)
     assert.ok(html.includes(data.answer.title),file)
+    assert.ok(html.includes('lc-visual-first'), `${file}: visual-first layout`)
     assert.ok(html.includes('data-download-inspection'),file)
     for(const car of data.cars) assert.ok(existsSync(new URL(`../public${car.image}`,import.meta.url)),car.image)
     for(const source of data.sources) assert.ok(html.includes(source.href),file)

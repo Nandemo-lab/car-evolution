@@ -1,4 +1,6 @@
 const nbox = {
+  comparisonTitle: '前期・後期を画像で比較',
+  changesTitle: '2015年改良で変わったこと',
   visualHighlights: [
     { title: '1｜グリル', text: '前期は細い横桟、後期は太い水平部とHondaマーク周辺を見る。' },
     { title: '2｜バンパー', text: '上下の開口とナンバー周辺を一組で比較する。' },
@@ -21,7 +23,6 @@ const nbox = {
     ],
     parts: [
       { id: 'grille', label: 'フロントグリル', focus: [{ x: 35.3, y: 58.2, size: 48 }, { x: 35.7, y: 55.1, size: 48 }], notes: ['前期', '後期'], point: '前期は細い横桟が重なる構成、後期は太い上下2本の水平部とHondaマーク周辺を一組で確認します。' },
-      { id: 'bumper', label: 'フロントバンパー', focus: [{ x: 35.5, y: 69.3, size: 46 }, { x: 35.7, y: 68.1, size: 46 }], notes: ['前期', '後期'], point: 'ナンバー周辺と上下の開口を一組で比較します。交換部品がある車両は外観だけで断定しません。' },
     ],
   },
 }
@@ -51,5 +52,12 @@ export const voxy80Enhancement = {
 }
 
 export function withFaceliftEnhancement(data) {
-  return data.vehicle === 'N-BOX' && data.intent === 'jf1-pre-post' ? { ...data, ...nbox, visualFirst: true } : data
+  if (data.vehicle === 'N-BOX' && data.intent === 'jf1-pre-post') return { ...data, ...nbox, visualFirst: true }
+  const shortNames = data.cars.map(car => car.short).join(' ')
+  return {
+    ...data,
+    comparisonTitle: data.comparisonTitle || '2台を画像で比較',
+    changesTitle: data.changesTitle || (/前期|後期|改良/.test(shortNames) ? '改良で変わったこと' : '世代交代で変わったこと'),
+    visualFirst: data.visualFirst !== false,
+  }
 }

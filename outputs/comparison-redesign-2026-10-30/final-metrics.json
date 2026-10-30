@@ -1,0 +1,35 @@
+[
+  {
+    "viewport": "pc",
+    "scrollHeight": 3924,
+    "viewportHeight": 1000,
+    "cards": 20,
+    "visibleCards": 20,
+    "bodyCharacters": 1329,
+    "overflow": 0,
+    "firstImageBottom": 1257,
+    "errors": []
+  },
+  {
+    "viewport": "375",
+    "scrollHeight": 4717,
+    "viewportHeight": 812,
+    "cards": 20,
+    "visibleCards": 20,
+    "bodyCharacters": 1329,
+    "overflow": 0,
+    "firstImageBottom": 1399,
+    "errors": []
+  },
+  {
+    "viewport": "390",
+    "scrollHeight": 4737,
+    "viewportHeight": 844,
+    "cards": 20,
+    "visibleCards": 20,
+    "bodyCharacters": 1329,
+    "overflow": 0,
+    "firstImageBottom": 1420,
+    "errors": []
+  }
+]

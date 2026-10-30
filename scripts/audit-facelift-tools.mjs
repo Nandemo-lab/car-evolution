@@ -55,7 +55,7 @@ const failures = results.filter(({ path, triggerBox, dialogState, state, errors 
   || !dialogState.closeLabel || dialogState.closeText !== '×' || !dialogState.point
   || dialogState.viewportHeight < 145 || state.overflow > 1 || !state.focusRestored
   || state.changeRows !== 8
-  || state.partButtons !== (path.startsWith('/n-box') ? 2 : 3)
+  || state.partButtons !== (path.startsWith('/n-box') ? 1 : 3)
   || errors.length
 ))
 console.log(JSON.stringify({ baseUrl, checked: results.length, failures, results }, null, 2))

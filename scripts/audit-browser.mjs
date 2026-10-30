@@ -11,6 +11,10 @@ const executablePath = process.env.BROWSER_EXECUTABLE || (process.platform === '
   : undefined)
 const browser = await chromium.launch({ headless: true, executablePath })
 const issues = []
+const openPage = async (page, url) => {
+  try { return await page.goto(url, { waitUntil:'networkidle', timeout:20_000 }) }
+  catch { return page.goto(url, { waitUntil:'domcontentloaded', timeout:20_000 }) }
+}
 
 const settleLazyImages = async page => {
   await page.evaluate(async () => {
@@ -28,7 +32,7 @@ for (const path of paths) {
   const errors = []
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
   page.on('pageerror', error => errors.push(error.message))
-  const response = await page.goto(`${baseUrl}${path}`, { waitUntil: 'networkidle', timeout: 20_000 })
+  const response = await openPage(page, `${baseUrl}${path}`)
   await settleLazyImages(page)
   const metrics = await page.evaluate(() => ({
     overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
@@ -53,7 +57,7 @@ for (const width of [375, 390, 1440]) {
     const page = await browser.newPage({ viewport: { width, height: width === 1440 ? 1000 : 844 } })
     const errors = []
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
-    await page.goto(`${baseUrl}${path}`, { waitUntil: 'networkidle', timeout: 20_000 })
+    await openPage(page, `${baseUrl}${path}`)
     await settleLazyImages(page)
     const metrics = await page.evaluate(() => ({
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
