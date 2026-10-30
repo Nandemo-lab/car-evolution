@@ -90,16 +90,26 @@ function withImageFallback(img) {
 
 export function initCarPage(config) {
   const { generations, defaultIndex } = config
+  const isSingleGeneration = generations.length === 1
+
+  // A model with only one published generation has nothing to compare or
+  // select. Keep the shared data/rendering path, but present its one vehicle
+  // as a large editorial feature instead of duplicating the same image in a
+  // timeline and a before/after slider.
+  document.getElementById('car-page')?.classList.toggle('car-page--single-generation', isSingleGeneration)
+  if (isSingleGeneration) {
+    document.getElementById('heritage')?.remove()
+    document.getElementById('timeline')?.remove()
+    document.getElementById('compare')?.remove()
+  }
 
   renderHero(config)
-  renderShare(config)
-  // .heritage and .compare are optional -- a single-generation vehicle
-  // (see cars/esquire.html) omits both from its HTML (a multi-gen
-  // start-year strip and a generation-comparison slider don't apply
-  // with only one generation), so these two are guarded by element
-  // existence rather than assumed present like everything else here.
+  renderShare(config, isSingleGeneration)
+  // Multi-generation navigation only exists when there is something to
+  // compare. Single-generation pages move directly from the hero/share row
+  // to one enlarged vehicle explanation.
   if (document.getElementById('heritage')) renderHeritage(generations)
-  renderTimeline(generations, config.vehicleName)
+  if (!isSingleGeneration) renderTimeline(generations, config.vehicleName)
 
   const detailRefs = getDetailRefs()
   // Below the fold on every vehicle page's initial load -- defer the
@@ -115,12 +125,14 @@ export function initCarPage(config) {
   // generation is shown in place, scroll position untouched. An earlier
   // version auto-scrolled to the detail section on every click, which
   // fought a reader who was scrolling through the timeline itself.
-  document.getElementById('timeline').addEventListener('click', (event) => {
-    const btn = event.target.closest('.timeline-item')
-    if (!btn) return
-    trackEvent('select_generation', { vehicle: config.vehicleName, generation: Number(btn.dataset.gen) + 1 })
-    engine.showGeneration(Number(btn.dataset.gen))
-  })
+  if (!isSingleGeneration) {
+    document.getElementById('timeline').addEventListener('click', (event) => {
+      const btn = event.target.closest('.timeline-item')
+      if (!btn) return
+      trackEvent('select_generation', { vehicle: config.vehicleName, generation: Number(btn.dataset.gen) + 1 })
+      engine.showGeneration(Number(btn.dataset.gen))
+    })
+  }
 
   if (document.getElementById('compare')) initCompare(generations, config.vehicleName)
   renderGenerationGuide(config)
@@ -143,7 +155,8 @@ function renderEvolutionNotes(config) {
   const section = document.createElement('section')
   section.className = 'generation-guide evolution-notes'
   section.setAttribute('aria-labelledby', 'evolution-notes-title')
-  section.innerHTML = `<div class="generation-guide-heading"><p>WHAT CHANGED</p><h2 id="evolution-notes-title">世代ごとに変わったこと</h2><span>外観だけでなく、${config.vehicleName}の役割と技術の変化を短く整理します。</span></div><div class="generation-guide-grid">${config.evolutionNotes.map((item) => `<article><div><strong>${item.title}</strong><span>${item.text}</span><b>${item.meta}</b></div></article>`).join('')}</div>`
+  const heading = config.generations.length === 1 ? '改良で変わったこと' : '世代ごとに変わったこと'
+  section.innerHTML = `<div class="generation-guide-heading"><p>WHAT CHANGED</p><h2 id="evolution-notes-title">${heading}</h2><span>外観だけでなく、${config.vehicleName}の役割と技術の変化を短く整理します。</span></div><div class="generation-guide-grid">${config.evolutionNotes.map((item) => `<article><div><strong>${item.title}</strong><span>${item.text}</span><b>${item.meta}</b></div></article>`).join('')}</div>`
   document.querySelector('.back-home').before(section)
 }
 
@@ -162,15 +175,21 @@ function renderGenerationGuide(config) {
   document.querySelector('.back-home').before(section)
 }
 
-function renderShare(config) {
+function renderShare(config, isSingleGeneration = false) {
   const section = document.createElement('section')
   section.className = 'page-share'
   section.setAttribute('aria-label', `${config.vehicleName}を共有`)
-  section.innerHTML = '<p>この世代の変化を共有</p><button type="button">共有する</button><button type="button">URLをコピー</button>'
+  section.innerHTML = `<p>${isSingleGeneration ? 'この車種の情報を共有' : 'この世代の変化を共有'}</p><button type="button">共有する</button><button type="button">URLをコピー</button>`
   document.querySelector('.hero').insertAdjacentElement('afterend', section)
 
   const buttons = section.querySelectorAll('button')
-  const shareData = { title: document.title, text: `${config.vehicleName}の歴代モデルをCarVistaで比較`, url: location.href }
+  const shareData = {
+    title: document.title,
+    text: isSingleGeneration
+      ? `${config.vehicleName}の車種情報をCarVistaで見る`
+      : `${config.vehicleName}の歴代モデルをCarVistaで比較`,
+    url: location.href,
+  }
   buttons[0].addEventListener('click', async () => {
     trackEvent('share_vehicle', { vehicle: config.vehicleName, method: navigator.share ? 'native' : 'copy' })
     if (navigator.share) return navigator.share(shareData)

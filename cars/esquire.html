@@ -17,15 +17,15 @@
     <!-- CarVista shared vehicle-page skeleton -- ESQUIRE variant.
          ESQUIRE has exactly one generation (see src/cars/esquire.js) and
          was discontinued without a full model change, so this skeleton
-         deliberately OMITS two sections every other vehicle page has:
+         deliberately OMITS three sections every multi-generation page has:
          .heritage (a multi-generation start-year strip -- meaningless
          with one generation, and its "現在" label for the last point
-         would be factually wrong for a discontinued vehicle) and
+         would be factually wrong for a discontinued vehicle),
+         .timeline (there is no generation choice to make), and
          .compare (the drag-reveal generation-comparison slider -- there
-         is nothing to compare with only one generation). car-page.js's
-         initCarPage() already guards both calls with an element-existence
-         check, so omitting the markup here is enough; no JS changes
-         needed per page. Do not copy this file as the template for a
+         is nothing to compare with only one generation). car-page.js also
+         detects this from the data so future single-generation pages keep
+         the same presentation. Do not copy this file as the template for a
          *new* multi-generation vehicle -- copy voxy.html for that. -->
     <main id="car-page">
       <header class="hero">
@@ -37,8 +37,6 @@
           <p class="tagline" id="tagline"></p>
         </div>
       </header>
-
-      <nav class="timeline" id="timeline" aria-label="世代を選択"></nav>
 
       <section class="detail" id="detail" aria-live="polite">
         <div class="detail-visual">

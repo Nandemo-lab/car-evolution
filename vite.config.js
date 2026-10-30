@@ -295,6 +295,7 @@ function escapeHtml(value) {
 // one interface while non-JS crawlers still receive the page topic, key facts,
 // and a natural internal link.
 function buildStaticVehicleFallback(car) {
+  const isSingleGeneration = car.generations.length === 1
   const generations = car.generations.map((generation, index) => {
     const clues = (generation.annotations || []).map(note => escapeHtml(note.label.replace(/<[^>]*>/g,''))).join(' ／ ')
     const changes = generation.facelift?.points?.length
@@ -312,7 +313,12 @@ function buildStaticVehicleFallback(car) {
     ? `<h2>関連ガイド</h2><ul>${car.guides.map(item => `<li><a href="${escapeHtml(item.href)}">${escapeHtml(item.label || item.title)}</a> — ${escapeHtml(item.description || '')}</li>`).join('')}</ul>`
     : ''
   const sources = (resolveReferences(car)?.items || []).map(source => `<li><a href="${escapeHtml(source.url)}">${escapeHtml(source.label)}</a></li>`).join('')
-  return `<section class="static-crawl-fallback" aria-label="${escapeHtml(car.vehicleName)}の歴代モデル概要"><div class="static-fast-answer"><p>FAST ANSWER</p><strong>${escapeHtml(car.vehicleName)}は${car.generations.length}つの掲載区分を、型式・販売時期・外観の手がかりで確認できます。</strong><span>${escapeHtml(car.seo.description)}</span></div><h2>世代一覧・外観の手がかり</h2><div class="static-generation-grid">${generations}</div>${guide}${evolution}${guides}<h2>公式資料・参考資料</h2><ul>${sources}</ul><p>画像だけで年式やグレードを断定せず、型式・車台番号・装備情報を販売店の車両情報と照合してください。</p><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・画像利用・訂正方針</a></p></section>`
+  const fallbackClass = `static-crawl-fallback${isSingleGeneration ? ' static-crawl-fallback--single-generation' : ''}`
+  const answer = isSingleGeneration
+    ? `${escapeHtml(car.vehicleName)}の掲載モデルを、型式・販売時期・外観の手がかりで確認できます。`
+    : `${escapeHtml(car.vehicleName)}は${car.generations.length}つの掲載区分を、型式・販売時期・外観の手がかりで確認できます。`
+  const listHeading = isSingleGeneration ? '掲載モデル・外観の手がかり' : '世代一覧・外観の手がかり'
+  return `<section class="${fallbackClass}" aria-label="${escapeHtml(car.vehicleName)}の車種概要"><div class="static-fast-answer"><p>FAST ANSWER</p><strong>${answer}</strong><span>${escapeHtml(car.seo.description)}</span></div><h2>${listHeading}</h2><div class="static-generation-grid">${generations}</div>${guide}${evolution}${guides}<h2>公式資料・参考資料</h2><ul>${sources}</ul><p>画像だけで年式やグレードを断定せず、型式・車台番号・装備情報を販売店の車両情報と照合してください。</p><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・画像利用・訂正方針</a></p></section>`
 }
 
 function standaloneEntryHtml(filename, cars) {

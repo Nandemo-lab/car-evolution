@@ -82,6 +82,19 @@ test('ホームはJavaScript実行前から26車種すべての歴代ページ�
   assert.ok(!html.includes('mini-card-kind'))
   assert.ok(!html.includes('>新旧比較<'))
 })
+test('1世代のみの車種は同じ画像を比較せず単一モデルとして表示する',()=>{
+  const singleGenerationCars=cars.filter(car=>car.generations.length===1)
+  assert.deepEqual(singleGenerationCars.map(car=>car.slug).sort(),['corolla-cross','esquire','roomy'])
+  for(const car of singleGenerationCars){
+    const html=readFileSync(new URL(`../dist/cars/${car.slug}.html`,import.meta.url),'utf8')
+    assert.ok(html.includes('static-crawl-fallback--single-generation'),car.slug)
+    assert.ok(html.includes('掲載モデル・外観の手がかり'),car.slug)
+    assert.ok(!html.includes('id="heritage"'),car.slug)
+    assert.ok(!html.includes('id="timeline"'),car.slug)
+    assert.ok(!html.includes('id="compare"'),car.slug)
+    assert.ok(!html.includes('1つの掲載区分'),car.slug)
+  }
+})
 test('新規歴代車種もTOP専用のフロント右向き三四半角アセットを使う',()=>{
   const expected={
     rav4:'/images/cars/rav4/top-card-front-right-v1.png',

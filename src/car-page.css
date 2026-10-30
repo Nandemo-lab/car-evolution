@@ -264,6 +264,21 @@ body { margin: 0; background: #0b0c0e; }
 
 .detail-info { margin-top: 32px; }
 
+/* A single published generation is an article, not a comparison. Give its
+   only vehicle the full content width and place the model facts directly
+   below it; the shared engine removes the empty history/selection/slider UI. */
+.car-page--single-generation .detail {
+  width: min(1120px, 100%);
+  margin-inline: auto;
+  padding-top: 28px;
+}
+.car-page--single-generation .detail-visual,
+.car-page--single-generation .detail-info {
+  width: min(100%, 1000px);
+  margin-inline: auto;
+}
+.car-page--single-generation .detail-info { margin-top: 18px; }
+
 /* Image, annotations, and the title block settle at slightly
    staggered times (0 / .04s / .08s) so a generation switch reads as
    one composed motion rather than everything snapping at once. */
@@ -610,6 +625,8 @@ body { margin: 0; background: #0b0c0e; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
+.static-crawl-fallback--single-generation .static-generation-grid { grid-template-columns: 1fr; }
+.static-crawl-fallback--single-generation .static-generation-card { max-width: 1000px; }
 .static-generation-card {
   padding: 16px;
   border: 1px solid rgba(255,255,255,.12);
