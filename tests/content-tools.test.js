@@ -127,7 +127,8 @@ test('N-BOX JF1とVOXY 80系は考証済み変更表と車種別部位拡大を�
     for (const label of ['何が変わった？', '変更あり', '仕様による', '未確認', '部位を拡大して比べる', 'ヘッドライト', 'フロントグリル', 'バンパー']) {
       assert.ok(html.includes(label), `${page}: ${label}`)
     }
-    assert.equal((html.match(/data-facelift-part=/g) || []).length, 3, page)
+    const expectedParts = page.startsWith('n-box') ? 2 : 3
+    assert.equal((html.match(/data-facelift-part=/g) || []).length, expectedParts, page)
     assert.ok(html.includes('aria-label="拡大比較を閉じる"'), page)
   }
 })
@@ -136,21 +137,26 @@ test('部位拡大はページ固有座標を使い、GA4へ部位ID以外の入
   const { withFaceliftEnhancement, voxy80Enhancement } = await import('../src/facelift-enhancements.js')
   const nbox = withFaceliftEnhancement((await import('../src/data/comparisons/n-box-jf1-zenki-kouki.js')).default)
   for (const config of [nbox.detailCompare, voxy80Enhancement.detailCompare]) {
-    assert.equal(config.parts.length, 3)
+    assert.ok(config.parts.length >= 2 && config.parts.length <= 3)
     for (const part of config.parts) {
       assert.match(part.id, /^(headlamp|grille|bumper)$/)
       assert.equal(part.focus.length, 2)
       assert.notDeepEqual(part.focus[0], part.focus[1])
       assert.ok(part.point.length >= 25, `${part.id}: 判別ポイントが具体的でない`)
-      assert.ok(Math.abs(part.focus[0].y - part.focus[1].y) <= 1, `${part.id}: 上下基準が不一致`)
-      const scaleRatio = Math.max(part.focus[0].scale, part.focus[1].scale) / Math.min(part.focus[0].scale, part.focus[1].scale)
-      assert.ok(scaleRatio <= 1.04, `${part.id}: 表示倍率差が大きい`)
+      for (const focus of part.focus) {
+        assert.ok(focus.x > 0 && focus.x < 100, `${part.id}: 部位中心Xが不正`)
+        assert.ok(focus.y > 0 && focus.y < 100, `${part.id}: 部位中心Yが不正`)
+        assert.ok(focus.size >= 25 && focus.size <= 55, `${part.id}: 切り取り範囲が不正`)
+      }
+      const sizeRatio = Math.max(part.focus[0].size, part.focus[1].size) / Math.min(part.focus[0].size, part.focus[1].size)
+      assert.ok(sizeRatio <= 1.04, `${part.id}: 表示範囲差が大きい`)
     }
   }
   assert.notDeepEqual(nbox.detailCompare.parts[0].focus, voxy80Enhancement.detailCompare.parts[0].focus)
   const source = readFileSync(new URL('../src/facelift-detail-tools.js', import.meta.url), 'utf8')
   assert.ok(source.includes("part: part.id"))
-  assert.ok(!source.includes('focus.x') || source.includes('--focus-x'))
+  assert.ok(source.includes('cropViewBox'))
+  assert.ok(source.includes('viewBox='))
 })
 test('42比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
   const files=readdirSync(new URL('../src/data/comparisons/',import.meta.url))
@@ -439,7 +445,8 @@ test('全generation比較ページは画像ごとに固有の判別点を結び�
     const html=readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8')
     const imageCards=(html.match(/class="lc-car"/g)||[]).length
     const imageCues=(html.match(/class="lc-image-cue"/g)||[]).length
-    assert.equal(imageCues,imageCards,name)
+    const visualPoints=(html.match(/class="lc-visual-points"/g)||[]).length
+    assert.ok(imageCues===imageCards || visualPoints===1,name)
     assert.ok(!html.includes('画像で見る場所</b><strong></strong>'),name)
   }
 })

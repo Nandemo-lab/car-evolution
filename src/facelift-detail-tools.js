@@ -12,6 +12,15 @@ export function faceliftDetailCompareHtml(config) {
   return `<section class="facelift-detail-tool" aria-labelledby="facelift-detail-title"><p class="comparison-eyebrow">TAP TO INSPECT</p><h2 id="facelift-detail-title">部位を拡大して比べる</h2><p class="facelift-tool-intro">車種ごとに確認した位置を拡大します。画像は加工せず、表示範囲だけを切り替えます。</p><div class="facelift-part-buttons" role="group" aria-label="拡大する部位">${config.parts.map((part, index) => `<button type="button" data-facelift-part="${index}" data-part-id="${part.id}">${part.label}</button>`).join('')}</div><dialog class="facelift-detail-dialog" aria-labelledby="facelift-dialog-title"><div class="facelift-dialog-head"><div><small>前期・後期の部位比較</small><h3 id="facelift-dialog-title"></h3></div><button type="button" class="facelift-dialog-close" aria-label="拡大比較を閉じる"><span aria-hidden="true">×</span></button></div><div class="facelift-detail-grid"></div><div class="facelift-detail-point"><b>判別ポイント</b><p></p></div><p class="facelift-detail-note">制作画像は判別の補助です。実車はグレード、オプション、交換部品でも見え方が変わります。</p></dialog></section>`
 }
 
+const cropViewBox = (image, focus) => {
+  const width = image.width || 1
+  const height = image.height || 1
+  const side = height * (focus.size / 100)
+  const centerX = width * (focus.x / 100)
+  const centerY = height * (focus.y / 100)
+  return `${centerX - side / 2} ${centerY - side / 2} ${side} ${side}`
+}
+
 export function bindFaceliftDetailTools(root, config, context = {}) {
   if (!config?.parts?.length) return
   const dialog = root.querySelector('.facelift-detail-dialog')
@@ -33,7 +42,7 @@ export function bindFaceliftDetailTools(root, config, context = {}) {
     point.textContent = part.point
     grid.innerHTML = config.images.map((image, imageIndex) => {
       const focus = part.focus[imageIndex]
-      return `<figure><div class="facelift-detail-viewport"><img src="${image.src}" alt="${image.alt}の${part.label}" style="--focus-x:${focus.x}%;--focus-y:${focus.y}%;--focus-scale:${focus.scale}" /></div><figcaption><b>${image.label}</b><span>${part.notes[imageIndex]}</span></figcaption></figure>`
+      return `<figure><div class="facelift-detail-viewport"><svg viewBox="${cropViewBox(image, focus)}" role="img" aria-label="${image.alt}の${part.label}" preserveAspectRatio="xMidYMid slice"><image href="${image.src}" width="${image.width}" height="${image.height}" /></svg></div><figcaption><b>${image.label}</b><span>${part.notes[imageIndex]}</span></figcaption></figure>`
     }).join('')
     if (typeof dialog.showModal === 'function') dialog.showModal()
     else dialog.setAttribute('open', '')

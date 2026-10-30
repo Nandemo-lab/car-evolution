@@ -28,7 +28,7 @@ for (const path of ['/n-box-jf1-zenki-kouki.html', '/voxy-80-zenki-kouki.html'])
       await dialog.waitFor({ state: 'visible' })
       const dialogState = await dialog.evaluate(element => ({
         open: element.open,
-        images: element.querySelectorAll('img').length,
+        images: element.querySelectorAll('img, svg image').length,
         viewportHeight: element.querySelector('.facelift-detail-viewport')?.getBoundingClientRect().height,
         point: element.querySelector('.facelift-detail-point p')?.textContent?.trim(),
         closeLabel: element.querySelector('.facelift-dialog-close')?.getAttribute('aria-label'),
@@ -50,11 +50,13 @@ for (const path of ['/n-box-jf1-zenki-kouki.html', '/voxy-80-zenki-kouki.html'])
 }
 
 await browser.close()
-const failures = results.filter(({ triggerBox, dialogState, state, errors }) => (
+const failures = results.filter(({ path, triggerBox, dialogState, state, errors }) => (
   !triggerBox || triggerBox.height < 44 || !dialogState.open || dialogState.images !== 2
   || !dialogState.closeLabel || dialogState.closeText !== '×' || !dialogState.point
   || dialogState.viewportHeight < 145 || state.overflow > 1 || !state.focusRestored
-  || state.changeRows !== 8 || state.partButtons !== 3 || errors.length
+  || state.changeRows !== 8
+  || state.partButtons !== (path.startsWith('/n-box') ? 2 : 3)
+  || errors.length
 ))
 console.log(JSON.stringify({ baseUrl, checked: results.length, failures, results }, null, 2))
 if (failures.length) process.exitCode = 1

@@ -1,0 +1,37 @@
+.lc-visual-points {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.lc-visual-points > div {
+  padding: 12px 14px;
+  border-top: 2px solid rgba(160,211,255,.72);
+  background: rgba(160,211,255,.055);
+}
+.lc-visual-points h3 { margin:0; font-size:13px; }
+.lc-visual-points p { margin:5px 0 0; color:rgba(244,243,240,.68); font-size:12px; line-height:1.55; }
+.lc-progressive { padding-top: 0; }
+.lc-progressive > summary {
+  display:flex;
+  min-height:56px;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 0;
+  border-top:1px solid rgba(244,243,240,.16);
+  border-bottom:1px solid rgba(244,243,240,.16);
+  cursor:pointer;
+  list-style:none;
+}
+.lc-progressive > summary::-webkit-details-marker { display:none; }
+.lc-progressive > summary span { font-weight:700; }
+.lc-progressive > summary small { color:#a0d3ff; }
+.lc-progressive-body > section { padding-top:36px; }
+.lc-progressive-body .facelift-change-matrix { padding-right:0; padding-left:0; }
+@media (max-width:699px) {
+  .lc-visual-points { grid-template-columns:1fr; }
+  .lc-visual-first .lc-cars { gap:8px; }
+  .lc-visual-first .lc-car-copy { padding:12px; }
+  .lc-visual-first .lc-car-copy h3 { font-size:16px; }
+}

@@ -1,4 +1,9 @@
 const nbox = {
+  visualHighlights: [
+    { title: '1｜グリル', text: '前期は細い横桟、後期は太い水平部とHondaマーク周辺を見る。' },
+    { title: '2｜バンパー', text: '上下の開口とナンバー周辺を一組で比較する。' },
+    { title: '3｜派生車を除外', text: 'Custom、Plus、SLASHの専用顔を標準車の前後差に混ぜない。' },
+  ],
   changeMatrix: [
     { label: '外観', status: 'changed', text: 'ベースモデルを親しみやすく上質なデザインへ変更。' },
     { label: 'ヘッドライト', status: 'unverified', text: '公式発表は外観刷新を示しますが、灯体仕様単独の変更内容は明記していません。' },
@@ -11,13 +16,12 @@ const nbox = {
   ],
   detailCompare: {
     images: [
-      { label: '前期', src: '/images/cars/n-box/gen1-2011.png', alt: 'N-BOX JF1前期' },
-      { label: '後期', src: '/images/cars/n-box/jf1-2015-post-facelift-v1.png', alt: 'N-BOX JF1後期' },
+      { label: '前期', src: '/images/cars/n-box/gen1-2011.png', alt: 'N-BOX JF1前期', width: 1408, height: 668 },
+      { label: '後期', src: '/images/cars/n-box/jf1-2015-post-facelift-v1.png', alt: 'N-BOX JF1後期', width: 1820, height: 864 },
     ],
     parts: [
-      { id: 'headlamp', label: 'ヘッドライト周辺', focus: [{ x: 38, y: 51, scale: 2.42 }, { x: 41, y: 51, scale: 2.35 }], notes: ['前期', '後期'], point: '公式発表は標準車の外観刷新を示しますが、灯体単独の仕様変更は明記していません。灯火とグリル端のつながりを補助的に比較します。' },
-      { id: 'grille', label: 'フロントグリル', focus: [{ x: 35, y: 56, scale: 2.5 }, { x: 38, y: 55, scale: 2.42 }], notes: ['前期', '後期'], point: '公式掲載のG・Lパッケージ画像で、横桟とエンブレム周辺、下側開口の組み合わせが変わったことを確認できます。' },
-      { id: 'bumper', label: 'フロントバンパー', focus: [{ x: 35, y: 67, scale: 2.32 }, { x: 38, y: 67, scale: 2.28 }], notes: ['前期', '後期'], point: '下部開口とナンバー周辺を一組で確認します。グレード、オプション、交換部品がある車両は外観だけで断定しません。' },
+      { id: 'grille', label: 'フロントグリル', focus: [{ x: 35.3, y: 58.2, size: 48 }, { x: 35.7, y: 55.1, size: 48 }], notes: ['前期', '後期'], point: '前期は細い横桟が重なる構成、後期は太い上下2本の水平部とHondaマーク周辺を一組で確認します。' },
+      { id: 'bumper', label: 'フロントバンパー', focus: [{ x: 35.5, y: 69.3, size: 46 }, { x: 35.7, y: 68.1, size: 46 }], notes: ['前期', '後期'], point: 'ナンバー周辺と上下の開口を一組で比較します。交換部品がある車両は外観だけで断定しません。' },
     ],
   },
 }
@@ -35,17 +39,17 @@ export const voxy80Enhancement = {
   ],
   detailCompare: {
     images: [
-      { label: '前期ZS', src: '/images/cars/voxy/80-zs-pre-facelift-v1.png', alt: 'VOXY 80系ZS前期' },
-      { label: '後期ZS', src: '/images/cars/voxy/80-zs-post-facelift-v1.png', alt: 'VOXY 80系ZS後期' },
+      { label: '前期ZS', src: '/images/cars/voxy/80-zs-pre-facelift-v1.png', alt: 'VOXY 80系ZS前期', width: 1741, height: 903 },
+      { label: '後期ZS', src: '/images/cars/voxy/80-zs-post-facelift-v1.png', alt: 'VOXY 80系ZS後期', width: 1741, height: 903 },
     ],
     parts: [
-      { id: 'headlamp', label: 'ヘッドライト', focus: [{ x: 34, y: 46, scale: 2.32 }, { x: 35, y: 46, scale: 2.32 }], notes: ['前期ZS', '後期ZS'], point: '前期の丸いプロジェクターを含む二段灯に対し、後期は薄型Bi-Beam LEDと面発光LEDクリアランスランプを採用しています。' },
-      { id: 'grille', label: 'フロントグリル', focus: [{ x: 29, y: 54, scale: 2.2 }, { x: 30, y: 54, scale: 2.2 }], notes: ['前期ZS', '後期ZS'], point: '後期はフロントグリル意匠を変更。ランプだけでなく中央開口と上側グリルのつながりを見ます。' },
-      { id: 'bumper', label: 'ZSバンパー', focus: [{ x: 28, y: 65, scale: 2.1 }, { x: 29, y: 65, scale: 2.1 }], notes: ['前期ZS', '後期ZS'], point: '後期ZSは外側フレームが［ハ］字を描き、フォグを低い位置へ置く専用意匠です。標準X／Vとは分けて確認します。' },
+      { id: 'headlamp', label: 'ヘッドライト', focus: [{ x: 37.4, y: 47.2, size: 34 }, { x: 38.1, y: 46.7, size: 34 }], notes: ['前期ZS', '後期ZS'], point: '前期の丸いプロジェクターを含む二段灯に対し、後期は薄型Bi-Beam LEDと面発光LEDクリアランスランプを採用しています。' },
+      { id: 'grille', label: 'フロントグリル', focus: [{ x: 31.5, y: 54.7, size: 46 }, { x: 32.2, y: 54.1, size: 46 }], notes: ['前期ZS', '後期ZS'], point: '後期はフロントグリル意匠を変更。ランプだけでなく中央開口と上側グリルのつながりを見ます。' },
+      { id: 'bumper', label: 'ZSバンパー', focus: [{ x: 31.3, y: 66.2, size: 48 }, { x: 31.8, y: 65.8, size: 48 }], notes: ['前期ZS', '後期ZS'], point: '後期ZSは外側フレームが［ハ］字を描き、フォグを低い位置へ置く専用意匠です。標準X／Vとは分けて確認します。' },
     ],
   },
 }
 
 export function withFaceliftEnhancement(data) {
-  return data.vehicle === 'N-BOX' && data.intent === 'jf1-pre-post' ? { ...data, ...nbox } : data
+  return data.vehicle === 'N-BOX' && data.intent === 'jf1-pre-post' ? { ...data, ...nbox, visualFirst: true } : data
 }

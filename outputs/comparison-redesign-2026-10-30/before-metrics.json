@@ -1,0 +1,32 @@
+[
+  {
+    "viewport": "pc",
+    "scrollHeight": 6194,
+    "viewportHeight": 1000,
+    "cards": 22,
+    "bodyCharacters": 2851,
+    "overflow": 0,
+    "firstImageBottom": 1388,
+    "errors": []
+  },
+  {
+    "viewport": "375",
+    "scrollHeight": 8469,
+    "viewportHeight": 812,
+    "cards": 22,
+    "bodyCharacters": 2851,
+    "overflow": 0,
+    "firstImageBottom": 1717,
+    "errors": []
+  },
+  {
+    "viewport": "390",
+    "scrollHeight": 8406,
+    "viewportHeight": 844,
+    "cards": 22,
+    "bodyCharacters": 2851,
+    "overflow": 0,
+    "firstImageBottom": 1737,
+    "errors": []
+  }
+]

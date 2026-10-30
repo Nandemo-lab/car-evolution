@@ -2,6 +2,8 @@ import './comparison-page.css'
 import './land-cruiser-300-vs-250.css'
 import './click-glow.js'
 import './facelift-detail-tools.css'
+import './facelift-detail-crop.css'
+import './comparison-visual-first.css'
 import { trackEvent } from './analytics.js'
 
 import { bindComparisonTools } from './comparison-tools.js'

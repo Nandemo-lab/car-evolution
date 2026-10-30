@@ -1,6 +1,7 @@
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './facelift-detail-tools.css'
+import './facelift-detail-crop.css'
 import './click-glow.js'
 import { trackEvent } from './analytics.js'
 import { bindFaceliftDetailTools, faceliftChangeMatrixHtml, faceliftDetailCompareHtml } from './facelift-detail-tools.js'
