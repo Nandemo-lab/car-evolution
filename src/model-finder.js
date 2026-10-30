@@ -28,6 +28,8 @@ const japaneseNames = {
   aqua: 'アクア AQUA',
   yaris: 'ヤリス ヴィッツ ビッツ YARIS VITZ',
   raize: 'ライズ RAIZE',
+  'n-one': 'エヌワン えぬわん NONE N ONE',
+  'wagon-r-smile': 'ワゴンRスマイル ワゴンアールスマイル わごんあーるすまいる WAGONRSMILE',
 }
 
 const hiragana = value => value.replace(/[ァ-ヶ]/g, char => String.fromCharCode(char.charCodeAt(0) - 0x60))

@@ -173,4 +173,8 @@ path	pages	manufacturer	status	evidence_url	evidence_scope	notes	last_reviewed
 /images/cars/yaris/nsp130-2010-f-ff-v1.png	/cars/yaris.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/21782374.html	2010年3代目VITZ発売資料を制作参照	3代目標準系外観は照合。F・2WDの個体装備までの1対1証拠は不足。	2026-10-30
 /images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png	/index.html|/cars/yaris.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/30486400.html	2020年YARIS発売時HYBRID G・2WDの公式外観を制作参照	現行標準系の車種・世代・灯火・グリルは照合。個体オプションまでの1対1証拠は不足。	2026-10-30
 /images/cars/raize/a202a-2021-hybrid-z-ff-v1.png	/index.html|/cars/raize.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/36254806.html	2021年追加のZ・ハイブリッド・2WD公式外観を制作参照	A202Aの車種・改良時期・Z系外観は照合。ホイール等を個体装備まで固定する証拠は継続確認対象。	2026-10-30
+/images/cars/roomy/top-card-front-right-v2.png	/index.html|/roomy-tank-thor-justy.html	TOYOTA	HOLD	https://global.toyota/jp/newsroom/toyota/44782616.html	2026年改良カスタムG-T・2WDの既存監査Assetを車体参照し、TOP構図のみ再制作	車種・世代・カスタム系外観は照合。TOP用途の画角改善であり個体装備の確定証拠にはしない。	2026-10-30
+/images/cars/n-one/jg1-2012-g-l-package-ff-v1.png	/cars/n-one.html	HONDA	HOLD	https://global.honda/jp/news/2012/4121101-n-one.html	2012年発売時の標準系外観を制作参照	初代JG1系の丸目・グリル・ボディは照合。G・Lパッケージの全オプションを1対1に固定する証拠は不足。	2026-10-30
+/images/cars/n-one/jg3-2020-original-ff-v1.png	/index.html|/cars/n-one.html	HONDA	HOLD	https://global.honda/jp/news/2020/4201119-n-one.html	2020年発売時Original・FFの公式外観を制作参照	2代目JG3系Originalの車種・世代・灯火・グリルは照合。個体装備の完全一致は継続確認対象。	2026-10-30
+/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png	/index.html|/cars/wagon-r-smile.html	SUZUKI	HOLD	https://www.suzuki.co.jp/release/a/2024/1210/index.html	2024年12月改良HYBRID X公式画像を車両外観の直接参照に使用	丸目・横桟グリル・バンパー・2トーン・ホイール意匠は照合。生成画像のため細部は確定証拠に使わない。	2026-10-30
 

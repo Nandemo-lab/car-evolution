@@ -543,6 +543,7 @@ function buildHomeTags(cars) {
 // no JSON-LD list to generate; just title/description/canonical/OGP
 // like any other static page.
 const TRUST_PAGES = {
+  'roomy-tank-thor-justy.html': { title: `ルーミー・タンク・トール・ジャスティの違い｜型式と見分け方 | ${SITE_NAME}`, description: 'ROOMY、TANK、THOR、JUSTYの兄弟関係と型式の違い、標準／カスタム、2020年改良、中古車での確認順を公式資料で解説します。' },
   'editorial-policy.html': { title: `制作方針・免責事項 — ${SITE_NAME}`, description: `${SITE_NAME}が参考にしている情報源、自動車メーカーとの関係、画像の制作方針についてまとめています。` },
   'about.html': { title: `CarVistaについて — 運営・編集方針`, description: 'CarVistaの目的、編集で大切にしていること、比較画像の考え方を紹介します。' },
   'privacy.html': { title: `プライバシーポリシー — ${SITE_NAME}`, description: 'CarVistaのアクセス解析、広告Cookie、外部リンクに関する取り扱いを掲載しています。' },
