@@ -7,7 +7,7 @@ const imageViewToggle = (target) => `<div class="comparison-view-toggle" role="g
 const blocks = (items) => items.map((item) => `<article><h3>${item.title}</h3><p>${item.text}</p></article>`).join('')
 const relatedCard = (link, index, cars) => {
   const image = link.image || cars[index % cars.length]?.image
-  return `<a class="lc-related-card" href="${link.href}">${image ? `<img src="${image}" alt="" loading="lazy" decoding="async" />` : ''}<span><strong>${link.title}</strong><small>${link.text}</small><b>ガイドを開く →</b></span></a>`
+  return `<a class="lc-related-card" href="${link.href}">${image ? `<img src="${image}" alt="" loading="${link.imageLoading || 'lazy'}" ${link.imageLoading === 'eager' ? 'fetchpriority="low" ' : ''}decoding="async" />` : ''}<span><strong>${link.title}</strong><small>${link.text}</small><b>ガイドを開く →</b></span></a>`
 }
 
 const visualFirstHtml = (data, editorial) => `

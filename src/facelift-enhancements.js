@@ -57,7 +57,16 @@ export function withFaceliftEnhancement(data) {
   if (data.vehicle === 'N-BOX' && data.intent === 'jf1-pre-post') return {
     ...data,
     ...nbox,
-    cars: data.cars.map(car => ({ ...car, imageLabels: ['グリル', 'バンパー'] })),
+    answer: {
+      title: '後期はグリルとバンパーを刷新。Custom系とは別に見る。',
+      text: '2015年2月5日改良。後席スライドやガラス装備はタイプ別です。',
+    },
+    cars: data.cars.map(car => ({ ...car, imageLabels: ['グリル', 'バンパー'], presentation: { scale: 1.08, x: 0, y: 0 } })),
+    links: data.links.map((link, index) => ({
+      ...link,
+      image: index === 0 ? '/images/cars/n-box/gen3-2023.webp' : '/images/cars/n-box/gen2-2017.webp',
+      imageLoading: 'eager',
+    })),
     visualFirst: true,
   }
   const shortNames = data.cars.map(car => car.short).join(' ')

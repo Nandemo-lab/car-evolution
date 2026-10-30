@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto'
 import { dimensionDifferences, escapeText, millimetres } from '../src/comparison-tools.js'
 import { findModels, findModelDestinations, normalizeModelQuery } from '../src/model-finder.js'
 import { generationComparisonHtml } from '../src/generation-comparison-html.js'
+import { withFaceliftEnhancement } from '../src/facelift-enhancements.js'
 import { resolveReferences } from '../src/official-sources.js'
 import { homeCatalog } from '../src/home-cars-html.js'
 import { topCardVisualAudit, getDiscoveryImage } from '../src/discovery.js'
@@ -163,20 +164,22 @@ test('42比較ページの初期HTMLに本文・出典・画像・メモが揃�
   assert.equal(files.length,42)
   for(const file of files){
     const data=(await import(`../src/data/comparisons/${file}`)).default
+    const renderedData=withFaceliftEnhancement(data)
     const html=generationComparisonHtml(data)
     assert.ok(!/\bundefined\b|\bnull\b/.test(html),file)
-    assert.ok(html.includes(data.answer.title),file)
+    assert.ok(html.includes(renderedData.answer.title),file)
     assert.ok(html.includes('lc-visual-first'), `${file}: visual-first layout`)
     assert.ok(html.includes('data-download-inspection'),file)
     for(const car of data.cars) assert.ok(existsSync(new URL(`../public${car.image}`,import.meta.url)),car.image)
     for(const source of data.sources) assert.ok(html.includes(source.href),file)
     const built=readFileSync(new URL(`../dist/${file.replace('.js','.html')}`,import.meta.url),'utf8')
     assert.ok(built.includes('data-prerendered="true"'),file)
-    assert.ok(built.includes(data.answer.title),file)
+    assert.ok(built.includes(renderedData.answer.title),file)
   }
 })
 test('N-BOXとVOXYの比較画像は横並びと単独表示を安全に切り替えられる', async () => {
   const nbox=(await import('../src/data/comparisons/n-box-jf1-zenki-kouki.js')).default
+  const enhancedNbox=withFaceliftEnhancement(nbox)
   const nboxHtml=generationComparisonHtml(nbox)
   assert.ok(nboxHtml.includes('data-comparison-view="pair"'))
   assert.ok(nboxHtml.includes('data-comparison-view="single"'))
@@ -185,6 +188,10 @@ test('N-BOXとVOXYの比較画像は横並びと単独表示を安全に切り�
   assert.ok(nboxHtml.includes('comparison-hero-compact'))
   assert.ok(nboxHtml.includes('型式・仕様・購入前確認'))
   assert.ok(nboxHtml.includes('比較条件と画像について'))
+  assert.ok(enhancedNbox.cars.every(car=>car.presentation?.scale===1.08))
+  assert.ok(enhancedNbox.links.every(link=>link.image?.endsWith('.webp') && link.imageLoading==='eager'))
+  assert.equal((nboxHtml.match(/class="lc-related-card"/g)||[]).length,3)
+  assert.equal((nboxHtml.match(/loading="eager" fetchpriority="low"/g)||[]).length,3)
   const voxy=readFileSync(new URL('../src/voxy-80-zenki-kouki.js',import.meta.url),'utf8')
   assert.ok(voxy.includes('data-comparison-view-target'))
   assert.ok(voxy.includes('bindComparisonViewToggle'))

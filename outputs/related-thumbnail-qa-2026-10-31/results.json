@@ -1,0 +1,1008 @@
+{
+  "baseUrl": "http://127.0.0.1:4173",
+  "checkedPages": 42,
+  "failures": [],
+  "results": [
+    {
+      "page": "alphard-20-vs-30.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/alphard/gen2-2008.webp",
+          "complete": true,
+          "width": 1598,
+          "height": 758,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/alphard/gen3-2015.webp",
+          "complete": true,
+          "width": 1598,
+          "height": 758,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/alphard/gen2-2008.webp",
+          "complete": true,
+          "width": 1598,
+          "height": 758,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "alphard-30-vs-40.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/alphard/gen3-2015.webp",
+          "complete": true,
+          "width": 1598,
+          "height": 758,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/alphard/gen4-2023.webp",
+          "complete": true,
+          "width": 1598,
+          "height": 758,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/alphard/gen3-2015.webp",
+          "complete": true,
+          "width": 1598,
+          "height": 758,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "corolla-cross-2023-vs-2025.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/corolla-cross/zvg13-2025-hybrid-z-ff-v1.jpg",
+          "complete": true,
+          "width": 1536,
+          "height": 1024,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/rav4/axan64-2025-hev-z.webp",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "cx-5-kf-vs-km.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/rav4/axan64-2025-hev-z.webp",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/harrier/gen4-2020-mxua80.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "delica-d5-before-after-2019.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/delica-d5/gen1-2007.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/delica-d5/gen2-2019.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "delica-mini-b3-vs-ba.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/roox/bb2a-2025-highway-star.webp",
+          "complete": true,
+          "width": 1739,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/delica-d5/gen2-2019.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "freed-gen1-vs-gen2.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/freed/gen1-2008.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/freed/gen2-2016.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/freed/gen1-2008.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "freed-gen2-vs-gen3.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/freed/gen2-gb5-post-facelift-v1.png",
+          "complete": true,
+          "width": 1672,
+          "height": 940,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/freed/gen3-2024.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/freed/gen2-gb5-post-facelift-v1.png",
+          "complete": true,
+          "width": 1672,
+          "height": 940,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "harrier-30-vs-60.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/harrier/gen2-2003-mcu35w.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/harrier/gen3-2013-zsu60w.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/harrier/gen2-2003-mcu35w.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "harrier-60-vs-80.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/harrier/gen3-2017-zsu60w-post-facelift.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/harrier/gen4-2020-mxua80.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "jimny-sierra-vs-nomade.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/delica-mini/ba6a-2025-t-premium.webp",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/rav4/axan64-2025-hev-z.webp",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "n-box-jf1-vs-jf3.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/n-box/gen1-2011.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/n-box/gen2-2017.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/n-box/gen1-2011.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "n-box-jf1-zenki-kouki.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/n-box/gen3-2023.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "eager"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/n-box/gen2-2017.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "eager"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/n-box/gen2-2017.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "eager"
+        }
+      ]
+    },
+    {
+      "page": "n-box-jf3-vs-jf5.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/n-box/gen2-2017.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/n-box/gen3-2023.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "noah-70-vs-80.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/noah/gen2-2007.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/noah/gen3-2014.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/noah/gen2-2007.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "noah-80-vs-90.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/noah/gen3-2014.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/noah/gen4-2022.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "prius-30-vs-50.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/prius/gen3-2009-zvw30.png",
+          "complete": true,
+          "width": 1738,
+          "height": 905,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/prius/gen4-2015-zvw51-pre-facelift.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/prius/gen3-2009-zvw30.png",
+          "complete": true,
+          "width": 1738,
+          "height": 905,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/prius/gen4-2015-zvw51-pre-facelift.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "prius-30-zenki-kouki.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/prius/zvw30-pre-facelift-comparison-v1.png",
+          "complete": true,
+          "width": 1774,
+          "height": 887,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/prius/gen4-2015-zvw51-pre-facelift.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/prius/gen4-2018-zvw51-post-facelift.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "prius-50-vs-60.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/prius/gen4-2018-zvw51-post-facelift.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/prius/gen5-2023-mxwh60.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "rav4-50-vs-60.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/harrier/gen4-2020-mxua80.png",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vezel/rv5-2021-ehev-z.webp",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "roox-b4-vs-bb.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/delica-mini/ba6a-2025-t-premium.webp",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/n-box/gen3-2023.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "serena-c25-vs-c26.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/serena/gen3-2005.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/serena/gen4-2010.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/serena/gen3-2005.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "serena-c26-vs-c27.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/serena/gen4-2010.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/serena/gen5-2016.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/serena/gen4-2010.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "serena-c27-vs-c28.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/serena/gen5-2016.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/serena/gen6-2022.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "sienta-gen1-vs-gen2.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/sienta/gen1-2003.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/sienta/gen2-2015.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/sienta/gen1-2003.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "sienta-gen2-vs-gen3.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/sienta/gen2-2015.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/sienta/gen3-2022.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "sienta-gen2-zenki-kouki.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/sienta/gen2-2015-pre-facelift-v1.png",
+          "complete": true,
+          "width": 1818,
+          "height": 865,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/sienta/gen2-2015.png",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/sienta/gen2-2015-pre-facelift-v1.png",
+          "complete": true,
+          "width": 1818,
+          "height": 865,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "solio-ma15s-vs-ma36s.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/gen2-2010.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/gen3-2015.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/gen2-2010.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "solio-ma15s-zenki-kouki.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/gen2-2010.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/gen3-2015.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/ma36s-2018-post-update-v1.png",
+          "complete": true,
+          "width": 1819,
+          "height": 865,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "solio-ma36s-vs-ma37s.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/gen3-2015.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/gen4-2020.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "solio-ma36s-zenki-kouki.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/gen3-2015.png",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/ma36s-2018-post-update-v1.png",
+          "complete": true,
+          "width": 1819,
+          "height": 865,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/solio/gen3-2015.png",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "spacia-mk53s-vs-mk94s.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/spacia/gen2-2017.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/spacia/gen3-2023.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "stepwgn-rk-vs-rp.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/stepwgn/gen4-2009.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/stepwgn/gen5-2015.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/stepwgn/gen4-2009.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "stepwgn-rp-vs-rp6.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/stepwgn/rp3-spada-post-facelift-v1.png",
+          "complete": true,
+          "width": 1640,
+          "height": 959,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/stepwgn/gen6-2022.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "tanto-l375s-vs-la600s.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/tanto/gen2-2007-l375s.png",
+          "complete": true,
+          "width": 1635,
+          "height": 962,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/tanto/gen3-2013-la600s.png",
+          "complete": true,
+          "width": 1635,
+          "height": 962,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "tanto-la600s-zenki-kouki.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/tanto/gen3-2013-la600s.png",
+          "complete": true,
+          "width": 1635,
+          "height": 962,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/tanto/la600s-2015-post-facelift-v1.png",
+          "complete": true,
+          "width": 1635,
+          "height": 962,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/tanto/gen3-2013-la600s.png",
+          "complete": true,
+          "width": 1635,
+          "height": 962,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "vellfire-20-vs-30.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vellfire/gen1-2008.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vellfire/30-z-a-edition-pre-facelift-v1.png",
+          "complete": true,
+          "width": 1821,
+          "height": 864,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vellfire/gen1-2008.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vellfire/30-z-a-edition-pre-facelift-v1.png",
+          "complete": true,
+          "width": 1821,
+          "height": 864,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "vellfire-20-zenki-kouki.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vellfire/gen1-2008.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vellfire/30-z-a-edition-pre-facelift-v1.png",
+          "complete": true,
+          "width": 1821,
+          "height": 864,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vellfire/30-z-a-edition-post-facelift-v1.png",
+          "complete": true,
+          "width": 1821,
+          "height": 864,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "vellfire-30-vs-40.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vellfire/30-z-a-edition-pre-facelift-v1.png",
+          "complete": true,
+          "width": 1821,
+          "height": 864,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vellfire/gen3-2023.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "vezel-2024-vs-2026.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vezel/gen1-2013-hybrid-z-ff-v1.png",
+          "complete": true,
+          "width": 1566,
+          "height": 1005,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vezel/rv5-2026-ehev-z-ff-v1.png",
+          "complete": true,
+          "width": 1567,
+          "height": 1004,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "vezel-ru-vs-rv.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vezel/rv5-2021-ehev-z.webp",
+          "complete": true,
+          "width": 1740,
+          "height": 904,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/vezel/rv5-2026-ehev-z-ff-v1.png",
+          "complete": true,
+          "width": 1567,
+          "height": 1004,
+          "loading": "lazy"
+        }
+      ]
+    },
+    {
+      "page": "voxy-60-vs-70.html",
+      "overflow": 0,
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/images/cars/voxy/gen1-2001.webp",
+          "complete": true,
+          "width": 1408,
+          "height": 668,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/images/cars/voxy/80-zs-post-facelift-v1.png",
+          "complete": true,
+          "width": 1741,
+          "height": 903,
+          "loading": "lazy"
+        }
+      ]
+    }
+  ]
+}
