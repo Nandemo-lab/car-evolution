@@ -1,0 +1,408 @@
+{
+  "browser": "Microsoft Edge",
+  "baseUrl": "http://127.0.0.1:4173",
+  "checks": 15,
+  "failures": [],
+  "modal": {
+    "dialog": true,
+    "navHidden": "true",
+    "blocked": true
+  },
+  "keyboard": {
+    "focused": "model-query",
+    "navHidden": "true",
+    "blocked": true
+  },
+  "results": [
+    {
+      "page": "index.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "none",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          0,
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 1000,
+        "height": 0,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "cars/sienta.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": 0
+    },
+    {
+      "page": "cars/sienta.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": 0
+    },
+    {
+      "page": "cars/sienta.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "none",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          0,
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 1000,
+        "height": 0,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "n-box-jf1-zenki-kouki.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "n-box-jf1-zenki-kouki.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "n-box-jf1-zenki-kouki.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "none",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          0,
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 1000,
+        "height": 0,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "roomy-tank-thor-justy.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "roomy-tank-thor-justy.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "roomy-tank-thor-justy.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "none",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          0,
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 1000,
+        "height": 0,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "privacy.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "privacy.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "grid",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          44,
+          44,
+          44
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 8,
+        "height": 56,
+        "covered": false
+      },
+      "topReturned": null
+    },
+    {
+      "page": "privacy.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "display": "none",
+        "overflow": 0,
+        "links": [
+          "/",
+          "/#all-cars"
+        ],
+        "heights": [
+          0,
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "bottom": 1000,
+        "height": 0,
+        "covered": false
+      },
+      "topReturned": null
+    }
+  ]
+}
