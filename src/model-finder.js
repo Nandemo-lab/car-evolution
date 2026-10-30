@@ -103,9 +103,9 @@ export function findModelDestinations(cars, query, limit = 8) {
       seen.add(historyHref)
       results.push({
         href: historyHref,
-        label: car.href ? car.vehicleName : `${car.vehicleName}の歴代・型式`,
+        label: `${car.vehicleName}の歴代・型式`,
         meta: `${generation.era} ${generation.title} ／ ${generation.code}`,
-        kind: car.href ? '比較' : '歴代',
+        kind: '歴代',
       })
     }
     for (const guide of (car.guides || []).filter(guide => guideBelongsToCar(guide, car))) {
@@ -135,12 +135,28 @@ export function bindModelFinder(cars) {
   if (!form) return
   const input = form.querySelector('input')
   const output = form.querySelector('[data-model-results]')
+  let activeIndex = -1
+  const resultLinks = () => [...output.querySelectorAll('a')]
+  const setActive = index => {
+    const links = resultLinks()
+    if (!links.length) return
+    activeIndex = (index + links.length) % links.length
+    links.forEach((link, itemIndex) => {
+      link.classList.toggle('is-active', itemIndex === activeIndex)
+      link.setAttribute('aria-selected', String(itemIndex === activeIndex))
+    })
+    input.setAttribute('aria-activedescendant', links[activeIndex].id)
+    links[activeIndex].scrollIntoView({ block: 'nearest' })
+  }
   const render = (query, submitted = false) => {
     const destinations = findModelDestinations(cars, query)
-    if (!query) { output.replaceChildren(); return [] }
+    activeIndex = -1
+    input.removeAttribute('aria-activedescendant')
+    input.setAttribute('aria-expanded', String(Boolean(query)))
+    if (!query) { output.replaceChildren(); input.setAttribute('aria-expanded', 'false'); return [] }
     output.innerHTML = destinations.length
-      ? `<p>${destinations.length}件の候補。車名だけでも、歴代と比較ガイドへ進めます。</p><ul>${destinations.map(item => `<li><a href="${escapeText(item.href)}"><span class="model-result-kind">${escapeText(item.kind)}</span><strong>${escapeText(item.label)}</strong><span>${escapeText(item.meta)}</span></a></li>`).join('')}</ul>`
-      : '<p>候補が見つかりません。車名・型式の一部で再検索してください。軽微な誤字は補正しますが、未掲載車種もあります。</p>'
+      ? `<p>${destinations.length}件の候補。車名だけでも、歴代と比較ガイドへ進めます。</p><ul role="listbox" aria-label="検索候補">${destinations.map((item, index) => `<li><a id="model-result-${index}" role="option" aria-selected="false" href="${escapeText(item.href)}"><span class="model-result-kind">${escapeText(item.kind)}</span><strong>${escapeText(item.label)}</strong><span>${escapeText(item.meta)}</span></a></li>`).join('')}</ul>`
+      : '<p class="model-results-empty"><strong>該当する車種が見つかりません。</strong><span>車名を短くするか、型式の一部で試してください。例：エヌボックス、VOXY、JF1</span></p>'
     output.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
       trackEvent('open_model_finder_result', { destination: new URL(link.href).pathname })
     }))
@@ -149,7 +165,17 @@ export function bindModelFinder(cars) {
   }
   input.addEventListener('input', () => render(input.value.trim()))
   input.addEventListener('keydown', event => {
-    if (event.key === 'Escape') { input.value = ''; render('') }
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      if (!resultLinks().length) return
+      event.preventDefault()
+      setActive(activeIndex + (event.key === 'ArrowDown' ? 1 : -1))
+    } else if (event.key === 'Enter' && activeIndex >= 0) {
+      event.preventDefault()
+      resultLinks()[activeIndex]?.click()
+    } else if (event.key === 'Escape') {
+      input.value = ''
+      render('')
+    }
   })
   form.addEventListener('submit', event => {
     event.preventDefault()

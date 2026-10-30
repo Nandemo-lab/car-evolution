@@ -88,16 +88,13 @@
       <section class="all-cars" id="all-cars" aria-label="すべての車種">
         <div class="all-cars-header fade-in">
           <p class="section-eyebrow">ALL CARS</p>
-          <h2 class="all-cars-heading">Browse All Models</h2>
-          <!-- Bridges the heading and the grid -- without it, "Browse All
-               Models" drops straight into thumbnails with no sense of what
-               looking through them is actually for. Same brand-voice
-               English register as "Explore Cars"/the eyebrow labels, not
-               functional copy. -->
-          <p class="all-cars-intro">Explore every generation, side by side.</p>
+          <h2 class="all-cars-heading">車種から探す</h2>
+          <!-- The Japanese helper copy explains how to choose between search
+               and the maker groups; the English eyebrow remains branding. -->
+          <p class="all-cars-intro">車名が分かる場合は検索、迷っている場合はメーカー別の一覧から選べます。</p>
           <p class="all-cars-count" id="all-cars-count"></p>
         </div>
-        <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式から、歴代と比較を探す</label><p>車名だけでも検索できます。ひらがな・カタカナ・英字・型式の一部に対応。例：エヌボックス、VOXY、JF1。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" maxlength="60" placeholder="車名・型式（例：エヌボックス、JF1）" autocomplete="off" aria-autocomplete="list" aria-controls="model-results"><button type="submit">候補を探す</button></div><div id="model-results" data-model-results aria-live="polite"></div></form>
+        <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式から、歴代と比較を探す</label><p>車名だけでも検索できます。ひらがな・カタカナ・英字・型式の一部に対応。例：エヌボックス、VOXY、JF1。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" role="combobox" maxlength="60" placeholder="車名・型式（例：エヌボックス、JF1）" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="model-results"><button type="submit">候補を探す</button></div><div id="model-results" data-model-results aria-live="polite"></div></form>
         <details class="model-directory-wrap"><summary>掲載中の型式を一覧から探す</summary><p>JavaScriptを使わずに、掲載している代表型式と世代を確認できます。型式はグレードや駆動方式で枝番が異なるため、最終確認は車検証と販売店で行ってください。</p><div class="model-directory" id="model-directory"></div></details>
         <div class="maker-groups" id="maker-groups"></div>
       </section>

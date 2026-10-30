@@ -552,6 +552,12 @@ function initCompare(generations, vehicleName) {
   const labelLeft = document.getElementById('compare-label-left')
   const labelRight = document.getElementById('compare-label-right')
 
+  stage.tabIndex = 0
+  stage.setAttribute('role', 'slider')
+  stage.setAttribute('aria-label', `${vehicleName}の新旧画像を比較`)
+  stage.setAttribute('aria-valuemin', '0')
+  stage.setAttribute('aria-valuemax', '100')
+
   // Further below the fold than the detail section -- same reasoning
   // as detailRefs.image above.
   baseImage.loading = 'lazy'
@@ -682,6 +688,7 @@ function initCompare(generations, vehicleName) {
     split = Math.max(0, Math.min(100, value))
     overlay.style.clipPath = `inset(0 ${100 - split}% 0 0)`
     divider.style.left = `${split}%`
+    stage.setAttribute('aria-valuenow', String(Math.round(split)))
   }
 
   function animateSplit(keyframes, onDone) {
@@ -723,30 +730,44 @@ function initCompare(generations, vehicleName) {
   function dismissHint() { hintLabel.classList.add('is-dismissed') }
 
   let dragging = false
+  let pointerStart = null
   let hintPlayed = false
   let sliderInteracted = false
   stage.addEventListener('pointerdown', (event) => {
-    if (!sliderInteracted) {
-      sliderInteracted = true
-      trackEvent('interact_generation_compare_slider', {
-        vehicle: vehicleName,
-        older_generation: older.numeral,
-        newer_generation: newer.numeral,
-      })
-    }
     hintPlayed = true
     dismissHint()
-    dragging = true
-    stage.classList.add('is-dragging')
-    stage.setPointerCapture(event.pointerId)
-    setSplit(splitFromPointerX(event.clientX))
+    pointerStart = { id: event.pointerId, x: event.clientX, y: event.clientY }
   })
   stage.addEventListener('pointermove', (event) => {
+    if (pointerStart && !dragging) {
+      const dx = Math.abs(event.clientX - pointerStart.x)
+      const dy = Math.abs(event.clientY - pointerStart.y)
+      if (dy > 8 && dy > dx) { pointerStart = null; return }
+      if (dx < 6 || dx <= dy) return
+      dragging = true
+      stage.classList.add('is-dragging')
+      stage.setPointerCapture(pointerStart.id)
+      if (!sliderInteracted) {
+        sliderInteracted = true
+        trackEvent('interact_generation_compare_slider', {
+          vehicle: vehicleName,
+          older_generation: older.numeral,
+          newer_generation: newer.numeral,
+        })
+      }
+    }
     if (!dragging) return
     setSplit(splitFromPointerX(event.clientX))
   })
-  stage.addEventListener('pointerup', () => { dragging = false; stage.classList.remove('is-dragging') })
-  stage.addEventListener('pointercancel', () => { dragging = false; stage.classList.remove('is-dragging') })
+  const endPointer = () => { dragging = false; pointerStart = null; stage.classList.remove('is-dragging') }
+  stage.addEventListener('pointerup', endPointer)
+  stage.addEventListener('pointercancel', endPointer)
+  stage.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+    event.preventDefault()
+    dismissHint()
+    setSplit(split + (event.key === 'ArrowRight' ? 5 : -5))
+  })
 
   // Default: latest generation vs. the one right before it.
   loadPair(Math.max(0, generations.length - 2), generations.length - 1)

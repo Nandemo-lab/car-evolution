@@ -11,6 +11,12 @@ export function renderGenerationComparison(data) {
   if (!root.dataset.prerendered) root.innerHTML = generationComparisonHtml(data)
 
   bindComparisonTools(root, data)
+  root.querySelectorAll('.lc-table-wrap').forEach(table => {
+    const dismissHint = () => table.classList.remove('has-scroll-hint')
+    if (table.scrollWidth <= table.clientWidth + 1) dismissHint()
+    table.addEventListener('scroll', dismissHint, { once: true, passive: true })
+    table.addEventListener('pointerdown', dismissHint, { once: true, passive: true })
+  })
   trackEvent('view_generation_comparison', { vehicle: data.vehicle, comparison: data.intent })
 
   root.querySelectorAll('.related-links a').forEach(link => {

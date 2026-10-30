@@ -265,6 +265,8 @@ test('抜本リビルド後のホームは5つの目的入口とno-JS型式一�
   for(const label of ['車種から探す','型式から探す','前期／後期を見分ける','世代を比較する','購入前に確認する']) assert.ok(html.includes(label),label)
   assert.ok(html.includes('class="model-directory-group"'))
   for(const code of ['JF1','AGH30','MA36S']) assert.ok(html.includes(code),code)
+  assert.ok(html.includes('role="combobox"'))
+  assert.ok(html.includes('aria-autocomplete="list"'))
 })
 
 test('全generation比較ページは初期HTMLに3段階の現車確認フローを持つ',()=>{
@@ -284,6 +286,7 @@ test('購入確認メモは端末保存・消去・ダウンロードを選べ�
   assert.match(html,/data-clear-inspection/)
   assert.match(html,/data-download-inspection/)
   assert.match(html,/内容は外部へ送信しません/)
+  assert.match(html,/data-scroll-hint="横にスワイプ"/)
 })
 
 test('全generation比較ページは画像ごとに固有の判別点を結び付ける',()=>{

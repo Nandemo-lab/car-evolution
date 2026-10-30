@@ -21,7 +21,8 @@
 .lc-quick-facts small { color: #c9aa63; font: 500 10px/1 'Inter', sans-serif; letter-spacing: .14em; }
 .lc-quick-facts strong { margin-top: 10px; font-size: clamp(22px, 6vw, 30px); line-height: 1.15; letter-spacing: -.03em; }
 .lc-quick-facts span { margin-top: 9px; color: rgba(244,243,240,.6); font-size: 12px; font-weight: 300; line-height: 1.6; }
-.lc-table-wrap { max-width: 100%; margin-top: 26px; overflow-x: auto; border: 1px solid rgba(244,243,240,.12); border-radius: 16px; background: #121417; }
+.lc-table-wrap { position: relative; max-width: 100%; margin-top: 26px; overflow-x: auto; border: 1px solid rgba(244,243,240,.12); border-radius: 16px; background: #121417; scrollbar-color: rgba(225,198,121,.55) transparent; overscroll-behavior-inline: contain; }
+.lc-table-wrap.has-scroll-hint::after { content: attr(data-scroll-hint) '  →'; position: sticky; left: calc(100% - 118px); bottom: 10px; display: none; width: max-content; margin: -35px 10px 10px auto; padding: 7px 10px; border-radius: 999px; background: rgba(8,9,11,.88); color: rgba(244,243,240,.82); font-size: 10px; letter-spacing: .04em; pointer-events: none; box-shadow: 0 2px 12px rgba(0,0,0,.35); }
 .lc-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13px; }
 .lc-table th, .lc-table td { padding: 14px 16px; border-bottom: 1px solid rgba(244,243,240,.09); text-align: left; vertical-align: top; }
 .lc-table thead th { color: #c9aa63; font: 600 11px/1.3 'Inter', sans-serif; letter-spacing: .06em; }
@@ -53,7 +54,8 @@
 .comparison-notebook summary { cursor: pointer; font-size: 18px; font-weight: 600; }
 .comparison-notebook p { line-height: 1.8; color: #c6c6c6; }
 .inspection-checks { display: grid; gap: 18px; margin: 24px 0; }
-.inspection-checks label { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+.inspection-checks label { min-height: 44px; display: flex; gap: 12px; align-items: flex-start; cursor: pointer; padding: 8px; margin-inline: -8px; border-radius: 10px; transition: background .18s ease, transform .18s ease; }
+.inspection-checks label:active { transform: scale(.99); background: rgba(225,198,121,.08); }
 .inspection-checks input { margin-top: 5px; width: 20px; height: 20px; flex-shrink: 0; accent-color: #c9aa63; }
 .inspection-checks small { display: block; margin-top: 6px; line-height: 1.8; color: #c6c6c6; }
 .inspection-notes-label { display: block; margin: 20px 0 10px; }
@@ -62,6 +64,8 @@
 .inspection-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .inspection-actions button { flex: 1 1 180px; }
 .inspection-actions [data-clear-inspection] { background: transparent; color: #f4f3f0; border-color: #666; }
+[data-inspection-status] { min-height: 1.6em; opacity: 0; transform: translateY(3px); transition: opacity .18s ease, transform .18s ease; }
+[data-inspection-status].is-visible { opacity: 1; transform: translateY(0); }
 .comparison-notebook :focus-visible { outline: 3px solid #e1c679; outline-offset: 4px; }
 .lc-note { color: #aaa; }
 .lc-note a { color: #d4ba7f; text-underline-offset: 3px; }
@@ -76,3 +80,18 @@
 .lc-car-details summary::before { content:"＋"; }
 .lc-car-details[open] summary::before { content:"−"; }
 .lc-car-details summary:focus-visible { outline:2px solid #c9aa63; outline-offset:3px; }
+
+@media (max-width: 699px) {
+  .lc-section { padding-bottom: 58px; }
+  .lc-table-wrap.has-scroll-hint::after { display: block; }
+  .lc-table { min-width: 580px; }
+  .lc-table th, .lc-table td { padding: 13px 14px; }
+  .lc-table th:first-child { position: sticky; left: 0; z-index: 1; background: #121417; box-shadow: 1px 0 rgba(244,243,240,.1); }
+  .comparison-notebook { padding: 18px; }
+  .inspection-actions { display: grid; }
+  .inspection-actions button { width: 100%; min-height: 48px; margin-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inspection-checks label, .inspection-actions button, [data-inspection-status] { transition: none; }
+}
