@@ -1,4 +1,5 @@
 import { bindModelFinder } from './model-finder.js'
+import { bindYearFinder } from './vehicle-year-finder.js'
 import './home.css'
 import './click-glow.js'
 import roadmap from './roadmap.js'
@@ -113,3 +114,4 @@ initHeroCta()
 initGrowthEvents()
 
 bindModelFinder(homeCatalog(cars))
+bindYearFinder(homeCatalog(cars))

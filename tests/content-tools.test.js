@@ -8,6 +8,7 @@ import { generationComparisonHtml } from '../src/generation-comparison-html.js'
 import { resolveReferences } from '../src/official-sources.js'
 import { homeCatalog } from '../src/home-cars-html.js'
 import { topCardVisualAudit, getDiscoveryImage } from '../src/discovery.js'
+import { buildDealerQuestions, findGenerationsByYear, generationYearBounds } from '../src/vehicle-year-finder.js'
 
 test('寸法差は同じ単位の単一数値だけ計算する', () => {
   assert.equal(millimetres('1,750 mm'),1750)
@@ -52,6 +53,21 @@ test('車名検索はかな・英字・表記揺れ・軽微な誤字から歴�
   assert.ok(destinations.some(item=>item.href==='/cars/vellfire.html' && item.kind==='歴代'))
   assert.ok(destinations.some(item=>item.kind==='比較'))
   assert.equal(findModelDestinations(cars,'NBOX').some(item=>item.href.includes('roox')),false)
+})
+test('車名と初度登録年は境界年を単一世代に断定しない', () => {
+  const prius = cars.find(car => car.slug === 'prius')
+  const boundary = findGenerationsByYear(prius, 2015)
+  assert.ok(boundary.length >= 2, '2015年は30系と50系の候補を残す')
+  assert.ok(boundary.some(item => item.code.includes('ZVW30')))
+  assert.ok(boundary.some(item => item.code.includes('ZVW50')))
+  assert.deepEqual(generationYearBounds(prius.generations.find(item => item.code.includes('ZVW30'))), { start: 2009, end: 2015 })
+})
+test('販売店質問は確定に必要な項目だけを作り車台番号入力を要求しない', () => {
+  const nbox = cars.find(car => car.slug === 'n-box')
+  const candidates = findGenerationsByYear(nbox, 2017)
+  const questions = buildDealerQuestions(nbox, 2017, candidates)
+  for (const term of ['型式', '車台番号の先頭部分', '製造時期', 'グレード', '2WD／4WD', '交換・社外部品']) assert.ok(questions.includes(term), term)
+  assert.equal(questions.includes('車台番号を入力'), false)
 })
 test('42比較ページの初期HTMLに本文・出典・画像・メモが揃う', async () => {
   const files=readdirSync(new URL('../src/data/comparisons/',import.meta.url))

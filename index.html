@@ -74,6 +74,7 @@
         <div class="task-paths-grid">
           <a href="#all-cars"><strong>車種から探す</strong><span>歴代モデルと型式を見る</span></a>
           <a href="#model-finder"><strong>型式から探す</strong><span>車検証・中古車情報から世代を絞る</span></a>
+          <a href="#year-finder"><strong>車名＋年式から探す</strong><span>境界年は候補を並べて確認する</span></a>
           <a href="/n-box-jf1-zenki-kouki.html"><strong>前期／後期を見分ける</strong><span>改良境界と写真の手がかりを見る</span></a>
           <a href="/prius-30-vs-50.html"><strong>世代を比較する</strong><span>寸法・型式・装備の転換点を見る</span></a>
           <a href="#comparison-links-title"><strong>購入前に確認する</strong><span>比較条件と現車確認の手順を整理する</span></a>
@@ -95,6 +96,12 @@
           <p class="all-cars-count" id="all-cars-count"></p>
         </div>
         <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式から、歴代と比較を探す</label><p>車名だけでも検索できます。ひらがな・カタカナ・英字・型式の一部に対応。例：エヌボックス、VOXY、JF1。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" role="combobox" maxlength="60" placeholder="車名・型式（例：エヌボックス、JF1）" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="model-results"><button type="submit">候補を探す</button></div><div id="model-results" data-model-results aria-live="polite"></div></form>
+        <section id="year-finder" class="year-finder" aria-labelledby="year-finder-title">
+          <div class="year-finder-heading"><p class="section-eyebrow">YEAR FINDER</p><h3 id="year-finder-title">車名と年式から、世代候補を絞る</h3><p>中古車サイトの「年式」は原則として初度登録年です。製造時期や改良日とは一致しないため、境界年は複数候補を表示します。</p></div>
+          <form data-year-finder-form><label>車種<select data-year-car required><option value="">車種を選ぶ</option></select></label><label>初度登録年<select data-year-value required><option value="">年を選ぶ</option></select></label><button type="submit">候補を確認</button></form>
+          <div class="year-finder-result" data-year-result aria-live="polite"><p>車種と初度登録年を選ぶと、該当し得る世代・型式と、販売店への確認項目を表示します。</p></div>
+          <noscript><p class="year-finder-noscript">JavaScriptを使わない場合は、下の「掲載中の型式を一覧から探す」から各車種の販売期間と型式を確認できます。</p></noscript>
+        </section>
         <details class="model-directory-wrap"><summary>掲載中の型式を一覧から探す</summary><p>JavaScriptを使わずに、掲載している代表型式と世代を確認できます。型式はグレードや駆動方式で枝番が異なるため、最終確認は車検証と販売店で行ってください。</p><div class="model-directory" id="model-directory"></div></details>
         <div class="maker-groups" id="maker-groups"></div>
       </section>

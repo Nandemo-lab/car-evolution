@@ -342,6 +342,28 @@ body { margin: 0; background: #0b0c0e; }
 .model-results-empty strong { color: #f4f3f0; font-size: 13px; }
 .model-results-empty span { color: #aaa; font-size: 12px; line-height: 1.6; }
 .model-finder :focus-visible { outline: 3px solid #e1c679; outline-offset: 3px; }
+.year-finder { margin: -18px 0 40px; padding: 22px; border: 1px solid rgba(214,185,110,.3); border-radius: 16px; background: linear-gradient(145deg, rgba(214,185,110,.08), rgba(255,255,255,.018)); }
+.year-finder-heading h3 { margin: 7px 0 8px; font-size: clamp(21px,4vw,29px); letter-spacing: -.025em; }
+.year-finder-heading > p:last-child, .year-finder-result > p, .year-finder-noscript { color: #bbb; font-size: 13px; line-height: 1.75; }
+.year-finder form { display: grid; gap: 12px; margin-top: 18px; }
+.year-finder label { display: grid; gap: 7px; color: #d7d5d0; font-size: 12px; font-weight: 600; }
+.year-finder select, .year-finder button, .year-question-copy { min-height: 48px; border-radius: 10px; font: inherit; }
+.year-finder select { width: 100%; padding: 10px 38px 10px 12px; border: 1px solid #777; background: #0e1013; color: #f4f3f0; }
+.year-finder button, .year-question-copy { border: 0; padding: 11px 16px; background: #d6b96e; color: #111; font-weight: 700; cursor: pointer; transition: transform .18s ease, background .18s ease; }
+.year-finder button:active, .year-question-copy:active { transform: scale(.98); }
+.year-finder-result { margin-top: 18px; }
+.year-candidate-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.year-candidate { padding: 15px; border: 1px solid rgba(255,255,255,.11); border-radius: 12px; background: #15171a; }
+.year-candidate b, .year-candidate span { display: block; }
+.year-candidate b { font-size: 15px; }
+.year-candidate span { margin-top: 5px; color: #aaa; font-size: 12px; line-height: 1.55; }
+.year-result-alert { margin: 0 0 12px; padding: 11px 13px; border-left: 3px solid #d6b96e; background: rgba(214,185,110,.08); color: #ddd; font-size: 12px; line-height: 1.65; }
+.year-result-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+.year-result-actions a { min-height: 44px; display: inline-flex; align-items: center; padding: 9px 13px; border: 1px solid rgba(255,255,255,.18); border-radius: 9px; color: #f4f3f0; text-decoration: none; font-size: 12px; font-weight: 600; }
+.year-question-copy { min-height: 44px; font-size: 12px; }
+.year-finder :focus-visible { outline: 3px solid #e1c679; outline-offset: 3px; }
+@media (min-width: 700px) { .year-finder form { grid-template-columns: minmax(0,1.4fr) minmax(140px,.7fr) auto; align-items: end; } }
+@media (prefers-reduced-motion: reduce) { .year-finder button, .year-question-copy { transition: none; } }
 .model-directory-wrap { margin: -22px 0 40px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 0 18px; }
 .model-directory-wrap > summary { min-height: 48px; display: flex; align-items: center; cursor: pointer; font-size: 13px; font-weight: 600; }
 .model-directory-wrap > p { color: #aaa; font-size: 12px; line-height: 1.7; }
