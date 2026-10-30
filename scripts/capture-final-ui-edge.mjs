@@ -43,7 +43,7 @@ try {
         await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: width < 700 }, sessionId)
         await send('Page.navigate', { url: `${baseUrl}/${page}.html` }, sessionId)
         await wait(1100)
-        const metrics = await send('Runtime.evaluate', { returnByValue: true, expression: `(()=>{const comparison=document.querySelector('[data-comparison-view-target]');const firstImage=comparison?.querySelector('img');return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,pageHeight:document.documentElement.scrollHeight,imageTop:firstImage?Math.round(firstImage.getBoundingClientRect().top+scrollY):null,markers:document.querySelectorAll('.lc-image-marker').length,toggleHeight:Math.round(document.querySelector('[data-comparison-view]')?.getBoundingClientRect().height||0)}})()` }, sessionId)
+        const metrics = await send('Runtime.evaluate', { returnByValue: true, expression: `(()=>{const comparison=document.querySelector('[data-comparison-view-target]');const firstImage=comparison?.querySelector('img');return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,pageHeight:document.documentElement.scrollHeight,imageTop:firstImage?Math.round(firstImage.getBoundingClientRect().top+scrollY):null,markers:document.querySelectorAll('.lc-image-marker').length,imageLabels:document.querySelectorAll('.lc-image-labels span').length,toggleHeight:Math.round(document.querySelector('[data-comparison-view]')?.getBoundingClientRect().height||0)}})()` }, sessionId)
         const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false }, sessionId)
         await writeFile(resolve(outputDir, `${page}-${width}-${state}.png`), Buffer.from(shot.data, 'base64'))
         results.push({ state, page, width, ...metrics.result.value })
@@ -51,7 +51,7 @@ try {
     }
   }
   await writeFile(resolve(outputDir, 'metrics.json'), JSON.stringify(results, null, 2))
-  const failures = results.filter(result => result.overflow > 1 || result.markers < 2 || (result.width < 700 && result.toggleHeight < 44))
+  const failures = results.filter(result => result.overflow > 1 || (result.state === 'after' && (result.markers !== 0 || result.imageLabels < 4)) || (result.width < 700 && result.toggleHeight < 44))
   console.log(JSON.stringify({ checked: results.length, failures, results }, null, 2))
   if (failures.length) process.exitCode = 1
 } finally {

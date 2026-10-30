@@ -1,0 +1,134 @@
+[
+  {
+    "state": "before",
+    "page": "n-box-jf1-zenki-kouki",
+    "width": 375,
+    "overflow": 0,
+    "pageHeight": 2555,
+    "imageTop": 669,
+    "markers": 2,
+    "imageLabels": 0,
+    "toggleHeight": 44
+  },
+  {
+    "state": "before",
+    "page": "n-box-jf1-zenki-kouki",
+    "width": 390,
+    "overflow": 0,
+    "pageHeight": 2563,
+    "imageTop": 673,
+    "markers": 2,
+    "imageLabels": 0,
+    "toggleHeight": 44
+  },
+  {
+    "state": "before",
+    "page": "n-box-jf1-zenki-kouki",
+    "width": 1440,
+    "overflow": 0,
+    "pageHeight": 2474,
+    "imageTop": 699,
+    "markers": 2,
+    "imageLabels": 0,
+    "toggleHeight": 0
+  },
+  {
+    "state": "before",
+    "page": "voxy-80-zenki-kouki",
+    "width": 375,
+    "overflow": 0,
+    "pageHeight": 2868,
+    "imageTop": 627,
+    "markers": 4,
+    "imageLabels": 0,
+    "toggleHeight": 44
+  },
+  {
+    "state": "before",
+    "page": "voxy-80-zenki-kouki",
+    "width": 390,
+    "overflow": 0,
+    "pageHeight": 2852,
+    "imageTop": 631,
+    "markers": 4,
+    "imageLabels": 0,
+    "toggleHeight": 44
+  },
+  {
+    "state": "before",
+    "page": "voxy-80-zenki-kouki",
+    "width": 1440,
+    "overflow": 0,
+    "pageHeight": 2429,
+    "imageTop": 705,
+    "markers": 4,
+    "imageLabels": 0,
+    "toggleHeight": 0
+  },
+  {
+    "state": "after",
+    "page": "n-box-jf1-zenki-kouki",
+    "width": 375,
+    "overflow": 0,
+    "pageHeight": 2488,
+    "imageTop": 611,
+    "markers": 0,
+    "imageLabels": 4,
+    "toggleHeight": 44
+  },
+  {
+    "state": "after",
+    "page": "n-box-jf1-zenki-kouki",
+    "width": 390,
+    "overflow": 0,
+    "pageHeight": 2496,
+    "imageTop": 615,
+    "markers": 0,
+    "imageLabels": 4,
+    "toggleHeight": 44
+  },
+  {
+    "state": "after",
+    "page": "n-box-jf1-zenki-kouki",
+    "width": 1440,
+    "overflow": 0,
+    "pageHeight": 2477,
+    "imageTop": 637,
+    "markers": 0,
+    "imageLabels": 4,
+    "toggleHeight": 0
+  },
+  {
+    "state": "after",
+    "page": "voxy-80-zenki-kouki",
+    "width": 375,
+    "overflow": 0,
+    "pageHeight": 2810,
+    "imageTop": 569,
+    "markers": 0,
+    "imageLabels": 4,
+    "toggleHeight": 44
+  },
+  {
+    "state": "after",
+    "page": "voxy-80-zenki-kouki",
+    "width": 390,
+    "overflow": 0,
+    "pageHeight": 2794,
+    "imageTop": 573,
+    "markers": 0,
+    "imageLabels": 4,
+    "toggleHeight": 44
+  },
+  {
+    "state": "after",
+    "page": "voxy-80-zenki-kouki",
+    "width": 1440,
+    "overflow": 0,
+    "pageHeight": 2432,
+    "imageTop": 643,
+    "markers": 0,
+    "imageLabels": 4,
+    "toggleHeight": 0
+  }
+]

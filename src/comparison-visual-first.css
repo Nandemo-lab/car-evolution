@@ -42,6 +42,13 @@
 .lc-lower-details .comparison-tools.is-compact .comparison-notebook { margin-top:0; }
 .comparison-compact-reminder { display:grid; gap:5px; margin:0 0 14px; color:rgba(244,243,240,.62); font-size:12px; line-height:1.6; }
 .comparison-compact-reminder strong { color:#f4f3f0; font-size:14px; }
+.lc-image-labels { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.lc-image-labels span { padding:5px 8px; border:1px solid rgba(160,211,255,.22); border-radius:999px; background:rgba(160,211,255,.07); color:rgba(244,243,240,.76); font-size:10px; line-height:1; }
+.lc-visual-points.is-compact { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.lc-visual-points.is-compact details { border-top:2px solid rgba(160,211,255,.72); background:rgba(160,211,255,.055); }
+.lc-visual-points.is-compact summary { min-height:44px; display:flex; align-items:center; padding:0 14px; color:#f4f3f0; font-size:13px; font-weight:700; cursor:pointer; }
+.lc-visual-points.is-compact p { padding:0 14px 12px; }
+.comparison-actions-secondary { margin-top:16px; }
 .comparison-view-toggle { display:flex; width:fit-content; margin:0 0 10px; padding:3px; border:1px solid rgba(244,243,240,.15); border-radius:999px; background:rgba(18,20,23,.8); }
 .comparison-view-toggle button { min-width:82px; min-height:44px; padding:0 14px; border:0; border-radius:999px; background:transparent; color:rgba(244,243,240,.62); font:600 12px/1 inherit; cursor:pointer; }
 .comparison-view-toggle button[aria-pressed="true"] { background:#f4f3f0; color:#101214; }
@@ -58,7 +65,7 @@
   .lc-visual-first { padding-top:0; padding-bottom:42px; }
   .lc-visual-first > .comparison-eyebrow { margin-bottom:8px; }
   .lc-visual-first > h2 { font-size:24px; margin-bottom:12px; }
-  .lc-visual-points { grid-template-columns:1fr; }
+  .lc-visual-points, .lc-visual-points.is-compact { grid-template-columns:1fr; }
   .lc-visual-first .lc-cars { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
   .lc-visual-first .lc-car-copy { padding:12px; }
   .lc-visual-first .lc-car-copy h3 { font-size:16px; }

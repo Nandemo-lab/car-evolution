@@ -47,12 +47,12 @@ try{
         const single=await sessionSend('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})
         await writeFile(resolve(outputDir,`${target}-${width}-single.png`),Buffer.from(single.data,'base64'))
       }
-      const evaluated=await sessionSend('Runtime.evaluate',{returnByValue:true,expression:`(()=>{const target=document.querySelector('[data-comparison-view-target]');return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,mode:target.classList.contains('is-single-view')?'single':'pair',cards:[...target.children].map(card=>Math.round(card.getBoundingClientRect().width)),markers:document.querySelectorAll('.lc-image-marker').length,toggles:[...document.querySelectorAll('[data-comparison-view]')].map(button=>({pressed:button.getAttribute('aria-pressed'),height:Math.round(button.getBoundingClientRect().height)}))}})()`})
+      const evaluated=await sessionSend('Runtime.evaluate',{returnByValue:true,expression:`(()=>{const target=document.querySelector('[data-comparison-view-target]');return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,mode:target.classList.contains('is-single-view')?'single':'pair',cards:[...target.children].map(card=>Math.round(card.getBoundingClientRect().width)),markers:document.querySelectorAll('.lc-image-marker').length,imageLabels:document.querySelectorAll('.lc-image-labels span').length,toggles:[...document.querySelectorAll('[data-comparison-view]')].map(button=>({pressed:button.getAttribute('aria-pressed'),height:Math.round(button.getBoundingClientRect().height)}))}})()`})
       results.push({target,width,...evaluated.result.value})
     }
   }
   await writeFile(resolve(outputDir,'edge-metrics.json'),JSON.stringify(results,null,2))
-  const failures=results.filter(result=>result.overflow>1||result.markers<2||(result.width<700&&result.toggles.some(toggle=>toggle.height<44))||(result.width<700&&result.mode!=='single')||(result.width<700&&Math.max(...result.cards)<280))
+  const failures=results.filter(result=>result.overflow>1||result.markers!==0||result.imageLabels<4||(result.width<700&&result.toggles.some(toggle=>toggle.height<44))||(result.width<700&&result.mode!=='single')||(result.width<700&&Math.max(...result.cards)<280))
   console.log(JSON.stringify({browser:'Microsoft Edge',baseUrl,checked:results.length,failures,results},null,2))
   if(failures.length)process.exitCode=1
 }finally{

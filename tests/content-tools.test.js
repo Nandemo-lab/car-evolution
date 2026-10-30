@@ -180,7 +180,8 @@ test('N-BOXとVOXYの比較画像は横並びと単独表示を安全に切り�
   const nboxHtml=generationComparisonHtml(nbox)
   assert.ok(nboxHtml.includes('data-comparison-view="pair"'))
   assert.ok(nboxHtml.includes('data-comparison-view="single"'))
-  assert.equal((nboxHtml.match(/class="lc-image-marker"/g)||[]).length,2)
+  assert.equal((nboxHtml.match(/class="lc-image-marker"/g)||[]).length,0)
+  assert.equal((nboxHtml.match(/class="lc-image-labels"/g)||[]).length,2)
   assert.ok(nboxHtml.includes('comparison-hero-compact'))
   assert.ok(nboxHtml.includes('型式・仕様・購入前確認'))
   assert.ok(nboxHtml.includes('比較条件と画像について'))
@@ -188,6 +189,8 @@ test('N-BOXとVOXYの比較画像は横並びと単独表示を安全に切り�
   assert.ok(voxy.includes('data-comparison-view-target'))
   assert.ok(voxy.includes('bindComparisonViewToggle'))
   assert.ok(voxy.includes('facelift-card-details'))
+  assert.ok(!voxy.includes('lc-image-marker'))
+  assert.ok(voxy.includes('lc-image-labels'))
   assert.ok(voxy.includes('comparison-hero-compact'))
   assert.ok(voxy.includes('型式・仕様・購入前確認'))
 })
@@ -462,7 +465,7 @@ test('全generation比較ページは画像ごとに固有の判別点を結び�
     const html=readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8')
     const imageCards=(html.match(/class="lc-car"/g)||[]).length
     const imageCues=(html.match(/class="lc-image-cue"/g)||[]).length
-    const visualPoints=(html.match(/class="lc-visual-points"/g)||[]).length
+    const visualPoints=(html.match(/class="lc-visual-points(?: [^"]*)?"/g)||[]).length
     assert.ok(imageCues===imageCards || visualPoints===1,name)
     assert.ok(!html.includes('画像で見る場所</b><strong></strong>'),name)
   }
