@@ -276,10 +276,11 @@ if (!document.querySelector('#comparison-page').hasAttribute('data-ninja-prerend
 document.querySelector('#comparison-page').innerHTML = `
   <header class="comparison-hero">
     <a class="comparison-home" href="/">CARVISTA</a>
-    <p class="comparison-eyebrow">${page.eyebrow}</p><h1>${page.title}</h1><p class="comparison-intro">${page.intro}</p>
-    <div class="comparison-actions"><button class="share-button" type="button">共有する</button><button class="copy-button" type="button">URLをコピー</button></div>
+    <p class="comparison-eyebrow">${page.eyebrow}</p><h1>${page.title}</h1>
   </header>
   <section class="comparison-grid" aria-label="比較一覧">${cards}</section>
+  <details class="comparison-image-context"><summary>比較条件と画像について</summary><p>${page.intro}</p><p>掲載画像は公開資料をもとにした制作ビジュアルです。グレードや用品による外観差は、公式資料と現車で確認してください。<a href="/editorial-policy.html">画像の制作方針</a></p></details>
+  <div class="comparison-actions comparison-actions-secondary"><button class="share-button" type="button">共有する</button><button class="copy-button" type="button">URLをコピー</button></div>
   ${page.guideNote ? `<section class="comparison-guide-note" aria-label="比較の基準"><p>${page.guideNote}</p></section>` : ''}
   <a class="comparison-more" href="/#all-cars">ほかの車種の進化を見る</a>`
 

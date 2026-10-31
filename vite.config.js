@@ -322,7 +322,7 @@ function buildStaticVehicleFallback(car) {
     ? `${escapeHtml(car.vehicleName)}の掲載モデルを、型式・販売時期・外観の手がかりで確認できます。`
     : `${escapeHtml(car.vehicleName)}は${car.generations.length}つの掲載区分を、型式・販売時期・外観の手がかりで確認できます。`
   const listHeading = isSingleGeneration ? '掲載モデル・外観の手がかり' : '世代一覧・外観の手がかり'
-  return `<section class="${fallbackClass}" aria-label="${escapeHtml(car.vehicleName)}の車種概要"><div class="static-fast-answer"><p>FAST ANSWER</p><strong>${answer}</strong><span>${escapeHtml(car.seo.description)}</span></div><h2>${listHeading}</h2><div class="static-generation-grid">${generations}</div>${guide}${evolution}${guides}<h2>公式資料・参考資料</h2><ul>${sources}</ul><p>画像だけで年式やグレードを断定せず、型式・車台番号・装備情報を販売店の車両情報と照合してください。</p><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・画像利用・訂正方針</a></p></section>`
+  return `<section class="${fallbackClass}" aria-label="${escapeHtml(car.vehicleName)}の車種概要"><div class="static-fast-answer"><p>FAST ANSWER</p><strong>${answer}</strong><span>${escapeHtml(car.seo.description)}</span></div><p class="static-image-policy">掲載画像は公開資料をもとにした制作ビジュアルです。<a href="/editorial-policy.html">画像の制作方針</a></p><h2>${listHeading}</h2><div class="static-generation-grid">${generations}</div>${guide}${evolution}${guides}<h2>公式資料・参考資料</h2><ul>${sources}</ul><p>画像だけで年式やグレードを断定せず、型式・車台番号・装備情報を販売店の車両情報と照合してください。</p><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・画像利用・訂正方針</a></p></section>`
 }
 
 function standaloneEntryHtml(filename, cars) {
@@ -392,9 +392,11 @@ function genericComparisonHtml(data) {
   if (!data) return null
   const { page, cards } = data
   const articles = (items) => items?.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('') || ''
-  return `<header class="comparison-hero"><a class="comparison-home" href="/">CARVISTA</a><p class="comparison-eyebrow">${page.eyebrow}</p><h1>${page.title}</h1><p class="comparison-intro">${page.intro}</p></header>
+  return `<header class="comparison-hero comparison-hero-compact"><a class="comparison-home" href="/">CARVISTA</a><p class="comparison-eyebrow">${page.eyebrow}</p><h1>${page.title}</h1></header>
   ${page.answer ? `<section class="comparison-answer" aria-label="3秒で分かる結論"><p class="comparison-eyebrow">3-SECOND ANSWER</p><h2>先に結論</h2><p>${page.answer}</p></section>` : ''}
   <section class="comparison-grid" aria-label="比較一覧">${cards}</section>
+  <details class="comparison-image-context"><summary>比較条件と画像について</summary><p>${page.intro}</p><p>掲載画像は公開資料をもとにした制作ビジュアルです。グレードや用品による外観差は、公式資料と現車で確認してください。<a href="/editorial-policy.html">画像の制作方針</a></p></details>
+  <div class="comparison-actions comparison-actions-secondary"><button class="share-button" type="button">共有する</button><button class="copy-button" type="button">URLをコピー</button></div>
   ${page.guideNote ? `<section class="comparison-guide-note" aria-label="比較の基準"><p>${page.guideNote}</p></section>` : ''}
   ${page.timeline ? `<section class="comparison-focus" aria-label="比較する年式の整理"><h2>比較する世代を先に整理する</h2><div class="comparison-next-grid">${page.timeline.map(item => `<div><strong>${item.title}</strong><span>${item.text}</span></div>`).join('')}</div></section>` : ''}
   ${page.reading ? `<section class="comparison-reading" aria-label="デザインの読み解き"><h2>見比べるポイント</h2>${page.reading.map(item => `<article><h3>${item.heading}</h3><p>${item.text}</p></article>`).join('')}</section>` : ''}

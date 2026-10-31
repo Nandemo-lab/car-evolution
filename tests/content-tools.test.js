@@ -493,6 +493,37 @@ test('世代比較ページは説明・共有操作より先に車両画像を�
   assert.ok(generation.indexOf('class="lc-cars"') < generation.indexOf('share-button'))
 })
 
+test('初心者用語は必要な車種だけ短く補足する',()=>{
+  const nbox=readFileSync(new URL('../dist/cars/n-box.html',import.meta.url),'utf8')
+  const voxy=readFileSync(new URL('../dist/voxy-80-zenki-kouki.html',import.meta.url),'utf8')
+  const alphard=readFileSync(new URL('../dist/alphard-30-vs-40.html',import.meta.url),'utf8')
+  assert.ok(nbox.includes('JFはN-BOXの世代や駆動方式を確認する型式記号'))
+  assert.ok(voxy.includes('ZSはスポーティーなエアロ外装のグレード'))
+  assert.ok(alphard.includes('GA-K：車の土台となる基本骨格の名称'))
+  assert.ok(alphard.includes('逆スラント：フロント上部が下部より前へ出て見える形'))
+})
+
+test('兄弟車比較は生成済み初期HTMLでも説明と共有より画像が先にある',()=>{
+  for(const file of ['compare-freed-sienta.html','compare-n-box-spacia.html','compare-voxy-noah.html']){
+    const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
+    const image=html.indexOf('class="comparison-grid"')
+    assert.ok(image>0,file)
+    assert.ok(image<html.indexOf('class="comparison-image-context"'),file)
+    assert.ok(image<html.indexOf('share-button'),file)
+    assert.ok(html.includes('画像の制作方針'),file)
+  }
+})
+
+test('全歴代ページは画像近くに短い制作画像表示を持つ',()=>{
+  const pages=readdirSync(new URL('../dist/cars',import.meta.url)).filter(name=>name.endsWith('.html'))
+  assert.ok(pages.length>=30)
+  for(const file of pages){
+    const html=readFileSync(new URL(`../dist/cars/${file}`,import.meta.url),'utf8')
+    assert.ok(html.includes('class="static-image-policy"'),file)
+    assert.ok(html.includes('掲載画像は公開資料をもとにした制作ビジュアルです'),file)
+  }
+})
+
 test('全generation比較ページは初期HTMLに3段階の現車確認フローを持つ',()=>{
   const pages=readdirSync(new URL('../dist',import.meta.url)).filter(name=>name.endsWith('.html'))
   const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').includes('comparison-notebook'))

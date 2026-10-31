@@ -180,7 +180,7 @@ function renderShare(config, isSingleGeneration = false) {
   const section = document.createElement('section')
   section.className = 'page-share'
   section.setAttribute('aria-label', `${config.vehicleName}を共有`)
-  section.innerHTML = `<p>${isSingleGeneration ? 'この車種の情報を共有' : 'この世代の変化を共有'}</p><button type="button">共有する</button><button type="button">URLをコピー</button>`
+  section.innerHTML = `<p class="visual-policy-note">掲載画像は制作ビジュアルです。<a href="/editorial-policy.html">制作方針</a></p><p>${isSingleGeneration ? 'この車種の情報を共有' : 'この世代の変化を共有'}</p><button type="button">共有する</button><button type="button">URLをコピー</button>`
   document.querySelector('.hero').insertAdjacentElement('afterend', section)
 
   const buttons = section.querySelectorAll('button')

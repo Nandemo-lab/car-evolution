@@ -129,7 +129,7 @@ export default {
   heroImage: '/images/cars/n-box/hero-jf5-3q.webp',
   generationGuide: {
     title: '初代・2代目・3代目を見分ける代表ポイント',
-    intro: 'N-BOXの基本的な世代差は、このページのTimeline・Compare・型式一覧で確認できます。中古車では外観だけで断定せず、JF型式と初度登録年を照合してください。',
+    intro: 'N-BOXの基本的な世代差は、このページのTimeline・Compare・型式一覧で確認できます。JFはN-BOXの世代や駆動方式を確認する型式記号です。中古車では外観だけで断定せず、型式と初度登録年を照合してください。',
     items: [
       { title: '初代', description: '細いグリルと、背の高い箱型シルエットが入口。', meta: '2011年〜2017年 · JF1 / JF2' },
       { title: '2代目', description: 'ライトとグリルの横方向のつながりがより明確。', meta: '2017年〜2023年 · JF3 / JF4' },

@@ -5,6 +5,8 @@
 .lc-answer { display: grid; gap: 10px; padding-top: 22px; border-top: 1px solid rgba(244,243,240,.18); border-bottom: 1px solid rgba(244,243,240,.18); }
 .lc-answer strong { font-size: clamp(19px, 3vw, 28px); line-height: 1.4; }
 .lc-answer span { color: rgba(244,243,240,.62); font-size: 13px; line-height: 1.8; }
+.lc-answer .lc-term-note { display:flex; flex-wrap:wrap; gap:6px 12px; margin:14px 0 0; }
+.lc-answer .lc-term-note span { margin:0; color:rgba(244,243,240,.72); font-size:11px; line-height:1.55; }
 .lc-cars { display: grid; gap: 16px; }
 .lc-car { overflow: hidden; border: 1px solid rgba(244,243,240,.1); border-radius: 18px; background: #121417; }
 .lc-car-visual { position:relative; overflow:hidden; }
