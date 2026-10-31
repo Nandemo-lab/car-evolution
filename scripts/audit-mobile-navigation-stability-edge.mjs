@@ -28,7 +28,7 @@ try{
   await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true},sessionId)
   await send('Page.navigate',{url:`${baseUrl}/cars/sienta.html`},sessionId);await wait(900)
   const sample=async phase=>{
-    const value=(await evaluate(`(()=>{const n=document.querySelector('[data-mobile-quick-nav]');const r=n.getBoundingClientRect();return {time:performance.now(),phase:${JSON.stringify(phase)},scrollY:Math.round(scrollY),hidden:n.getAttribute('aria-hidden'),visible:n.classList.contains('is-visible'),transform:getComputedStyle(n).transform,opacity:getComputedStyle(n).opacity,bottom:Math.round(innerHeight-r.bottom),innerHeight,visualHeight:Math.round(visualViewport?.height||innerHeight)}})()`)).result.value
+    const value=(await evaluate(`(()=>{const h=document.querySelector('[data-mobile-site-header]'),b=document.querySelector('[data-scroll-top]'),hr=h.getBoundingClientRect(),br=b.getBoundingClientRect();return {time:performance.now(),phase:${JSON.stringify(phase)},scrollY:Math.round(scrollY),hidden:h.getAttribute('aria-hidden'),buttonHidden:b.getAttribute('aria-hidden'),visible:h.classList.contains('is-visible'),headerTransform:getComputedStyle(h).transform,headerTop:Math.round(hr.top),buttonBottom:Math.round(innerHeight-br.bottom),innerHeight,visualHeight:Math.round(visualViewport?.height||innerHeight)}})()`)).result.value
     samples.push(value);return value
   }
   const frame=async phase=>{
@@ -49,8 +49,8 @@ try{
   await move(99999,'bottom',true)
   for(let i=0;i<10;i++){await wait(100);await sample('hold-bottom')}
   const phases=['hold-high','hold-low','viewport-short','viewport-normal','hold-bottom']
-  const phaseStability=phases.map(phase=>{const rows=samples.filter(row=>row.phase===phase);return {phase,samples:rows.length,states:[...new Set(rows.map(row=>row.hidden))],positionRange:[Math.min(...rows.map(row=>row.bottom)),Math.max(...rows.map(row=>row.bottom))]}})
-  const unexpected=phaseStability.filter(item=>item.states.length!==1||((item.phase==='hold-low')!==item.states.includes('true')))
+  const phaseStability=phases.map(phase=>{const rows=samples.filter(row=>row.phase===phase);return {phase,samples:rows.length,states:[...new Set(rows.map(row=>`${row.hidden}/${row.buttonHidden}`))],headerTopRange:[Math.min(...rows.map(row=>row.headerTop)),Math.max(...rows.map(row=>row.headerTop))],buttonBottomRange:[Math.min(...rows.map(row=>row.buttonBottom)),Math.max(...rows.map(row=>row.buttonBottom))]}})
+  const unexpected=phaseStability.filter(item=>item.states.length!==1||((item.phase==='hold-low')!==item.states.includes('true/true')))
   const flips=samples.slice(1).filter((row,index)=>row.hidden!==samples[index].hidden).length
   const report={browser:'Microsoft Edge',baseUrl,durationMs:Math.round(samples.at(-1).time-samples[0].time),sampleCount:samples.length,flips,phaseStability,unexpected,timeline:samples}
   await writeFile(resolve(outputDir,'timeline.json'),JSON.stringify(report,null,2))

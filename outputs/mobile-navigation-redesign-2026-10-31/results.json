@@ -1,0 +1,510 @@
+{
+  "browser": "Microsoft Edge",
+  "baseUrl": "http://127.0.0.1:4190",
+  "checks": 15,
+  "failures": [],
+  "modal": {
+    "dialog": true,
+    "headerHidden": "true",
+    "buttonHidden": "true",
+    "blocked": true
+  },
+  "keyboard": {
+    "focused": "model-query",
+    "headerHidden": "true",
+    "buttonHidden": "true",
+    "blocked": true
+  },
+  "results": [
+    {
+      "page": "index.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "none",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 0,
+        "headerTop": 0,
+        "buttonSize": [
+          0,
+          0
+        ],
+        "buttonRight": 1440,
+        "buttonBottom": 1000,
+        "opaqueHeader": false
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "cars/sienta.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": {
+        "hidden": "false",
+        "scrollBottom": 0,
+        "footerBottom": 325,
+        "buttonOverFooter": false
+      },
+      "topReturned": 0
+    },
+    {
+      "page": "cars/sienta.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": {
+        "hidden": "false",
+        "scrollBottom": 0,
+        "footerBottom": 325,
+        "buttonOverFooter": false
+      },
+      "topReturned": 0
+    },
+    {
+      "page": "cars/sienta.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "none",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 0,
+        "headerTop": 0,
+        "buttonSize": [
+          0,
+          0
+        ],
+        "buttonRight": 1440,
+        "buttonBottom": 1000,
+        "opaqueHeader": false
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "n-box-jf1-zenki-kouki.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "n-box-jf1-zenki-kouki.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "n-box-jf1-zenki-kouki.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "none",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 0,
+        "headerTop": 0,
+        "buttonSize": [
+          0,
+          0
+        ],
+        "buttonRight": 1440,
+        "buttonBottom": 1000,
+        "opaqueHeader": false
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "roomy-tank-thor-justy.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "roomy-tank-thor-justy.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "roomy-tank-thor-justy.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "none",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 0,
+        "headerTop": 0,
+        "buttonSize": [
+          0,
+          0
+        ],
+        "buttonRight": 1440,
+        "buttonBottom": 1000,
+        "opaqueHeader": false
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "privacy.html",
+      "width": 375,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "privacy.html",
+      "width": 390,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "flex",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          44,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 48,
+        "headerTop": 0,
+        "buttonSize": [
+          48,
+          48
+        ],
+        "buttonRight": 12,
+        "buttonBottom": 12,
+        "opaqueHeader": true
+      },
+      "footer": null,
+      "topReturned": null
+    },
+    {
+      "page": "privacy.html",
+      "width": 1440,
+      "top": {
+        "exists": true,
+        "hidden": "true",
+        "headerDisplay": "none",
+        "buttonDisplay": "none",
+        "overflow": 0,
+        "links": [
+          "/"
+        ],
+        "heights": [
+          0,
+          0
+        ]
+      },
+      "scrolled": {
+        "hidden": "false",
+        "headerHeight": 0,
+        "headerTop": 0,
+        "buttonSize": [
+          0,
+          0
+        ],
+        "buttonRight": 1440,
+        "buttonBottom": 1000,
+        "opaqueHeader": false
+      },
+      "footer": null,
+      "topReturned": null
+    }
+  ]
+}

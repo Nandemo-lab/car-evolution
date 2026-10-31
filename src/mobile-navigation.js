@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded',()=>{
- const nav=document.querySelector('[data-mobile-quick-nav]')
- if(nav){
-  document.body.classList.add('has-mobile-quick-nav')
-  const topButton=nav.querySelector('[data-scroll-top]')
+ const header=document.querySelector('[data-mobile-site-header]')
+ const topButton=document.querySelector('[data-scroll-top]')
+ if(header&&topButton){
+  document.body.classList.add('has-mobile-navigation')
   const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)')
   const modalIsOpen=()=>Boolean(document.querySelector('dialog[open],[role="dialog"][aria-modal="true"]:not([aria-hidden="true"])'))
   const keyboardIsOpen=()=>{
@@ -15,9 +15,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(scrollY>360)pastThreshold=true
     else if(scrollY<240)pastThreshold=false
     const visible=pastThreshold&&!blocked
-    document.body.classList.toggle('mobile-quick-nav-blocked',blocked)
-    nav.classList.toggle('is-visible',visible)
-    nav.setAttribute('aria-hidden',visible?'false':'true')
+    document.body.classList.toggle('mobile-navigation-blocked',blocked)
+    for(const element of [header,topButton]){
+     element.classList.toggle('is-visible',visible)
+     element.setAttribute('aria-hidden',visible?'false':'true')
+    }
   }
   let ticking=false
   const requestUpdate=()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;update()})}
@@ -27,7 +29,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.addEventListener('focusin',requestUpdate)
   document.addEventListener('focusout',requestUpdate)
   new MutationObserver(requestUpdate).observe(document.body,{subtree:true,attributes:true,attributeFilter:['open','aria-hidden','aria-modal']})
-  topButton?.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduceMotion.matches?'auto':'smooth'}))
+  topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduceMotion.matches?'auto':'smooth'}))
   update()
  }
 })

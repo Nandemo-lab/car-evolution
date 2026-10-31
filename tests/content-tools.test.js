@@ -306,17 +306,17 @@ test('公開97 URLの初期HTMLとサイトマップに欠落・重複見出し�
   for(const page of ['voxy-60-vs-70','solio-ma15s-zenki-kouki','vellfire-20-zenki-kouki','prius-30-zenki-kouki']) assert.ok(existsSync(new URL(`../dist/${page}.html`,import.meta.url)))
 })
 
-test('全公開ページはコンパクトなスマホ用ホーム・先頭ナビを初期HTMLに持つ',()=>{
+test('全公開ページは独立したスマホ用ホームヘッダー・先頭ボタンを初期HTMLに持つ',()=>{
   const sitemap=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...sitemap.matchAll(/<loc>https:\/\/carvista\.jp(.*?)<\/loc>/g)].map(match=>match[1]||'/')
   assert.equal(urls.length,97)
   for(const url of urls){
     const file=url==='/'?'index.html':url.replace(/^\//,'')
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
-    assert.equal((html.match(/data-mobile-quick-nav/g)||[]).length,2,file)
-    assert.ok(html.includes('href="/" aria-label="ホームへ"'),file)
+    assert.equal((html.match(/data-mobile-site-header/g)||[]).length,2,file)
+    assert.ok(html.includes('href="/" aria-label="CarVista ホームへ"'),file)
     assert.ok(html.includes('data-scroll-top aria-label="ページ先頭へ"'),file)
-    assert.ok(!html.includes('aria-label="車種一覧へ"'),file)
+    assert.ok(!html.includes('mobile-quick-nav'),file)
   }
   const controller=readFileSync(new URL('../src/mobile-navigation.js',import.meta.url),'utf8')
   assert.ok(controller.includes('scrollY>360'))
