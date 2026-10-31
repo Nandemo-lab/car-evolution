@@ -1,0 +1,4776 @@
+{
+  "browser": "Microsoft Edge",
+  "baseUrl": "https://carvista.jp",
+  "results": [
+    {
+      "width": 375,
+      "initial": {
+        "phase": "initial",
+        "scrollY": 0,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 0,
+        "broken": [],
+        "pending": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          }
+        ],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          }
+        ]
+      },
+      "immediate": {
+        "phase": "scroll-immediate",
+        "scrollY": 1272,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 0,
+        "broken": [],
+        "pending": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          }
+        ],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          }
+        ]
+      },
+      "during": {
+        "phase": "scroll-during",
+        "scrollY": 5322,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 12,
+        "broken": [],
+        "pending": [
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": true
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": true
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": true
+          }
+        ],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": true
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": true
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": true
+          }
+        ]
+      },
+      "settled": {
+        "phase": "settled",
+        "scrollY": 6873,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "initial": {
+        "phase": "initial",
+        "scrollY": 0,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 29,
+        "broken": [],
+        "pending": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ]
+      },
+      "immediate": {
+        "phase": "scroll-immediate",
+        "scrollY": 1275,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 29,
+        "broken": [],
+        "pending": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ]
+      },
+      "during": {
+        "phase": "scroll-during",
+        "scrollY": 5325,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": true
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": true
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": true
+          }
+        ]
+      },
+      "settled": {
+        "phase": "settled",
+        "scrollY": 6952,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "initial": {
+        "phase": "initial",
+        "scrollY": 0,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ]
+      },
+      "immediate": {
+        "phase": "scroll-immediate",
+        "scrollY": 1028,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": true
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": true
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": true
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": true
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ]
+      },
+      "during": {
+        "phase": "scroll-during",
+        "scrollY": 5521,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ]
+      },
+      "settled": {
+        "phase": "settled",
+        "scrollY": 5521,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ]
+      }
+    }
+  ],
+  "failures": [
+    {
+      "width": 375,
+      "type": "load",
+      "state": {
+        "phase": "settled",
+        "scrollY": 6873,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/cars/alphard/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/cars/vellfire/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/cars/noah/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/cars/voxy/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/cars/esquire/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/cars/prius/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/cars/harrier/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/cars/sienta/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/cars/corolla-cross/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/cars/aqua/mxpk11-2021-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/cars/rav4/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/cars/roomy/top-card-front-right-v3.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/cars/serena/top-card-v2.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/cars/roox/top-card-front-right-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/cars/stepwgn/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/cars/freed/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/cars/n-box/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/cars/vezel/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/cars/n-one/jg3-2020-original-ff-v1.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/cars/delica-d5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/cars/delica-mini/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/cars/solio/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/cars/spacia/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/cars/jimny/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/cars/hustler/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/cars/tanto/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/cars/move/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/cars/cx-5/top-card-front-right-v2.png",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 1448,
+            "visible": false
+          }
+        ]
+      }
+    }
+  ]
+}

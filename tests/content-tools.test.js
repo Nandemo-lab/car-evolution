@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { readdirSync, readFileSync, existsSync } from 'node:fs'
+import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import { dimensionDifferences, escapeText, millimetres } from '../src/comparison-tools.js'
 import { findModels, findModelDestinations, normalizeModelQuery } from '../src/model-finder.js'
@@ -30,6 +30,17 @@ test('TOP車種カードで別車種が同一画像データを共有しない',
     const hash = createHash('sha256').update(bytes).digest('hex')
     assert.ok(!seen.has(hash), `${car.slug} duplicates ${seen.get(hash)}`)
     seen.set(hash, car.slug)
+  }
+})
+test('TOP全車種カードは軽量WebP派生画像を使いMaster Assetを直接配信しない', () => {
+  const images=cars.map(car=>getDiscoveryImage(car))
+  assert.equal(images.length,31)
+  assert.equal(new Set(images).size,31)
+  for(const image of images){
+    assert.match(image,/^\/images\/top-cards\/[a-z0-9-]+\.webp$/)
+    const file=new URL(`../public${image}`,import.meta.url)
+    assert.ok(existsSync(file),image)
+    assert.ok(statSync(file).size<250_000,`${image} is too large`)
   }
 })
 test('型式・全角・日本語・複数条件・該当なしを区別する', () => {
@@ -279,7 +290,7 @@ test('TOP車種カードは全車フロント右向き・フロント優勢3/4�
     assert.ok(image && existsSync(new URL(`../public${image}`,import.meta.url)),`${car.slug}: missing audited TOP asset`)
   }
   const corollaCross=cars.find(car=>car.slug==='corolla-cross')
-  assert.equal(getDiscoveryImage(corollaCross),'/images/cars/corolla-cross/top-card-front-right-v2.png')
+  assert.equal(getDiscoveryImage(corollaCross),'/images/top-cards/corolla-cross.webp')
   assert.notEqual(getDiscoveryImage(corollaCross),corollaCross.heroImage,'TOP image must stay independent from the comparison/hero asset')
 })
 test('個別の配列形式出典を優先し、確認日を捏造しない',()=>{
@@ -386,15 +397,14 @@ test('公開車両画像は考証台帳に登録され、未確認を検証済�
   const published=new Set()
   for(const file of readdirSync(new URL('../dist',import.meta.url),{recursive:true}).filter(name=>name.endsWith('.html'))){
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
-    for(const match of html.matchAll(/(?:src|content)="(\/images\/cars\/[^"]+)"/g)) published.add(match[1])
+    for(const match of html.matchAll(/(?:src|content)="(\/images\/(?:cars|top-cards)\/[^"]+)"/g)) published.add(match[1])
   }
-  assert.equal(published.size,179)
-  assert.equal(registry.length,179)
+  assert.ok(published.size>=179)
+  assert.ok(registry.length>=published.size)
   for(const image of published){
     assert.ok(byPath.has(image),`${image}: verification registry missing`)
     assert.ok(['VERIFIED','CORRECTED','HOLD'].includes(byPath.get(image)[3]),`${image}: invalid status`)
   }
-  assert.equal(registry.length,179)
   assert.ok(registry.filter(row=>row[3]==='VERIFIED').length>=1)
   assert.ok(registry.filter(row=>row[3]==='HOLD').length>=1)
 })

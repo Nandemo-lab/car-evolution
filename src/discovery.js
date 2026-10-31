@@ -31,34 +31,9 @@ export function getSlugFromPath(pathname = window.location.pathname) {
 
 // TOP is a single catalogue, not a collection of page hero crops. Every
 // non-anchor asset is rendered to the same front-right studio specification.
-const topCardImages = {
-  alphard: '/images/cars/alphard/top-card-v2.webp',
-  vellfire: '/images/cars/vellfire/top-card-v2.webp',
-  noah: '/images/cars/noah/top-card-front-right-v2.png',
-  voxy: '/images/cars/voxy/top-card-front-right-v2.png',
-  esquire: '/images/cars/esquire/top-card-front-right-v2.png',
-  prius: '/images/cars/prius/top-card-front-right-v2.png',
-  harrier: '/images/cars/harrier/top-card-front-right-v2.png',
-  sienta: '/images/cars/sienta/top-card-front-right-v2.png',
-  'corolla-cross': '/images/cars/corolla-cross/top-card-front-right-v2.png',
-  serena: '/images/cars/serena/top-card-v2.webp',
-  stepwgn: '/images/cars/stepwgn/top-card-front-right-v2.png',
-  freed: '/images/cars/freed/top-card-front-right-v2.png',
-  'n-box': '/images/cars/n-box/top-card-front-right-v2.png',
-  vezel: '/images/cars/vezel/top-card-front-right-v2.png',
-  'delica-d5': '/images/cars/delica-d5/top-card-front-right-v2.png',
-  solio: '/images/cars/solio/top-card-front-right-v2.png',
-  spacia: '/images/cars/spacia/top-card-front-right-v2.png',
-  tanto: '/images/cars/tanto/top-card-front-right-v2.png',
-  hustler: '/images/cars/hustler/top-card-front-right-v2.png',
-  roomy: '/images/cars/roomy/top-card-front-right-v3.png',
-  'n-one': '/images/cars/n-one/jg3-2020-original-ff-v1.png',
-  'wagon-r-smile': '/images/cars/wagon-r-smile/mx91s-2024-hybrid-x-ff-v1.png',
-  move: '/images/cars/move/top-card-front-right-v2.png',
-  aqua: '/images/cars/aqua/mxpk11-2021-z-ff-v1.png',
-  yaris: '/images/cars/yaris/mxph10-2020-hybrid-g-ff-v1.png',
-  raize: '/images/cars/raize/a202a-2021-hybrid-z-ff-v1.png',
-}
+const topCardImages = Object.fromEntries([
+  'alphard','vellfire','noah','voxy','esquire','prius','harrier','sienta','corolla-cross','aqua','rav4','yaris','raize','roomy','serena','roox','stepwgn','freed','n-box','vezel','n-one','delica-d5','delica-mini','solio','spacia','jimny','hustler','wagon-r-smile','tanto','move','cx-5',
+].map(slug=>[slug,`/images/top-cards/${slug}.webp`]))
 
 const topCardPresentation = {
   tanto: 1.15,

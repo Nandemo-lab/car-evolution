@@ -1,0 +1,3670 @@
+{
+  "browser": "Microsoft Edge",
+  "baseUrl": "http://127.0.0.1:4190",
+  "results": [
+    {
+      "width": 375,
+      "initial": {
+        "phase": "initial",
+        "scrollY": 0,
+        "documentHeight": 7791,
+        "allCarsTop": 1272,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 0,
+        "broken": [],
+        "pending": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          }
+        ],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          }
+        ]
+      },
+      "immediate": {
+        "phase": "scroll-immediate",
+        "scrollY": 1272,
+        "documentHeight": 7791,
+        "allCarsTop": 1272,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 0,
+        "broken": [],
+        "pending": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          }
+        ],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": false,
+            "naturalWidth": 0,
+            "visible": false
+          }
+        ]
+      },
+      "during": {
+        "phase": "scroll-during",
+        "scrollY": 5320,
+        "documentHeight": 7717,
+        "allCarsTop": 1272,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          }
+        ]
+      },
+      "settled": {
+        "phase": "settled",
+        "scrollY": 6873,
+        "documentHeight": 7717,
+        "allCarsTop": 1272,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "initial": {
+        "phase": "initial",
+        "scrollY": 0,
+        "documentHeight": 7796,
+        "allCarsTop": 1275,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          }
+        ]
+      },
+      "immediate": {
+        "phase": "scroll-immediate",
+        "scrollY": 1275,
+        "documentHeight": 7796,
+        "allCarsTop": 1275,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          }
+        ]
+      },
+      "during": {
+        "phase": "scroll-during",
+        "scrollY": 5325,
+        "documentHeight": 7796,
+        "allCarsTop": 1275,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          }
+        ]
+      },
+      "settled": {
+        "phase": "settled",
+        "scrollY": 6952,
+        "documentHeight": 7796,
+        "allCarsTop": 1275,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          }
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "initial": {
+        "phase": "initial",
+        "scrollY": 0,
+        "documentHeight": 6521,
+        "allCarsTop": 1028,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          }
+        ]
+      },
+      "immediate": {
+        "phase": "scroll-immediate",
+        "scrollY": 1028,
+        "documentHeight": 6521,
+        "allCarsTop": 1028,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": true
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          }
+        ]
+      },
+      "during": {
+        "phase": "scroll-during",
+        "scrollY": 5521,
+        "documentHeight": 6521,
+        "allCarsTop": 1028,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          }
+        ]
+      },
+      "settled": {
+        "phase": "settled",
+        "scrollY": 5521,
+        "documentHeight": 6521,
+        "allCarsTop": 1028,
+        "makerGroups": 7,
+        "cardCount": 31,
+        "imageCount": 31,
+        "loaded": 31,
+        "broken": [],
+        "pending": [],
+        "overflow": 0,
+        "images": [
+          {
+            "name": "ALPHARD",
+            "src": "/images/top-cards/alphard.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VELLFIRE",
+            "src": "/images/top-cards/vellfire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "NOAH",
+            "src": "/images/top-cards/noah.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VOXY",
+            "src": "/images/top-cards/voxy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ESQUIRE",
+            "src": "/images/top-cards/esquire.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "PRIUS",
+            "src": "/images/top-cards/prius.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HARRIER",
+            "src": "/images/top-cards/harrier.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SIENTA",
+            "src": "/images/top-cards/sienta.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "COROLLA CROSS",
+            "src": "/images/top-cards/corolla-cross.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "AQUA",
+            "src": "/images/top-cards/aqua.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAV4",
+            "src": "/images/top-cards/rav4.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "YARIS / VITZ",
+            "src": "/images/top-cards/yaris.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "RAIZE",
+            "src": "/images/top-cards/raize.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOMY",
+            "src": "/images/top-cards/roomy.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SERENA",
+            "src": "/images/top-cards/serena.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "ROOX",
+            "src": "/images/top-cards/roox.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "STEPWGN",
+            "src": "/images/top-cards/stepwgn.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "FREED",
+            "src": "/images/top-cards/freed.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-BOX",
+            "src": "/images/top-cards/n-box.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "VEZEL",
+            "src": "/images/top-cards/vezel.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "N-ONE",
+            "src": "/images/top-cards/n-one.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA D:5",
+            "src": "/images/top-cards/delica-d5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "DELICA MINI",
+            "src": "/images/top-cards/delica-mini.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SOLIO",
+            "src": "/images/top-cards/solio.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "SPACIA",
+            "src": "/images/top-cards/spacia.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "JIMNY",
+            "src": "/images/top-cards/jimny.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "HUSTLER",
+            "src": "/images/top-cards/hustler.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "WAGON R SMILE",
+            "src": "/images/top-cards/wagon-r-smile.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "TANTO",
+            "src": "/images/top-cards/tanto.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "MOVE",
+            "src": "/images/top-cards/move.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          },
+          {
+            "name": "CX-5",
+            "src": "/images/top-cards/cx-5.webp",
+            "loading": "lazy",
+            "complete": true,
+            "naturalWidth": 800,
+            "visible": false
+          }
+        ]
+      }
+    }
+  ],
+  "failures": []
+}
