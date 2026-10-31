@@ -315,6 +315,7 @@ test('全公開ページは独立したスマホ用ホームヘッダー・先�
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
     assert.equal((html.match(/data-mobile-site-header/g)||[]).length,2,file)
     assert.ok(html.includes('href="/" aria-label="CarVista ホームへ"'),file)
+    assert.ok(html.includes('class="mobile-home-link" href="/" aria-label="ホームへ"'),file)
     assert.ok(html.includes('data-scroll-top aria-label="ページ先頭へ"'),file)
     assert.ok(!html.includes('mobile-quick-nav'),file)
   }

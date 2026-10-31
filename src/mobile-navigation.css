@@ -1,9 +1,13 @@
 .mobile-site-header,.mobile-scroll-top{display:none}
 @media(max-width:699px){
   body.has-mobile-navigation{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
-  .mobile-site-header{position:fixed;z-index:900;top:0;left:0;right:0;height:48px;display:flex;align-items:center;padding:0 16px;background:#090b0d;border-bottom:1px solid #20252b;transform:translateY(-100%);pointer-events:none;visibility:hidden}
+  .mobile-site-header{position:fixed;z-index:900;top:0;left:0;right:0;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 16px;background:#090b0d;border-bottom:1px solid #20252b;transform:translateY(-100%);pointer-events:none;visibility:hidden}
   .mobile-site-header.is-visible{transform:translateY(0);pointer-events:auto;visibility:visible}
-  .mobile-site-header a{display:inline-flex;min-height:44px;align-items:center;color:#f5f3ef;font:800 14px/1 Inter,"Noto Sans JP",sans-serif;letter-spacing:.13em;text-decoration:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  .mobile-site-header a{display:inline-flex;min-height:44px;align-items:center;color:#f5f3ef;text-decoration:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+  .mobile-site-logo{font:800 14px/1 Inter,"Noto Sans JP",sans-serif;letter-spacing:.13em}
+  .mobile-home-link{min-width:88px;justify-content:center;gap:6px;border-radius:10px;font:700 12px/1 Inter,"Noto Sans JP",sans-serif;letter-spacing:.02em}
+  .mobile-home-link svg{width:18px;height:18px;flex:none;stroke:currentColor;stroke-width:1.8;fill:none}
+  .mobile-home-link:active{background:#1a1e23}
   .mobile-site-header a:focus-visible,.mobile-scroll-top:focus-visible{outline:2px solid #9fd2ff;outline-offset:2px}
   .mobile-scroll-top{position:fixed;z-index:900;right:12px;bottom:max(12px,env(safe-area-inset-bottom,0px));width:48px;height:48px;padding:0;align-items:center;justify-content:center;border:1px solid #30363d;border-radius:50%;background:#111418;color:#f5f3ef;box-shadow:0 6px 18px rgba(0,0,0,.34);transform:translateY(calc(100% + 28px));pointer-events:none;visibility:hidden;-webkit-tap-highlight-color:transparent;touch-action:manipulation;cursor:pointer}
   .mobile-scroll-top.is-visible{display:flex;transform:translateY(0);pointer-events:auto;visibility:visible}

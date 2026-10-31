@@ -720,7 +720,7 @@ function seoInjectPlugin() {
     name: 'car-evolution-seo-inject',
     async transformIndexHtml(html, ctx) {
       const filename = ctx.filename.split(/[\\/]/).pop()
-      const mobileNavigation = `<header class="mobile-site-header" data-mobile-site-header aria-hidden="true"><a href="/" aria-label="CarVista ホームへ">CARVISTA</a></header><button class="mobile-scroll-top" type="button" data-scroll-top aria-label="ページ先頭へ" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 10 6-6 6 6M12 4v16"/></svg></button>`
+      const mobileNavigation = `<header class="mobile-site-header" data-mobile-site-header aria-hidden="true"><a class="mobile-site-logo" href="/" aria-label="CarVista ホームへ">CARVISTA</a><a class="mobile-home-link" href="/" aria-label="ホームへ"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg><span>ホーム</span></a></header><button class="mobile-scroll-top" type="button" data-scroll-top aria-label="ページ先頭へ" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 10 6-6 6 6M12 4v16"/></svg></button>`
       if (!html.includes('data-mobile-site-header')) html = html.replace('</body>', `${mobileNavigation}</body>`)
       // Retain inert ownership metadata; do not load advertising JavaScript.
       const withAdSenseVerification = (tags) => [
