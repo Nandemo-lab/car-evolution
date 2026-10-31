@@ -23,21 +23,20 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
-        "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "hidden": "true",
+        "bottom": -73,
+        "height": 54,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -49,21 +48,20 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
-        "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "hidden": "true",
+        "bottom": -73,
+        "height": 54,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -75,11 +73,9 @@
         "display": "none",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          0,
           0,
           0
         ]
@@ -90,6 +86,7 @@
         "height": 0,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -101,20 +98,22 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
-        "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "hidden": "true",
+        "bottom": -73,
+        "height": 54,
         "covered": false
+      },
+      "footer": {
+        "hidden": "false",
+        "scrollBottom": 0
       },
       "topReturned": 0
     },
@@ -127,20 +126,22 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
-        "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "hidden": "true",
+        "bottom": -73,
+        "height": 54,
         "covered": false
+      },
+      "footer": {
+        "hidden": "true",
+        "scrollBottom": 0
       },
       "topReturned": 0
     },
@@ -153,11 +154,9 @@
         "display": "none",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          0,
           0,
           0
         ]
@@ -168,6 +167,7 @@
         "height": 0,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -179,21 +179,20 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
         "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "bottom": -21,
+        "height": 54,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -205,21 +204,20 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
         "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "bottom": -22,
+        "height": 54,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -231,11 +229,9 @@
         "display": "none",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          0,
           0,
           0
         ]
@@ -246,6 +242,7 @@
         "height": 0,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -257,21 +254,20 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
-        "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "hidden": "true",
+        "bottom": -73,
+        "height": 54,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -283,21 +279,20 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
-        "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "hidden": "true",
+        "bottom": -73,
+        "height": 54,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -309,11 +304,9 @@
         "display": "none",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          0,
           0,
           0
         ]
@@ -324,6 +317,7 @@
         "height": 0,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -335,21 +329,20 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
         "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "bottom": -21,
+        "height": 54,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -361,21 +354,20 @@
         "display": "grid",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          44,
           44,
           44
         ]
       },
       "scrolled": {
-        "hidden": "false",
-        "bottom": 8,
-        "height": 56,
+        "hidden": "true",
+        "bottom": -73,
+        "height": 54,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     },
     {
@@ -387,11 +379,9 @@
         "display": "none",
         "overflow": 0,
         "links": [
-          "/",
-          "/#all-cars"
+          "/"
         ],
         "heights": [
-          0,
           0,
           0
         ]
@@ -402,6 +392,7 @@
         "height": 0,
         "covered": false
       },
+      "footer": null,
       "topReturned": null
     }
   ]

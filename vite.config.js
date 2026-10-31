@@ -720,7 +720,7 @@ function seoInjectPlugin() {
     name: 'car-evolution-seo-inject',
     async transformIndexHtml(html, ctx) {
       const filename = ctx.filename.split(/[\\/]/).pop()
-      const quickNav = `<nav class="mobile-quick-nav" data-mobile-quick-nav aria-label="ページ内クイックナビ" aria-hidden="true"><a href="/" aria-label="ホームへ"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg><span>ホーム</span></a><button type="button" data-scroll-top aria-label="ページ先頭へ"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 10 6-6 6 6M12 4v16"/></svg><span>先頭へ</span></button><a href="/#all-cars" aria-label="車種一覧へ"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg><span>車種一覧</span></a></nav>`
+      const quickNav = `<nav class="mobile-quick-nav" data-mobile-quick-nav aria-label="ページ内クイックナビ" aria-hidden="true"><a href="/" aria-label="ホームへ"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg><span>ホーム</span></a><button type="button" data-scroll-top aria-label="ページ先頭へ"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 10 6-6 6 6M12 4v16"/></svg><span>先頭へ</span></button></nav>`
       if (!html.includes('data-mobile-quick-nav')) html = html.replace('</body>', `${quickNav}</body>`)
       // Retain inert ownership metadata; do not load advertising JavaScript.
       const withAdSenseVerification = (tags) => [

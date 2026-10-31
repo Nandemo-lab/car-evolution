@@ -306,7 +306,7 @@ test('公開97 URLの初期HTMLとサイトマップに欠落・重複見出し�
   for(const page of ['voxy-60-vs-70','solio-ma15s-zenki-kouki','vellfire-20-zenki-kouki','prius-30-zenki-kouki']) assert.ok(existsSync(new URL(`../dist/${page}.html`,import.meta.url)))
 })
 
-test('全公開ページはスマホ用ホーム・先頭・車種一覧ナビを初期HTMLに持つ',()=>{
+test('全公開ページはコンパクトなスマホ用ホーム・先頭ナビを初期HTMLに持つ',()=>{
   const sitemap=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...sitemap.matchAll(/<loc>https:\/\/carvista\.jp(.*?)<\/loc>/g)].map(match=>match[1]||'/')
   assert.equal(urls.length,97)
@@ -316,7 +316,7 @@ test('全公開ページはスマホ用ホーム・先頭・車種一覧ナビ�
     assert.equal((html.match(/data-mobile-quick-nav/g)||[]).length,2,file)
     assert.ok(html.includes('href="/" aria-label="ホームへ"'),file)
     assert.ok(html.includes('data-scroll-top aria-label="ページ先頭へ"'),file)
-    assert.ok(html.includes('href="/#all-cars" aria-label="車種一覧へ"'),file)
+    assert.ok(!html.includes('aria-label="車種一覧へ"'),file)
   }
 })
 
