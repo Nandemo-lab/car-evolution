@@ -31,8 +31,8 @@
         ]
       },
       "scrolled": {
-        "hidden": "true",
-        "bottom": -73,
+        "hidden": "false",
+        "bottom": 9,
         "height": 54,
         "covered": false
       },
@@ -56,8 +56,8 @@
         ]
       },
       "scrolled": {
-        "hidden": "true",
-        "bottom": -73,
+        "hidden": "false",
+        "bottom": 9,
         "height": 54,
         "covered": false
       },
@@ -106,8 +106,8 @@
         ]
       },
       "scrolled": {
-        "hidden": "true",
-        "bottom": -73,
+        "hidden": "false",
+        "bottom": 9,
         "height": 54,
         "covered": false
       },
@@ -134,13 +134,13 @@
         ]
       },
       "scrolled": {
-        "hidden": "true",
-        "bottom": -73,
+        "hidden": "false",
+        "bottom": 9,
         "height": 54,
         "covered": false
       },
       "footer": {
-        "hidden": "true",
+        "hidden": "false",
         "scrollBottom": 0
       },
       "topReturned": 0
@@ -188,7 +188,7 @@
       },
       "scrolled": {
         "hidden": "false",
-        "bottom": -21,
+        "bottom": 9,
         "height": 54,
         "covered": false
       },
@@ -213,7 +213,7 @@
       },
       "scrolled": {
         "hidden": "false",
-        "bottom": -22,
+        "bottom": 9,
         "height": 54,
         "covered": false
       },
@@ -262,8 +262,8 @@
         ]
       },
       "scrolled": {
-        "hidden": "true",
-        "bottom": -73,
+        "hidden": "false",
+        "bottom": 9,
         "height": 54,
         "covered": false
       },
@@ -287,8 +287,8 @@
         ]
       },
       "scrolled": {
-        "hidden": "true",
-        "bottom": -73,
+        "hidden": "false",
+        "bottom": 9,
         "height": 54,
         "covered": false
       },
@@ -338,7 +338,7 @@
       },
       "scrolled": {
         "hidden": "false",
-        "bottom": -21,
+        "bottom": 9,
         "height": 54,
         "covered": false
       },
@@ -362,8 +362,8 @@
         ]
       },
       "scrolled": {
-        "hidden": "true",
-        "bottom": -73,
+        "hidden": "false",
+        "bottom": 9,
         "height": 54,
         "covered": false
       },

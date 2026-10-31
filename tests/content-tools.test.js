@@ -318,6 +318,12 @@ test('全公開ページはコンパクトなスマホ用ホーム・先頭ナ�
     assert.ok(html.includes('data-scroll-top aria-label="ページ先頭へ"'),file)
     assert.ok(!html.includes('aria-label="車種一覧へ"'),file)
   }
+  const controller=readFileSync(new URL('../src/mobile-navigation.js',import.meta.url),'utf8')
+  assert.ok(controller.includes('scrollY>360'))
+  assert.ok(controller.includes('scrollY<240'))
+  assert.ok(!controller.includes('scrollingDown'))
+  assert.ok(!controller.includes('overlapsVehicleContent'))
+  assert.ok(!controller.includes('setTimeout'))
 })
 
 test('ROOMY兄弟ガイドはTrustページではなく固有の編集ガイドとして配信する',()=>{
