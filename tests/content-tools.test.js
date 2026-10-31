@@ -504,10 +504,15 @@ test('初心者用語は必要な車種だけ短く補足する',()=>{
 })
 
 test('兄弟車比較は生成済み初期HTMLでも説明と共有より画像が先にある',()=>{
-  for(const file of ['compare-freed-sienta.html','compare-n-box-spacia.html','compare-voxy-noah.html']){
+  const files=readdirSync(new URL('../dist',import.meta.url)).filter(file=>file.startsWith('compare-')&&file.endsWith('.html'))
+  assert.ok(files.length>=6,'公開中の兄弟車比較ページを全件検査する')
+  for(const file of files){
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
+    const answer=html.indexOf('class="comparison-answer"')
     const image=html.indexOf('class="comparison-grid"')
+    assert.ok(answer>0,file)
     assert.ok(image>0,file)
+    assert.ok(answer<image,file)
     assert.ok(image<html.indexOf('class="comparison-image-context"'),file)
     assert.ok(image<html.indexOf('share-button'),file)
     assert.ok(html.includes('画像の制作方針'),file)

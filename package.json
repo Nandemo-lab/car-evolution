@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "npm run quality:gate",
+    "quality:gate": "node --test tests/*.test.js && node scripts/audit-content-value.mjs && node scripts/audit-full-site.mjs",
     "preview": "vite preview",
     "test": "node --test tests/*.test.js",
     "audit:content": "node scripts/audit-content-value.mjs",
