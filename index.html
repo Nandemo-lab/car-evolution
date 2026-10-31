@@ -74,14 +74,12 @@
 
       <nav class="task-paths" aria-label="目的から探す">
         <p class="section-eyebrow">START HERE</p>
-        <h2>知りたいことから、すぐ比較へ。</h2>
+        <h2>分かっている情報から探す。</h2>
+        <p class="task-paths-intro">迷ったら、まず車名検索。初度登録年まで分かる場合は世代候補を絞れます。</p>
         <div class="task-paths-grid">
-          <a href="#all-cars"><strong>車種から探す</strong><span>歴代モデルと型式を見る</span></a>
-          <a href="#model-finder"><strong>型式から探す</strong><span>車検証・中古車情報から世代を絞る</span></a>
-          <a href="#year-finder"><strong>車名＋年式から探す</strong><span>境界年は候補を並べて確認する</span></a>
-          <a href="/n-box-jf1-zenki-kouki.html"><strong>前期／後期を見分ける</strong><span>改良境界と写真の手がかりを見る</span></a>
-          <a href="/prius-30-vs-50.html"><strong>世代を比較する</strong><span>寸法・型式・装備の転換点を見る</span></a>
-          <a href="#comparison-links-title"><strong>購入前に確認する</strong><span>比較条件と現車確認の手順を整理する</span></a>
+          <a class="task-paths-primary" href="#model-finder"><strong>車名・型式から探す</strong><span>車名だけでOK。歴代・前後期・比較をまとめて検索</span></a>
+          <a href="#year-finder"><strong>車名＋初度登録年から探す</strong><span>境界年は複数候補と確認方法を表示</span></a>
+          <a href="#comparison-links-title"><strong>画像で違いを見る</strong><span>前期・後期、世代、兄弟車を見比べる</span></a>
         </div>
       </nav>
 
@@ -99,9 +97,9 @@
           <p class="all-cars-intro">車名が分かる場合は検索、迷っている場合はメーカー別の一覧から選べます。</p>
           <p class="all-cars-count" id="all-cars-count"></p>
         </div>
-        <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式から、歴代と比較を探す</label><p>車名だけでも検索できます。ひらがな・カタカナ・英字・型式の一部に対応。例：エヌボックス、VOXY、JF1。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" role="combobox" maxlength="60" placeholder="車名・型式（例：エヌボックス、JF1）" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="model-results"><button type="submit">候補を探す</button></div><div id="model-results" data-model-results aria-live="polite"></div></form>
+        <form id="model-finder" class="model-finder" role="search"><p class="model-finder-kicker">車名が分かる方はこちら</p><label for="model-query">まずは車名で探す</label><p>車名だけで歴代・前後期・比較を探せます。ひらがな・カタカナ・英字・型式の一部に対応。例：エヌボックス、VOXY、JF1。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" role="combobox" maxlength="60" placeholder="車名・型式（例：エヌボックス、JF1）" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="model-results"><button type="submit">候補を探す</button></div><div id="model-results" data-model-results aria-live="polite"></div></form>
         <section id="year-finder" class="year-finder" aria-labelledby="year-finder-title">
-          <div class="year-finder-heading"><p class="section-eyebrow">YEAR FINDER</p><h3 id="year-finder-title">車名と年式から、世代候補を絞る</h3><p>中古車サイトの「年式」は原則として初度登録年です。製造時期や改良日とは一致しないため、境界年は複数候補を表示します。</p></div>
+          <div class="year-finder-heading"><p class="section-eyebrow">初度登録年も分かる方はこちら</p><h3 id="year-finder-title">車名と初度登録年から、世代候補を絞る</h3><p>中古車サイトの「年式」は原則として初度登録年です。製造時期や改良日とは一致しないため、境界年は複数候補を表示します。</p></div>
           <form data-year-finder-form><label>車種<select data-year-car required><option value="">車種を選ぶ</option></select></label><label>初度登録年<select data-year-value required><option value="">年を選ぶ</option></select></label><button type="submit">候補を確認</button></form>
           <div class="year-finder-result" data-year-result aria-live="polite"><p>車種と初度登録年を選ぶと、該当し得る世代・型式と、販売店への確認項目を表示します。</p></div>
           <noscript><p class="year-finder-noscript">JavaScriptを使わない場合は、下の「掲載中の型式を一覧から探す」から各車種の販売期間と型式を確認できます。</p></noscript>
@@ -142,7 +140,7 @@
         <p class="policy-text">CarVistaは、各自動車メーカーとは無関係の独立したアーカイブサイトです。掲載画像は実車ではなく、公開資料をもとにCarVistaが独自に制作したビジュアル表現です。メーカー名・車種名等の商標は、各権利者に帰属します。</p>
         <a class="policy-link" href="/editorial-policy.html">制作方針・免責事項の詳細を見る</a>
         <p class="policy-text policy-text--invite">CarVistaは、みなさんと一緒により正確なアーカイブへ育てていきたいと考えています。気づいた点があれば、ぜひお聞かせください。<br /><a class="policy-link" href="https://x.com/CarVistaJP" target="_blank" rel="noopener noreferrer">X (Twitter) でお問い合わせ</a></p>
-        <p class="policy-meta">最終更新：2026年7月</p>
+        <p class="policy-meta">サイト更新：2026年10月</p>
         <!-- Quiet brand-story aside, English on purpose -- the site's
              other English moments (eyebrow labels, "Explore Cars") are
              all brand-voice, not functional copy, and this is the same

@@ -474,13 +474,23 @@ test('Phase 3重点3ページは仕様の異なる軸を混同しない',()=>{
   assert.ok(delica.includes('型式と燃料を別に確認'))
 })
 
-test('抜本リビルド後のホームは5つの目的入口とno-JS型式一覧を持つ',()=>{
+test('ホームは迷いを減らす3つの入口とno-JS型式一覧を持つ',()=>{
   const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
-  for(const label of ['車種から探す','型式から探す','前期／後期を見分ける','世代を比較する','購入前に確認する']) assert.ok(html.includes(label),label)
+  for(const label of ['車名・型式から探す','車名＋初度登録年から探す','画像で違いを見る']) assert.ok(html.includes(label),label)
+  assert.equal((html.match(/class="task-paths-primary"/g)||[]).length,1)
+  assert.ok(html.includes('まずは車名で探す'))
+  assert.ok(html.includes('車名と初度登録年から、世代候補を絞る'))
+  assert.ok(html.includes('サイト更新：2026年10月'))
   assert.ok(html.includes('class="model-directory-group"'))
   for(const code of ['JF1','AGH30','MA36S']) assert.ok(html.includes(code),code)
   assert.ok(html.includes('role="combobox"'))
   assert.ok(html.includes('aria-autocomplete="list"'))
+})
+
+test('世代比較ページは説明・共有操作より先に車両画像を表示する',()=>{
+  const generation=readFileSync(new URL('../dist/alphard-30-vs-40.html',import.meta.url),'utf8')
+  assert.ok(generation.indexOf('class="lc-cars"') < generation.indexOf('比較条件と画像について'))
+  assert.ok(generation.indexOf('class="lc-cars"') < generation.indexOf('share-button'))
 })
 
 test('全generation比較ページは初期HTMLに3段階の現車確認フローを持つ',()=>{
