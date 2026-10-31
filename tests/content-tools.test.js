@@ -43,6 +43,13 @@ test('TOP全車種カードは軽量WebP派生画像を使いMaster Assetを直�
     assert.ok(statSync(file).size<250_000,`${image} is too large`)
   }
 })
+test('TOPの外部Webフォントは描画をブロックせず最終書体を維持する', () => {
+  const html=readFileSync(new URL('../index.html',import.meta.url),'utf8')
+  const css=readFileSync(new URL('../src/home.css',import.meta.url),'utf8')
+  assert.ok(!css.includes('@import url('))
+  assert.match(html,/fonts\.googleapis\.com[^>]+media="print"[^>]+onload="this\.media='all'"/)
+  assert.match(html,/<noscript><link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com/)
+})
 test('型式・全角・日本語・複数条件・該当なしを区別する', () => {
   assert.equal(findModels(cars,'ＪＦ１')[0].car.slug,'n-box')
   assert.ok(findModels(cars,'タント').every(x=>x.car.slug==='tanto'))
