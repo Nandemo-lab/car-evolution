@@ -2,6 +2,8 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs'
 import { createHash } from 'node:crypto'
+import { join, relative } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { dimensionDifferences, escapeText, millimetres } from '../src/comparison-tools.js'
 import { findModels, findModelDestinations, normalizeModelQuery } from '../src/model-finder.js'
 import { generationComparisonHtml } from '../src/generation-comparison-html.js'
@@ -341,6 +343,26 @@ test('本番は低リスク防御ヘッダーを強制しCSPだけReport-Onlyで
   assert.equal(ninjaTag,'<!-- admax -->\n<script src="https://adm.shinobi.jp/o/7715cbec85d744324b7fe2302020e023"></script>\n<!-- admax -->\n')
 })
 
+test('忍者AdMaxは承認済み4ページだけに公式タグを1枠ずつ配置する',()=>{
+  const approved=['compare-voxy-noah.html','tanto-la600s-zenki-kouki.html','cars/noah.html','cars/voxy.html']
+  const htmlFiles=[]
+  const walk=(dir)=>readdirSync(dir,{withFileTypes:true}).forEach(entry=>{
+    const path=join(dir,entry.name)
+    if(entry.isDirectory())walk(path)
+    else if(entry.name.endsWith('.html'))htmlFiles.push(path)
+  })
+  const distRoot=fileURLToPath(new URL('../dist/',import.meta.url))
+  walk(distRoot)
+  const tagged=htmlFiles.filter(path=>readFileSync(path,'utf8').includes('data-commercial-slot="ninja-carvista"'))
+    .map(path=>relative(distRoot,path).replaceAll('\\','/')).sort()
+  assert.deepEqual(tagged,approved.sort())
+  tagged.forEach(filename=>{
+    const html=readFileSync(new URL(`../dist/${filename}`,import.meta.url),'utf8')
+    assert.equal((html.match(/adm\.shinobi\.jp\/o\/7715cbec85d744324b7fe2302020e023/g)||[]).length,1,filename)
+    assert.ok(html.includes(`data-ad-placement="${filename}"`),filename)
+  })
+})
+
 test('全公開ページは独立したスマホ用ホームヘッダー・先頭ボタンを初期HTMLに持つ',()=>{
   const sitemap=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...sitemap.matchAll(/<loc>https:\/\/carvista\.jp(.*?)<\/loc>/g)].map(match=>match[1]||'/')
@@ -389,6 +411,7 @@ test('全index対象コンテンツはJavaScriptなしでも主要回答・画�
     const html=readFileSync(new URL(`../dist${pathname}`,import.meta.url),'utf8')
     const body=html.match(/<body[\s\S]*?<\/body>/)?.[0] || ''
     const text=body
+      .replace(/<!--[\s\S]*?-->/g,' ')
       .replace(/<script[\s\S]*?<\/script>/g,' ')
       .replace(/<style[\s\S]*?<\/style>/g,' ')
       .replace(/<[^>]+>/g,' ')

@@ -4,6 +4,12 @@ import {pathToFileURL} from 'node:url';
 import {runInNewContext} from 'node:vm';
 export const NINJA_RELEASE_ENABLED = true;
 export const TARGET = 'compare-voxy-noah.html';
+export const TARGETS = Object.freeze({
+ 'compare-voxy-noah.html': 'comparison',
+ 'tanto-la600s-zenki-kouki.html': 'comparison',
+ 'cars/noah.html': 'vehicle',
+ 'cars/voxy.html': 'vehicle',
+});
 
 // Evaluates only our local comparison rendering code. No third-party code executes.
 export async function renderComparison(root) {
@@ -39,21 +45,38 @@ export function insertOfficialTag(body,tag) {
  // Linux. Validate a newline-normalized copy, but inject the original bytes.
  const normalizedTag=tag.replace(/\r\n/g,'\n').trim();
  if(normalizedTag!=='<!-- admax -->\n<script src="https://adm.shinobi.jp/o/7715cbec85d744324b7fe2302020e023"></script>\n<!-- admax -->')throw Error('Official tag mismatch');
- const wrapper='<aside data-commercial-slot="ninja-carvista" aria-label="広告" style="box-sizing:border-box;width:302px;max-width:calc(100% - 32px);min-height:284px;margin:24px auto;border:1px solid #64748b;border-radius:8px;background:#f8fafc;color:#475569"><p style="box-sizing:border-box;height:32px;margin:0;padding:6px 12px;font:12px/20px system-ui">PR・広告</p><div style="width:300px;height:250px">'+tag+'</div></aside>';
+ const wrapper=adWrapper(tag,TARGET);
  const at=body.indexOf(marker),related=body.indexOf('class="comparison-next"');
  if(related>at||!body.slice(related,at).trimEnd().endsWith('</section>'))throw Error('Related placement mismatch');
  return body.replace(marker,wrapper+marker);
 }
 
+function adWrapper(tag, placement) {
+ const normalizedTag=tag.replace(/\r\n/g,'\n').trim();
+ if(normalizedTag!=='<!-- admax -->\n<script src="https://adm.shinobi.jp/o/7715cbec85d744324b7fe2302020e023"></script>\n<!-- admax -->')throw Error('Official tag mismatch');
+ return '<aside data-commercial-slot="ninja-carvista" data-ad-placement="'+placement+'" aria-label="広告" style="box-sizing:border-box;width:302px;max-width:calc(100% - 32px);min-height:284px;margin:32px auto;border:1px solid #2b3038;border-radius:12px;overflow:hidden;background:#101318;color:#aeb6c2"><p style="box-sizing:border-box;height:32px;margin:0;padding:6px 12px;font:12px/20px system-ui">PR・広告</p><div style="width:300px;height:250px;max-width:100%">'+tag+'</div></aside>';
+}
+
+export function insertAdInBuiltHtml(html, tag, filename, kind) {
+ if(/adm\.shinobi\.jp|googlesyndication\.com|adsbygoogle|data-commercial-slot/.test(html))throw Error(`Existing ad in ${filename}`);
+ const marker=kind==='vehicle'?'<a class="back-home"':'<a class="comparison-more"';
+ if((html.match(new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length!==1)throw Error(`Missing unique placement marker in ${filename}`);
+ return html.replace(marker,adWrapper(tag,filename)+marker);
+}
+
 export function ninjaParserPlugin(root) {
- return {name:'ninja-one-page-parser',apply:'build',enforce:'post',async generateBundle(_,bundle){
+ return {name:'ninja-approved-pages-parser',apply:'build',enforce:'post',async generateBundle(_,bundle){
   if(!NINJA_RELEASE_ENABLED)return;
-  const target=bundle[TARGET];if(!target||target.type!=='asset')throw Error('Missing target HTML');
-  const html=String(target.source);
-  if(/adm\.shinobi\.jp|googlesyndication\.com|adsbygoogle|data-commercial-slot/.test(html))throw Error('Existing ad in target');
-  if((html.match(/<main id="comparison-page">/g)||[]).length!==1)throw Error('Missing unique main');
-  const body=await renderComparison(root);
   const tag=readFileSync(resolve(root,'scripts/ninja-official-switch.tag.txt'),'utf8');
-  target.source=html.replace(/<main id="comparison-page">[\s\S]*?<\/main>/,'<main id="comparison-page" data-ninja-prerendered="true">'+insertOfficialTag(body,tag)+'</main>');
+  for(const [filename,kind] of Object.entries(TARGETS)) {
+   const target=bundle[filename];if(!target||target.type!=='asset')throw Error(`Missing target HTML: ${filename}`);
+   const html=String(target.source);
+   if(filename===TARGET) {
+    if(/adm\.shinobi\.jp|googlesyndication\.com|adsbygoogle|data-commercial-slot/.test(html))throw Error('Existing ad in target');
+    if((html.match(/<main id="comparison-page">/g)||[]).length!==1)throw Error('Missing unique main');
+    const body=await renderComparison(root);
+    target.source=html.replace(/<main id="comparison-page">[\s\S]*?<\/main>/,'<main id="comparison-page" data-ninja-prerendered="true">'+insertOfficialTag(body,tag)+'</main>');
+   } else target.source=insertAdInBuiltHtml(html,tag,filename,kind);
+  }
  }};
 }
