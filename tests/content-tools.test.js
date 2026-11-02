@@ -68,6 +68,11 @@ test('VOXY・NOAH比較は判断を先に、詳細条件を初期HTML内の段�
   assert.match(js,/comparison-deep-dive/)
   assert.match(js,/specsHtml.*usedHtml/)
   assert.match(js,/page\.usedChecks && slug !== 'voxy-noah'/)
+  assert.match(js,/data-comparison-view="pair"/)
+  assert.match(js,/data-comparison-view="single"/)
+  assert.match(js,/data-comparison-view-target/)
+  assert.match(js,/\/images\/top-cards\/noah\.webp/)
+  assert.match(js,/\/images\/top-cards\/voxy\.webp/)
 })
 test('型式・全角・日本語・複数条件・該当なしを区別する', () => {
   assert.equal(findModels(cars,'ＪＦ１')[0].car.slug,'n-box')

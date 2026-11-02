@@ -46,7 +46,6 @@ const pages = {
     eyebrow: 'SIDE BY SIDE',
     title: 'VOXY・NOAHの違い',
     intro: '共通する実用性の中で、2台のフロントマスクは異なる印象を目指しています。並べて見ると、その選び分けが見えてきます。',
-    guideNote: 'ここでは、現行モデルの代表的な仕様を同じ視点・同じ条件で並べ、デザインがつくる印象に注目して比較します。',
     cars: [voxy, noah],
     images: {
       VOXY: { standard: '/images/cars/voxy/compare-standard-v1.png' },
@@ -62,8 +61,8 @@ const pages = {
       NOAH: '端正で安定感のある、水平基調の表情。',
     },
     related: [
-      { href: '/compare-noah-serena-stepwgn.html', label: 'NOAH・SERENA・STEP WGNの違い', description: 'Mクラスミニバン3台の個性を並べて見る。' },
-      { href: '/cars/voxy.html', label: 'VOXYの歴代・見分け方', description: '世代ごとの違いと型式を本体ページで確認する。' },
+      { href: '/compare-noah-serena-stepwgn.html', label: 'NOAH・SERENA・STEP WGNの違い', description: 'Mクラスミニバン3台の個性を並べて見る。', image: '/images/top-cards/noah.webp' },
+      { href: '/cars/voxy.html', label: 'VOXYの歴代・見分け方', description: '世代ごとの違いと型式を本体ページで確認する。', image: '/images/top-cards/voxy.webp' },
     ],
   },
   'freed-sienta': {
@@ -278,7 +277,7 @@ document.querySelector('#comparison-page').innerHTML = `
     <a class="comparison-home" href="/">CARVISTA</a>
     <p class="comparison-eyebrow">${page.eyebrow}</p><h1>${page.title}</h1>
   </header>
-  <section class="comparison-grid" aria-label="比較一覧">${cards}</section>
+  <section class="comparison-grid"${slug === 'voxy-noah' ? ' data-comparison-view-target' : ''} aria-label="比較一覧">${cards}</section>
   <details class="comparison-image-context"><summary>比較条件と画像について</summary><p>${page.intro}</p><p>掲載画像は公開資料をもとにした制作ビジュアルです。グレードや用品による外観差は、公式資料と現車で確認してください。<a href="/editorial-policy.html">画像の制作方針</a></p></details>
   <div class="comparison-actions comparison-actions-secondary"><button class="share-button" type="button">共有する</button><button class="copy-button" type="button">URLをコピー</button></div>
   ${page.guideNote ? `<section class="comparison-guide-note" aria-label="比較の基準"><p>${page.guideNote}</p></section>` : ''}
@@ -289,7 +288,7 @@ if (page.answer) {
 }
 
 if (slug === 'voxy-noah') {
-  document.querySelector('.comparison-grid').insertAdjacentHTML('beforebegin', `<p class="comparison-pair-basis"><strong>同じ条件で横並び</strong><span>2022年・S-Z・2WD・7人乗り</span></p>`)
+  document.querySelector('.comparison-grid').insertAdjacentHTML('beforebegin', `<p class="comparison-pair-basis"><strong>同じ条件で横並び</strong><span>2022年・S-Z・2WD・7人乗り</span></p><div class="comparison-view-toggle" role="group" aria-label="比較画像の表示方法"><button type="button" data-comparison-view="pair" aria-pressed="true">横並び</button><button type="button" data-comparison-view="single" aria-pressed="false">1台ずつ</button></div><p class="comparison-view-hint" aria-live="polite">2台を同時に見比べます</p>`)
 }
 
 if (page.points) {
@@ -373,6 +372,21 @@ function renderUsedCarCta() {
 renderUsedCarCta()
 
 } // end optional comparison render
+
+// Bind after prerender detection so the static production HTML remains interactive.
+if (slug === 'voxy-noah' && typeof document.querySelectorAll === 'function') {
+  const grid = document.querySelector('[data-comparison-view-target]')
+  const controls = [...document.querySelectorAll('[data-comparison-view]')]
+  const hint = document.querySelector('.comparison-view-hint')
+  controls.forEach((button) => button.addEventListener('click', () => {
+    const mode = button.dataset.comparisonView
+    grid.classList.toggle('is-single-view', mode === 'single')
+    controls.forEach((control) => control.setAttribute('aria-pressed', String(control === button)))
+    hint.textContent = mode === 'single' ? '横にスワイプして、1台ずつ大きく見られます' : '2台を同時に見比べます'
+    if (mode === 'single') grid.scrollTo({ left: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+    trackEvent('change_comparison_image_view', { comparison: slug, mode })
+  }))
+}
 
 
 async function copyUrl(button, message) {

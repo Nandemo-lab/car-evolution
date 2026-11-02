@@ -8,7 +8,7 @@ const port = 9341
 const baseUrl = process.env.AUDIT_BASE_URL || 'http://127.0.0.1:4173'
 const outputDir = resolve(process.env.AUDIT_OUTPUT_DIR || 'outputs/voxy-noah-final-ux-2026-11-02')
 const profileDir = resolve(tmpdir(), 'carvista-edge-voxy-noah-final')
-const paths = ['/cars/voxy.html', '/cars/noah.html', '/compare-voxy-noah.html']
+const paths = ['/cars/voxy.html', '/cars/noah.html', '/cars/prius.html', '/cars/n-box.html', '/cars/sienta.html', '/compare-voxy-noah.html']
 const widths = [320, 375, 390, 430, 1440]
 const edgeProcess = spawn(edge, [`--remote-debugging-port=${port}`, '--headless=new', '--disable-gpu', '--no-first-run', `--user-data-dir=${profileDir}`, 'about:blank'], { stdio: 'ignore' })
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -57,11 +57,23 @@ try {
         await wait(120)
         const pairShot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false }, sessionId)
         await writeFile(resolve(outputDir, `${name}-${width}-pair.png`), Buffer.from(pairShot.data, 'base64'))
+        if (width < 700) {
+          await send('Runtime.evaluate', { expression: `document.querySelector('[data-comparison-view="single"]')?.click()` }, sessionId)
+          await wait(220)
+          const singleState = await send('Runtime.evaluate', { returnByValue: true, expression: `(()=>{const grid=document.querySelector('[data-comparison-view-target]');const card=grid?.querySelector('.comparison-card');return {active:grid?.classList.contains('is-single-view')||false,singlePressed:document.querySelector('[data-comparison-view="single"]')?.getAttribute('aria-pressed'),cardWidth:card?Math.round(card.getBoundingClientRect().width):0,viewport:innerWidth}})()` }, sessionId)
+          const singleShot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false }, sessionId)
+          await writeFile(resolve(outputDir, `${name}-${width}-single.png`), Buffer.from(singleShot.data, 'base64'))
+          await send('Runtime.evaluate', { expression: `document.querySelector('[data-comparison-view="pair"]')?.click()` }, sessionId)
+          await wait(220)
+          const restoredState = await send('Runtime.evaluate', { returnByValue: true, expression: `(()=>({active:document.querySelector('[data-comparison-view-target]')?.classList.contains('is-single-view')||false,pairPressed:document.querySelector('[data-comparison-view="pair"]')?.getAttribute('aria-pressed')}))()` }, sessionId)
+          evaluated.result.value.singleView = singleState.result.value
+          evaluated.result.value.restoredPair = restoredState.result.value
+        }
       }
       results.push({ path, width, ...evaluated.result.value })
     }
   }
-  const failures = results.filter(result => result.overflow > 1 || result.brokenImages.length || (result.path === '/compare-voxy-noah.html' && result.width < 700 && !result.pair?.sideBySide))
+  const failures = results.filter(result => result.overflow > 1 || result.brokenImages.length || (result.path === '/compare-voxy-noah.html' && result.width < 700 && (!result.pair?.sideBySide || !result.singleView?.active || result.singleView?.singlePressed !== 'true' || result.singleView?.cardWidth < result.singleView?.viewport * .78 || result.restoredPair?.active || result.restoredPair?.pairPressed !== 'true')))
   await writeFile(resolve(outputDir, 'results.json'), JSON.stringify({ baseUrl, failures, results }, null, 2))
   console.log(JSON.stringify({ baseUrl, checked: results.length, failures }, null, 2))
   if (failures.length) process.exitCode = 1
