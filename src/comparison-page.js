@@ -293,18 +293,21 @@ if (page.points) {
     <section class="comparison-decision" aria-label="購入判断のポイント"><p class="comparison-eyebrow">DECISION GUIDE</p><h2>買う前に比べたいポイント</h2><div class="comparison-decision-grid">${page.points.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>`)
 }
 
-if (page.representativeSpecs) {
-  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
-    <section class="comparison-specs" aria-label="代表仕様の比較"><p class="comparison-eyebrow">COMPARISON BASIS</p><h2>比較条件と代表仕様</h2><p class="comparison-basis">${page.comparisonBasis}</p><div class="comparison-spec-list">${page.representativeSpecs.map(([name, condition, size, seats, powertrain]) => `<article><h3>${name}</h3><p class="comparison-spec-condition">${condition}</p><dl><div><dt>全長×全幅×全高</dt><dd>${size}</dd></div><div><dt>乗車・シート</dt><dd>${seats}</dd></div><div><dt>パワートレイン</dt><dd>${powertrain}</dd></div></dl></article>`).join('')}</div></section>`)
-}
-
-if (page.usedChecks) {
-  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `<section class="comparison-decision" aria-label="中古車で確認すること"><p class="comparison-eyebrow">USED CAR CHECK</p><h2>中古車で確認すること</h2><div class="comparison-decision-grid">${page.usedChecks.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>`)
-}
-
 if (page.choices) {
   document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
     <section class="comparison-decision" aria-label="どちらを選ぶ"><p class="comparison-eyebrow">WHICH ONE?</p><h2>どれが向く？</h2><div class="comparison-decision-grid">${page.choices.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>`)
+}
+
+if (page.representativeSpecs) {
+  const specsHtml = `<section class="comparison-specs" aria-label="代表仕様の比較"><p class="comparison-eyebrow">COMPARISON BASIS</p><h2>比較条件と代表仕様</h2><p class="comparison-basis">${page.comparisonBasis}</p><div class="comparison-spec-list">${page.representativeSpecs.map(([name, condition, size, seats, powertrain]) => `<article><h3>${name}</h3><p class="comparison-spec-condition">${condition}</p><dl><div><dt>全長×全幅×全高</dt><dd>${size}</dd></div><div><dt>乗車・シート</dt><dd>${seats}</dd></div><div><dt>パワートレイン</dt><dd>${powertrain}</dd></div></dl></article>`).join('')}</div></section>`
+  const usedHtml = page.usedChecks ? `<section class="comparison-decision" aria-label="中古車で確認すること"><p class="comparison-eyebrow">USED CAR CHECK</p><h2>中古車で確認すること</h2><div class="comparison-decision-grid">${page.usedChecks.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>` : ''
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', slug === 'voxy-noah'
+    ? `<details class="comparison-deep-dive"><summary><strong>型式・仕様・中古車確認を詳しく見る</strong><span>正確な条件を確認する</span></summary>${specsHtml}${usedHtml}</details>`
+    : specsHtml)
+}
+
+if (page.usedChecks && slug !== 'voxy-noah') {
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `<section class="comparison-decision" aria-label="中古車で確認すること"><p class="comparison-eyebrow">USED CAR CHECK</p><h2>中古車で確認すること</h2><div class="comparison-decision-grid">${page.usedChecks.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>`)
 }
 
 if (page.sources) {
@@ -363,6 +366,7 @@ function renderUsedCarCta() {
 renderUsedCarCta()
 
 } // end optional comparison render
+
 
 async function copyUrl(button, message) {
   const originalText = button.textContent

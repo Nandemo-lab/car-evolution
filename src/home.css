@@ -196,6 +196,13 @@ body { margin: 0; background: #0b0c0e; }
 .comparison-links-grid a:hover, .comparison-links-grid a:focus-visible { background: rgba(255,255,255,.1); transform: translateY(-1px); }
 .comparison-links-grid span { font-size: 16px; opacity: .55; }
 .maker-groups { display: flex; flex-direction: column; gap: 40px; }
+.maker-filter { margin: 0 0 28px; padding: 14px 0 18px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.maker-filter > span { display: block; margin-bottom: 10px; color: rgba(244,243,240,.68); font-size: 12px; }
+.maker-filter > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.maker-filter button { min-height: 44px; padding: 0 13px; border: 1px solid rgba(244,243,240,.16); border-radius: 999px; color: rgba(244,243,240,.78); background: transparent; font: 600 11px/1 'Inter', 'Noto Sans JP', sans-serif; cursor: pointer; }
+.maker-filter button[aria-pressed="true"] { border-color: rgba(225,198,121,.72); color: #f4f3f0; background: rgba(225,198,121,.12); }
+.maker-filter button:focus-visible { outline: 3px solid #e1c679; outline-offset: 2px; }
+.maker-filter > p { margin: 10px 0 0; color: rgba(244,243,240,.48); font-size: 11px; }
 /* .6 opacity + .16em tracking read as thin/airy despite the 700 weight --
    wide tracking dilutes a bold face's own visual weight. Tightened
    tracking and raised opacity (contrast, not a heavier font-weight)

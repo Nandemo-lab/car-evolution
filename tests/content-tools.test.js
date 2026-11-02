@@ -52,6 +52,23 @@ test('TOPの外部Webフォントは描画をブロックせず最終書体を�
   assert.match(html,/fonts\.googleapis\.com[^>]+media="print"[^>]+onload="this\.media='all'"/)
   assert.match(html,/<noscript><link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com/)
 })
+test('TOPの31車種は初期HTMLで到達可能なままメーカー絞り込みを提供する', () => {
+  const html=readFileSync(new URL('../index.html',import.meta.url),'utf8')
+  const js=readFileSync(new URL('../src/home.js',import.meta.url),'utf8')
+  assert.match(html,/id="maker-filter"[^>]+hidden/)
+  assert.match(html,/id="maker-groups"/)
+  assert.match(js,/aria-pressed/)
+  assert.match(js,/filter_home_cars/)
+  assert.match(js,/group\.hidden = !matches/)
+})
+
+test('VOXY・NOAH比較は判断を先に、詳細条件を初期HTML内の段階表示にする', () => {
+  const js=readFileSync(new URL('../src/comparison-page.js',import.meta.url),'utf8')
+  assert.match(js,/slug === 'voxy-noah'/)
+  assert.match(js,/comparison-deep-dive/)
+  assert.match(js,/specsHtml.*usedHtml/)
+  assert.match(js,/page\.usedChecks && slug !== 'voxy-noah'/)
+})
 test('型式・全角・日本語・複数条件・該当なしを区別する', () => {
   assert.equal(findModels(cars,'ＪＦ１')[0].car.slug,'n-box')
   assert.ok(findModels(cars,'タント').every(x=>x.car.slug==='tanto'))

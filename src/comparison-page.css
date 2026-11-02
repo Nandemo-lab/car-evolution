@@ -56,6 +56,12 @@ body { margin: 0; background: #0b0c0e; }
 .comparison-spec-list dd { margin: 0; font-size: 12px; line-height: 1.55; overflow-wrap: anywhere; }
 .comparison-sources a { color: inherit; text-underline-offset: 3px; }
 .comparison-sources .comparison-byline { margin-top: 18px; font-size: 11px; opacity: .78; }
+.comparison-deep-dive { max-width: 1076px; margin: 10px auto 30px; border-top: 1px solid rgba(244,243,240,.1); border-bottom: 1px solid rgba(244,243,240,.1); }
+.comparison-deep-dive > summary { min-height: 64px; display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 8px 22px; cursor: pointer; list-style-position: inside; }
+.comparison-deep-dive > summary strong { font-size: 14px; }
+.comparison-deep-dive > summary span { padding-left: 18px; color: rgba(244,243,240,.56); font-size: 11px; }
+.comparison-deep-dive[open] > summary { border-bottom: 1px solid rgba(244,243,240,.08); }
+.comparison-deep-dive .comparison-specs, .comparison-deep-dive .comparison-decision { padding-top: 30px; padding-bottom: 30px; }
 .comparison-reading { padding: 64px 22px; }
 .comparison-reading .comparison-eyebrow { margin: 0 0 12px; }
 .comparison-reading h2 { margin: 0 0 28px; font-size: clamp(25px, 5vw, 36px); letter-spacing: -.025em; }

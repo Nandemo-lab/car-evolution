@@ -106,9 +106,39 @@ function renderAllCarsSummary(cars, roadmap) {
   el.textContent = text
 }
 
+function initMakerFilter() {
+  const filter = document.getElementById('maker-filter')
+  const groups = [...document.querySelectorAll('.maker-group')]
+  if (!filter || groups.length < 2) return
+
+  const makers = groups.map((group) => group.querySelector('.maker-name')?.textContent?.trim()).filter(Boolean)
+  const total = groups.reduce((sum, group) => sum + group.querySelectorAll('.mini-card[href]').length, 0)
+  const buttons = ['すべて', ...makers].map((label, index) =>
+    `<button type="button" data-maker="${index === 0 ? '' : label}" aria-pressed="${index === 0}">${label}</button>`
+  ).join('')
+  filter.innerHTML = `<span>メーカーで絞る</span><div>${buttons}</div><p aria-live="polite">${total}車種を表示中</p>`
+  filter.hidden = false
+
+  filter.addEventListener('click', (event) => {
+    const button = event.target.closest('button[data-maker]')
+    if (!button) return
+    const maker = button.dataset.maker
+    filter.querySelectorAll('button').forEach((item) => item.setAttribute('aria-pressed', String(item === button)))
+    let shown = 0
+    groups.forEach((group) => {
+      const matches = !maker || group.querySelector('.maker-name')?.textContent?.trim() === maker
+      group.hidden = !matches
+      if (matches) shown += group.querySelectorAll('.mini-card[href]').length
+    })
+    filter.querySelector('p').textContent = maker ? `${maker}の${shown}車種を表示中` : `${shown}車種を表示中`
+    trackEvent('filter_home_cars', { maker: maker || 'all', visible_models: shown })
+  })
+}
+
 document.getElementById('maker-groups').innerHTML = homeCarsHtml(cars, roadmap)
 document.getElementById('auto-comparison-links').innerHTML = homeComparisonLinksHtml()
 renderAllCarsSummary(cars, roadmap)
+initMakerFilter()
 initScrollFade()
 initHeroCta()
 initGrowthEvents()
