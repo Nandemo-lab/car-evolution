@@ -651,3 +651,15 @@ test('歴代ページは世代数別UIでも全世代を初期HTMLに保持す�
     }
   }
 })
+
+test('歴代ページは選択世代の判別点を連動表示し詳細を段階表示する',()=>{
+  const js=readFileSync(new URL('../src/car-page.js',import.meta.url),'utf8')
+  const css=readFileSync(new URL('../src/car-page.css',import.meta.url),'utf8')
+  assert.ok(js.includes("heading.textContent = '画像で見るポイント'"))
+  assert.ok(js.includes("refs.numeral.textContent = '選択中'"))
+  assert.ok(js.includes("faceliftLabel.textContent = 'この世代の主な改良'"))
+  assert.ok(js.includes('全世代の見分け方'))
+  assert.ok(js.includes('技術・装備の変化を見る'))
+  assert.match(css,/\.generation-quick-facts/)
+  assert.match(css,/\.history-disclosure > summary/)
+})

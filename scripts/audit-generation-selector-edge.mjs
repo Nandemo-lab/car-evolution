@@ -7,8 +7,7 @@ const edge='C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
 const baseUrl=process.env.AUDIT_BASE_URL||'http://127.0.0.1:4173'
 const slugs=(await readdir(new URL('../src/cars/',import.meta.url))).filter(name=>name.endsWith('.js')).map(name=>name.replace('.js','')).sort()
 const cars=new Map(await Promise.all(slugs.map(async slug=>[slug,(await import(`../src/cars/${slug}.js`)).default])))
-const priority=new Set(['noah','voxy','alphard','vellfire','prius','n-box','sienta','corolla-cross'])
-const cases=slugs.flatMap(slug=>[390,...(priority.has(slug)?[320,375,1440]:[])] .map(width=>({slug,width})))
+const cases=slugs.flatMap(slug=>[320,375,390,430,1440].map(width=>({slug,width})))
 const port=9800+Math.floor(Math.random()*150)
 const profile=await mkdtemp(join(tmpdir(),'carvista-generation-selector-'))
 const browser=spawn(edge,[`--remote-debugging-port=${port}`,'--headless=new','--disable-gpu','--no-first-run',`--user-data-dir=${profile}`,'about:blank'],{stdio:'ignore'})
@@ -59,17 +58,17 @@ try{
       }
     })()`)
     await wait(320)
-    state.after=await evaluate(`({current:document.querySelector('#timeline-current')?.textContent||'',code:document.querySelector('#detail-code')?.textContent||'',scrollY})`)
+    state.after=await evaluate(`({current:document.querySelector('#timeline-current')?.textContent||'',code:document.querySelector('#detail-code')?.textContent||'',selection:document.querySelector('.detail-eyebrow')?.textContent.replace(/\\s+/g,' ').trim()||'',quickFacts:document.querySelectorAll('.generation-quick-facts li').length,scrollY})`)
     results.push({slug,width,count,firstCode:car.generations[0].code,...state})
   }
 
   const failures=results.filter(result=>{
     if(result.pageOverflow>1)return true
-    if(result.count===1)return result.timeline||result.compare
+    if(result.count===1)return result.timeline||result.compare||result.after.quickFacts<1||!result.after.selection.includes('選択中')
     if(!result.timeline||result.buttons!==result.count||result.selected!==1||!result.heading||!result.explanation||!result.hasSelectedText||result.minTap<44)return true
     if(result.count<=4&&(result.mode!=='timeline timeline--grid'||result.optionOverflow>1))return true
     if(result.count>=5&&(result.mode!=='timeline timeline--scroll'||!result.hint.includes('横にスワイプ')))return true
-    return result.after.current!=='初代を表示中'||result.after.code!==result.firstCode||result.after.scrollY!==result.beforeY
+    return result.after.current!=='初代を表示中'||result.after.code!==result.firstCode||!result.after.selection.includes('選択中')||result.after.quickFacts<1||result.after.scrollY!==result.beforeY
   })
   console.log(JSON.stringify({baseUrl,checks:results.length,vehiclePages:slugs.length,failures},null,2))
   if(failures.length)process.exitCode=1

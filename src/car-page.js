@@ -115,6 +115,16 @@ export function initCarPage(config) {
   if (!isSingleGeneration && document.getElementById('timeline')) renderTimeline(generations, config.vehicleName, defaultIndex)
 
   const detailRefs = getDetailRefs()
+  detailRefs.detail.setAttribute('aria-labelledby', 'detail-title')
+  const quickFacts = document.createElement('div')
+  quickFacts.className = 'generation-quick-facts'
+  quickFacts.setAttribute('aria-live', 'polite')
+  detailRefs.text.insertAdjacentElement('afterend', quickFacts)
+  detailRefs.quickFacts = quickFacts
+  const faceliftLabel = document.createElement('span')
+  faceliftLabel.className = 'facelift-toggle-label'
+  faceliftLabel.textContent = 'この世代の主な改良'
+  detailRefs.facelistToggle.prepend(faceliftLabel)
   // Below the fold on every vehicle page's initial load -- defer the
   // network fetch until the browser expects it to be needed, instead of
   // competing with the hero image for bandwidth.
@@ -122,7 +132,7 @@ export function initCarPage(config) {
   detailRefs.image.decoding = 'async'
   withImageFallback(detailRefs.image)
   const engine = createDetailEngine(detailRefs, generations, defaultIndex, config.vehicleName)
-  engine.render(generations[defaultIndex])
+  engine.render(generations[defaultIndex], defaultIndex)
 
   // A state switcher, not a page-jump: the timeline swaps which
   // generation is shown in place, scroll position untouched. An earlier
@@ -161,9 +171,12 @@ function renderEvolutionNotes(config) {
   if (!config.evolutionNotes?.length) return
   const section = document.createElement('section')
   section.className = 'generation-guide evolution-notes'
-  section.setAttribute('aria-labelledby', 'evolution-notes-title')
+  section.setAttribute('aria-labelledby', config.generations.length > 1 ? 'evolution-notes-summary' : 'evolution-notes-title')
   const heading = config.generations.length === 1 ? '改良で変わったこと' : '世代ごとに変わったこと'
-  section.innerHTML = `<div class="generation-guide-heading"><p>WHAT CHANGED</p><h2 id="evolution-notes-title">${heading}</h2><span>外観だけでなく、${config.vehicleName}の役割と技術の変化を短く整理します。</span></div><div class="generation-guide-grid">${config.evolutionNotes.map((item) => `<article><div><strong>${item.title}</strong><span>${item.text}</span><b>${item.meta}</b></div></article>`).join('')}</div>`
+  const content = `<div class="generation-guide-heading"><p>WHAT CHANGED</p><h2 id="evolution-notes-title">${heading}</h2><span>外観だけでなく、${config.vehicleName}の役割と技術の変化を短く整理します。</span></div><div class="generation-guide-grid">${config.evolutionNotes.map((item) => `<article><div><strong>${item.title}</strong><span>${item.text}</span><b>${item.meta}</b></div></article>`).join('')}</div>`
+  section.innerHTML = config.generations.length > 1
+    ? `<details class="history-disclosure"><summary id="evolution-notes-summary"><span>技術・装備の変化を見る</span><small>世代ごとの詳しい違い</small></summary><div class="history-disclosure-body">${content}</div></details>`
+    : content
   document.querySelector('.back-home').before(section)
 }
 
@@ -172,13 +185,16 @@ function renderGenerationGuide(config) {
   const guide = config.generationGuide
   const section = document.createElement('section')
   section.className = `generation-guide${guide.layout === 'chronology' ? ' generation-guide--chronology' : ''}`
-  section.setAttribute('aria-labelledby', 'generation-guide-title')
-  section.innerHTML = `
+  section.setAttribute('aria-labelledby', config.generations.length > 1 ? 'generation-guide-summary' : 'generation-guide-title')
+  const content = `
     <div class="generation-guide-heading"><p>IDENTIFICATION</p><h2 id="generation-guide-title">${guide.title}</h2><span>${guide.intro}</span></div>
     <div class="generation-guide-grid">${guide.items.map((item, index) => {
       const generation = config.generations[index]
       return `<article>${guide.layout === 'chronology' ? '' : `<img src="${generation?.image || ''}" alt="${config.vehicleName} ${item.title}" loading="lazy" decoding="async" />`}<div><strong>${item.title}</strong><span>${item.description}</span><b>主な型式・販売期間：${item.meta}</b></div></article>`
     }).join('')}</div>`
+  section.innerHTML = config.generations.length > 1
+    ? `<details class="history-disclosure"><summary id="generation-guide-summary"><span>全世代の見分け方</span><small>画像・型式・販売期間を一覧で確認</small></summary><div class="history-disclosure-body">${content}</div></details>`
+    : content
   document.querySelector('.back-home').before(section)
 }
 
@@ -513,7 +529,7 @@ function renderFacelift(refs, data) {
 function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
   const SLIDE_PX = 20
   const SWAP_DELAY_MS = 260
-  const GROUPS = [refs.image, refs.dots, refs.callouts, refs.text]
+  const GROUPS = [refs.image, refs.dots, refs.callouts, refs.text, refs.quickFacts]
   let currentIndex = defaultIndex
   let detailSweepTimer
 
@@ -542,17 +558,33 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
     })
   }
 
-  function render(gen) {
+  function renderQuickFacts(gen) {
+    refs.quickFacts.replaceChildren()
+    const heading = document.createElement('strong')
+    heading.textContent = '画像で見るポイント'
+    const list = document.createElement('ul')
+    ;(gen.annotations || []).slice(0, 3).forEach((annotation) => {
+      const item = document.createElement('li')
+      item.textContent = annotation.label.replace(/<[^>]+>/g, '')
+      list.appendChild(item)
+    })
+    refs.quickFacts.append(heading, list)
+    refs.quickFacts.hidden = list.children.length === 0
+  }
+
+  function render(gen, index) {
     refs.image.src = gen.image
     refs.image.alt = `${gen.era} ${vehicleName} ${gen.title}`
     if (refs.image.complete) syncDetailAspect()
-    refs.numeral.textContent = gen.numeral
-    refs.era.textContent = gen.era
+    const label = generationLabel(index)
+    refs.numeral.textContent = '選択中'
+    refs.era.textContent = gen.era === label ? label : `${label}・${gen.era}`
     refs.title.textContent = gen.title
     refs.code.textContent = gen.code
     refs.period.textContent = gen.period
     renderDots(refs.dots, gen.annotations)
     renderCallouts(refs.callouts, gen.annotations)
+    renderQuickFacts(gen)
     renderFacelift(refs, gen.facelift)
   }
 
@@ -580,7 +612,7 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
     setSlideState(goingForward ? -SLIDE_PX : SLIDE_PX, 0)
 
     window.setTimeout(() => {
-      render(gen)
+      render(gen, index)
       // jump to the entry position with no transition, then animate back to rest
       GROUPS.forEach((el) => { el.style.transition = 'none' })
       setSlideState(goingForward ? SLIDE_PX : -SLIDE_PX, 0)
