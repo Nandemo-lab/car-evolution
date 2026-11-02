@@ -108,8 +108,11 @@ export function initCarPage(config) {
   // Multi-generation navigation only exists when there is something to
   // compare. Single-generation pages move directly from the hero/share row
   // to one enlarged vehicle explanation.
-  if (document.getElementById('heritage')) renderHeritage(generations)
-  if (!isSingleGeneration && document.getElementById('timeline')) renderTimeline(generations, config.vehicleName)
+  // The former year-only heritage rail repeated the same chronology as the
+  // selector without explaining that it was interactive. Keep one clear
+  // control: choose a generation here, then see its large image and facts.
+  document.getElementById('heritage')?.remove()
+  if (!isSingleGeneration && document.getElementById('timeline')) renderTimeline(generations, config.vehicleName, defaultIndex)
 
   const detailRefs = getDetailRefs()
   // Below the fold on every vehicle page's initial load -- defer the
@@ -354,12 +357,35 @@ function renderHeritage(generations) {
   el.innerHTML = points.join('<span class="heritage-line"></span>')
 }
 
-function renderTimeline(generations, vehicleName) {
+function generationLabel(index) {
+  return index === 0 ? '初代' : `${index + 1}代目`
+}
+
+function renderTimeline(generations, vehicleName, defaultIndex) {
   const nav = document.getElementById('timeline')
-  const rail = document.createElement('div')
-  rail.className = 'timeline-rail'
+  const compactGrid = generations.length <= 4
+  nav.classList.toggle('timeline--grid', compactGrid)
+  nav.classList.toggle('timeline--scroll', !compactGrid)
+  nav.dataset.count = String(generations.length)
   nav.innerHTML = ''
-  nav.appendChild(rail)
+  const heading = document.createElement('div')
+  heading.className = 'timeline-heading'
+  heading.innerHTML = `
+    <div><strong>世代を選んで見比べる</strong><span>選ぶと、下の大きな画像・型式・販売期間が切り替わります</span></div>
+    <b class="timeline-current" id="timeline-current" aria-live="polite">${generationLabel(defaultIndex)}を表示中</b>
+  `
+  nav.appendChild(heading)
+
+  if (!compactGrid) {
+    const hint = document.createElement('p')
+    hint.className = 'timeline-scroll-hint'
+    hint.textContent = '横にスワイプして世代を選択'
+    nav.appendChild(hint)
+  }
+
+  const options = document.createElement('div')
+  options.className = 'timeline-options'
+  nav.appendChild(options)
 
   // A single-generation vehicle (see cars/esquire.html) has nothing to
   // select between -- its one Timeline card gets a quiet static-info
@@ -378,25 +404,29 @@ function renderTimeline(generations, vehicleName) {
     btn.dataset.gen = String(index)
     if (isStatic) {
       btn.disabled = true
-    } else if (index === generations.length - 1) {
+    } else if (index === defaultIndex) {
       btn.setAttribute('aria-current', 'true')
       // Distinct from aria-current, which moves to whichever card is
       // being VIEWED as the user clicks through the timeline -- this
       // marks whichever card is actually the latest/current production
       // generation and never moves, so that card keeps a quiet cue even
       // once browsing an older one has dimmed it back down.
-      btn.dataset.latest = 'true'
     }
+    if (index === generations.length - 1) btn.dataset.latest = 'true'
+    const label = generationLabel(index)
+    btn.setAttribute('aria-label', `${label} ${gen.title} ${gen.yearRange}を表示`)
     btn.innerHTML = `
       <span class="timeline-thumb"><img src="${gen.image}" alt="${gen.era} ${vehicleName}" loading="lazy" decoding="async" /></span>
       <span class="timeline-tag">
-        <span class="timeline-numeral">${gen.numeral}</span>
+        <span class="timeline-generation">${label}</span>
+        <span class="timeline-model">${gen.title}</span>
         <span class="timeline-year">${gen.yearRange}</span>
+        <span class="timeline-status" aria-hidden="true">選択中</span>
       </span>
     `
     const thumbImg = btn.querySelector('.timeline-thumb img')
     withImageFallback(thumbImg)
-    nav.appendChild(btn)
+    options.appendChild(btn)
   })
 }
 
@@ -535,6 +565,8 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
     document.querySelectorAll('.timeline-item').forEach((btn) => {
       btn.setAttribute('aria-current', String(Number(btn.dataset.gen) === index))
     })
+    const current = document.getElementById('timeline-current')
+    if (current) current.textContent = `${generationLabel(index)}を表示中`
 
     // One quiet scan line acknowledges a new entry in the archive. It runs
     // across the image frame only, leaving captions and facts steady.

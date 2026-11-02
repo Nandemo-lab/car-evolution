@@ -8,6 +8,7 @@ const checks = [
   ['mobile navigation', 'scripts/audit-mobile-navigation-edge.mjs'],
   ['home card loading', 'scripts/audit-home-cards-edge.mjs'],
   ['comparison UI', 'scripts/capture-final-ui-edge.mjs'],
+  ['generation selector', 'scripts/audit-generation-selector-edge.mjs'],
 ]
 const failures = []
 

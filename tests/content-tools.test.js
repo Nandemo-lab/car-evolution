@@ -628,3 +628,26 @@ test('検索反応がある4ページは検索意図と改良境界を初期HTML
   assert.ok(nbox.includes('2015年2月5日の改良境界'))
   assert.ok(solio.includes('2013年11月18日の改良境界'))
 })
+
+test('歴代ページの世代選択は日本語・選択中・更新内容を明示する',()=>{
+  const js=readFileSync(new URL('../src/car-page.js',import.meta.url),'utf8')
+  const css=readFileSync(new URL('../src/car-page.css',import.meta.url),'utf8')
+  assert.ok(js.includes('世代を選んで見比べる'))
+  assert.ok(js.includes('下の大きな画像・型式・販売期間が切り替わります'))
+  assert.ok(js.includes("index === 0 ? '初代' : `${index + 1}代目`"))
+  assert.ok(js.includes('を表示中'))
+  assert.ok(js.includes('timeline-status'))
+  assert.match(css,/\.timeline--grid\[data-count="4"\]/)
+  assert.match(css,/\.timeline--scroll \.timeline-options/)
+  assert.match(css,/min-height:\s*44px/)
+})
+
+test('歴代ページは世代数別UIでも全世代を初期HTMLに保持する',async()=>{
+  for(const car of cars){
+    const html=readFileSync(new URL(`../dist/cars/${car.slug}.html`,import.meta.url),'utf8')
+    for(const generation of car.generations){
+      assert.ok(html.includes(generation.code),`${car.slug}: ${generation.code}`)
+      assert.ok(html.includes(generation.period),`${car.slug}: ${generation.period}`)
+    }
+  }
+})
