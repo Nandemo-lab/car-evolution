@@ -27,13 +27,20 @@ try{
   const {sessionId}=await send('Target.attachToTarget',{targetId,flatten:true})
   await send('Page.enable',{},sessionId);await send('Runtime.enable',{},sessionId)
   const evaluate=(expression,awaitPromise=false)=>send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise},sessionId)
+  const navigate=async path=>{
+    const pathname=`/${path}`.replace(/\/$/,'')||'/'
+    await send('Page.navigate',{url:`${baseUrl}/${path}`},sessionId)
+    await wait(700)
+    await evaluate(`new Promise(resolve=>{const deadline=Date.now()+10000;const timer=setInterval(()=>{if((document.readyState==='complete'||document.readyState==='interactive')&&location.pathname===${JSON.stringify(pathname)}&&document.querySelector('[data-mobile-site-header]')){clearInterval(timer);resolve(true)}else if(Date.now()>deadline){clearInterval(timer);resolve(false)}},50)})`,true)
+    await evaluate(`scrollTo(0,0)`)
+    await wait(100)
+  }
   const results=[]
   for(const page of pages){
     for(const width of widths){
       const height=width===1440?1000:844
       await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<700},sessionId)
-      await send('Page.navigate',{url:`${baseUrl}/${page}`},sessionId);await wait(700)
-      await evaluate(`new Promise(resolve=>{if(document.querySelector('[data-mobile-site-header]'))return resolve();const deadline=Date.now()+5000;const timer=setInterval(()=>{if(document.querySelector('[data-mobile-site-header]')||Date.now()>deadline){clearInterval(timer);resolve()}},50)})`,true)
+      await navigate(page)
       const top=(await evaluate(`(()=>{const h=document.querySelector('[data-mobile-site-header]'),b=document.querySelector('[data-scroll-top]');return {exists:!!h&&!!b,hidden:h?.getAttribute('aria-hidden'),headerDisplay:h?getComputedStyle(h).display:null,buttonDisplay:b?getComputedStyle(b).display:null,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,links:h?[...h.querySelectorAll('a')].map(a=>a.getAttribute('href')):[],labels:h?[...h.querySelectorAll('a')].map(a=>a.textContent.trim()):[],heights:[...(h?h.querySelectorAll('a'):[]),b].filter(Boolean).map(e=>Math.round(e.getBoundingClientRect().height))}})()`)).result.value
       await evaluate(`scrollTo(0,Math.min(document.documentElement.scrollHeight-innerHeight,900))`);await wait(850)
       const scrolled=(await evaluate(`(()=>{const h=document.querySelector('[data-mobile-site-header]'),b=document.querySelector('[data-scroll-top]'),hr=h.getBoundingClientRect(),br=b.getBoundingClientRect();return {hidden:h.getAttribute('aria-hidden'),headerHeight:Math.round(hr.height),headerTop:Math.round(hr.top),buttonSize:[Math.round(br.width),Math.round(br.height)],buttonRight:Math.round(innerWidth-br.right),buttonBottom:Math.round(innerHeight-br.bottom),opaqueHeader:getComputedStyle(h).backgroundColor==='rgb(9, 11, 13)'}})()`)).result.value
@@ -55,10 +62,10 @@ try{
     }
   }
   await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true},sessionId)
-  await send('Page.navigate',{url:`${baseUrl}/n-box-jf1-zenki-kouki.html`},sessionId);await wait(700)
+  await navigate('n-box-jf1-zenki-kouki.html')
   await evaluate(`scrollTo(0,900);document.querySelector('[data-facelift-part]')?.click()`);await wait(200)
   const modal=(await evaluate(`(()=>({dialog:!!document.querySelector('dialog[open]'),headerHidden:document.querySelector('[data-mobile-site-header]').getAttribute('aria-hidden'),buttonHidden:document.querySelector('[data-scroll-top]').getAttribute('aria-hidden'),blocked:document.body.classList.contains('mobile-navigation-blocked')}))()`)).result.value
-  await send('Page.navigate',{url:`${baseUrl}/`},sessionId);await wait(700)
+  await navigate('')
   await evaluate(`scrollTo(0,900);document.querySelector('#model-query')?.focus()`);await send('Emulation.setDeviceMetricsOverride',{width:390,height:540,deviceScaleFactor:1,mobile:true},sessionId);await wait(250)
   const keyboard=(await evaluate(`(()=>({focused:document.activeElement?.id,headerHidden:document.querySelector('[data-mobile-site-header]').getAttribute('aria-hidden'),buttonHidden:document.querySelector('[data-scroll-top]').getAttribute('aria-hidden'),blocked:document.body.classList.contains('mobile-navigation-blocked')}))()`)).result.value
   const failures=results.filter(result=>!result.top.exists||result.top.overflow>1||result.top.links.join('|')!=='/|/'||result.top.labels.join('|')!=='CARVISTA|ホーム'||(result.width<700&&(result.top.hidden!=='true'||result.top.headerDisplay==='none'||result.top.heights.slice(0,2).some(height=>height<44)||result.scrolled.headerHeight<44||result.scrolled.buttonSize.some(size=>size<44)||!result.scrolled.opaqueHeader||(result.topReturned!==null&&result.topReturned>2)||result.footer?.buttonOverFooter))||(result.width>=700&&(result.top.headerDisplay!=='none'||result.top.buttonDisplay!=='none')))
