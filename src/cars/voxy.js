@@ -187,9 +187,10 @@ export default {
   tagline: 'かたちは、時代を語る。',
   heroImage: '/images/cars/voxy/hero-gen4-3q.webp',
   generationGuide: {
-    title: '70・80・90系を見分ける代表ポイント',
-    intro: 'Timelineと画像を見たあと、ライト・グリル・型式の順に照合すると世代を絞り込めます。前期・後期やグレード差は個別の車両情報で確認してください。',
+    title: 'ヴォクシー歴代4世代の顔と型式を見分ける',
+    intro: '60系・70系・80系・90系の順に、ライトとグリルの形を見比べます。外観は候補を絞る手掛かりにし、最後は車検証の型式で確定してください。前期・後期やグレード差は個別ページで分けて確認します。',
     items: [
+      { title: '60系', description: '3本の横基調グリルと、大きな一体型ヘッドランプを持つ初代。', meta: '2001年〜2007年 · AZR60G / AZR65G' },
       { title: '70系', description: 'ライトとグリルが分かれて見える、丸みを残したフロント。', meta: '2007年〜2014年 · ZRR70G / ZRR75G' },
       { title: '80系', description: 'ライトからグリルへ続く、縦方向に存在感のあるフロント。', meta: '2014年〜2021年 · ZRR80G / ZRR85G / ZWR80G' },
       { title: '90系', description: '横一文字に見える発光ラインと、ワイドなフロントが目印。', meta: '2022年〜現在 · MZRA90W / ZWR90W ほか' },
@@ -209,8 +210,8 @@ export default {
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.
   seo: {
-    title: 'VOXY 歴代モデル・70系/80系/90系の違い — CarVista',
-    description: 'トヨタ ヴォクシー全4世代を統一画像で比較。70系・80系・90系の型式、販売期間、見分け方とデザイン進化が一目でわかる。',
+    title: 'ヴォクシー歴代の顔を比較｜60系・70系・80系・90系の見分け方 — CarVista',
+    description: 'トヨタ ヴォクシー歴代4世代を統一画像で比較。60系・70系・80系・90系の販売期間、代表型式、ライトとグリルによる見分け方がわかります。',
   },
   defaultIndex: 3,
   generations,

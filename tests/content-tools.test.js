@@ -615,3 +615,16 @@ test('検索流入上位3車種は画像比較の直後に計測可能な関連�
     }
   }
 })
+
+test('検索反応がある4ページは検索意図と改良境界を初期HTMLで明示する',()=>{
+  const noah=readFileSync(new URL('../dist/cars/noah.html',import.meta.url),'utf8')
+  const voxy=readFileSync(new URL('../dist/cars/voxy.html',import.meta.url),'utf8')
+  const nbox=readFileSync(new URL('../dist/n-box-jf1-zenki-kouki.html',import.meta.url),'utf8')
+  const solio=readFileSync(new URL('../dist/solio-ma15s-zenki-kouki.html',import.meta.url),'utf8')
+  assert.ok(noah.includes('ノア歴代の顔を比較'))
+  assert.ok(noah.includes('標準ボディとエアロ仕様'))
+  assert.ok(voxy.includes('ヴォクシー歴代の顔を比較'))
+  assert.ok(voxy.includes('2001年〜2007年 · AZR60G / AZR65G'))
+  assert.ok(nbox.includes('2015年2月5日の改良境界'))
+  assert.ok(solio.includes('2013年11月18日の改良境界'))
+})
