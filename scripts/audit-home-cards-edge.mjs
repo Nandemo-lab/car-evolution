@@ -8,7 +8,7 @@ const port=9342
 const baseUrl=process.env.AUDIT_BASE_URL||'http://127.0.0.1:4173'
 const outputDir=resolve(process.env.AUDIT_OUTPUT_DIR||'outputs/home-card-loading-qa-2026-10-31')
 const profileDir=resolve(tmpdir(),`carvista-home-cards-${Date.now()}`)
-const widths=[375,390,1440]
+const widths=[375,390,430,768,1440]
 await mkdir(outputDir,{recursive:true})
 const edgeProcess=spawn(edge,[`--remote-debugging-port=${port}`,'--headless=new','--disable-gpu','--no-first-run',`--user-data-dir=${profileDir}`,'about:blank'],{stdio:'ignore'})
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms))

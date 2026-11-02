@@ -9,7 +9,7 @@ const baseUrl=process.env.AUDIT_BASE_URL||'http://127.0.0.1:4173'
 const outputDir=resolve(process.env.AUDIT_OUTPUT_DIR||'outputs/mobile-navigation-qa-2026-10-31')
 const profileDir=resolve(tmpdir(),'carvista-edge-mobile-navigation')
 const pages=['','cars/sienta.html','n-box-jf1-zenki-kouki.html','roomy-tank-thor-justy.html','privacy.html']
-const widths=[320,375,390,1440]
+const widths=[320,375,390,430,768,1440]
 await mkdir(outputDir,{recursive:true})
 const edgeProcess=spawn(edge,[`--remote-debugging-port=${port}`,'--headless=new','--disable-gpu','--no-first-run',`--user-data-dir=${profileDir}`,'about:blank'],{stdio:'ignore'})
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms))

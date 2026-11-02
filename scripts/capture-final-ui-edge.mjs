@@ -38,7 +38,7 @@ try {
   const results = []
   for (const [state, baseUrl] of [['before', beforeBase], ['after', afterBase]]) {
     for (const page of ['n-box-jf1-zenki-kouki', 'voxy-80-zenki-kouki']) {
-      for (const width of [375, 390, 1440]) {
+      for (const width of [375, 390, 430, 768, 1440]) {
         const height = width === 1440 ? 1000 : 844
         await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: width < 700 }, sessionId)
         await send('Page.navigate', { url: `${baseUrl}/${page}.html` }, sessionId)

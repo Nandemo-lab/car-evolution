@@ -324,6 +324,23 @@ test('公開97 URLの初期HTMLとサイトマップに欠落・重複見出し�
   for(const page of ['voxy-60-vs-70','solio-ma15s-zenki-kouki','vellfire-20-zenki-kouki','prius-30-zenki-kouki']) assert.ok(existsSync(new URL(`../dist/${page}.html`,import.meta.url)))
 })
 
+test('本番は低リスク防御ヘッダーを強制しCSPだけReport-Onlyで検証する',()=>{
+  const vercel=JSON.parse(readFileSync(new URL('../vercel.json',import.meta.url),'utf8'))
+  const globalHeaders=vercel.headers?.find(rule=>rule.source==='/(.*)')?.headers||[]
+  const byName=new Map(globalHeaders.map(header=>[header.key,header.value]))
+  assert.equal(byName.get('X-Content-Type-Options'),'nosniff')
+  assert.equal(byName.get('Referrer-Policy'),'strict-origin-when-cross-origin')
+  assert.equal(byName.get('X-Frame-Options'),'DENY')
+  assert.match(byName.get('Permissions-Policy')||'',/camera=\(\).*microphone=\(\).*geolocation=\(\)/)
+  assert.equal(byName.get('Strict-Transport-Security'),'max-age=31536000')
+  const reportOnly=byName.get('Content-Security-Policy-Report-Only')||''
+  assert.match(reportOnly,/script-src 'self' 'unsafe-inline' https:/)
+  assert.match(reportOnly,/object-src 'none'/)
+  assert.ok(!byName.has('Content-Security-Policy'),'未検証の強制CSPを公開しない')
+  const ninjaTag=readFileSync(new URL('../scripts/ninja-official-switch.tag.txt',import.meta.url),'utf8').replace(/\r\n/g,'\n')
+  assert.equal(ninjaTag,'<!-- admax -->\n<script src="https://adm.shinobi.jp/o/7715cbec85d744324b7fe2302020e023"></script>\n<!-- admax -->\n')
+})
+
 test('全公開ページは独立したスマホ用ホームヘッダー・先頭ボタンを初期HTMLに持つ',()=>{
   const sitemap=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...sitemap.matchAll(/<loc>https:\/\/carvista\.jp(.*?)<\/loc>/g)].map(match=>match[1]||'/')
