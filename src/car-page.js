@@ -91,6 +91,7 @@ function withImageFallback(img) {
 export function initCarPage(config) {
   const { generations, defaultIndex } = config
   const isSingleGeneration = generations.length === 1
+  document.documentElement.dataset.vehicle = getSlugFromPath()
 
   // A model with only one published generation has nothing to compare or
   // select. Keep the shared data/rendering path, but present its one vehicle

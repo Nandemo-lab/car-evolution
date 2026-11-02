@@ -269,6 +269,7 @@ test('歴代カードは車体全体を表示し、共通ズームで見切れ�
   const css=readFileSync(new URL('../src/car-page.css',import.meta.url),'utf8')
   assert.match(css,/\.timeline-thumb img\s*\{[^}]*object-fit:\s*contain/s)
   assert.match(css,/\.timeline-thumb img\s*\{[^}]*transform:\s*none/s)
+  assert.match(css,/data-vehicle="voxy"[^}]*data-vehicle="noah"[^}]*timeline-thumb/s)
 })
 
 test('歴代詳細画像は実画像比率に合わせ、4:3車両の屋根や車輪を切らない',()=>{

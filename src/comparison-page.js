@@ -288,6 +288,10 @@ if (page.answer) {
   document.querySelector('.comparison-grid').insertAdjacentHTML('beforebegin', `<section class="comparison-answer" aria-label="3秒で分かる結論"><p class="comparison-eyebrow">3-SECOND ANSWER</p><h2>先に結論</h2><p>${page.answer}</p></section>`)
 }
 
+if (slug === 'voxy-noah') {
+  document.querySelector('.comparison-grid').insertAdjacentHTML('beforebegin', `<p class="comparison-pair-basis"><strong>同じ条件で横並び</strong><span>2022年・S-Z・2WD・7人乗り</span></p>`)
+}
+
 if (page.points) {
   document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
     <section class="comparison-decision" aria-label="購入判断のポイント"><p class="comparison-eyebrow">DECISION GUIDE</p><h2>買う前に比べたいポイント</h2><div class="comparison-decision-grid">${page.points.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>`)
@@ -318,11 +322,14 @@ if (page.sources) {
 document.querySelector('.comparison-more').insertAdjacentHTML('afterend', `<footer class="comparison-trust"><nav><a href="/#all-cars">車種一覧</a><a href="/#comparison-links-title">比較ガイド</a><a href="/about.html">運営情報</a><a href="/editorial-policy.html">制作方針</a><a href="/privacy.html">プライバシー</a><a href="/contact.html">お問い合わせ</a></nav></footer>`)
 
 if (page.reading) {
-  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
+  const readingHtml = `
     <section class="comparison-reading" aria-label="デザインの読み解き">
       <p class="comparison-eyebrow">DESIGN NOTES</p><h2>見比べるポイント</h2>
       ${page.reading.map((item) => `<article><h3>${item.heading}</h3><p>${item.text}</p></article>`).join('')}
-    </section>`)
+    </section>`
+  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', slug === 'voxy-noah'
+    ? `<details class="comparison-reading-disclosure"><summary><strong>外観の詳しい読み解き</strong><span>画像だけでは分かりにくい背景を確認</span></summary>${readingHtml}</details>`
+    : readingHtml)
 }
 
 if (page.timeline) {

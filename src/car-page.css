@@ -133,6 +133,13 @@ body { margin: 0; background: #0b0c0e; }
 }
 .timeline-item[aria-current="true"] .timeline-thumb img { filter: grayscale(0) brightness(1.05) saturate(1.15); }
 
+/* VOXY / NOAH use several black-body history assets. The former generic
+   inactive treatment (brightness .68) erased their roof and shoulder line
+   against the black studio. Keep selection state in the border and label,
+   while leaving enough body detail visible to compare generations. */
+html:is([data-vehicle="voxy"], [data-vehicle="noah"]) .timeline-thumb { background: radial-gradient(circle at 50% 42%, #24282d 0%, #131518 58%, #0b0c0e 100%); }
+html:is([data-vehicle="voxy"], [data-vehicle="noah"]) .timeline-item:not([aria-current="true"]) .timeline-thumb img { filter: grayscale(.18) brightness(.88); }
+
 /* A quiet, permanent marker for whichever card is the actual latest
    production generation -- independent of aria-current (which tracks
    the card currently being VIEWED and moves on click). Without this,
