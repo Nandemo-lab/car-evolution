@@ -660,6 +660,8 @@ test('歴代ページは選択世代の判別点を連動表示し詳細を段�
   assert.ok(js.includes("faceliftLabel.textContent = 'この世代の主な改良'"))
   assert.ok(js.includes('全世代の見分け方'))
   assert.ok(js.includes('技術・装備の変化を見る'))
+  assert.ok(js.includes('aria-label="${generationLabel(i)}を選択"'))
   assert.match(css,/\.generation-quick-facts/)
   assert.match(css,/\.history-disclosure > summary/)
+  assert.match(css,/\.compare-chip\s*\{[\s\S]*min-width:\s*44px;[\s\S]*height:\s*44px;/)
 })

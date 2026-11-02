@@ -699,7 +699,7 @@ function initCompare(generations, vehicleName) {
     </div>
   `
   const chipsHtml = generations
-    .map((gen, i) => `<button class="compare-chip" type="button" data-index="${i}">${gen.numeral}</button>`)
+    .map((gen, i) => `<button class="compare-chip" type="button" data-index="${i}" aria-label="${generationLabel(i)}を選択">${generationLabel(i)}</button>`)
     .join('')
   const pairToggle = document.getElementById('compare-pair-toggle')
   const pairText = document.getElementById('compare-pair-text')
