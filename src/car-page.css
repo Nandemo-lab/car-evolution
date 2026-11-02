@@ -467,8 +467,31 @@ body { margin: 0; background: #0b0c0e; }
 }
 .compare-hint.is-dismissed { opacity: 0; }
 
+/* A quiet continuation from the visual comparison to the two most useful
+   verified guides. Every link remains at least 44px high on touch screens. */
+.comparison-followups { margin: 18px auto 0; max-width: 760px; }
+.comparison-followups > span {
+  display: block; margin-bottom: 8px; color: rgba(244,243,240,.48);
+  font-size: 11px; letter-spacing: .02em;
+}
+.comparison-followups > div { display: grid; grid-template-columns: 1fr; gap: 7px; }
+.comparison-followups a {
+  min-height: 44px; display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 9px 12px; border: 1px solid rgba(244,243,240,.13);
+  border-radius: 10px; color: inherit; background: rgba(244,243,240,.025);
+  text-decoration: none; font-size: 12px; line-height: 1.45;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.comparison-followups a:hover, .comparison-followups a:focus-visible {
+  border-color: rgba(244,243,240,.34); background: rgba(244,243,240,.06);
+}
+.comparison-followups b { flex: 0 0 auto; opacity: .55; font-size: 13px; }
+@media (min-width: 680px) {
+  .comparison-followups > div { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .timeline-item, .timeline-item::before, .compare-divider::before, .compare-handle { transition: none; }
+  .timeline-item, .timeline-item::before, .compare-divider::before, .compare-handle, .comparison-followups a { transition: none; }
   .detail.is-switching .detail-visual::after { animation: none; display: none; }
 }
 

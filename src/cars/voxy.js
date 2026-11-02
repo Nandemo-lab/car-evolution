@@ -201,6 +201,10 @@ export default {
     { href: '/compare-voxy-noah-esquire.html', label: 'VOXY・NOAH・ESQUIREを見比べる', description: '兄弟車の個性を、同じ視点で比較する。' },
     { href: '/compare-voxy-noah.html', label: 'VOXY・NOAHの違い', description: '現行兄弟車2台の顔つきを詳しく比べる。' },
   ],
+  comparisonFollowups: [
+    { href: '/voxy-60-vs-70.html', label: '60系と70系を画像・型式で比較' },
+    { href: '/voxy-80-zenki-kouki.html', label: '80系の前期・後期を詳しく比較' },
+  ],
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.

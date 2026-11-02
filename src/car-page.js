@@ -135,7 +135,10 @@ export function initCarPage(config) {
     })
   }
 
-  if (document.getElementById('compare')) initCompare(generations, config.vehicleName)
+  if (document.getElementById('compare')) {
+    initCompare(generations, config.vehicleName)
+    renderComparisonFollowups(config)
+  }
   renderGenerationGuide(config)
   renderEvolutionNotes(config)
   renderNextDiscovery(config)
@@ -261,6 +264,32 @@ function renderGuideLinks(config) {
     trackEvent('open_vehicle_guide', { vehicle: config.vehicleName, destination: link.getAttribute('href') })
   }))
   document.querySelector('.back-home').before(section)
+}
+
+// Keep the next useful comparison beside the image tool that creates the
+// intent. This compact continuation is deliberately opt-in per vehicle: it
+// only appears where search demand and a verified destination both exist.
+function renderComparisonFollowups(config) {
+  if (!config.comparisonFollowups?.length) return
+  const compare = document.getElementById('compare')
+  if (!compare) return
+
+  const nav = document.createElement('nav')
+  nav.className = 'comparison-followups'
+  nav.setAttribute('aria-label', `${config.vehicleName}の詳しい比較`)
+  nav.innerHTML = `
+    <span>この違いを詳しく見る</span>
+    <div>${config.comparisonFollowups.slice(0, 2).map((item) =>
+      `<a href="${item.href}" data-comparison-followup>${item.label}<b aria-hidden="true">→</b></a>`
+    ).join('')}</div>`
+
+  nav.querySelectorAll('[data-comparison-followup]').forEach((link) => {
+    link.addEventListener('click', () => trackEvent('open_compare_followup', {
+      vehicle: config.vehicleName,
+      destination: link.getAttribute('href'),
+    }))
+  })
+  compare.appendChild(nav)
 }
 
 function renderReferences(config) {

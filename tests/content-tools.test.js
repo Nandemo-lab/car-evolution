@@ -578,3 +578,17 @@ test('全generation比較ページは画像ごとに固有の判別点を結び�
     assert.ok(!html.includes('画像で見る場所</b><strong></strong>'),name)
   }
 })
+
+test('検索流入上位3車種は画像比較の直後に計測可能な関連導線を持つ',async()=>{
+  const source=readFileSync(new URL('../src/car-page.js',import.meta.url),'utf8')
+  assert.ok(source.includes("trackEvent('open_compare_followup'"))
+  assert.ok(source.includes('comparisonFollowups.slice(0, 2)'))
+  for(const slug of ['noah','voxy','tanto']){
+    const car=(await import(`../src/cars/${slug}.js`)).default
+    assert.equal(car.comparisonFollowups.length,2)
+    for(const item of car.comparisonFollowups){
+      assert.ok(item.href.startsWith('/'))
+      assert.ok(item.label.length>=8)
+    }
+  }
+})

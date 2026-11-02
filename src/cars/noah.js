@@ -222,6 +222,10 @@ export default {
     { href: '/compare-voxy-noah-esquire.html', label: 'VOXY・NOAH・ESQUIREを見比べる', description: 'トヨタの兄弟ミニバン3台を画像で比較し、それぞれの個性を確認する。' },
     { href: '/compare-noah-serena-stepwgn.html', label: 'NOAH・SERENA・STEP WGNの違い', description: 'Mクラスミニバン3台の顔つきとキャラクターを同じ視点で比べる。' },
   ],
+  comparisonFollowups: [
+    { href: '/noah-70-vs-80.html', label: '70系と80系を画像・型式で比較' },
+    { href: '/noah-80-vs-90.html', label: '80系と90系を画像・装備で比較' },
+  ],
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written.

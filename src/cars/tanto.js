@@ -77,6 +77,10 @@ export default {
       image: '/images/cars/tanto/gen4-2019-la650s.png',
     },
   ],
+  comparisonFollowups: [
+    { href: '/tanto-l375s-vs-la600s.html', label: 'L375SとLA600Sを画像・型式で比較' },
+    { href: '/tanto-la600s-vs-la650s.html', label: 'LA600SとLA650Sを画像・装備で比較' },
+  ],
   seo: {
     title: 'TANTO 歴代モデル・L350/L375/LA600/LA650系の違い — CarVista',
     description: 'ダイハツ タント歴代4世代を統一画像で比較。初代L350系からL375系、LA600系、現行LA650系まで、販売期間・型式・標準タントの見分け方とデザイン進化が一目でわかります。',
