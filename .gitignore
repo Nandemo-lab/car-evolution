@@ -3,6 +3,7 @@ node_modules/
 
 # Build output
 dist/
+dist-cloudflare-preview/
 
 # Editor / IDE
 .vscode/
@@ -28,6 +29,10 @@ __pycache__/
 
 # Local dependency cache
 .tmp-npm-cache/
+.wrangler/
+
+# Hosting migration QA evidence is generated locally and can be reproduced.
+outputs/cloudflare-migration/
 
 # Local Trend Radar run output (GitHub Actions stores candidate reports as artifacts)
 outputs/trend-radar/

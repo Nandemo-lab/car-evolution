@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:cloudflare": "node scripts/build-cloudflare.mjs",
     "postbuild": "npm run quality:gate",
     "quality:gate": "node --test tests/*.test.js && node scripts/audit-content-value.mjs && node scripts/audit-full-site.mjs",
     "preview": "vite preview",

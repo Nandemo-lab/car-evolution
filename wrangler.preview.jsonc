@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "carvista-static-preview",
+  "compatibility_date": "2026-11-04",
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "./dist-cloudflare-preview",
+    "html_handling": "none",
+    "not_found_handling": "none"
+  }
+}
