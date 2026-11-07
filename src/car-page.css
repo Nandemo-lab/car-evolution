@@ -296,8 +296,8 @@ html:is([data-vehicle="voxy"], [data-vehicle="noah"]) .timeline-item:not([aria-c
      wrap, it always wraps there and nowhere else. */
   max-width: 34%; white-space: normal; text-align: center; word-break: keep-all;
 }
-.annotation-label--top { top: 0; }
-.annotation-label--bottom { bottom: 0; }
+.annotation-label--top { top: calc(var(--annotation-lane, 0) * 12px); }
+.annotation-label--bottom { bottom: calc(var(--annotation-lane, 0) * 12px); }
 
 @media (max-width: 420px) {
   .annotation-label { font-size: 8.5px; max-width: 30%; }

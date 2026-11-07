@@ -1,0 +1,391 @@
+{
+  "baseUrl": "http://127.0.0.1:4173",
+  "results": [
+    {
+      "width": 320,
+      "slug": "legacy",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いヘッドランプと小型グリル",
+            "x": 165.5078125,
+            "y": 692.75,
+            "w": 82.796875,
+            "h": 11.046875
+          },
+          {
+            "text": "2.0GTのボンネットスクープ",
+            "x": 132.3984375,
+            "y": 680.75,
+            "w": 82.796875,
+            "h": 11.046875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 320,
+      "slug": "levorg",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いC字形ヘッドランプ",
+            "x": 137.9140625,
+            "y": 692.75,
+            "w": 82.796875,
+            "h": 11.046875
+          },
+          {
+            "text": "ターボ用ボンネットスクープ",
+            "x": 90.9921875,
+            "y": 680.75,
+            "w": 82.796875,
+            "h": 11.046875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 320,
+      "slug": "home",
+      "home": {
+        "makers": [
+          "TOYOTA",
+          "NISSAN",
+          "HONDA",
+          "MITSUBISHI",
+          "SUZUKI",
+          "DAIHATSU",
+          "MAZDA",
+          "SUBARU"
+        ],
+        "unique": 8,
+        "legacyScale": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "updates": "RECENT UPDATES\n\n最近の更新\n2026年11月7日\nKICKS・CR-V・INSIGHT・SUPER-ONEを追加\n2026年11月7日\nLEGACYとSUBARU主要3車種、PAJEROを追加\n2026年11月2日\n比較画像の横並び／1台表示とスマホ操作を改善",
+        "overflow": 0
+      }
+    },
+    {
+      "width": 320,
+      "slug": "kicks",
+      "kicks": {
+        "found": true,
+        "loaded": true,
+        "overflow": 0
+      }
+    },
+    {
+      "width": 375,
+      "slug": "legacy",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いヘッドランプと小型グリル",
+            "x": 194.1171875,
+            "y": 654.75,
+            "w": 99.296875,
+            "h": 11.046875
+          },
+          {
+            "text": "2.0GTのボンネットスクープ",
+            "x": 154.3984375,
+            "y": 642.75,
+            "w": 99.296875,
+            "h": 11.046875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 375,
+      "slug": "levorg",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いC字形ヘッドランプ",
+            "x": 164.2421875,
+            "y": 654.75,
+            "w": 92.828125,
+            "h": 11.046875
+          },
+          {
+            "text": "ターボ用ボンネットスクープ",
+            "x": 104.7421875,
+            "y": 642.75,
+            "w": 99.296875,
+            "h": 11.046875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 375,
+      "slug": "home",
+      "home": {
+        "makers": [
+          "TOYOTA",
+          "NISSAN",
+          "HONDA",
+          "MITSUBISHI",
+          "SUZUKI",
+          "DAIHATSU",
+          "MAZDA",
+          "SUBARU"
+        ],
+        "unique": 8,
+        "legacyScale": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "updates": "RECENT UPDATES\n\n最近の更新\n2026年11月7日\nKICKS・CR-V・INSIGHT・SUPER-ONEを追加\n2026年11月7日\nLEGACYとSUBARU主要3車種、PAJEROを追加\n2026年11月2日\n比較画像の横並び／1台表示とスマホ操作を改善",
+        "overflow": 0
+      }
+    },
+    {
+      "width": 375,
+      "slug": "kicks",
+      "kicks": {
+        "found": true,
+        "loaded": true,
+        "overflow": 0
+      }
+    },
+    {
+      "width": 390,
+      "slug": "legacy",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いヘッドランプと小型グリル",
+            "x": 201.9140625,
+            "y": 654.75,
+            "w": 103.796875,
+            "h": 11.046875
+          },
+          {
+            "text": "2.0GTのボンネットスクープ",
+            "x": 160.3984375,
+            "y": 642.75,
+            "w": 103.796875,
+            "h": 11.046875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 390,
+      "slug": "levorg",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いC字形ヘッドランプ",
+            "x": 172.8046875,
+            "y": 654.75,
+            "w": 92.828125,
+            "h": 11.046875
+          },
+          {
+            "text": "ターボ用ボンネットスクープ",
+            "x": 108.4921875,
+            "y": 642.75,
+            "w": 103.796875,
+            "h": 11.046875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 390,
+      "slug": "home",
+      "home": {
+        "makers": [
+          "TOYOTA",
+          "NISSAN",
+          "HONDA",
+          "MITSUBISHI",
+          "SUZUKI",
+          "DAIHATSU",
+          "MAZDA",
+          "SUBARU"
+        ],
+        "unique": 8,
+        "legacyScale": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "updates": "RECENT UPDATES\n\n最近の更新\n2026年11月7日\nKICKS・CR-V・INSIGHT・SUPER-ONEを追加\n2026年11月7日\nLEGACYとSUBARU主要3車種、PAJEROを追加\n2026年11月2日\n比較画像の横並び／1台表示とスマホ操作を改善",
+        "overflow": 0
+      }
+    },
+    {
+      "width": 390,
+      "slug": "kicks",
+      "kicks": {
+        "found": true,
+        "loaded": true,
+        "overflow": 0
+      }
+    },
+    {
+      "width": 430,
+      "slug": "legacy",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いヘッドランプと小型グリル",
+            "x": 216.484375,
+            "y": 654.75,
+            "w": 128.25,
+            "h": 11.6875
+          },
+          {
+            "text": "2.0GTのボンネットスクープ",
+            "x": 175.40625,
+            "y": 642.75,
+            "w": 117.78125,
+            "h": 11.6875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 430,
+      "slug": "levorg",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いC字形ヘッドランプ",
+            "x": 192.8671875,
+            "y": 654.75,
+            "w": 98.296875,
+            "h": 11.6875
+          },
+          {
+            "text": "ターボ用ボンネットスクープ",
+            "x": 117.078125,
+            "y": 642.75,
+            "w": 118.625,
+            "h": 11.6875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 430,
+      "slug": "home",
+      "home": {
+        "makers": [
+          "TOYOTA",
+          "NISSAN",
+          "HONDA",
+          "MITSUBISHI",
+          "SUZUKI",
+          "DAIHATSU",
+          "MAZDA",
+          "SUBARU"
+        ],
+        "unique": 8,
+        "legacyScale": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "updates": "RECENT UPDATES\n\n最近の更新\n2026年11月7日\nKICKS・CR-V・INSIGHT・SUPER-ONEを追加\n2026年11月7日\nLEGACYとSUBARU主要3車種、PAJEROを追加\n2026年11月2日\n比較画像の横並び／1台表示とスマホ操作を改善",
+        "overflow": 0
+      }
+    },
+    {
+      "width": 430,
+      "slug": "kicks",
+      "kicks": {
+        "found": true,
+        "loaded": true,
+        "overflow": 0
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "legacy",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いヘッドランプと小型グリル",
+            "x": 590.3125,
+            "y": 734.59375,
+            "w": 83.375,
+            "h": 11.6875
+          },
+          {
+            "text": "2.0GTのボンネットスクープ",
+            "x": 560.875,
+            "y": 722.59375,
+            "w": 83.375,
+            "h": 11.6875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "levorg",
+      "labels": {
+        "labels": [
+          {
+            "text": "鋭いC字形ヘッドランプ",
+            "x": 565.78125,
+            "y": 734.59375,
+            "w": 83.375,
+            "h": 11.6875
+          },
+          {
+            "text": "ターボ用ボンネットスクープ",
+            "x": 524.09375,
+            "y": 722.59375,
+            "w": 83.375,
+            "h": 11.6875
+          }
+        ],
+        "overlaps": [],
+        "overflow": 0
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "home",
+      "home": {
+        "makers": [
+          "TOYOTA",
+          "NISSAN",
+          "HONDA",
+          "MITSUBISHI",
+          "SUZUKI",
+          "DAIHATSU",
+          "MAZDA",
+          "SUBARU"
+        ],
+        "unique": 8,
+        "legacyScale": "matrix(1.1, 0, 0, 1.1, 0, 0)",
+        "updates": "RECENT UPDATES\n\n最近の更新\n2026年11月7日\nKICKS・CR-V・INSIGHT・SUPER-ONEを追加\n2026年11月7日\nLEGACYとSUBARU主要3車種、PAJEROを追加\n2026年11月2日\n比較画像の横並び／1台表示とスマホ操作を改善",
+        "overflow": 0
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "kicks",
+      "kicks": {
+        "found": true,
+        "loaded": true,
+        "overflow": 0
+      }
+    }
+  ],
+  "failures": []
+}

@@ -203,6 +203,12 @@ body { margin: 0; background: #0b0c0e; }
 .maker-filter button[aria-pressed="true"] { border-color: rgba(225,198,121,.72); color: #f4f3f0; background: rgba(225,198,121,.12); }
 .maker-filter button:focus-visible { outline: 3px solid #e1c679; outline-offset: 2px; }
 .maker-filter > p { margin: 10px 0 0; color: rgba(244,243,240,.48); font-size: 11px; }
+.site-updates { margin-top: 18px; padding-top: 22px; border-top: 1px solid rgba(244,243,240,.1); }
+.site-updates h2 { margin: 0; font-size: 18px; }
+.site-updates ul { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.site-updates li { display: grid; grid-template-columns: 96px 1fr; gap: 10px; color: rgba(244,243,240,.62); font-size: 11px; line-height: 1.55; }
+.site-updates time { color: rgba(244,243,240,.4); font-family: 'Inter', sans-serif; }
+@media (max-width: 360px) { .site-updates li { grid-template-columns: 1fr; gap: 2px; } }
 /* .6 opacity + .16em tracking read as thin/airy despite the 700 weight --
    wide tracking dilutes a bold face's own visual weight. Tightened
    tracking and raised opacity (contrast, not a heavier font-weight)

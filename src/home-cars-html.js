@@ -11,13 +11,26 @@ export function homeCatalog(cars) {
 
 function groupByMaker(cars, roadmap) {
   const groups = new Map()
+  const makerLabels = new Map([
+    ['toyota', 'TOYOTA'],
+    ['nissan', 'NISSAN'],
+    ['honda', 'HONDA'],
+    ['mitsubishi', 'MITSUBISHI'],
+    ['suzuki', 'SUZUKI'],
+    ['daihatsu', 'DAIHATSU'],
+    ['mazda', 'MAZDA'],
+    ['subaru', 'SUBARU'],
+  ])
+  const normalizeMaker = (maker = '') => makerLabels.get(String(maker).trim().toLowerCase()) || String(maker).trim().toUpperCase()
   for (const car of cars) {
-    if (!groups.has(car.maker)) groups.set(car.maker, { maker: car.maker, cars: [], comingSoon: [] })
-    groups.get(car.maker).cars.push(car)
+    const maker = normalizeMaker(car.maker)
+    if (!groups.has(maker)) groups.set(maker, { maker, cars: [], comingSoon: [] })
+    groups.get(maker).cars.push(car)
   }
   for (const item of roadmap) {
-    if (!groups.has(item.maker)) groups.set(item.maker, { maker: item.maker, cars: [], comingSoon: [] })
-    groups.get(item.maker).comingSoon.push(item)
+    const maker = normalizeMaker(item.maker)
+    if (!groups.has(maker)) groups.set(maker, { maker, cars: [], comingSoon: [] })
+    groups.get(maker).comingSoon.push(item)
   }
   return [...groups.values()]
 }

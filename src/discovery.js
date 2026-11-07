@@ -51,6 +51,7 @@ const topCardPresentation = {
   tanto: 1.15,
   'n-box': 1.07,
   spacia: 1.07,
+  legacy: 1.1,
 }
 
 // Every published TOP card must be visually checked before its slug is added

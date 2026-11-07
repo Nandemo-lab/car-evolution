@@ -2,6 +2,7 @@ import './car-page.css'
 import './click-glow.js'
 import { getDiscoveryImage, getDiscoveryStyle, getSlugFromPath, relatedCars } from './discovery.js'
 import { trackEvent } from './analytics.js'
+import { assignAnnotationLanes } from './annotation-layout.js'
 
 // vite.config.js supplies a compact, data-derived HTML fallback for
 // non-JavaScript crawlers. The interactive catalogue takes over as soon as
@@ -225,7 +226,7 @@ function renderGenerationGuide(config) {
       return `<article>${guide.layout === 'chronology' ? '' : generation?.image ? `<img src="${generation.image}" alt="${config.vehicleName} ${item.title}" loading="lazy" decoding="async" />` : '<div class="generation-guide-image-hold"><strong>公式画像未掲載</strong><span>型式・販売期間で確認</span></div>'}<div><strong>${item.title}</strong><span>${item.description}</span><b>主な型式・販売期間：${item.meta}</b></div></article>`
     }).join('')}</div>`
   section.innerHTML = config.generations.length > 1
-    ? `<details class="history-disclosure"><summary id="generation-guide-summary"><span>全世代の見分け方</span><small>画像・型式・販売期間を一覧で確認</small></summary><div class="history-disclosure-body">${content}</div></details>`
+    ? `<details class="history-disclosure"${guide.open ? ' open' : ''}><summary id="generation-guide-summary"><span>全世代の見分け方</span><small>画像・型式・販売期間を一覧で確認</small></summary><div class="history-disclosure-body">${content}</div></details>`
     : content
   document.querySelector('.back-home').before(section)
 }
@@ -527,12 +528,17 @@ export function renderCallouts(container, annotations) {
   // CSS) that reads as a shorter, more restrained leader line, closer
   // to the way Apple's product pages callout lines stop well short of
   // their caption instead of touching it.
-  const rowY = { top: 6, bottom: 94 }
+  // Nearby labels cannot share one row on a phone: LEGACY and LEVORG
+  // demonstrated that two correct callouts can become unreadable when their
+  // anchors are only a few percent apart. Assign a second lane only when
+  // necessary, while keeping isolated labels in the original position.
+  const lanes = assignAnnotationLanes(annotations)
+  const lineEndY = (dir, lane) => dir === 'top' ? 5 + lane * 6 : 95 - lane * 6
   const lines = annotations
-    .map((a) => `<line x1="${a.x}" y1="${toVisualY(a.y)}" x2="${a.labelX}" y2="${rowY[a.dir]}" vector-effect="non-scaling-stroke" />`)
+    .map((a, index) => `<line x1="${a.x}" y1="${toVisualY(a.y)}" x2="${a.labelX}" y2="${lineEndY(a.dir, lanes.get(index) || 0)}" vector-effect="non-scaling-stroke" />`)
     .join('')
   const labels = annotations
-    .map((a) => `<span class="annotation-label annotation-label--${a.dir}" style="left:${a.labelX}%">${a.label}</span>`)
+    .map((a, index) => `<span class="annotation-label annotation-label--${a.dir}" style="left:${a.labelX}%;--annotation-lane:${lanes.get(index) || 0}">${a.label}</span>`)
     .join('')
   container.innerHTML = `<svg class="annotation-lines" viewBox="0 0 100 100" preserveAspectRatio="none">${lines}</svg>${labels}`
 }

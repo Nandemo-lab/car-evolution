@@ -9,7 +9,8 @@ import { findModels, findModelDestinations, normalizeModelQuery } from '../src/m
 import { generationComparisonHtml } from '../src/generation-comparison-html.js'
 import { withFaceliftEnhancement } from '../src/facelift-enhancements.js'
 import { resolveReferences } from '../src/official-sources.js'
-import { homeCatalog } from '../src/home-cars-html.js'
+import { homeCatalog, homeCarsHtml } from '../src/home-cars-html.js'
+import { assignAnnotationLanes } from '../src/annotation-layout.js'
 import { topCardVisualAudit, getDiscoveryImage } from '../src/discovery.js'
 import { buildDealerQuestions, findGenerationsByYear, generationYearBounds } from '../src/vehicle-year-finder.js'
 
@@ -60,6 +61,44 @@ test('TOPの43車種は初期HTMLで到達可能なままメーカー絞り込�
   assert.match(js,/aria-pressed/)
   assert.match(js,/filter_home_cars/)
   assert.match(js,/group\.hidden = !matches/)
+})
+
+test('TOPはメーカー名の大文字小文字が混在しても同一グループへ統合する', () => {
+  const html = homeCarsHtml([
+    { slug:'one', vehicleName:'ONE', maker:'Honda' },
+    { slug:'two', vehicleName:'TWO', maker:'HONDA' },
+  ])
+  assert.equal((html.match(/class="maker-group"/g) || []).length, 1)
+  assert.equal((html.match(/class="maker-name">HONDA/g) || []).length, 1)
+  assert.match(html, /ONE/)
+  assert.match(html, /TWO/)
+})
+
+test('近接する世代注釈はスマホで同じ行に重ならない', () => {
+  const lanes = assignAnnotationLanes([
+    { x:68, y:39, label:'鋭いヘッドランプ', dir:'top', labelX:67 },
+    { x:58, y:25, label:'ボンネットスクープ', dir:'top', labelX:55 },
+  ])
+  assert.deepEqual([...lanes.values()].sort(), [0, 1])
+  for (const car of cars) {
+    for (const generation of car.generations) {
+      const annotations = generation.annotations || []
+      const assigned = assignAnnotationLanes(annotations)
+      annotations.forEach((annotation, index) => annotations.slice(index + 1).forEach((other, offset) => {
+        if (annotation.dir !== other.dir || Math.abs(annotation.labelX - other.labelX) >= 30) return
+        assert.notEqual(assigned.get(index), assigned.get(index + offset + 1), `${car.slug} ${generation.title}`)
+      }))
+    }
+  }
+})
+
+test('KICKS国内初代P15は公式根拠付き画像を持つ', () => {
+  const kicks = cars.find(car => car.slug === 'kicks')
+  const first = kicks.generations[0]
+  assert.match(first.code, /P15/)
+  assert.match(first.image, /kicks-p15-2020-studio-v1\.webp$/)
+  assert.ok(existsSync(new URL(`../public${first.image}`, import.meta.url)))
+  assert.ok(kicks.references.items.some(item => item.url.includes('/200624-01-j')))
 })
 
 test('VOXY・NOAH比較は判断を先に、詳細条件を初期HTML内の段階表示にする', () => {
@@ -588,7 +627,9 @@ test('ホームは迷いを減らす3つの入口とno-JS型式一覧を持つ',
   assert.equal((html.match(/class="task-paths-primary"/g)||[]).length,1)
   assert.ok(html.includes('まずは車名で探す'))
   assert.ok(html.includes('車名と初度登録年から、世代候補を絞る'))
-  assert.ok(html.includes('サイト更新：2026年10月'))
+  assert.ok(html.includes('最近の更新'))
+  assert.ok(html.includes('2026年11月7日'))
+  assert.ok(html.includes('KICKS・CR-V・INSIGHT・SUPER-ONEを追加'))
   assert.ok(html.includes('class="model-directory-group"'))
   for(const code of ['JF1','AGH30','MA36S']) assert.ok(html.includes(code),code)
   assert.ok(html.includes('role="combobox"'))
