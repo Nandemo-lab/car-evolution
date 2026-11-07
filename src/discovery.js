@@ -24,9 +24,10 @@ export const relatedCars = {
   yaris: ['aqua', 'raize', 'sienta'],
   raize: ['yaris', 'corolla-cross', 'rav4'],
   pajero: ['delica-d5', 'forester', 'rav4'],
-  forester: ['crosstrek', 'pajero', 'rav4'],
-  crosstrek: ['forester', 'levorg', 'corolla-cross'],
-  levorg: ['crosstrek', 'forester', 'prius'],
+  forester: ['crosstrek', 'legacy', 'pajero'],
+  crosstrek: ['forester', 'levorg', 'legacy'],
+  levorg: ['legacy', 'crosstrek', 'forester'],
+  legacy: ['levorg', 'forester', 'crosstrek'],
 }
 
 export function getSlugFromPath(pathname = window.location.pathname) {
@@ -36,7 +37,7 @@ export function getSlugFromPath(pathname = window.location.pathname) {
 // TOP is a single catalogue, not a collection of page hero crops. Every
 // non-anchor asset is rendered to the same front-right studio specification.
 const topCardImages = Object.fromEntries([
-  'alphard','vellfire','noah','voxy','esquire','prius','harrier','sienta','corolla-cross','aqua','rav4','yaris','raize','roomy','serena','roox','stepwgn','freed','n-box','vezel','n-one','delica-d5','delica-mini','solio','spacia','jimny','hustler','wagon-r-smile','tanto','move','cx-5','pajero','forester','crosstrek','levorg',
+  'alphard','vellfire','noah','voxy','esquire','prius','harrier','sienta','corolla-cross','aqua','rav4','yaris','raize','roomy','serena','roox','stepwgn','freed','n-box','vezel','n-one','delica-d5','delica-mini','solio','spacia','jimny','hustler','wagon-r-smile','tanto','move','cx-5','pajero','forester','crosstrek','levorg','legacy',
 ].map(slug=>[slug,`/images/top-cards/${slug}.webp`]))
 
 const topCardPresentation = {
@@ -56,7 +57,7 @@ export const topCardVisualAudit = Object.fromEntries([
   'vezel', 'delica-d5', 'solio', 'spacia', 'tanto',
   'rav4', 'cx-5', 'roox', 'delica-mini', 'jimny',
   'hustler', 'roomy', 'move', 'aqua', 'yaris', 'raize', 'n-one', 'wagon-r-smile',
-  'pajero', 'forester', 'crosstrek', 'levorg',
+  'pajero', 'forester', 'crosstrek', 'levorg', 'legacy',
 ].map((slug) => [slug, { direction: 'front-right', angle: 'front-dominant-3q' }]))
 
 // TOP and NEXT DISCOVERY share one art-directed set: same 4:3 canvas,
