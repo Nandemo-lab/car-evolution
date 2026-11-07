@@ -36,8 +36,8 @@ test('TOP車種カードで別車種が同一画像データを共有しない',
 })
 test('TOP全車種カードは軽量WebP派生画像を使いMaster Assetを直接配信しない', () => {
   const images=cars.map(car=>getDiscoveryImage(car))
-  assert.equal(images.length,31)
-  assert.equal(new Set(images).size,31)
+  assert.equal(images.length,35)
+  assert.equal(new Set(images).size,35)
   for(const image of images){
     assert.match(image,/^\/images\/top-cards\/[a-z0-9-]+\.webp$/)
     const file=new URL(`../public${image}`,import.meta.url)
@@ -52,7 +52,7 @@ test('TOPの外部Webフォントは描画をブロックせず最終書体を�
   assert.match(html,/fonts\.googleapis\.com[^>]+media="print"[^>]+onload="this\.media='all'"/)
   assert.match(html,/<noscript><link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com/)
 })
-test('TOPの31車種は初期HTMLで到達可能なままメーカー絞り込みを提供する', () => {
+test('TOPの35車種は初期HTMLで到達可能なままメーカー絞り込みを提供する', () => {
   const html=readFileSync(new URL('../index.html',import.meta.url),'utf8')
   const js=readFileSync(new URL('../src/home.js',import.meta.url),'utf8')
   assert.match(html,/id="maker-filter"[^>]+hidden/)
@@ -105,11 +105,11 @@ test('車名と初度登録年は境界年を単一世代に断定しない', ()
   assert.ok(boundary.some(item => item.code.includes('ZVW50')))
   assert.deepEqual(generationYearBounds(prius.generations.find(item => item.code.includes('ZVW30'))), { start: 2009, end: 2015 })
 })
-test('YEAR FINDERは全31車種の全販売境界年と前後年を欠落なく判定する', () => {
-  assert.equal(cars.length, 31)
+test('YEAR FINDERは全35車種の全販売境界年と前後年を欠落なく判定する', () => {
+  assert.equal(cars.length, 35)
   let checkedYears = 0
   for (const car of cars) {
-    const bounds = car.generations.map(generation => ({ generation, ...generationYearBounds(generation) }))
+    const bounds = car.generations.filter(generation => !generation.excludeFromYearFinder).map(generation => ({ generation, ...generationYearBounds(generation) }))
     assert.ok(bounds.length > 0, `${car.slug}: 世代定義なし`)
     for (const { generation, start, end } of bounds) {
       assert.ok(Number.isInteger(start) && Number.isInteger(end) && start <= end, `${car.slug}: ${generation.code} の期間が不正`)
@@ -156,6 +156,18 @@ test('YEAR FINDERは改良年を世代交代と誤認せず、併売・空白年
   // 掲載範囲外の年は推測で最古・最新世代へ寄せない。
   assert.deepEqual(findGenerationsByYear(bySlug('vezel'), 2012), [])
   assert.deepEqual(findGenerationsByYear(bySlug('corolla-cross'), 2020), [])
+})
+
+test('PAJERO発売予定車は初度登録年判定に混ぜずSUBARU新規3車種は型式検索できる', () => {
+  const pajero = cars.find(car => car.slug === 'pajero')
+  assert.equal(findGenerationsByYear(pajero, 2026).some(item => item.title.includes('2026年モデル')), false)
+  for (const [query, slug] of [['SLG','forester'], ['GUF','crosstrek'], ['VN5','levorg']]) {
+    assert.equal(findModels(cars, query)[0].car.slug, slug)
+  }
+  for (const slug of ['pajero','forester','crosstrek','levorg']) {
+    const html = readFileSync(new URL(`../dist/cars/${slug}.html`, import.meta.url), 'utf8')
+    assert.ok(html.includes('公式画像未掲載'), `${slug}: 旧世代の非架空画像表示がない`)
+  }
 })
 test('販売店質問は確定に必要な項目だけを作り車台番号入力を要求しない', () => {
   const nbox = cars.find(car => car.slug === 'n-box')
@@ -243,16 +255,16 @@ test('N-BOXとVOXYの比較画像は横並びと単独表示を安全に切り�
   assert.ok(voxy.includes('comparison-hero-compact'))
   assert.ok(voxy.includes('型式・仕様・購入前確認'))
 })
-test('ホームはJavaScript実行前から31車種すべての歴代ページにリンクする',()=>{
+test('ホームはJavaScript実行前から35車種すべての歴代ページにリンクする',()=>{
   const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
   for(const car of cars) assert.ok(html.includes(`/cars/${car.slug}.html`),car.slug)
   const catalog=homeCatalog(cars)
-  assert.equal(catalog.length,31)
+  assert.equal(catalog.length,35)
   for(const slug of ['rav4','cx-5','roox','delica-mini','jimny']) {
     assert.ok(catalog.some(car=>car.slug===slug && car.href===`/cars/${slug}.html`),slug)
     assert.ok(html.includes(`href="/cars/${slug}.html"`),slug)
   }
-  assert.ok(html.includes('31 Models'))
+  assert.ok(html.includes('35 Models'))
   assert.ok(!html.includes('mini-card-kind'))
   assert.ok(!html.includes('>新旧比較<'))
 })
@@ -332,10 +344,10 @@ test('個別の配列形式出典を優先し、確認日を捏造しない',()=
   assert.ok(refs.items.every(item=>item.url.startsWith('https://www.daihatsu.com/')))
   for(const car of cars) assert.ok(resolveReferences(car)?.items.length>0,car.slug)
 })
-test('公開97 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
+test('公開101 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
   const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
-  assert.equal(urls.length,97)
+  assert.equal(urls.length,101)
   for(const url of urls){
     const pathname=new URL(url).pathname
     const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')
@@ -389,7 +401,7 @@ test('忍者AdMaxは承認済み4ページだけに公式タグを1枠ずつ配�
 test('全公開ページは独立したスマホ用ホームヘッダー・先頭ボタンを初期HTMLに持つ',()=>{
   const sitemap=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...sitemap.matchAll(/<loc>https:\/\/carvista\.jp(.*?)<\/loc>/g)].map(match=>match[1]||'/')
-  assert.equal(urls.length,97)
+  assert.equal(urls.length,101)
   for(const url of urls){
     const file=url==='/'?'index.html':url.replace(/^\//,'')
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')

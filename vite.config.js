@@ -305,7 +305,10 @@ function buildStaticVehicleFallback(car) {
     const changes = generation.facelift?.points?.length
       ? `<h4>${escapeHtml(generation.facelift.fromYear)}年から${escapeHtml(generation.facelift.toYear)}年までの主な変化</h4><ul>${generation.facelift.points.map(point => `<li>${escapeHtml(point)}</li>`).join('')}</ul>`
       : ''
-    return `<article class="static-generation-card"><img src="${escapeHtml(generation.image)}" alt="${escapeHtml(`${car.vehicleName} ${generation.title}の代表画像`)}" ${index ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async" /><h3>${escapeHtml(generation.era)}・${escapeHtml(generation.title)}</h3><p>${escapeHtml(generation.period)}｜主な型式：${escapeHtml(generation.code)}</p>${clues ? `<p><strong>画像で見る手がかり：</strong>${clues}</p>` : ''}${changes}</article>`
+    const visual = generation.image
+      ? `<img src="${escapeHtml(generation.image)}" alt="${escapeHtml(`${car.vehicleName} ${generation.title}の代表画像`)}" ${index ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async" />`
+      : '<div class="static-generation-image-hold"><strong>公式画像未掲載</strong><span>型式・販売期間・見分け方を掲載しています</span></div>'
+    return `<article class="static-generation-card">${visual}<h3>${escapeHtml(generation.era)}・${escapeHtml(generation.title)}</h3><p>${escapeHtml(generation.period)}｜主な型式：${escapeHtml(generation.code)}</p>${clues ? `<p><strong>画像で見る手がかり：</strong>${clues}</p>` : ''}${changes}</article>`
   }).join('')
   const guide = car.generationGuide?.items?.length
     ? `<h2>${escapeHtml(car.generationGuide.title)}</h2><p>${escapeHtml(car.generationGuide.intro)}</p><div>${car.generationGuide.items.map(item => `<article><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p><p>${escapeHtml(item.meta)}</p></article>`).join('')}</div>`

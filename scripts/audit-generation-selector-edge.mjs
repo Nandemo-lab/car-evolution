@@ -3,11 +3,14 @@ import { mkdtemp, readdir, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-const edge='C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
+const edge=process.env.BROWSER_PATH||'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
 const baseUrl=process.env.AUDIT_BASE_URL||'http://127.0.0.1:4173'
-const slugs=(await readdir(new URL('../src/cars/',import.meta.url))).filter(name=>name.endsWith('.js')).map(name=>name.replace('.js','')).sort()
+const requestedSlugs=(process.env.QA_SLUGS||'').split(',').map(value=>value.trim()).filter(Boolean)
+const slugs=(await readdir(new URL('../src/cars/',import.meta.url))).filter(name=>name.endsWith('.js')).map(name=>name.replace('.js','')).filter(slug=>!requestedSlugs.length||requestedSlugs.includes(slug)).sort()
 const cars=new Map(await Promise.all(slugs.map(async slug=>[slug,(await import(`../src/cars/${slug}.js`)).default])))
-const cases=slugs.flatMap(slug=>[320,375,390,430,1440].map(width=>({slug,width})))
+const requestedWidths=(process.env.QA_WIDTHS||'').split(',').map(Number).filter(Number.isFinite)
+const widths=requestedWidths.length?requestedWidths:[320,375,390,430,1440]
+const cases=slugs.flatMap(slug=>widths.map(width=>({slug,width})))
 const port=9800+Math.floor(Math.random()*150)
 const profile=await mkdtemp(join(tmpdir(),'carvista-generation-selector-'))
 const browser=spawn(edge,[`--remote-debugging-port=${port}`,'--headless=new','--disable-gpu','--no-first-run',`--user-data-dir=${profile}`,'about:blank'],{stdio:'ignore'})
@@ -35,7 +38,7 @@ try{
     await send('Emulation.setDeviceMetricsOverride',{width,height:width===1440?1000:844,deviceScaleFactor:1,mobile:width<700},sessionId)
     await send('Page.navigate',{url:`${baseUrl}/cars/${slug}.html`},sessionId)
     for(let attempt=0;attempt<100;attempt++){
-      const ready=await evaluate(`document.readyState==='complete'&&!!document.querySelector('#detail-code')&&${count===1?'true':"!!document.querySelector('.timeline-item')"}`)
+      const ready=await evaluate(`document.readyState!=='loading'&&!!document.querySelector('#detail-code')&&${count===1?'true':"!!document.querySelector('.timeline-item')"}`)
       if(ready)break
       await wait(100)
     }

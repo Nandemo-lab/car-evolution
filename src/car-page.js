@@ -77,6 +77,7 @@ function withImageFallback(img) {
   label.className = 'image-missing-label'
   label.textContent = '画像準備中'
   img.insertAdjacentElement('afterend', label)
+  img._fallbackLabel = label
   img.addEventListener('error', () => {
     img.style.visibility = 'hidden'
     label.classList.add('is-visible')
@@ -191,7 +192,7 @@ function renderGenerationGuide(config) {
     <div class="generation-guide-heading"><p>IDENTIFICATION</p><h2 id="generation-guide-title">${guide.title}</h2><span>${guide.intro}</span></div>
     <div class="generation-guide-grid">${guide.items.map((item, index) => {
       const generation = config.generations[index]
-      return `<article>${guide.layout === 'chronology' ? '' : `<img src="${generation?.image || ''}" alt="${config.vehicleName} ${item.title}" loading="lazy" decoding="async" />`}<div><strong>${item.title}</strong><span>${item.description}</span><b>主な型式・販売期間：${item.meta}</b></div></article>`
+      return `<article>${guide.layout === 'chronology' ? '' : generation?.image ? `<img src="${generation.image}" alt="${config.vehicleName} ${item.title}" loading="lazy" decoding="async" />` : '<div class="generation-guide-image-hold"><strong>公式画像未掲載</strong><span>型式・販売期間で確認</span></div>'}<div><strong>${item.title}</strong><span>${item.description}</span><b>主な型式・販売期間：${item.meta}</b></div></article>`
     }).join('')}</div>`
   section.innerHTML = config.generations.length > 1
     ? `<details class="history-disclosure"><summary id="generation-guide-summary"><span>全世代の見分け方</span><small>画像・型式・販売期間を一覧で確認</small></summary><div class="history-disclosure-body">${content}</div></details>`
@@ -374,8 +375,8 @@ function renderHeritage(generations) {
   el.innerHTML = points.join('<span class="heritage-line"></span>')
 }
 
-function generationLabel(index) {
-  return index === 0 ? '初代' : `${index + 1}代目`
+function generationLabel(index, generation) {
+  return generation?.generationLabel || (index === 0 ? '初代' : `${index + 1}代目`)
 }
 
 function renderTimeline(generations, vehicleName, defaultIndex) {
@@ -389,7 +390,7 @@ function renderTimeline(generations, vehicleName, defaultIndex) {
   heading.className = 'timeline-heading'
   heading.innerHTML = `
     <div><strong>世代を選んで見比べる</strong><span>選ぶと、下の大きな画像・型式・販売期間が切り替わります</span></div>
-    <b class="timeline-current" id="timeline-current" aria-live="polite">${generationLabel(defaultIndex)}を表示中</b>
+    <b class="timeline-current" id="timeline-current" aria-live="polite">${generationLabel(defaultIndex, generations[defaultIndex])}を表示中</b>
   `
   nav.appendChild(heading)
 
@@ -430,10 +431,10 @@ function renderTimeline(generations, vehicleName, defaultIndex) {
       // once browsing an older one has dimmed it back down.
     }
     if (index === generations.length - 1) btn.dataset.latest = 'true'
-    const label = generationLabel(index)
+    const label = generationLabel(index, gen)
     btn.setAttribute('aria-label', `${label} ${gen.title} ${gen.yearRange}を表示`)
     btn.innerHTML = `
-      <span class="timeline-thumb"><img src="${gen.image}" alt="${gen.era} ${vehicleName}" loading="lazy" decoding="async" /></span>
+      <span class="timeline-thumb">${gen.image ? `<img src="${gen.image}" alt="${gen.era} ${vehicleName}" loading="lazy" decoding="async" />` : '<span class="timeline-thumb-placeholder"><b>画像未掲載</b><small>型式で確認</small></span>'}</span>
       <span class="timeline-tag">
         <span class="timeline-generation">${label}</span>
         <span class="timeline-model">${gen.title}</span>
@@ -442,7 +443,7 @@ function renderTimeline(generations, vehicleName, defaultIndex) {
       </span>
     `
     const thumbImg = btn.querySelector('.timeline-thumb img')
-    withImageFallback(thumbImg)
+    if (thumbImg) withImageFallback(thumbImg)
     options.appendChild(btn)
   })
 }
@@ -574,10 +575,24 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
   }
 
   function render(gen, index) {
-    refs.image.src = gen.image
-    refs.image.alt = `${gen.era} ${vehicleName} ${gen.title}`
-    if (refs.image.complete) syncDetailAspect()
-    const label = generationLabel(index)
+    refs.visual.classList.toggle('is-image-unavailable', !gen.image)
+    if (gen.image) {
+      refs.image.src = gen.image
+      refs.image.alt = `${gen.era} ${vehicleName} ${gen.title}`
+      refs.image.style.visibility = ''
+      refs.image._fallbackLabel?.classList.remove('is-visible')
+      if (refs.image.complete) syncDetailAspect()
+    } else {
+      refs.image.removeAttribute('src')
+      refs.image.alt = ''
+      refs.image.style.visibility = 'hidden'
+      if (refs.image._fallbackLabel) {
+        refs.image._fallbackLabel.textContent = '公式画像は掲載していません。型式・販売期間・見分け方で確認してください。'
+        refs.image._fallbackLabel.classList.add('is-visible')
+      }
+      refs.visual.style.setProperty('--detail-visual-ratio', '1.45')
+    }
+    const label = generationLabel(index, gen)
     refs.numeral.textContent = '選択中'
     refs.era.textContent = gen.era === label ? label : `${label}・${gen.era}`
     refs.title.textContent = gen.title
@@ -599,7 +614,7 @@ function createDetailEngine(refs, generations, defaultIndex, vehicleName) {
       btn.setAttribute('aria-current', String(Number(btn.dataset.gen) === index))
     })
     const current = document.getElementById('timeline-current')
-    if (current) current.textContent = `${generationLabel(index)}を表示中`
+    if (current) current.textContent = `${generationLabel(index, gen)}を表示中`
 
     // One quiet scan line acknowledges a new entry in the archive. It runs
     // across the image frame only, leaving captions and facts steady.

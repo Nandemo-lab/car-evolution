@@ -18,6 +18,7 @@ export function findGenerationsByYear(car, year) {
   const target = Number(year)
   if (!Number.isInteger(target)) return []
   return (car.generations || []).filter(generation => {
+    if (generation.excludeFromYearFinder) return false
     const { start, end } = generationYearBounds(generation)
     return start !== null && end !== null && target >= start && target <= end
   })
