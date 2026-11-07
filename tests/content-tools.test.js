@@ -185,9 +185,13 @@ test('最新3車種は車名・別名・型式から到達し発売前e SKYをYE
   for (const [query, slug] of [['イースカイ','e-sky'], ['ランクルFJ','land-cruiser-fj'], ['E53','elgrand']]) {
     assert.equal(findModels(cars, query)[0].car.slug, slug)
   }
+  assert.equal(findModels(cars, 'KBAAS')[0].car.slug, 'e-sky')
+  assert.equal(findModels(cars, 'TRJ240W')[0].car.slug, 'land-cruiser-fj')
   assert.deepEqual(findGenerationsByYear(cars.find(car => car.slug === 'e-sky'), 2026), [])
   assert.ok(findGenerationsByYear(cars.find(car => car.slug === 'land-cruiser-fj'), 2026).length === 1)
   assert.ok(findGenerationsByYear(cars.find(car => car.slug === 'elgrand'), 2026).some(item => item.code === 'E53'))
+  assert.equal(cars.find(car => car.slug === 'e-sky').generations[0].code, 'ZAA-KBAAS')
+  assert.equal(cars.find(car => car.slug === 'land-cruiser-fj').generations[0].code, '3BA-TRJ240W-GGTPK')
 })
 test('販売店質問は確定に必要な項目だけを作り車台番号入力を要求しない', () => {
   const nbox = cars.find(car => car.slug === 'n-box')

@@ -1,5 +1,5 @@
 const generations = [{
-  numeral:'NEW', era:'初代・発売予定', title:'e SKY', code:'国内車両型式は発売前のため未公表',
+  numeral:'NEW', era:'初代・発売予定', title:'e SKY', code:'ZAA-KBAAS',
   startYear:'2026', yearRange:'2026年11月16日発売予定', period:'2026年11月16日 国内発売予定',
   image:'/images/cars/e-sky/e-sky-2026-studio-v1.webp', excludeFromYearFinder:true,
   annotations:[{x:70,y:43,label:'数字を思わせるLEDランプ',dir:'top',labelX:69},{x:67,y:62,label:'黒いロアバンパー',dir:'bottom',labelX:68}],
@@ -8,12 +8,13 @@ const generations = [{
 
 export default {
   eyebrow:'NEW MODEL',vehicleName:'e SKY',brand:'スズキ',maker:'SUZUKI',order:37,
-  aliases:['e SKY','ESKY','eスカイ','イースカイ','いーすかい','軽EV'],
+  aliases:['e SKY','ESKY','eスカイ','イースカイ','いーすかい','軽EV','ZAA-KBAAS','KBAAS'],
   designRole:'スズキ初の軽乗用EV。発売前のため、確定済みの公式発表だけを掲載。',
   designIdentity:['Digital lamp','HEARTECT-e','Kei EV'],designAvoid:['concept Vision e-Sky','accessory kit','grade mixing'],
   representativeGrade:'X・2WD',representativeColor:'イマージョンブルーパールメタリック ブラック2トーンルーフ',heroScrim:'8, 10, 13',
   references:{checkedAt:'2026年11月7日',items:[
     {generations:'初代',label:'スズキ 新型e SKY公式発表（発売日・価格・仕様）',url:'https://www.suzuki.co.jp/release/a/2026/1006/index.html'},
+    {generations:'初代',label:'スズキ 主要装備・主要諸元表（型式・機種差）',url:'https://www.suzuki.co.jp/car/esky/detail/pdf/detail.pdf'},
     {generations:'初代',label:'e SKY公式Webカタログ',url:'https://www.suzuki.co.jp/car/esky/'},
   ]},
   tagline:'2026年11月16日発売予定。3機種と外観・EV仕様を公式情報で確認。',

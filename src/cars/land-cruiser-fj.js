@@ -1,5 +1,5 @@
 const generations = [{
-  numeral:'I',era:'初代・現行',title:'LAND CRUISER FJ',code:'国内車両型式は公式Webカタログで確認',startYear:'2026',yearRange:'2026–現在',period:'2026年5月14日〜現在',
+  numeral:'I',era:'初代・現行',title:'LAND CRUISER FJ',code:'3BA-TRJ240W-GGTPK',startYear:'2026',yearRange:'2026–現在',period:'2026年5月14日〜現在',
   image:'/images/cars/land-cruiser-fj/land-cruiser-fj-2026-studio-v1.webp',
   annotations:[{x:70,y:42,label:'角形LEDランプとTOYOTAグリル',dir:'top',labelX:69},{x:72,y:65,label:'標準の角形バンパー',dir:'bottom',labelX:72}],
   facelift:{fromYear:'2026',toYear:'現行',note:'掲載画像はVX・スモーキーブルーの標準外装代表。2027年発売予定の丸目ランプ／アドベンチャーバンパーは含みません。',points:['2026年5月14日発売','VX・5人乗り・パートタイム4WD','2.7Lガソリン＋6速AT']},
@@ -7,7 +7,7 @@ const generations = [{
 
 export default {
   eyebrow:'NEW MODEL',vehicleName:'LAND CRUISER FJ',cardName:'LAND CRUISER FJ',brand:'トヨタ',maker:'TOYOTA',order:38,
-  aliases:['LAND CRUISER FJ','ランドクルーザーFJ','ランクルFJ','ランクル エフジェイ','LC FJ','FJ'],
+  aliases:['LAND CRUISER FJ','ランドクルーザーFJ','ランクルFJ','ランクル エフジェイ','LC FJ','FJ','3BA-TRJ240W-GGTPK','TRJ240W'],
   designRole:'ランドクルーザーに追加された扱いやすい5人乗りFJシリーズ。',
   designIdentity:['Freedom & Joy','Part-time 4WD','Compact Land Cruiser'],designAvoid:['round-headlamp option','250/300 mixing','ARB accessories'],
   representativeGrade:'VX',representativeColor:'スモーキーブルー',heroScrim:'8, 10, 13',
