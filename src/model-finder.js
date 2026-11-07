@@ -30,6 +30,10 @@ const japaneseNames = {
   raize: 'ライズ RAIZE',
   'n-one': 'エヌワン えぬわん NONE N ONE',
   'wagon-r-smile': 'ワゴンRスマイル ワゴンアールスマイル わごんあーるすまいる WAGONRSMILE',
+  kicks: 'キックス きっくす KICKS',
+  'cr-v': 'CRV シーアールブイ しーあーるぶい',
+  insight: 'インサイト いんさいと INSIGHT',
+  'super-one': 'SuperONE スーパーONE スーパーワン すーぱーわん',
 }
 
 const hiragana = value => value.replace(/[ァ-ヶ]/g, char => String.fromCharCode(char.charCodeAt(0) - 0x60))
