@@ -530,6 +530,28 @@ html:is([data-vehicle="voxy"], [data-vehicle="noah"]) .timeline-item:not([aria-c
   border-color: rgba(244,243,240,.34); background: rgba(244,243,240,.06);
 }
 .comparison-followups b { flex: 0 0 auto; opacity: .55; font-size: 13px; }
+
+.generation-quick-guide { padding: 0 22px 44px; }
+.generation-quick-guide-heading { display: grid; gap: 8px; max-width: 760px; }
+.generation-quick-guide-heading p { margin: 0; color: rgba(244,243,240,.42); font: 600 10px/1 'Inter', sans-serif; letter-spacing: .2em; }
+.generation-quick-guide-heading h2 { margin: 0; font-size: clamp(21px, 5.5vw, 28px); letter-spacing: -.02em; }
+.generation-quick-guide-heading > span { color: rgba(244,243,240,.62); font-size: 12px; line-height: 1.7; }
+.generation-quick-guide-points { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 18px; }
+.generation-quick-guide-points article { padding: 14px 15px; border-top: 2px solid rgba(160,211,255,.62); background: rgba(160,211,255,.045); }
+.generation-quick-guide-points strong { display: block; font-size: 13px; }
+.generation-quick-guide-points span { display: block; margin-top: 5px; color: rgba(244,243,240,.64); font-size: 12px; line-height: 1.6; }
+.generation-quick-guide nav { display: grid; grid-template-columns: 1fr; gap: 7px; margin-top: 12px; }
+.generation-quick-guide nav a { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 14px; border: 1px solid rgba(244,243,240,.14); border-radius: 10px; color: #f4f3f0; font-size: 12px; font-weight: 650; text-decoration: none; }
+.generation-quick-guide nav a:hover, .generation-quick-guide nav a:focus-visible { border-color: rgba(160,211,255,.58); background: rgba(160,211,255,.07); }
+.generation-quick-guide nav b { opacity: .55; }
+@media (min-width: 700px) {
+  .generation-quick-guide { padding-left: 8vw; padding-right: 8vw; }
+  .generation-quick-guide-points { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .generation-quick-guide nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .generation-quick-guide nav a { transition: none; }
+}
 @media (min-width: 680px) {
   .comparison-followups > div { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

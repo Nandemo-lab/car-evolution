@@ -4,9 +4,9 @@ const nbox = {
   comparisonTitle: '前期・後期を画像で比較',
   changesTitle: '2015年改良で変わったこと',
   visualHighlights: [
-    { title: '1｜グリル', text: '前期は細い横桟、後期は太い水平部とHondaマーク周辺を見る。' },
-    { title: '2｜バンパー', text: '上下の開口とナンバー周辺を一組で比較する。' },
-    { title: '3｜派生車を除外', text: 'Custom、Plus、SLASHの専用顔を標準車の前後差に混ぜない。' },
+    { title: 'ヘッドライト', text: '公式資料は灯体単独の変更を明記していません。ライトだけで前後期を断定しません。' },
+    { title: 'グリル', text: '前期は細い横桟、後期は太い水平部とHondaマーク周辺を見ます。' },
+    { title: 'バンパー', text: '上下の開口とナンバー周辺をグリルと一組で比較します。' },
   ],
   changeMatrix: [
     { label: '外観', status: 'changed', text: 'ベースモデルを親しみやすく上質なデザインへ変更。' },
@@ -61,7 +61,7 @@ export function withFaceliftEnhancement(data) {
       title: '後期はグリルとバンパーを刷新。Custom系とは別に見る。',
       text: '2015年2月5日改良。後席スライドやガラス装備はタイプ別です。',
     },
-    cars: data.cars.map(car => ({ ...car, imageLabels: ['グリル', 'バンパー'], presentation: { scale: 1.08, x: 0, y: 0 } })),
+    cars: data.cars.map(car => ({ ...car, imageLabels: ['ヘッドライト', 'グリル', 'バンパー'], presentation: { scale: 1.08, x: 0, y: 0 } })),
     links: data.links.map((link, index) => ({
       ...link,
       image: index === 0 ? '/images/cars/n-box/gen3-2023.webp' : '/images/cars/n-box/gen2-2017.webp',

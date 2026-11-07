@@ -196,6 +196,19 @@ export default {
       { title: '90系', description: '横一文字に見える発光ラインと、ワイドなフロントが目印。', meta: '2022年〜現在 · MZRA90W / ZWR90W ほか' },
     ],
   },
+  quickGuide: {
+    title: '60系・70系・80系・90系を3点で確認',
+    intro: '選択中の世代画像から、ライト・グリル・型式を短く確認できます。',
+    items: [
+      { title: '60／70系', text: 'AZR60系は一体型大灯体、ZRR70系は上下に分かれて見える顔が手掛かりです。' },
+      { title: '80系', text: '縦方向に存在感のある顔。2017年7月前後はZS同士の比較で確認します。' },
+      { title: '90系', text: '横一文字の発光ラインとワイドな開口。MZRA／ZWR90系で確定します。' },
+    ],
+    links: [
+      { href: '/voxy-80-zenki-kouki.html', label: '80系の前期・後期を見る' },
+      { href: '/compare-voxy-noah.html', label: 'NOAHとの顔の違いを見る' },
+    ],
+  },
   guides: [
     { href: '/voxy-60-vs-70.html', label: '60系・70系の違い', description: '初代AZR系と2代目ZRR系を画像と型式で見分ける。', image: '/images/cars/voxy/gen2-2007.webp' },
     { href: '/voxy-80-zenki-kouki.html', label: '80系 ZS 前期・後期の違い', description: '2017年7月を境に、同じ条件の画像で詳しく見分ける。' },

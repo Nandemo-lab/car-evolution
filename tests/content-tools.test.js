@@ -733,3 +733,19 @@ test('歴代ページは選択世代の判別点を連動表示し詳細を段�
   assert.match(css,/\.history-disclosure > summary/)
   assert.match(css,/\.compare-chip\s*\{[\s\S]*min-width:\s*44px;[\s\S]*height:\s*44px;/)
 })
+
+test('検索需要上位ページは画像の直後に3点と次の比較を置く',async()=>{
+  const js=readFileSync(new URL('../src/car-page.js',import.meta.url),'utf8')
+  const css=readFileSync(new URL('../src/car-page.css',import.meta.url),'utf8')
+  assert.ok(js.includes('renderQuickGuide(config)'))
+  assert.ok(js.includes("trackEvent('open_quick_comparison'"))
+  assert.match(css,/\.generation-quick-guide nav a\s*\{[^}]*min-height:\s*44px/s)
+  for(const slug of ['solio','noah','voxy']){
+    const car=(await import(`../src/cars/${slug}.js`)).default
+    assert.equal(car.quickGuide.items.length,3)
+    assert.equal(car.quickGuide.links.length,2)
+    for(const link of car.quickGuide.links) assert.ok(link.href.startsWith('/'))
+  }
+  const nbox=readFileSync(new URL('../dist/n-box-jf1-zenki-kouki.html',import.meta.url),'utf8')
+  for(const part of ['ヘッドライト','グリル','バンパー']) assert.ok(nbox.includes(part))
+})

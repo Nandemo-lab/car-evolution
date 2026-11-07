@@ -148,6 +148,19 @@ export default {
       { title: '4代目・MA27S/MA37S', description: 'ランプとグリルを横方向につなげ、室内幅も拡大。MA27SとMA37Sはパワートレイン差を含むため、型式だけで装備を断定しません。', meta: '2020年〜現在 · MA27S / MA37S' },
     ],
   },
+  quickGuide: {
+    title: 'MA15S・MA36S・MA37Sを3点で見分ける',
+    intro: '選択した世代の大きな画像を見たあと、ライト・グリル・型式の順で確認します。',
+    items: [
+      { title: 'MA15S｜水平グリル', text: '2011〜2015年。横基調のグリルと両側スライドドアが目印です。' },
+      { title: 'MA36S｜メッシュの顔', text: '2015〜2020年。シャープなランプとメッシュ基調グリルへ変わります。' },
+      { title: 'MA37S｜横につながる顔', text: '2020年〜。ランプとグリルが横方向につながり、MA27Sとは動力系も確認します。' },
+    ],
+    links: [
+      { href: '/solio-ma15s-zenki-kouki.html', label: 'MA15Sの前期・後期を見る' },
+      { href: '/solio-ma36s-zenki-kouki.html', label: 'MA36Sの前期・後期を見る' },
+    ],
+  },
   guides: [
     { href: '/solio-ma15s-zenki-kouki.html', label: 'MA15S 前期・後期の違い', description: '2013年11月改良前後を標準ソリオ同士で比較する。', image: '/images/cars/solio/ma15s-2013-post-update-v1.png' },
     { href: '/solio-ma36s-zenki-kouki.html', label: 'MA36S 前期・後期の違い', description: '2018年7月仕様変更前後を標準ソリオ同士で比較する。', image: '/images/cars/solio/ma36s-2018-post-update-v1.png' },
@@ -160,8 +173,8 @@ export default {
   // representativeColor above. See "What Representative Grade and Color
   // are" in design-identity.md.
   seo: {
-    title: 'SOLIO 歴代モデル一覧 — CarVista',
-    description: 'スズキ ソリオ全4世代を画像で比較。コンパクトなトールワゴンとしてのデザインの進化が一目でわかる。',
+    title: 'ソリオ歴代・型式｜MA15S・MA36S・MA37Sの違い | CarVista',
+    description: 'スズキ ソリオ歴代を統一画像で比較。MA15S・MA36S・MA37Sの年式、型式、ライトとグリルの見分け方、前期・後期比較への導線を整理。',
   },
   defaultIndex: 3,
   generations,

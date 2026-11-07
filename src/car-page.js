@@ -135,6 +135,7 @@ export function initCarPage(config) {
   withImageFallback(detailRefs.image)
   const engine = createDetailEngine(detailRefs, generations, defaultIndex, config.vehicleName)
   engine.render(generations[defaultIndex], defaultIndex)
+  renderQuickGuide(config)
 
   // A state switcher, not a page-jump: the timeline swaps which
   // generation is shown in place, scroll position untouched. An earlier
@@ -160,6 +161,35 @@ export function initCarPage(config) {
   renderGuideLinks(config)
   renderReferences(config)
   renderTrustNav()
+}
+
+// A short, opt-in bridge from the selected generation image to the most
+// useful comparison. The same facts remain in the static fallback; this
+// block only improves their visual placement for interactive users.
+function renderQuickGuide(config) {
+  if (!config.quickGuide?.items?.length) return
+  const section = document.createElement('section')
+  section.className = 'generation-quick-guide'
+  section.setAttribute('aria-labelledby', 'generation-quick-guide-title')
+  section.innerHTML = `
+    <div class="generation-quick-guide-heading">
+      <p>3 POINTS</p>
+      <h2 id="generation-quick-guide-title">${config.quickGuide.title}</h2>
+      <span>${config.quickGuide.intro}</span>
+    </div>
+    <div class="generation-quick-guide-points">${config.quickGuide.items.slice(0, 3).map((item) =>
+      `<article><strong>${item.title}</strong><span>${item.text}</span></article>`
+    ).join('')}</div>
+    ${config.quickGuide.links?.length ? `<nav aria-label="${config.vehicleName}の次の比較">${config.quickGuide.links.slice(0, 2).map((item) =>
+      `<a href="${item.href}" data-quick-guide-link><span>${item.label}</span><b aria-hidden="true">→</b></a>`
+    ).join('')}</nav>` : ''}`
+  section.querySelectorAll('[data-quick-guide-link]').forEach((link) => {
+    link.addEventListener('click', () => trackEvent('open_quick_comparison', {
+      vehicle: config.vehicleName,
+      destination: link.getAttribute('href'),
+    }))
+  })
+  document.getElementById('detail')?.insertAdjacentElement('afterend', section)
 }
 
 function renderTrustNav() {

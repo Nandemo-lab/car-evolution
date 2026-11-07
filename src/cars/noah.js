@@ -185,6 +185,19 @@ export default {
       { title: '4代目・90系', description: '薄型ランプと横に広いメッキグリルで、堂々感とモダンさを強調。掲載車は2022年発売世代の通常販売モデル代表仕様です。', meta: '2022年1月〜現在 · MZRA90W / ZWR90W ほか' },
     ],
   },
+  quickGuide: {
+    title: '60系・70系・80系・90系を3点で確認',
+    intro: '選択中の世代画像と型式を対応させ、次の比較へそのまま進めます。',
+    items: [
+      { title: '60／70系', text: 'AZR60系は丸い大灯体、ZRR70系は厚い横基調グリルが手掛かりです。' },
+      { title: '80系', text: '大型台形グリル。2017年7月の前後は専用比較で確認します。' },
+      { title: '90系', text: '薄型ランプと横に広いグリル。MZRA／ZWR90系で確定します。' },
+    ],
+    links: [
+      { href: '/noah-80-zenki-kouki.html', label: '80系の前期・後期を見る' },
+      { href: '/compare-voxy-noah.html', label: 'VOXYとの顔の違いを見る' },
+    ],
+  },
   evolutionNotes: [
     {
       title: '60系：背の高いFFミニバンとして登場',
