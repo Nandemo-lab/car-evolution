@@ -425,12 +425,54 @@ test('公開109 URLの初期HTMLとサイトマップに欠落・重複見出し
     const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')
     assert.equal((html.match(/<h1\b/g)||[]).length,1,pathname)
     assert.equal((html.match(/rel="canonical"/g)||[]).length,1,pathname)
-    assert.ok(!/(?:alt|href)="(?:undefined|null)"/.test(html),pathname)
+    const rendered=html.replace(/<!--[\s\S]*?-->/g,'').replace(/<script[\s\S]*?<\/script>/gi,'').replace(/<style[\s\S]*?<\/style>/gi,'')
+    const unresolved=/\bundefined\b|\bnull\b|\bNaN\b|\[object Object\]|\$\{[^}]+\}|\{\{[^}]+\}\}|<%[\s\S]*?%>/i
+    const invalid=/\bundefined\b|\bnull\b|\bNaN\b|\[object Object\]|\$\{[^}]+\}|\{\{[^}]+\}\}|<%[\s\S]*?%>|\b(?:lorem ipsum|TBD|TODO|PLACEHOLDER)\b/i
+    const visibleText=rendered.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()
+    assert.ok(!unresolved.test(rendered) && !invalid.test(visibleText),`${pathname}: unresolved display value`)
+    for(const heading of rendered.matchAll(/<h([1-4])\b([^>]*)>([\s\S]*?)<\/h\1>/gi)){
+      const text=heading[3].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()
+      const dynamic=/\bid="(?:detail-title|facelift-dialog-title)"/.test(heading[2])
+      assert.ok((text || dynamic) && !invalid.test(text),`${pathname}: invalid heading ${text}`)
+    }
     for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) assert.doesNotThrow(()=>JSON.parse(m[1]),pathname)
   }
   const redirects=JSON.parse(readFileSync(new URL('../vercel.json',import.meta.url),'utf8')).redirects
   for(const redirect of redirects) assert.ok(!urls.includes(`https://carvista.jp${redirect.source}`))
   for(const page of ['voxy-60-vs-70','solio-ma15s-zenki-kouki','vellfire-20-zenki-kouki','prius-30-zenki-kouki']) assert.ok(existsSync(new URL(`../dist/${page}.html`,import.meta.url)))
+})
+
+test('歴代ページの世代表示値と変化期間は全車種で展開済み',()=>{
+  for(const car of cars){
+    for(const generation of car.generations){
+      for(const key of ['era','title','code','period','yearRange']){
+        assert.equal(typeof generation[key],'string',`${car.slug}: ${key} is not a string`)
+        assert.ok(generation[key].trim(),`${car.slug}: ${key} is empty`)
+      }
+      if(generation.facelift?.fromYear || generation.facelift?.toYear){
+        assert.equal(typeof generation.facelift.fromYear,'string',`${car.slug} ${generation.title}: missing fromYear`)
+        assert.equal(typeof generation.facelift.toYear,'string',`${car.slug} ${generation.title}: missing toYear`)
+        assert.ok(generation.facelift.fromYear.trim() && generation.facelift.toYear.trim(),`${car.slug} ${generation.title}: empty change period`)
+      }
+    }
+    const html=readFileSync(new URL(`../dist/cars/${car.slug}.html`,import.meta.url),'utf8')
+    const cards=[...html.matchAll(/<article class="static-generation-card">([\s\S]*?)<\/article>/g)]
+    assert.equal(cards.length,car.generations.length,`${car.slug}: static generation card count`)
+    for(const [index,match] of cards.entries()){
+      const text=match[1].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()
+      assert.ok(text.includes(car.generations[index].title),`${car.slug}: generation title`)
+      assert.ok(text.includes(car.generations[index].code),`${car.slug}: generation code`)
+      assert.ok(text.includes(car.generations[index].period),`${car.slug}: generation period`)
+      assert.ok(!/undefined|null|NaN|\[object Object\]/i.test(text),`${car.slug}: invalid visible value`)
+      if(car.generations[index].facelift?.points?.length){
+        const yearLabel=value=>/\d$/.test(String(value))?`${value}年`:String(value)
+        const period=car.generations[index].facelift.fromYear && car.generations[index].facelift.toYear
+          ? `${yearLabel(car.generations[index].facelift.fromYear)}から${yearLabel(car.generations[index].facelift.toYear)}までの主な変化`
+          : '主な変化'
+        assert.ok(text.includes(period),`${car.slug}: change heading fallback`)
+      }
+    }
+  }
 })
 
 test('本番は低リスク防御ヘッダーを強制しCSPだけReport-Onlyで検証する',()=>{

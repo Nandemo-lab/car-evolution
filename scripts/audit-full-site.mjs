@@ -32,6 +32,18 @@ const normalizePath = (from, value) => {
 const exists = async path => {
   try { await access(path); return true } catch { return false }
 }
+const visibleHtml = html => html
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .replace(/<script[\s\S]*?<\/script>/gi, '')
+  .replace(/<style[\s\S]*?<\/style>/gi, '')
+const visibleText = html => visibleHtml(html)
+  .replace(/<[^>]+>/g, ' ')
+  .replace(/&(?:nbsp|#160);/gi, ' ')
+  .replace(/&(?:amp|#38);/gi, '&')
+  .replace(/\s+/g, ' ')
+  .trim()
+const unresolvedTokenPattern = /\bundefined\b|\bnull\b|\bNaN\b|\[object Object\]|\$\{[^}]+\}|\{\{[^}]+\}\}|<%[\s\S]*?%>/i
+const invalidDisplayPattern = /\bundefined\b|\bnull\b|\bNaN\b|\[object Object\]|\$\{[^}]+\}|\{\{[^}]+\}\}|<%[\s\S]*?%>|\b(?:lorem ipsum|TBD|TODO|PLACEHOLDER)\b/i
 
 const htmlByPath = new Map()
 for (const url of sitemapUrls) {
@@ -46,7 +58,9 @@ for (const [pathname, html] of htmlByPath) {
   if (canonical !== expectedCanonical) failures.push({ type: 'canonical', page: pathname, expected: expectedCanonical, actual: canonical })
   if ((html.match(/<h1\b/gi) || []).length !== 1) failures.push({ type: 'h1-count', page: pathname, count: (html.match(/<h1\b/gi) || []).length })
   if (/<meta\s+name="robots"[^>]*noindex/i.test(html)) failures.push({ type: 'noindex', page: pathname })
-  if (/(?:alt|title)="(?:undefined|null)"|>(?:undefined|null)</i.test(html.replace(/<script[\s\S]*?<\/script>/gi, ''))) failures.push({ type: 'render-token', page: pathname })
+  const renderedHtml = visibleHtml(html)
+  const renderedText = visibleText(html)
+  if (unresolvedTokenPattern.test(renderedHtml) || invalidDisplayPattern.test(renderedText)) failures.push({ type: 'render-token', page: pathname })
   if (!/<meta\s+property="og:title"/i.test(html) || !/<meta\s+property="og:image"/i.test(html)) failures.push({ type: 'ogp', page: pathname })
 
   const jsonLd = [...html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)]
@@ -86,6 +100,19 @@ for (const [pathname, html] of htmlByPath) {
   }
 
   const isContent = pathname !== '/' && !trustPaths.has(pathname)
+  if (isContent) {
+    const headings = [...renderedHtml.matchAll(/<h([1-4])\b([^>]*)>([\s\S]*?)<\/h\1>/gi)].map(match => ({ attrs: match[2], text: visibleText(match[3]) }))
+    const emptyDynamicIds = /\bid="(?:detail-title|facelift-dialog-title)"/
+    if (!headings.length || headings.some(heading => (!heading.text && !emptyDynamicIds.test(heading.attrs)) || invalidDisplayPattern.test(heading.text))) failures.push({ type: 'heading-display-value', page: pathname, headings })
+    const generationCards = [...renderedHtml.matchAll(/<article\s+class="static-generation-card"[^>]*>([\s\S]*?)<\/article>/gi)].map(match => match[1])
+    for (const card of generationCards) {
+      const cardText = visibleText(card)
+      const model = card.match(/<h3\b[^>]*>([\s\S]*?)<\/h3>/i)?.[1]
+      if (!model || invalidDisplayPattern.test(cardText) || !/\b(?:19|20)\d{2}\b|\u767a\u58f2\u4e88\u5b9a/.test(cardText) || !/主な型式：/.test(cardText)) {
+        failures.push({ type: 'generation-display-value', page: pathname, value: cardText })
+      }
+    }
+  }
   const externalLinks = [...html.matchAll(/<a\b[^>]*href="(https?:\/\/[^"]+)"/gi)].map(match => match[1])
   if (isContent && externalLinks.length === 0) failures.push({ type: 'source-missing', page: pathname })
   if (isContent && !/FAST ANSWER|最短結論|最短の見分け方|先に結論|class="(?:facelift|comparison)-answer"/.test(html)) {

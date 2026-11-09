@@ -300,10 +300,14 @@ function escapeHtml(value) {
 // and a natural internal link.
 function buildStaticVehicleFallback(car) {
   const isSingleGeneration = car.generations.length === 1
+  const yearLabel = value => /\d$/.test(String(value)) ? `${escapeHtml(value)}年` : escapeHtml(value)
   const generations = car.generations.map((generation, index) => {
     const clues = (generation.annotations || []).map(note => escapeHtml(note.label.replace(/<[^>]*>/g,''))).join(' ／ ')
+    const changePeriod = generation.facelift?.fromYear && generation.facelift?.toYear
+      ? `${yearLabel(generation.facelift.fromYear)}から${yearLabel(generation.facelift.toYear)}までの主な変化`
+      : '主な変化'
     const changes = generation.facelift?.points?.length
-      ? `<h4>${escapeHtml(generation.facelift.fromYear)}年から${escapeHtml(generation.facelift.toYear)}年までの主な変化</h4><ul>${generation.facelift.points.map(point => `<li>${escapeHtml(point)}</li>`).join('')}</ul>`
+      ? `<h4>${changePeriod}</h4><ul>${generation.facelift.points.map(point => `<li>${escapeHtml(point)}</li>`).join('')}</ul>`
       : ''
     const visual = generation.image
       ? `<img src="${escapeHtml(generation.image)}" alt="${escapeHtml(`${car.vehicleName} ${generation.title}の代表画像`)}" ${index ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async" />`
