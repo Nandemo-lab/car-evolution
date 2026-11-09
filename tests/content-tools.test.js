@@ -470,6 +470,16 @@ test('忍者AdMaxは承認済み4ページだけに公式タグを1枠ずつ配�
   })
 })
 
+test('制作方針は現在の広告運用と公式出典に一致する',()=>{
+  const policy=readFileSync(new URL('../dist/editorial-policy.html',import.meta.url),'utf8')
+  assert.ok(policy.includes('忍者AdMaxを、NOAH歴代、VOXY歴代、標準タントLA600S前期・後期、VOXY・NOAH比較の4ページに限って掲載'))
+  assert.ok(policy.includes('AdSense広告スクリプトの読み込みは停止'))
+  assert.ok(policy.includes('最終更新：2026年11月9日'))
+  const aqua=readFileSync(new URL('../src/cars/aqua.js',import.meta.url),'utf8')
+  assert.ok(aqua.includes('https://toyota.jp/pages/contents/aqua/002_p_010/pdf/aqua_spec_202509.pdf'))
+  assert.ok(!aqua.includes('/request/webcatalog/aqua/aqua_main_202509.pdf'))
+})
+
 test('全公開ページは独立したスマホ用ホームヘッダー・先頭ボタンを初期HTMLに持つ',()=>{
   const sitemap=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...sitemap.matchAll(/<loc>https:\/\/carvista\.jp(.*?)<\/loc>/g)].map(match=>match[1]||'/')
@@ -634,6 +644,16 @@ test('ホームは迷いを減らす3つの入口とno-JS型式一覧を持つ',
   for(const code of ['JF1','AGH30','MA36S']) assert.ok(html.includes(code),code)
   assert.ok(html.includes('role="combobox"'))
   assert.ok(html.includes('aria-autocomplete="list"'))
+})
+
+test('TOPの信頼情報は読めるコントラストと一致するアクセシブル名を持つ',()=>{
+  const html=readFileSync(new URL('../index.html',import.meta.url),'utf8')
+  const css=readFileSync(new URL('../src/home.css',import.meta.url),'utf8')
+  assert.ok(html.includes('<a class="home-hero-evolution" href="/cars/voxy.html">'))
+  assert.ok(!html.includes('aria-label="VOXYの歴代モデルを見る"'))
+  assert.match(css,/\.policy-text\s*\{[^}]*color:\s*rgba\(244,243,240,\.62\)/s)
+  assert.match(css,/\.site-updates time\s*\{[^}]*rgba\(244,243,240,\.62\)/s)
+  assert.match(css,/\.brand-note\s*\{[^}]*rgba\(244,243,240,\.62\)/s)
 })
 
 test('世代比較ページは説明・共有操作より先に車両画像を表示する',()=>{

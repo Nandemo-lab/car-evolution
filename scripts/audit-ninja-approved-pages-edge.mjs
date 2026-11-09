@@ -5,7 +5,11 @@ import { join } from 'node:path'
 
 const edge='C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
 const baseUrl=process.env.AUDIT_BASE_URL||'http://127.0.0.1:4173'
-const pages=['compare-voxy-noah.html','cars/noah.html','cars/voxy.html','tanto-la600s-zenki-kouki.html']
+const approvedPages=['compare-voxy-noah.html','cars/noah.html','cars/voxy.html','tanto-la600s-zenki-kouki.html']
+const pages=process.env.AUDIT_PAGES
+ ? process.env.AUDIT_PAGES.split(',').map(value=>value.trim()).filter(value=>approvedPages.includes(value))
+ : approvedPages
+if(!pages.length)throw new Error('AUDIT_PAGES did not include an approved advertising page')
 const widths=[1440,375,390]
 const port=9500+Math.floor(Math.random()*300)
 const profile=await mkdtemp(join(tmpdir(),'carvista-ninja-qa-'))

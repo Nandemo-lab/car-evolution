@@ -207,7 +207,7 @@ body { margin: 0; background: #0b0c0e; }
 .site-updates h2 { margin: 0; font-size: 18px; }
 .site-updates ul { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
 .site-updates li { display: grid; grid-template-columns: 96px 1fr; gap: 10px; color: rgba(244,243,240,.62); font-size: 11px; line-height: 1.55; }
-.site-updates time { color: rgba(244,243,240,.4); font-family: 'Inter', sans-serif; }
+.site-updates time { color: rgba(244,243,240,.62); font-family: 'Inter', sans-serif; }
 @media (max-width: 360px) { .site-updates li { grid-template-columns: 1fr; gap: 2px; } }
 /* .6 opacity + .16em tracking read as thin/airy despite the 700 weight --
    wide tracking dilutes a bold face's own visual weight. Tightened
@@ -265,16 +265,16 @@ body { margin: 0; background: #0b0c0e; }
 /* Apple-Legal register: smaller, tighter-set, lower-contrast than a
    paragraph meant to be read start to finish -- kept identical to
    car-page.css's own copy of these rules (see that file's comment). */
-.policy-text { margin: 0; max-width: 460px; font-size: 11px; font-weight: 300; line-height: 1.75; opacity: .34; letter-spacing: .015em; }
-.policy-text--invite { opacity: .4; }
-.policy-link { color: inherit; opacity: .55; }
+.policy-text { margin: 0; max-width: 460px; color: rgba(244,243,240,.62); font-size: 11px; font-weight: 300; line-height: 1.75; letter-spacing: .015em; }
+.policy-text--invite { color: rgba(244,243,240,.62); }
+.policy-link { color: rgba(244,243,240,.78); opacity: 1; }
 /* The one standalone policy-link (linking out to editorial-policy.html,
    not the inline X link inside a paragraph) reads as its own quiet row,
    same size/weight as the old inline toggle it replaced. */
-.policy > .policy-link { align-self: flex-start; font-family: 'Inter', sans-serif; font-size: 11px; opacity: .4; text-decoration: none; }
-.policy > .policy-link:hover, .policy > .policy-link:focus-visible { opacity: .65; }
+.policy > .policy-link { align-self: flex-start; color: rgba(244,243,240,.72); font-family: 'Inter', sans-serif; font-size: 11px; opacity: 1; text-decoration: none; }
+.policy > .policy-link:hover, .policy > .policy-link:focus-visible { color: #f4f3f0; }
 .policy-meta { margin: 6px 0 0; font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 400; opacity: .22; letter-spacing: .02em; }
-.brand-note { margin: 14px 0 0; max-width: 420px; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; line-height: 1.8; opacity: .2; letter-spacing: .01em; font-style: italic; }
+.brand-note { margin: 14px 0 0; max-width: 420px; color: rgba(244,243,240,.62); font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 300; line-height: 1.8; letter-spacing: .01em; font-style: italic; }
 
 /* Editorial Policy page -- reuses Home's shared tokens (colors, fonts,
    .section-eyebrow, .about-text, .policy-text, .policy-meta) since it's

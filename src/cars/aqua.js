@@ -12,7 +12,7 @@ export default {
     { generations: '初代', label: 'Toyota 2011年アクア発売資料', url: 'https://global.toyota/jp/newsroom/toyota/21780024.html' },
     { generations: '2代目', label: 'Toyota 2021年新型アクア発売資料', url: 'https://global.toyota/jp/newsroom/toyota/35550666.html' },
     { generations: '2代目', label: 'Toyota アクア車種ギャラリー・改良履歴', url: 'https://global.toyota/jp/mobility/toyota-brand/gallery/aqua.html' },
-    { generations: '現行諸元', label: 'Toyota アクア主要諸元表', url: 'https://toyota.jp/pages/contents/request/webcatalog/aqua/aqua_main_202509.pdf' },
+    { generations: '現行諸元', label: 'Toyota アクア主要諸元表', url: 'https://toyota.jp/pages/contents/aqua/002_p_010/pdf/aqua_spec_202509.pdf' },
   ] },
   tagline: 'NHP10からMXPK10系へ。顔だけでなく駆動方式と型式で確認。', heroImage: '/images/cars/aqua/mxpk11-2021-z-ff-v1.png', homeCardImage: '/images/cars/aqua/mxpk11-2021-z-ff-v1.png',
   generationGuide: { title: 'アクアは2011年初代、2021年2代目', intro: 'ハイブリッド専用車として続く2世代を整理します。掲載画像は発売時の初代S・2WDと2代目Z・2WD代表です。Crossover、G\u2019s、GR SPORTなどの専用外装は世代差に混ぜません。', layout: 'chronology', items: [
