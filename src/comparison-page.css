@@ -153,3 +153,11 @@ body { margin: 0; background: #0b0c0e; }
  .comparison-next-links { gap: 10px; }
  .comparison-next-links a { min-height: 48px; font-size: 16px; }
 }
+
+.comparison-vehicle-decision > div { display: grid; gap: 10px; margin-top: 12px; }
+.comparison-vehicle-decision details { min-width: 0; padding: 0 14px; border: 1px solid rgba(244,243,240,.25); border-radius: 12px; }
+.comparison-vehicle-decision summary { min-height: 44px; padding: 12px 0; cursor: pointer; font-weight: 600; }
+.comparison-vehicle-decision details p { width: auto; margin: 0 0 12px; padding: 0; border: 0; opacity: 1; font: inherit; letter-spacing: normal; }
+.comparison-vehicle-decision details a { margin: 0 0 12px; }
+.comparison-vehicle-decision details .comparison-referral { margin-top: 14px; font-size: 13px; }
+@media (min-width: 700px) { .comparison-vehicle-decision > div { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

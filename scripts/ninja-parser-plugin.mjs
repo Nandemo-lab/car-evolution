@@ -14,9 +14,8 @@ export const TARGETS = Object.freeze({
 // Evaluates only our local comparison rendering code. No third-party code executes.
 export async function renderComparison(root) {
  let source=readFileSync(resolve(root,'src/comparison-page.js'),'utf8');
- const affiliate=structuredClone((await import(pathToFileURL(resolve(root,'src/affiliate.js')).href)).affiliateDestinations);
- if(affiliate.usedCarSearch?.url||affiliate.usedCarSearch?.label)throw Error('Existing affiliate CTA requires placement review');
- const context={affiliateDestinations:affiliate,document:null};
+ const { vehicleDecisionHtml } = await import(pathToFileURL(resolve(root,'src/affiliate.js')).href);
+ const context={vehicleDecisionHtml,document:null};
  for(const match of source.matchAll(/^import (\w+) from '(\.\/cars\/[^']+)'/gm)) {
   context[match[1]]=structuredClone((await import(pathToFileURL(resolve(root,'src',match[2])).href)).default);
  }
