@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './car-page.css'
 import './click-glow.js'
 import { getDiscoveryImage, getDiscoveryStyle, getSlugFromPath, relatedCars } from './discovery.js'
@@ -171,6 +172,7 @@ function renderQuickGuide(config) {
   if (!config.quickGuide?.items?.length) return
   const section = document.createElement('section')
   section.className = 'generation-quick-guide'
+  if (['NOAH', 'VOXY', 'TANTO'].includes(config.vehicleName)) section.classList.add('search-priority-guide')
   section.setAttribute('aria-labelledby', 'generation-quick-guide-title')
   section.innerHTML = `
     <div class="generation-quick-guide-heading">
@@ -248,14 +250,11 @@ function renderShare(config, isSingleGeneration = false) {
   }
   buttons[0].addEventListener('click', async () => {
     trackEvent('share_vehicle', { vehicle: config.vehicleName, method: navigator.share ? 'native' : 'copy' })
-    if (navigator.share) return navigator.share(shareData)
-    await navigator.clipboard.writeText(location.href)
-    buttons[0].textContent = 'URLをコピーしました'
+    return shareSafely(buttons[0], shareData)
   })
   buttons[1].addEventListener('click', async () => {
     trackEvent('copy_vehicle_url', { vehicle: config.vehicleName })
-    await navigator.clipboard.writeText(location.href)
-    buttons[1].textContent = 'コピーしました'
+    await copySafely(buttons[1], location.href, 'コピーしました')
   })
 }
 

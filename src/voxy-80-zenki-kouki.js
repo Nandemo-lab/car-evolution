@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './facelift-detail-tools.css'
@@ -38,8 +39,8 @@ document.querySelector('#voxy-facelift-page').innerHTML = `
   <section class="comparison-next" aria-label="関連ページ"><p class="comparison-eyebrow">KEEP EXPLORING</p><h2>兄弟車と世代へつなぐ</h2><div class="comparison-next-grid"><a href="/voxy-60-vs-70.html" data-related-link><strong>VOXY 60系・70系</strong><span>初代AZR系と2代目ZRR系の世代差を見る。</span><b>比べる →</b></a><a href="/cars/voxy.html" data-related-link><strong>VOXYの歴代モデル</strong><span>60系から90系までの進化を見る。</span><b>見る →</b></a><a href="/compare-voxy-noah-esquire.html" data-related-link><strong>VOXY・NOAH・ESQUIRE</strong><span>80系兄弟車のフロント表現を見比べる。</span><b>比べる →</b></a><a href="/cars/noah.html" data-related-link><strong>NOAHの歴代モデル</strong><span>兄弟車NOAHの世代変化を確認する。</span><b>見る →</b></a><a href="/cars/esquire.html" data-related-link><strong>ESQUIREのモデル</strong><span>80系プラットフォームの上質志向を見る。</span><b>見る →</b></a></div></section>
   <a class="comparison-more" href="/cars/voxy.html">VOXYの歴代モデル一覧を見る</a>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
-document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'VOXY', intent: '80-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'VOXY 80系 ZS 前期・後期の違い', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'VOXY', intent: '80-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); return shareSafely(event.currentTarget, { title: document.title, text: 'VOXY 80系 ZS 前期・後期の違い', url: location.href }) })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_identification_guide_url', { vehicle: 'VOXY', intent: '80-zenki-kouki' }); return copyUrl(event.currentTarget, 'コピーしました') })
 document.querySelectorAll('[data-related-link]').forEach((link) => link.addEventListener('click', () => trackEvent('open_related_content', { vehicle: 'VOXY', intent: '80-zenki-kouki' })))
 bindFaceliftDetailTools(document.querySelector('#voxy-facelift-page'), voxy80Enhancement.detailCompare, { vehicle: 'VOXY', comparison: '80-zenki-kouki' })

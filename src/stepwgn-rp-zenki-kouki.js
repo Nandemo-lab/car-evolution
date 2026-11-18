@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './click-glow.js'
@@ -31,7 +32,7 @@ document.querySelector('#stepwgn-facelift-page').innerHTML = `
   <section class="facelift-source" aria-label="公式情報源"><p>FACT CHECK</p><span>年式、型式、グレードと変更内容は、<a href="https://global.honda/jp/news/2015/4150423-stepwgn.html" target="_blank" rel="noopener noreferrer">Honda公式 2015年発売資料</a>、<a href="https://global.honda/jp/news/2017/4170928a-stepwgn.html" target="_blank" rel="noopener noreferrer">Honda公式 2017年マイナーモデルチェンジ資料</a>、<a href="https://global.honda/jp/pressroom/products/auto/stepwgn/stepwgn_2015-04-23/" target="_blank" rel="noopener noreferrer">Honda公式 製品アーカイブ</a>で確認しています。</span></section>
   <a class="comparison-more" href="/cars/stepwgn.html">STEPWGNの歴代モデル一覧を見る</a>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
-document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'STEPWGN', intent: 'rp-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'STEPWGN RP系 前期・後期の違い', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'STEPWGN', intent: 'rp-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); return shareSafely(event.currentTarget, { title: document.title, text: 'STEPWGN RP系 前期・後期の違い', url: location.href }) })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_identification_guide_url', { vehicle: 'STEPWGN', intent: 'rp-zenki-kouki' }); return copyUrl(event.currentTarget, 'コピーしました') })
 document.querySelectorAll('[data-related-link]').forEach((link) => link.addEventListener('click', () => trackEvent('open_related_content', { vehicle: 'STEPWGN', intent: 'rp-zenki-kouki' })))

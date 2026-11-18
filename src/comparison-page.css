@@ -143,3 +143,13 @@ body { margin: 0; background: #0b0c0e; }
 }
 @media (min-width: 700px) { .comparison-hero, .comparison-grid, .comparison-more, .comparison-guide-note, .comparison-reading, .comparison-focus, .comparison-next, .comparison-cta, .comparison-answer, .comparison-decision, .comparison-specs, .comparison-sources { padding-left: 8vw; padding-right: 8vw; } .comparison-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .comparison-image-context, .comparison-actions-secondary { margin-left: 8vw; margin-right: 8vw; } }
 @media (prefers-reduced-motion: reduce) { .comparison-card, .comparison-next-grid a, .comparison-cta a, .comparison-view-toggle button { transition: none; } }
+
+/* VOXY search-intent recovery: ordinary links, no overlay or image changes. */
+.comparison-next-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:14px}
+.comparison-next-links>span{flex-basis:100%;font-weight:400}
+.comparison-next-links a{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid currentColor;border-radius:8px;color:inherit;box-sizing:border-box;max-width:100%;overflow-wrap:anywhere}
+.comparison-next-links a:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+@media (max-width: 480px) {
+ .comparison-next-links { gap: 10px; }
+ .comparison-next-links a { min-height: 48px; font-size: 16px; }
+}

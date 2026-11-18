@@ -767,3 +767,15 @@ html:is([data-vehicle="voxy"], [data-vehicle="noah"]) .timeline-item:not([aria-c
 .generation-guide--chronology .generation-guide-grid { grid-template-columns:1fr; gap:0; }
 .generation-guide--chronology .generation-guide-grid article { display:block; min-height:0; padding:22px 0 22px 20px; border:0; border-left:2px solid #7a6b49; border-radius:0; background:none; }
 .generation-guide--chronology .generation-guide-grid span { max-width:760px; font-size:14px; line-height:1.85; }
+
+/* Readable text beside high-entry NOAH/VOXY comparison tools. Images untouched. */
+.search-priority-guide .generation-quick-guide-heading > span,
+.search-priority-guide .generation-quick-guide-points span { color: rgba(244,243,240,.86); font-size: 14px; line-height: 1.75; }
+.search-priority-guide .generation-quick-guide-points strong { font-size: 15px; }
+.search-priority-guide nav a { font-size: 14px; padding: 10px 14px; box-sizing: border-box; min-width: 0; overflow-wrap: anywhere; }
+.search-priority-guide nav a:focus-visible { outline: 2px solid #a0d3ff; outline-offset: 3px; }
+@media (max-width: 480px) {
+ .search-priority-guide .generation-quick-guide-points span { font-size: 16px; }
+ .search-priority-guide nav a { font-size: 16px; min-height: 48px; }
+ .comparison-next-links a { min-height: 48px; font-size: 16px; }
+}

@@ -52,6 +52,19 @@ export default {
   referenceLengthMm: 3395,
   tagline: '広さと使いやすさは、家族の日常を変えていく。',
   heroImage: '/images/cars/tanto/gen4-2019-la650s.png',
+  quickGuide: {
+    title: 'タントは型式を先に確認すると比較を選びやすい',
+    intro: '掲載対象は標準タントです。カスタムの外装とは分けて確認してください。',
+    items: [
+      { title: 'LA600系の前期・後期', text: '同じ3代目の改良前後を比べる場合は、LA600S前期・後期ガイドへ。' },
+      { title: 'LA600系とLA650系', text: '3代目と4代目の世代交代を比べる場合は、LA600S・LA650S比較へ。' },
+      { title: '写真だけで断定しない', text: '車検証の型式と年式を確認し、装備は販売店の車両情報と照合します。' },
+    ],
+    links: [
+      { href: '/tanto-la600s-zenki-kouki.html', label: 'LA600Sの前期・後期を確認' },
+      { href: '/tanto-la600s-vs-la650s.html', label: 'LA600SとLA650Sを比較' },
+    ],
+  },
   generationGuide: {
     title: 'L350・L375・LA600・LA650系を見分ける代表ポイント',
     intro: '国内の標準タントを対象に、初代L350系から現行LA650系までを同一条件の画像で比較します。カスタム固有のグリルやエアロは混ぜず、フロントマスク、キャビン、スライドドアの進化を整理しました。',
