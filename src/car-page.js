@@ -3,6 +3,7 @@ import './car-page.css'
 import './click-glow.js'
 import { getDiscoveryImage, getDiscoveryStyle, getSlugFromPath, relatedCars } from './discovery.js'
 import { trackEvent } from './analytics.js'
+import { vehicleDecisionHtml } from './affiliate.js'
 import { assignAnnotationLanes } from './annotation-layout.js'
 
 // vite.config.js supplies a compact, data-derived HTML fallback for
@@ -161,8 +162,32 @@ export function initCarPage(config) {
   renderEvolutionNotes(config)
   renderNextDiscovery(config)
   renderGuideLinks(config)
+  renderVehicleDecision(config)
   renderReferences(config)
   renderTrustNav()
+}
+
+// Search Console shows these three model pages receive the most relevant
+// vehicle discovery traffic. Keep the advice useful before a partner is
+// approved; affiliate.js suppresses outbound links until then.
+function renderVehicleDecision(config) {
+  if (!['NOAH', 'VOXY', 'TANTO'].includes(config.vehicleName)) return
+  const section = document.createElement('div')
+  section.className = 'vehicle-decision'
+  section.innerHTML = vehicleDecisionHtml()
+  document.querySelector('.back-home').before(section)
+  section.querySelectorAll('[data-vehicle-intent]').forEach((disclosure) => {
+    disclosure.addEventListener('toggle', () => {
+      if (disclosure.open) trackEvent('open_vehicle_intent', { vehicle: config.vehicleName, intent: disclosure.dataset.vehicleIntent })
+    })
+  })
+  section.querySelectorAll('[data-referral]').forEach((link) => {
+    link.addEventListener('click', () => {
+      trackEvent(link.dataset.referral === 'valuation' ? 'click_vehicle_valuation' : 'click_used_car_search', {
+        vehicle: config.vehicleName, partner: link.dataset.partner,
+      })
+    })
+  })
 }
 
 // A short, opt-in bridge from the selected generation image to the most
