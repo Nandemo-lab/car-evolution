@@ -147,6 +147,19 @@ export default {
       { title: '3代目・GT1〜GT8', description: '薄い水平ランプとすっきりした面構成に転換。AIRとCROSSTARは外装の方向性が異なるため、掲載する標準系AIRと分けて確認します。', meta: '2024年〜現在 · GT1〜GT8' },
     ],
   },
+  quickGuide: {
+    title: '中古フリードは型式・改良年・仕様を順に確認',
+    intro: '外観の印象だけでAIR／CROSSTARや前後期を判定せず、掲載画像の代表仕様と照合します。',
+    items: [
+      { title: 'GB5〜GB8', text: '2019年10月の改良前後は同じ2代目。グリルだけでなく、車検証の型式と登録時期、車両の装備表を確認。' },
+      { title: 'GT1〜GT8', text: '2024年登場の3代目。AIRとCROSSTARでは外装が異なるため、写真の顔つきだけで世代差にしない。' },
+      { title: '中古車で確認', text: '車検証、グレード、Honda SENSINGの装備、スライドドアの動作を個体ごとに確認。' },
+    ],
+    links: [
+      { href: '/freed-gb5-zenki-kouki.html', label: 'GB5前期・後期の画像比較' },
+      { href: '/freed-gen2-vs-gen3.html', label: 'GB系とGT系の世代比較' },
+    ],
+  },
   guides: [
     { href:'/freed-gen1-vs-gen2.html', label:'フリード 初代・2代目の違い', description:'初代GB3系と2代目GB5系を画像、型式、装備で比較する。', image:'/images/cars/freed/gen2-2016.webp' },
     {
