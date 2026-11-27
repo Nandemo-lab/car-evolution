@@ -21,6 +21,17 @@ body { margin: 0; background: #0b0c0e; }
 
 #car-page { max-width: 720px; margin: 0 auto; }
 
+.vehicle-decision { padding: 20px 22px 34px; }
+.vehicle-decision .comparison-cta { padding: 20px; border: 1px solid rgba(244,243,240,.22); border-radius: 16px; }
+.vehicle-decision h2 { margin: 0 0 14px; font-size: 20px; line-height: 1.5; }
+.vehicle-decision .comparison-cta > div { display: grid; gap: 10px; }
+.vehicle-decision details { min-width: 0; padding: 0 14px; border: 1px solid rgba(244,243,240,.22); border-radius: 10px; }
+.vehicle-decision summary { min-height: 44px; padding: 12px 0; cursor: pointer; font-weight: 600; }
+.vehicle-decision details p { margin: 0 0 14px; font-size: 13px; line-height: 1.7; }
+.vehicle-decision details a { display: block; margin: 0 0 14px; padding: 12px; min-height: 44px; border: 1px solid rgba(244,243,240,.3); border-radius: 10px; color: inherit; text-decoration: none; }
+.vehicle-decision .comparison-referral { opacity: .7; }
+@media (min-width: 700px) { .vehicle-decision .comparison-cta > div { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 /* Hero -- the shared TOP/NEXT DISCOVERY art direction is cropped into a
    cinematic banner here. Every vehicle therefore keeps the same camera,
    apparent scale and wheel baseline while the vignette preserves the
