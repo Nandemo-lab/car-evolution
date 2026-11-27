@@ -492,8 +492,7 @@ test('本番は低リスク防御ヘッダーを強制しCSPだけReport-Onlyで
   assert.equal(ninjaTag,'<!-- admax -->\n<script src="https://adm.shinobi.jp/o/7715cbec85d744324b7fe2302020e023"></script>\n<!-- admax -->\n')
 })
 
-test('忍者AdMaxは承認済み4ページだけに公式タグを1枠ずつ配置する',()=>{
-  const approved=['compare-voxy-noah.html','tanto-la600s-zenki-kouki.html','cars/noah.html','cars/voxy.html']
+test('未検証の広告クリエイティブは全ページで表示しない',()=>{
   const htmlFiles=[]
   const walk=(dir)=>readdirSync(dir,{withFileTypes:true}).forEach(entry=>{
     const path=join(dir,entry.name)
@@ -504,19 +503,15 @@ test('忍者AdMaxは承認済み4ページだけに公式タグを1枠ずつ配�
   walk(distRoot)
   const tagged=htmlFiles.filter(path=>readFileSync(path,'utf8').includes('data-commercial-slot="ninja-carvista"'))
     .map(path=>relative(distRoot,path).replaceAll('\\','/')).sort()
-  assert.deepEqual(tagged,approved.sort())
-  tagged.forEach(filename=>{
-    const html=readFileSync(new URL(`../dist/${filename}`,import.meta.url),'utf8')
-    assert.equal((html.match(/adm\.shinobi\.jp\/o\/7715cbec85d744324b7fe2302020e023/g)||[]).length,1,filename)
-    assert.ok(html.includes(`data-ad-placement="${filename}"`),filename)
-  })
+  assert.deepEqual(tagged,[])
+  assert.ok(htmlFiles.every(path=>!readFileSync(path,'utf8').includes('adm.shinobi.jp')))
 })
 
 test('制作方針は現在の広告運用と公式出典に一致する',()=>{
   const policy=readFileSync(new URL('../dist/editorial-policy.html',import.meta.url),'utf8')
-  assert.ok(policy.includes('忍者AdMaxを、NOAH歴代、VOXY歴代、標準タントLA600S前期・後期、VOXY・NOAH比較の4ページに限って掲載'))
+  assert.ok(policy.includes('忍者AdMaxの広告枠も停止'))
   assert.ok(policy.includes('AdSense広告スクリプトの読み込みは停止'))
-  assert.ok(policy.includes('最終更新：2026年11月9日'))
+  assert.ok(policy.includes('最終更新：2026年11月27日'))
   const aqua=readFileSync(new URL('../src/cars/aqua.js',import.meta.url),'utf8')
   assert.ok(aqua.includes('https://toyota.jp/pages/contents/aqua/002_p_010/pdf/aqua_spec_202509.pdf'))
   assert.ok(!aqua.includes('/request/webcatalog/aqua/aqua_main_202509.pdf'))
