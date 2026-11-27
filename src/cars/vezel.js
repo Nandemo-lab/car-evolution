@@ -109,6 +109,19 @@ export default {
   ],
   "layout": "chronology"
 },
+  quickGuide: {
+    title: 'RU／RVと改良年を分けて中古車を確認',
+    intro: '同じRV系でも2021年・2024年・2026年仕様では外装が変わります。',
+    items: [
+      { title: 'まず型式', text: '初代はRU1〜RU4、2代目はRV3〜RV6。ハイブリッドの方式も違うため車検証で確認します。' },
+      { title: '次に仕様', text: '2024年のZ・PLaYパッケージと発売時のPLaYは別構成。2026年の同色アーチも新世代ではありません。' },
+      { title: '購入前の照合', text: '初度登録月と製造月は別です。グレードと装備表を販売店で確認し、交換された外装部品を写真だけで断定しません。' },
+    ],
+    links: [
+      { href: '/vezel-ru-vs-rv.html', label: '初代RUと2代目RVを比較' },
+      { href: '/vezel-2024-vs-2026.html', label: 'RV系の2024・2026年仕様を比較' },
+    ],
+  },
   guides: [
 {"href":"/vezel-ru-vs-rv.html","label":"初代RU・2代目RVの違い","title":"ヴェゼルRU系とRV系の違い","description":"Z・FF同士でサイズ、ハイブリッド方式、中古車の確認手順を比較。","image":"/images/cars/vezel/rv5-2021-ehev-z.webp"},
     { href: '/vezel-2024-vs-2026.html', label: '2024年仕様・2026年改良の違い', description: 'e:HEV Z・FFを固定し、外装色と装備差を公式資料で確認する。', image: '/images/cars/vezel/rv5-2026-ehev-z-ff-v1.png' },
