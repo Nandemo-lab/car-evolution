@@ -167,14 +167,15 @@ export function initCarPage(config) {
   renderTrustNav()
 }
 
-// Search Console shows these three model pages receive the most relevant
-// vehicle discovery traffic. Keep the advice useful before a partner is
-// approved; affiliate.js suppresses outbound links until then.
+// These three model pages receive relevant vehicle discovery traffic. Show
+// the decision block only after an actual partner has approved its link.
 function renderVehicleDecision(config) {
   if (!['NOAH', 'VOXY', 'TANTO'].includes(config.vehicleName)) return
+  const html = vehicleDecisionHtml()
+  if (!html) return
   const section = document.createElement('div')
   section.className = 'vehicle-decision'
-  section.innerHTML = vehicleDecisionHtml()
+  section.innerHTML = html
   document.querySelector('.back-home').before(section)
   section.querySelectorAll('[data-vehicle-intent]').forEach((disclosure) => {
     disclosure.addEventListener('toggle', () => {
