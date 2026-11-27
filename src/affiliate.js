@@ -20,7 +20,8 @@ const journeys = [
 ]
 
 function approvedLink(destination, linkText, key) {
-  if (!destination || !/^[a-z0-9_-]{1,40}$/.test(destination.partner ?? '')) return ''
+  if (destination?.status !== 'approved' || destination.enabled !== true ||
+      !/^[a-z0-9_-]{1,40}$/.test(destination.partner ?? '')) return ''
   let url
   try { url = new URL(destination.url) } catch { return '' }
   if (url.protocol !== 'https:' || url.username || url.password) return ''
@@ -29,8 +30,10 @@ function approvedLink(destination, linkText, key) {
 }
 
 export function vehicleDecisionHtml(destinations = affiliateDestinations) {
-  const content = journeys.map(({ key, title, advice, linkText }) =>
-    `<details data-vehicle-intent="${key}"><summary>${title}</summary><p>${advice}</p>${approvedLink(destinations[key], linkText, key)}</details>`
-  ).join('')
+  const content = journeys.map(({ key, title, advice, linkText }) => {
+    const link = approvedLink(destinations[key], linkText, key)
+    return link ? `<details data-vehicle-intent="${key}"><summary>${title}</summary><p>${advice}</p>${link}</details>` : ''
+  }).join('')
+  if (!content) return ''
   return `<aside class="comparison-cta comparison-vehicle-decision" aria-labelledby="vehicle-decision-heading"><h2 id="vehicle-decision-heading">中古車購入・売却の準備</h2><div>${content}</div></aside>`
 }
