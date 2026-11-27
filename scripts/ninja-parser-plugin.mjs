@@ -2,7 +2,9 @@ import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {runInNewContext} from 'node:vm';
-export const NINJA_RELEASE_ENABLED = true;
+// Keep the slot off until a real creative and its mobile layout are verified.
+// An empty 300x250 frame hid useful comparison content on narrow screens.
+export const NINJA_RELEASE_ENABLED = process.env.CARVISTA_NINJA_AD_ENABLED === 'true';
 export const TARGET = 'compare-voxy-noah.html';
 export const TARGETS = Object.freeze({
  'compare-voxy-noah.html': 'comparison',
