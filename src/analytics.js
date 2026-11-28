@@ -3,6 +3,10 @@
 // any visitor data is collected.
 const measurementId = import.meta.env?.VITE_GA_MEASUREMENT_ID
 const browserWindow = typeof window === 'undefined' ? null : window
+// Isolated Cloudflare previews retain the production build's measurement ID.
+// Only the canonical site may send page views or events to the production GA4 property.
+const analyticsEnabled = Boolean(measurementId && browserWindow &&
+  ['carvista.jp', 'www.carvista.jp'].includes(browserWindow.location.hostname))
 
 const sensitiveParameter = /^(query|search_term|input|note|notes|text|vin|chassis|email|phone)$/i
 
@@ -15,7 +19,7 @@ export function sanitizeAnalyticsParameters(parameters = {}) {
   }))
 }
 
-if (measurementId && browserWindow && !browserWindow.gtag) {
+if (analyticsEnabled && !browserWindow.gtag) {
   browserWindow.dataLayer = browserWindow.dataLayer || []
   browserWindow.gtag = function gtag() { browserWindow.dataLayer.push(arguments) }
   browserWindow.gtag('js', new Date())
@@ -31,5 +35,5 @@ export function trackEvent(name, parameters = {}) {
   if (!browserWindow) return
   const payload = { page_path: browserWindow.location.pathname, ...sanitizeAnalyticsParameters(parameters) }
   browserWindow.dispatchEvent(new CustomEvent('carvista:analytics', { detail: { name, parameters: payload } }))
-  if (typeof browserWindow.gtag === 'function') browserWindow.gtag('event', name, payload)
+  if (analyticsEnabled && typeof browserWindow.gtag === 'function') browserWindow.gtag('event', name, payload)
 }
