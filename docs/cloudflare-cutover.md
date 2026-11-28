@@ -16,6 +16,7 @@
 - 既にCloudflare NSを利用しているため、同じゾーンのCustom DomainだけでWeb向き先を変えられる可能性がある。NS変更の要否は現行ゾーン設定を確認して決める。推測でレジストラやMXを変更しない。
 - 2026-11-28、Google Public DNSの公開応答を読み取った。apex Aは `104.21.73.11` / `172.67.136.235`、AAAAは `2606:4700:3030::ac43:88eb` / `2606:4700:3035::6815:490b`、NSは `amanda.ns.cloudflare.com` / `mario.ns.cloudflare.com`。wwwも同じAで応答。公開MX、apex TXT、CAA、親ゾーンDSは応答なし、`_dmarc.carvista.jp` はNXDOMAIN。プロキシされたA応答からCloudflareゾーン内の元のA/CNAME値を逆算しない。公開DNSで「なし」はCloudflare管理画面に設定が存在しない証明ではない。
 - Cloudflareのダッシュボードはこの作業環境からのログインPOSTがHTTP 403で拒否され、現行ゾーン内の非公開設定を読めない。ユーザーに同じログインを再試行してもらわない。公式Wrangler OAuthにはzone(read)権限があるが、Wrangler CLIはDNSレコード一覧を提供しない。認証情報・Cookieを抽出してAPIに渡す操作は行わない。SSLモード、ページルール、Cloudflare内部のWeb向けA/AAAA/CNAME、メール関連設定と復旧値は未確認。**本番移行はNO-GO**。公開DNSとVercel設定だけでメール影響がゼロと断定しない。別途DNS・本番公開承認前に、正規のゾーン読み取り手段が利用可能になれば設定を保存して差分を確認する。
+- 読み取り認証の最小構成: CloudflareのCustom Tokenを `carvista.jp` **単一ゾーン**へ制限し、Zone → Zone → Read、Zone → DNS → Readを付ける。SSL/TLSの設定と証明書確認にはZone → Zone Settings → Read、Zone → SSL and Certificates → Readを必要時だけ追加する。単一リダイレクトをAPIで検査する場合はZone → Single Redirect → Readを追加する。DNS Write、全ゾーン、Account権限、Global API Keyは使わない。期限は移行判定後の短い期間（例: 7日）とし、移行確認後にCloudflareのAPI Tokens画面から失効する。用途は現行DNS/SSL/リダイレクトと切り戻し値の読み取りのみ。秘密値をこの公開リポジトリ、チャット、CIログに保存しない。Cloudflareのログイン検証エラーが解消するまでトークン作成も取得も未実施であり、トークンの安全な引き渡し経路が確立するまでAPIを呼ばない。
 - 静的プレビューは実配信済みで、切替作業そのものに着手できる状態。料金プランのFree確認は2026-11-05のアクティベーションメールの時点。現時点の課金設定・超過時挙動は管理画面で最終確認する。
 
 ## 本番切替前にOWNER承認を取得
