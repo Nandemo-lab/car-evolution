@@ -31,8 +31,8 @@ CloudflareゾーンはFree Website。静的アセットのリクエストにはW
 
 ## Cloudflare内の復旧手順（2026-11-28）
 
-1. まず `wrangler deployments list --name carvista-static` で現行versionを再確認する。現時点での現行は `a7fa7b5f-bbaa-4286-a6be-27fff5b46522`（11:52 UTC）、直前は `f58b4724-bafe-4ae6-951b-900493bac21a`（10:51 UTC）。**この2つを実際の公開QAで照合してから**戻し先を確定する。前者は110 URL版、後者はその直前の版であり、新規スペーシアURLは戻し後404になる可能性がある。
-2. 復旧コマンドは `wrangler rollback f58b4724-bafe-4ae6-951b-900493bac21a --name carvista-static --message "Restore last verified CarVista release"`。この本番実行は障害発生時のみ。Cloudflareの旧versionへ100%を戻し、Routeはそのまま保持する。転送Workerも故障したときはそのWorkerのdeploymentを別途照合・rollbackする。
+1. まず `wrangler deployments list --name carvista-static` で現行versionを再確認する。2026-11-28の現行は `1c281910-4b50-4f2a-b7f4-c2487d46306b`（111 URL、コミット `40fa78329883af45340fe02e355805e8b495c0fd`）、直前の検証済み本番は `a7fa7b5f-bbaa-4286-a6be-27fff5b46522`（110 URL）。前者は592項目の本番照合失敗0。戻し先は障害時にも公開QAで確認する。110 URL版へ戻す間は新規ノアURLが404になる。
+2. 復旧コマンドは `wrangler rollback a7fa7b5f-bbaa-4286-a6be-27fff5b46522 --name carvista-static --message "Restore verified 110 URL release"`。この本番実行は障害発生時のみ。Cloudflareの旧versionへ100%を戻し、Routeはそのまま保持する。転送Workerも故障したときはそのWorkerのdeploymentを別途照合・rollbackする。
 3. `/`、主要車種、広告6ページ、`/sitemap.xml`、画像の代表サンプル、www/HTTPの308、canonical、ads.txt、GA4、Console Errorを確認する。新規URLの一時的な404とHTML/アセットのバージョンずれを記録し、必要なら次項の再ビルドで修復する。
 4. 旧versionは永続保管ではない。保持上限は直近100 versionまたは30日の制限があるため、GitHubの実装コミットと既存357画像のリポジトリを正本にする。スペーシア追加のコミット `ecfd05c`、最新PR head `081550a` は確認済み。ただしデプロイにコミットSHAは記録されておらず、**現行versionと特定SHAの1対1対応は未証明**。復旧時はGitHubで対象コミットをcheckoutし、lockfileで依存を再現して `npm run build:cloudflare` → `scripts/verify-cloudflare-preview.mjs` で照合 → 同じ `wrangler.jsonc` で再デプロイする。
 5. 配信のVercel依存を断つ設定案：Cloudflare内のapex/www DNSのVercel向けA/CNAMEをCloudflareの制御下に置く安全なオリジンに変更し、3 Routeのfail modeを**fail closed**へ設定する。変更前に現在のDNS、Route fail mode、メール関連レコード、無料枠、戻し先を読み取りで記録する。DNSとRouteの重要変更は個別承認を得てから実施する。fail closedでは無料Worker枠を使い切ったHTTP/www転送は1027エラーになり得るため、静的アセットと転送Workerの利用を分けて監視する。
