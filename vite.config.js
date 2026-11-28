@@ -13,6 +13,7 @@ import roadmap from './src/roadmap.js'
 import { generationComparisonHtml } from './src/generation-comparison-html.js'
 import { faceliftChangeMatrixHtml, faceliftDetailCompareHtml } from './src/facelift-detail-tools.js'
 import { voxy80Enhancement } from './src/facelift-enhancements.js'
+import { vehicleDecisionHtml } from './src/affiliate.js'
 
 const root = fileURLToPath(new URL('.', import.meta.url))
 const redirects = JSON.parse(readFileSync(resolve(root, 'vercel.json'), 'utf8')).redirects || []
@@ -786,6 +787,15 @@ function seoInjectPlugin() {
         let body = comparisonData ? generationComparisonHtml(comparisonData) : standaloneEntryHtml(filename, cars)
         if (!body) body = genericComparisonHtml(genericComparisonData(filename, cars))
         if (!body) throw new Error(`Static rendering is required for published comparison page: ${filename}`)
+        // Published comparison HTML is prerendered, so its runtime renderer
+        // deliberately skips the markup insertion. Add the approved creative
+        // during build for the small, explicit valuation allowlist instead.
+        const decision = vehicleDecisionHtml(undefined, { pagePath: `/${filename}` })
+        if (decision) {
+          const marker = '<a class="comparison-more"'
+          if (!body.includes(marker) || body.includes('data-vehicle-intent="valuation"')) throw new Error(`Unexpected referral placement in ${filename}`)
+          body = body.replace(marker, `${decision}${marker}`)
+        }
         const rendered = injectStaticFallback(html, body)
         return {
           html: comparisonData ? rendered.replace(/<main id="([^"]+)">/, '<main id="$1" data-prerendered="true">') : rendered,
