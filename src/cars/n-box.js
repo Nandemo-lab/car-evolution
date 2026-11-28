@@ -82,6 +82,7 @@ export default {
   vehicleName: 'N-BOX',
   references: { items: [
     { generations: '初代 JF1/JF2', label: 'Honda 2011年N-BOX発売資料', url: 'https://global.honda/jp/news/2011/4111130-nbox.html' },
+    { generations: '初代 JF1/JF2・2015年改良', label: 'Honda 2015年モデル装備表（後席スライドはタイプ別オプション）', url: 'https://www.honda.co.jp/auto-archive/nbox/2015-10/webcatalog/equipment/' },
     { generations: '2代目 JF3/JF4', label: 'Honda 2017年N-BOX発売資料', url: 'https://global.honda/jp/news/2017/4170831-n-box.html' },
     { generations: '3代目 JF5/JF6', label: 'Honda 2023年N-BOX発売資料', url: 'https://global.honda/jp/news/2023/4231005-n-box.html' },
     { generations: '3代目 JF5/JF6・2026年改良', label: 'Honda 2026年N-BOXマイナーモデルチェンジ資料', url: 'https://global.honda/jp/news/2026/4260716-n-box.html' },
@@ -141,13 +142,14 @@ export default {
     title: 'JF型式で世代を確定し、同じ世代の改良年も調べる',
     intro: '掲載画像は各世代の代表車です。標準車とCustom、2026年改良後の装飾差を混ぜないで確認します。',
     items: [
-      { title: '初代JF1/JF2', text: '2015年2月改良で標準車のフロント意匠と後席の仕様が変化。年式境界と後席スライドの有無は車両ごとに照合します。' },
+      { title: '初代JF1/JF2｜2015年2月', text: '標準車のフロント意匠が変わりました。スライドリアシートは当時タイプ別メーカーオプションで、後期型なら必ず装着されるわけではありません。購入時は後席が実際に動くか、装備表と現車で確認します。' },
       { title: '2代目JF3/JF4', text: '初代からの世代交代と、2代目内部の2020年12月改良は別。Custom専用の顔を標準N-BOXの後期型と混同しません。' },
       { title: '3代目JF5/JF6', text: '2023年発売時の標準車と2026年7月改良後では、フロント下部のメッキ加飾などが異なります。このページの3代目画像は発売時仕様の代表です。' },
     ],
     links: [
       { href: '/n-box-jf1-zenki-kouki.html', label: 'JF1/JF2の前期・後期を見る' },
       { href: '/n-box-jf1-vs-jf3.html', label: '初代と2代目の世代差を見る' },
+      { href: '/compare-n-box-spacia.html', label: '現行N-BOXとスペーシアを比較' },
     ],
   },
   guides: [
@@ -162,8 +164,8 @@ export default {
   // and same-condition generation images remain unchanged.
   homeCardImage: '/images/cars/n-box/home-card.webp',
   seo: {
-    title: 'N-BOX 歴代モデル・初代/2代目/3代目の違い — CarVista',
-    description: 'ホンダ N-BOXの初代から現行3代目までを統一画像で比較。JF型式、販売期間、見分け方とデザイン進化が一目でわかる。',
+    title: 'N-BOX歴代の違い｜JF1・JF3・JF5の見分け方と中古車の確認点 | CarVista',
+    description: 'N-BOX初代JF1/JF2から3代目JF5/JF6を画像と型式で比較。2015年改良の後席スライドは装着車を確認し、Customとの違いや関連比較へ進めます。',
   },
   defaultIndex: 2,
   generations,
