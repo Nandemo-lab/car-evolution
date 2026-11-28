@@ -134,14 +134,15 @@ export default {
   ],
   guides: [
     { href: '/compare-voxy-noah-esquire.html', label: 'VOXY・NOAH・ESQUIREの違い', description: '兄弟車の位置づけとフロントマスクを、世代条件を明示して比較する。', image: '/images/cars/esquire/compare-standard-v1.png' },
+    { href: '/noah-80-zenki-kouki.html', label: '同時期のノア80系前期・後期', description: '2017年7月の改良で兄弟車のランプとグリルがどう変わったかを見る。' },
   ],
   // Drives <title>/description/canonical/OGP/Twitter -- see the
   // seo-inject plugin in vite.config.js. Nothing else in this page's
   // <head> is hand-written. Keep this Japanese, matching every other
   // CarVista vehicle page and the Japanese search intent for this model.
   seo: {
-    title: 'ESQUIRE 歴代モデル一覧 — CarVista',
-    description: 'トヨタ エスクァイア（2014〜2021年）を画像で比較。80系のデザイン変化と型式が一目でわかる。',
+    title: 'エスクァイアは1世代｜80系の2017年改良と見分け方 | CarVista',
+    description: '歴代は2014〜2021年の1世代。2017年7月のランプ・グリル変更、Xi/Giとハイブリッドの見分け、中古車の型式・装備確認をトヨタ公式資料で整理。',
   },
   defaultIndex: 0,
   generations,
