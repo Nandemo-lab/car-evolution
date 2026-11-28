@@ -12,6 +12,8 @@
 
 `wrangler.jsonc` と `wrangler.redirect.jsonc` が経路の設定元。Cloudflare側のapex A `216.198.79.1` とwww CNAME `4f4894ec549112de.vercel-dns-017.com` は**変更していない**。両方ともCloudflareプロキシ経由でRouteが先に適用される。NS、DNSSEC、SSL Full、証明書、メール設定も変更なし。旧Vercelデプロイとドメイン設定を保持する。
 
+通常の本番応答はWorkers Static AssetsのRouteで200/HIT、Vercelへのfetchをコード内で行わない。ただしWorkers Routeは既存Vercel DNSオリジンの**前段**にある。Cloudflare無料枠超過時のRouteごとのfail-open/fail-closed設定は未取得。fail-openなら旧Vercelへ迂回する可能性があるため、Vercel商用配信への依存が完全に消えたとは判定しない。設定の読み取りと必要な変更は別の本番運用判断とする。
+
 CloudflareゾーンはFree Website。静的アセットのリクエストにはWorkerコードを実行しない。転送WorkerへのHTTP/wwwアクセスはWorkersの動的リクエスト枠を使う。新たな有料プラン契約や請求設定の変更は行っていない。**アカウント全体の請求設定・無制限の将来トラフィック費用は未確認**であり、月次請求のゼロ円を断定しない。Workers Freeの上限到達時は転送が失敗し得るため、実利用量を監視する。
 
 ## 実行と確認
