@@ -3,7 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises'
 
 const base = process.env.MOBILE_QA_ORIGIN || 'http://127.0.0.1:4173'
 const pages = process.env.MOBILE_QA_PATHS?.split(',') || [
-  '/cars/noah.html', '/cars/voxy.html', '/cars/tanto.html',
+  '/', '/cars/noah.html', '/cars/voxy.html', '/cars/tanto.html',
   '/n-box-jf1-zenki-kouki.html', '/cars/sienta.html',
   '/cars/spacia.html', '/cars/freed.html', '/noah-80-vs-90.html',
   '/spacia-model-code-years.html',
@@ -95,9 +95,26 @@ try {
           gtagCallCount: calls.length,
         }
       }) : null
+      const searchProbe = path === '/' ? await (async () => {
+        const query = page.locator('#model-query')
+        await query.fill('JF1')
+        await page.locator('#model-finder button[type="submit"]').click()
+        const modelMatches = await page.locator('#model-results a').count()
+        await page.locator('[data-year-car]').selectOption({ label: 'N-BOX' })
+        await page.locator('[data-year-value]').selectOption('2012')
+        await page.locator('[data-year-finder-form] button[type="submit"]').click()
+        const yearResult = await page.locator('[data-year-result]').innerText()
+        await query.focus()
+        const inputVisibility = await query.evaluate(input => {
+          const rect = input.getBoundingClientRect()
+          return rect.left >= 0 && rect.right <= innerWidth && rect.top >= 0 && rect.top < innerHeight
+        })
+        return { passed: modelMatches > 0 && /N-BOX|JF1/.test(yearResult) && inputVisibility,
+          modelMatches, yearResult: yearResult.slice(0, 160), inputVisibility }
+      })() : null
       const slug = path.replace(/\W+/g, '-').replace(/^-|-$/g, '')
-      await page.screenshot({ path: `${outputDir}/${slug}-${width}.png`, fullPage: true })
-      results.push({ path, width, status: response?.status(), ...layout, analyticsProbe, errors })
+      await page.screenshot({ path: `${outputDir}/${slug || 'home'}-${width}.png`, fullPage: true })
+      results.push({ path, width, status: response?.status(), ...layout, analyticsProbe, searchProbe, errors })
       await page.close()
     }
     await context.close()
@@ -105,7 +122,7 @@ try {
 } finally { await browser.close() }
 await writeFile(`${outputDir}/results.json`, JSON.stringify(results, null, 2))
 console.log(JSON.stringify(results, null, 2))
-if (results.some(result => result.status !== 200 || result.documentWidth > result.viewport + 1 || result.brokenImages.length || result.errors.length ||
+if (results.some(result => result.status !== 200 || result.documentWidth > result.viewport + 1 || result.brokenImages.length || result.errors.length || result.searchProbe?.passed === false ||
   (production && (result.analyticsProbe?.passed === false || (liveAffiliatePaths.has(result.path)
     ? !result.affiliate.visible || !result.affiliate.prLabel
     : result.affiliate.visible))))) process.exitCode = 1

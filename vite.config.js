@@ -18,6 +18,7 @@ import { vehicleDecisionHtml } from './src/affiliate.js'
 const root = fileURLToPath(new URL('.', import.meta.url))
 const redirects = JSON.parse(readFileSync(resolve(root, 'vercel.json'), 'utf8')).redirects || []
 const mobileNavigationCss = readFileSync(resolve(root, 'src/mobile-navigation.css'), 'utf8')
+const designSystemCss = readFileSync(resolve(root, 'src/design-system.css'), 'utf8')
 const mobileNavigationJs = readFileSync(resolve(root, 'src/mobile-navigation.js'), 'utf8')
 
 // Single source of truth for the brand name -- every title/og:site_name/
@@ -766,6 +767,11 @@ function seoInjectPlugin() {
         {
           tag: 'style',
           children: mobileNavigationCss,
+          injectTo: 'head',
+        },
+        {
+          tag: 'style',
+          children: designSystemCss,
           injectTo: 'head',
         },
         {

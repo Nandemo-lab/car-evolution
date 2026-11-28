@@ -46,12 +46,11 @@ test('TOP全車種カードは軽量WebP派生画像を使いMaster Assetを直�
     assert.ok(statSync(file).size<250_000,`${image} is too large`)
   }
 })
-test('TOPの外部Webフォントは描画をブロックせず最終書体を維持する', () => {
+test('TOPは外部Webフォントを読み込まずシステム書体を使う', () => {
   const html=readFileSync(new URL('../index.html',import.meta.url),'utf8')
-  const css=readFileSync(new URL('../src/home.css',import.meta.url),'utf8')
-  assert.ok(!css.includes('@import url('))
-  assert.match(html,/fonts\.googleapis\.com[^>]+media="print"[^>]+onload="this\.media='all'"/)
-  assert.match(html,/<noscript><link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com/)
+  const css=readFileSync(new URL('../src/design-system.css',import.meta.url),'utf8')
+  assert.ok(!html.includes('fonts.googleapis.com'))
+  assert.match(css,/--cv-font:.*system-ui/)
 })
 test('TOPの43車種は初期HTMLで到達可能なままメーカー絞り込みを提供する', () => {
   const html=readFileSync(new URL('../index.html',import.meta.url),'utf8')
@@ -670,12 +669,12 @@ test('Phase 3重点3ページは仕様の異なる軸を混同しない',()=>{
   assert.ok(delica.includes('型式と燃料を別に確認'))
 })
 
-test('ホームは迷いを減らす3つの入口とno-JS型式一覧を持つ',()=>{
+test('ホームは入力欄を先に示しno-JS型式一覧も持つ',()=>{
   const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
-  for(const label of ['車名・型式から探す','車名＋初度登録年から探す','画像で違いを見る']) assert.ok(html.includes(label),label)
-  assert.equal((html.match(/class="task-paths-primary"/g)||[]).length,1)
-  assert.ok(html.includes('まずは車名で探す'))
-  assert.ok(html.includes('車名と初度登録年から、世代候補を絞る'))
+  assert.ok(html.includes('車名・型式で検索'))
+  assert.ok(html.includes('初度登録年から探す'))
+  assert.ok(html.indexOf('id="model-finder"') < html.indexOf('id="maker-groups"'))
+  assert.ok(html.indexOf('id="model-finder"') < html.indexOf('class="comparison-links"'))
   assert.ok(html.includes('最近の更新'))
   assert.ok(html.includes('2026年11月7日'))
   assert.ok(html.includes('KICKS・CR-V・INSIGHT・SUPER-ONEを追加'))
@@ -696,7 +695,7 @@ test('TOPの信頼情報は読めるコントラストと一致するアクセ�
 })
 
 test('世代比較ページは説明・共有操作より先に車両画像を表示する',()=>{
-  const generation=readFileSync(new URL('../dist/alphard-30-vs-40.html',import.meta.url),'utf8')
+  const generation=readFileSync(new URL('../dist/alphard-30-vs-40.html',import.meta.url),'utf8').split('</head>')[1]
   assert.ok(generation.indexOf('class="lc-cars"') < generation.indexOf('比較条件と画像について'))
   assert.ok(generation.indexOf('class="lc-cars"') < generation.indexOf('share-button'))
 })
@@ -715,7 +714,7 @@ test('兄弟車比較は生成済み初期HTMLでも説明と共有より画像�
   const files=readdirSync(new URL('../dist',import.meta.url)).filter(file=>file.startsWith('compare-')&&file.endsWith('.html'))
   assert.ok(files.length>=6,'公開中の兄弟車比較ページを全件検査する')
   for(const file of files){
-    const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
+    const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8').split('</head>')[1]
     const answer=html.indexOf('class="comparison-answer"')
     const image=html.indexOf('class="comparison-grid"')
     assert.ok(answer>0,file)
