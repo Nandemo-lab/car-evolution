@@ -1,25 +1,24 @@
-# CarVista Cloudflare Pages 移行・復旧手順
+# CarVista Cloudflare 隔離配信・本番切替手順
 
-状態: Cloudflareへの隔離実配信とDNS変更は未実施。旧Vercel本番を維持する。
+状態（2026-11-28）：`carvista.jp` はVercelで本番配信中。Cloudflare管理画面はログアウト状態のため、Cloudflareへの隔離実配信・DNS変更は未実施。現行の構成は Pages ではなく **Workers Static Assets**（Workerスクリプトなし）。既存の `wrangler.preview.jsonc` と `wrangler.jsonc` に合わせる。古いDNSの記録は現行設定の根拠にしない。
 
-## 隔離配信の確認
+## 隔離実配信（既存アカウントにログイン後、DNSは変更しない）
 
-1. 既存CloudflareアカウントでPagesの新規プロジェクトを作成し、`npm ci && npm run build:cloudflare` の `dist/` をプレビューへ配信する。独自ドメインをまだ割り当てない。
-2. 現行本番の `sitemap.xml` の公開URLとプレビューの対応パスを突き合わせる。109件をHTTP 200で照合し、404・意図しないリダイレクトを解消する。
-3. 既存画像は作成・削除・差し替えせず、現行本番の画像URL一覧とプレビューの同一パスを一件ずつHTTP 200、Content-Type、画像サイズで比較する。画像の差異があれば切替を中止する。
-4. `canonical` は既存の `https://carvista.jp/` を維持する。`robots.txt`、`sitemap.xml`、`ads.txt`、Search Console所有権ファイル、JSON-LD、GA4の計測IDを照合する。広告クリックのGA4イベントは許可済み案件の実リンクがない限り成果とは扱わない。
-5. 375、390、430pxの実画面で画像比較、横スクロール、表、余白、Console Errorを確認する。モバイル未確認なら移行しない。
+1. `npm ci && npm run build:cloudflare && node scripts/prepare-cloudflare-preview.mjs`。`dist-cloudflare-preview/` の `_headers` に全URLの `X-Robots-Tag: noindex, nofollow` があることを確認する。
+2. 既存Cloudflareアカウントと対象ゾーンを確認する。既存権限内なら `npx wrangler whoami` の後、`npx wrangler deploy --config wrangler.preview.jsonc` で `carvista-static-preview` の隔離URLに配信する。認証情報を抽出・保存しない。新規アカウント登録が必要ならOWNER承認までここだけ保留する。
+3. `node scripts/verify-cloudflare-preview.mjs --origin https://<隔離URL>.workers.dev --dist dist-cloudflare-preview` を実行する。サイトマップ109 URL以上、既存357画像（ICO/SVG含む）の**バイト一致**、canonical、JSON-LD、GSC認証、GA4配信、ads.txt、robots、旧URLの308、404、全ページnoindexの結果をJSONに保存する。失敗が1件でもあれば切替しない。
+4. 375・390・430pxの実画面を既存の `Mobile visual gate` と照合する。画像比較、横スクロール、Console Error、リンクを確認する。隔離URLだけで本番のGA4 PVを増やさないように、計測IDの**配信確認**と実イベントの**受信確認**を分ける。
+5. 空の忍者AdMax枠は本PRで初期状態を停止した。旧Vercel本番との差分として広告枠4件を想定するが、既存収益を確認するまでは公開判断に含める。A8の承認済み一般案件は0件なので未承認リンクは出さない。
 
-## DNS変更直前の記録と承認
+## 本番切替前にOWNER承認を取得
 
-1. Cloudflareの現在のDNSレコードをエクスポートし、`A`、`AAAA`、`CNAME`、`MX`、`TXT`（SPF・DKIM・DMARC・所有権確認）、`CAA`、`DS`/DNSSEC、プロキシ設定、TTLを保存する。
-2. Vercelの現在のドメイン設定・最終READYデプロイID・SSL証明書状態を保存する。メールの送受信はMXだけでなくSPF/DKIM/DMARCも確認する。
-3. OWNERの本番公開・DNS変更承認後に限りPagesのカスタムドメイン設定と必要なWeb向けDNSレコードのみ変更する。メール向けレコードやDNSSECを無断で変更しない。
-4. `http`→`https`、`www`の正規化、全109URL、主要画像、canonical、サイトマップ、GA4リアルタイムを本番で確認する。新規URLがある場合はSearch Consoleの登録申請を行う。
+1. レジストラとCloudflareの現時点のゾーン設定を保存する。A/AAAA/CNAME、NS、MX、SPF/DKIM/DMARC、その他TXT（GSC/メール認証）、CAA、DS/DNSSEC、TTL、プロキシ状態、リダイレクトを照合。2026-11-05の控えは参考値であり現行値とは扱わない。
+2. 旧Vercelのドメイン設定、最終READY本番デプロイ、証明書状態を記録し、プロジェクトを残す。Cloudflare Custom Domain と `www`→apex の308転送を用意し、SSL発行・DNSSEC/メール影響を事前確認する。
+3. OWNERがDNS変更と本番切替を承認してから Web向け DNS のみ切り替える。NSを変更する場合、メール/認証/CAA/DSを移行前にすべて再現する。メール関連レコードを削除・変更しない。
+4. 本番で全URLと画像、SSL、旧URLの308、`www`・HTTPの正規化、canonical、sitemap、robots、JSON-LD、GSC認証、GA4リアルタイム、ads.txt、404、スマホ画面とエラーを再確認する。新規URLがあればGSCの正規の登録申請を行い、申請と登録完了を区別する。
 
-## ロールバック
+## 即時ロールバック
 
-1. 旧Vercelプロジェクトと最後の正常な本番デプロイを削除・停止しない。
-2. 切替前に保存したWeb向けDNS設定へ戻し、Cloudflare Pagesのカスタムドメインの接続先を外す。メール関連レコードは維持する。
-3. DNS伝播後、旧Vercelで代表URL、画像、HTTPS、canonical、GA4と問い合わせ先を検証する。SSLやDNSSECに不一致があればそのまま運用再開しない。
-4. Search Consoleのサイトマップ・カバレッジを監視し、原因と切替時間を記録する。
+1. 切替前のDNS/NS控えに従いWebの向き先を旧Vercelへ戻し、CloudflareのCustom Domainを外す。旧Vercel本番とドメインを削除・停止しない。DNSSECを変更した場合はDSの整合性を回復する。メールレコードは維持する。
+2. DNS伝播後、旧Vercelで代表URLと画像、HTTPS、canonical、GA4、メール配送関連レコードを確認する。SSL/DNSSECの不一致が残れば復旧完了としない。
+3. 切替・復旧時刻を記録し、GSCのサイトマップと検索実績を28日間監視する。
