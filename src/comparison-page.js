@@ -348,7 +348,7 @@ if (page.focus) {
     </section>`)
 }
 
-document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', vehicleDecisionHtml())
+document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', vehicleDecisionHtml(undefined, { pagePath: window.location.pathname }))
 
 if (page.related) {
   document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
