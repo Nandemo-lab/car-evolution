@@ -11,6 +11,8 @@ const widths = [375, 390, 430]
 const results = []
 const outputDir = process.env.MOBILE_QA_OUTPUT_DIR || 'mobile-evidence'
 const production = base === 'https://carvista.jp'
+// Only the approved live placement among the production smoke paths is expected to show the A8 creative.
+const liveAffiliatePaths = new Set(['/cars/noah.html'])
 await mkdir(outputDir, { recursive: true })
 const browser = await chromium.launch({ headless: true })
 try {
@@ -66,4 +68,6 @@ try {
 await writeFile(`${outputDir}/results.json`, JSON.stringify(results, null, 2))
 console.log(JSON.stringify(results, null, 2))
 if (results.some(result => result.status !== 200 || result.documentWidth > result.viewport + 1 || result.brokenImages.length || result.errors.length ||
-  (production && (result.path === '/cars/prius.html' ? result.affiliate.visible : !result.affiliate.visible || !result.affiliate.prLabel)))) process.exitCode = 1
+  (production && (liveAffiliatePaths.has(result.path)
+    ? !result.affiliate.visible || !result.affiliate.prLabel
+    : result.affiliate.visible)))) process.exitCode = 1
