@@ -38,7 +38,7 @@ try {
         scrollTo(0, 0)
       })
       await page.waitForLoadState('networkidle')
-      const layout = await page.evaluate(async () => ({
+      const layout = await page.evaluate(async isProduction => ({
         viewport: innerWidth,
         documentWidth: document.documentElement.scrollWidth,
         labVitals: window.__mobileVitals,
@@ -50,11 +50,11 @@ try {
         })))).filter(Boolean),
         tables: [...document.querySelectorAll('table')].map(table => ({ width: Math.round(table.getBoundingClientRect().width), parentWidth: Math.round(table.parentElement.getBoundingClientRect().width), scrollable: table.parentElement.scrollWidth > table.parentElement.clientWidth })),
         buttons: [...document.querySelectorAll('a, button')].filter(element => element.getBoundingClientRect().width > 0).length,
-        affiliate: production ? {
+        affiliate: isProduction ? {
           visible: !!document.querySelector('details[data-vehicle-intent="valuation"] [data-partner="a8_s00000014380003"] a[href^="https://px.a8.net/"]'),
           prLabel: !!document.querySelector('details[data-vehicle-intent="valuation"] .comparison-referral')?.textContent.includes('PR・広告'),
         } : null,
-      }))
+      }), production)
       const slug = path.replace(/\W+/g, '-').replace(/^-|-$/g, '')
       await page.screenshot({ path: `${outputDir}/${slug}-${width}.png`, fullPage: true })
       results.push({ path, width, status: response?.status(), ...layout, errors })
