@@ -411,9 +411,11 @@ test('TOP車種カードは全車フロント右向き・フロント優勢3/4�
 })
 test('個別の配列形式出典を優先し、確認日を捏造しない',()=>{
   const refs=resolveReferences(cars.find(car=>car.slug==='tanto'))
-  assert.equal(refs.items.length,5)
+  assert.equal(refs.items.length,7)
   assert.equal(refs.checkedAt,undefined)
   assert.ok(refs.items.every(item=>item.url.startsWith('https://www.daihatsu.com/')))
+  assert.ok(refs.items.some(item=>item.url.endsWith('/20150427-01.html')))
+  assert.ok(refs.items.some(item=>item.url.endsWith('/20151214-02.html')))
   for(const car of cars) assert.ok(resolveReferences(car)?.items.length>0,car.slug)
 })
 test('公開109 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
