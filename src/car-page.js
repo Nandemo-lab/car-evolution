@@ -186,7 +186,7 @@ function renderVehicleDecision(config) {
     link.addEventListener('click', (event) => {
       if (link.tagName !== 'A' && !event.target.closest('a[href]')) return
       trackEvent(link.dataset.referral === 'valuation' ? 'click_vehicle_valuation' : 'click_used_car_search', {
-        vehicle: config.vehicleName, partner: link.dataset.partner,
+        vehicle: config.vehicleName, partner: link.dataset.partner, page_path: window.location.pathname,
       })
     })
   })
