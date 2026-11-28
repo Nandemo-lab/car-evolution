@@ -1,0 +1,5 @@
+CarVista zone read request
+Target: carvista.jp
+Purpose: one-time encrypted DNS, SSL, and redirect snapshot for migration readiness.
+No production changes or DNS writes.
+Requested: 2026-11-28 JST
