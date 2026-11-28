@@ -1,8 +1,24 @@
 // Configure only destinations approved by the publisher and partner.
 export const affiliateDestinations = {
   usedCarSearch: null,
-  valuation: null,
+  valuation: {
+    partner: 'a8_s00000014380003',
+    status: 'approved',
+    // Flip only after OWNER approves production ad publication and the
+    // exact listing URLs have been submitted to A8 after going live.
+    enabled: false,
+    creativeHtml: '<a href="https://px.a8.net/svt/ejp?a8mat=4BGVY4+36WOJ6+32YG+HYFLU" rel="nofollow">カーネクスト</a>\n<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BGVY4+36WOJ6+32YG+HYFLU" alt="">',
+  },
 }
+
+// These pages explain a generation change or model choice that commonly
+// accompanies replacing an existing vehicle. Do not add a sale prompt to
+// every visual comparison just because a partner has approved a creative.
+const valuationPages = new Set([
+  '/cars/noah.html', '/cars/voxy.html', '/cars/tanto.html',
+  '/noah-80-vs-90.html', '/voxy-80-zenki-kouki.html',
+  '/tanto-la600s-vs-la650s.html',
+])
 
 const journeys = [
   {
@@ -37,8 +53,9 @@ function approvedLink(destination, linkText, key) {
   return `<p class="comparison-referral">PR・広告。外部サービスへ移動します。入力した個人情報は提携先の方針に従って取り扱われます。</p><a href="${href}" target="_blank" rel="sponsored noopener noreferrer" data-referral="${key}" data-partner="${destination.partner}">${linkText} ↗</a>`
 }
 
-export function vehicleDecisionHtml(destinations = affiliateDestinations) {
+export function vehicleDecisionHtml(destinations = affiliateDestinations, { pagePath } = {}) {
   const content = journeys.map(({ key, title, advice, linkText }) => {
+    if (pagePath && key === 'valuation' && !valuationPages.has(pagePath)) return ''
     const link = approvedLink(destinations[key], linkText, key)
     return link ? `<details data-vehicle-intent="${key}"><summary>${title}</summary><p>${advice}</p>${link}</details>` : ''
   }).join('')
