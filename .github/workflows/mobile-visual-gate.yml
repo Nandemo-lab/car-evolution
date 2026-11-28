@@ -25,7 +25,7 @@ jobs:
       - name: Check deployed isolated Cloudflare pages
         run: MOBILE_QA_ORIGIN=https://carvista-static-preview.nandemomail24.workers.dev MOBILE_QA_PATHS=/cars/noah.html,/cars/voxy.html,/cars/tanto.html MOBILE_QA_OUTPUT_DIR=mobile-cloudflare-evidence node scripts/mobile-visual-gate.mjs
       - name: Check approved production routes and ad placement
-        run: MOBILE_QA_ORIGIN=https://carvista.jp MOBILE_QA_PATHS=/cars/noah.html,/noah-80-vs-90.html,/cars/prius.html,/cars/freed.html,/cars/spacia.html,/cars/n-box.html,/cars/vezel.html MOBILE_QA_OUTPUT_DIR=mobile-production-evidence node scripts/mobile-visual-gate.mjs
+        run: MOBILE_QA_ORIGIN=https://carvista.jp MOBILE_QA_PATHS=/cars/noah.html,/noah-80-vs-90.html,/cars/prius.html,/cars/freed.html,/cars/spacia.html,/cars/n-box.html,/cars/vezel.html,/cars/sienta.html,/cars/esquire.html,/cars/solio.html,/prius-30-vs-50.html,/prius-50-vs-60.html MOBILE_QA_OUTPUT_DIR=mobile-production-evidence node scripts/mobile-visual-gate.mjs
       - uses: actions/upload-artifact@v5
         if: always()
         with:
