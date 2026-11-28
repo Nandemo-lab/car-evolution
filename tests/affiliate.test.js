@@ -19,3 +19,13 @@ test('only configured HTTPS partners render a labeled sponsored link', () => {
   assert.match(html, /rel="sponsored noopener noreferrer"/)
   assert.equal((html.match(/href=/g) ?? []).length, 1)
 })
+
+test('A8 creatives stay byte-for-byte intact and cannot use synthetic text links', () => {
+  const creative = '<a href="https://px.a8.net/svt/ejp?a8mat=fixture">公式の広告文言</a><img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=fixture" alt="">'
+  const enabled = { partner: 'a8_s00000014380003', status: 'approved', enabled: true, creativeHtml: creative }
+  const html = vehicleDecisionHtml({ valuation: enabled })
+  assert.ok(html.includes(creative))
+  assert.match(html, /data-referral="valuation"/)
+  assert.equal(vehicleDecisionHtml({ valuation: { ...enabled, creativeHtml: undefined, url: 'https://px.a8.net/' } }), '')
+  assert.equal(vehicleDecisionHtml({ valuation: { ...enabled, enabled: false } }), '')
+})
