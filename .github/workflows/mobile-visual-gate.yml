@@ -24,6 +24,8 @@ jobs:
       - run: node scripts/mobile-visual-gate.mjs
       - name: Check deployed isolated Cloudflare pages
         run: MOBILE_QA_ORIGIN=https://carvista-static-preview.nandemomail24.workers.dev MOBILE_QA_PATHS=/cars/noah.html,/cars/voxy.html,/cars/tanto.html MOBILE_QA_OUTPUT_DIR=mobile-cloudflare-evidence node scripts/mobile-visual-gate.mjs
+      - name: Check newly published production route and ad placement
+        run: MOBILE_QA_ORIGIN=https://carvista.jp MOBILE_QA_PATHS=/cars/noah.html,/noah-80-vs-90.html,/cars/prius.html MOBILE_QA_OUTPUT_DIR=mobile-production-evidence node scripts/mobile-visual-gate.mjs
       - uses: actions/upload-artifact@v5
         if: always()
         with:
@@ -31,4 +33,5 @@ jobs:
           path: |
             mobile-evidence/
             mobile-cloudflare-evidence/
+            mobile-production-evidence/
           retention-days: 7

@@ -10,11 +10,13 @@ const pages = process.env.MOBILE_QA_PATHS?.split(',') || [
 const widths = [375, 390, 430]
 const results = []
 const outputDir = process.env.MOBILE_QA_OUTPUT_DIR || 'mobile-evidence'
+const production = base === 'https://carvista.jp'
 await mkdir(outputDir, { recursive: true })
 const browser = await chromium.launch({ headless: true })
 try {
   for (const width of widths) {
     const context = await browser.newContext({ viewport: { width, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true })
+    if (production) await context.route('**/googletagmanager.com/**', route => route.fulfill({ status: 200, contentType: 'application/javascript', body: '' }))
     for (const path of pages) {
       const page = await context.newPage()
       await page.addInitScript(() => {
@@ -26,6 +28,7 @@ try {
       page.on('pageerror', error => errors.push(error.message))
       page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
       const response = await page.goto(base + path, { waitUntil: 'networkidle' })
+      if (production) await page.evaluate(() => { const disclosure = document.querySelector('details[data-vehicle-intent="valuation"]'); if (disclosure) disclosure.open = true })
       // Reveal lazy-loaded comparison and related cards before judging image delivery.
       await page.evaluate(async () => {
         for (let y = 0; y < document.documentElement.scrollHeight; y += 500) {
@@ -47,6 +50,10 @@ try {
         })))).filter(Boolean),
         tables: [...document.querySelectorAll('table')].map(table => ({ width: Math.round(table.getBoundingClientRect().width), parentWidth: Math.round(table.parentElement.getBoundingClientRect().width), scrollable: table.parentElement.scrollWidth > table.parentElement.clientWidth })),
         buttons: [...document.querySelectorAll('a, button')].filter(element => element.getBoundingClientRect().width > 0).length,
+        affiliate: production ? {
+          visible: !!document.querySelector('details[data-vehicle-intent="valuation"] [data-partner="a8_s00000014380003"] a[href^="https://px.a8.net/"]'),
+          prLabel: !!document.querySelector('details[data-vehicle-intent="valuation"] .comparison-referral')?.textContent.includes('PR・広告'),
+        } : null,
       }))
       const slug = path.replace(/\W+/g, '-').replace(/^-|-$/g, '')
       await page.screenshot({ path: `${outputDir}/${slug}-${width}.png`, fullPage: true })
@@ -58,4 +65,5 @@ try {
 } finally { await browser.close() }
 await writeFile(`${outputDir}/results.json`, JSON.stringify(results, null, 2))
 console.log(JSON.stringify(results, null, 2))
-if (results.some(result => result.status !== 200 || result.documentWidth > result.viewport + 1 || result.brokenImages.length || result.errors.length)) process.exitCode = 1
+if (results.some(result => result.status !== 200 || result.documentWidth > result.viewport + 1 || result.brokenImages.length || result.errors.length ||
+  (production && (result.path === '/cars/prius.html' ? result.affiliate.visible : !result.affiliate.visible || !result.affiliate.prLabel)))) process.exitCode = 1
