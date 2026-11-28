@@ -9,6 +9,8 @@ if (!options.origin || !options.dist) {
 }
 const origin = new URL(options.origin)
 if (origin.protocol !== 'https:' || origin.pathname !== '/' || origin.search || origin.hash) throw Error('Origin must be an HTTPS origin without a path or query')
+const production = options.production === 'true'
+if (production && origin.hostname !== 'carvista.jp') throw Error('Production verification is restricted to carvista.jp')
 const dist = resolve(options.dist)
 const output = resolve(options.output || 'outputs/cloudflare-migration/preview-verification.json')
 const failures = []
@@ -47,7 +49,9 @@ for (const pathname of paths) {
   record('page', pathname, response.status !== 200 ? `HTTP ${response.status}` :
     canonical !== `https://carvista.jp${pathname === '/' ? '/' : pathname}` ? `canonical ${canonical || 'missing'}` :
     !title || h1 !== 1 || !jsonLd ? `title=${title} h1=${h1} jsonLd=${jsonLd}` : '')
-  record('preview-noindex', pathname, !/noindex/i.test(response.headers.get('x-robots-tag') || '') ? 'Missing X-Robots-Tag noindex in isolated origin' : '')
+  const noindex = /noindex/i.test(`${response.headers.get('x-robots-tag') || ''} ${html.match(/<meta\s+name="robots"[^>]*>/i)?.[0] || ''}`)
+  record(production ? 'production-indexable' : 'preview-noindex', pathname,
+    production ? (noindex ? 'Production page is noindex' : '') : (!noindex ? 'Missing noindex in isolated origin' : ''))
 }
 
 const imageExtensions = new Set(['.png', '.webp', '.jpg', '.jpeg', '.svg', '.ico'])

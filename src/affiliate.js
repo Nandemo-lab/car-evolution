@@ -4,9 +4,8 @@ export const affiliateDestinations = {
   valuation: {
     partner: 'a8_s00000014380003',
     status: 'approved',
-    // Flip only after OWNER approves production ad publication and the
-    // exact listing URLs have been submitted to A8 after going live.
-    enabled: false,
+    // The OWNER approved live publication after Cloudflare cutover QA.
+    enabled: true,
     creativeHtml: '<a href="https://px.a8.net/svt/ejp?a8mat=4BGVY4+36WOJ6+32YG+HYFLU" rel="nofollow">カーネクスト</a>\n<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BGVY4+36WOJ6+32YG+HYFLU" alt="">',
   },
 }
@@ -55,7 +54,7 @@ function approvedLink(destination, linkText, key) {
 
 export function vehicleDecisionHtml(destinations = affiliateDestinations, { pagePath } = {}) {
   const content = journeys.map(({ key, title, advice, linkText }) => {
-    if (pagePath && key === 'valuation' && !valuationPages.has(pagePath)) return ''
+    if (key === 'valuation' && !valuationPages.has(pagePath)) return ''
     const link = approvedLink(destinations[key], linkText, key)
     return link ? `<details data-vehicle-intent="${key}"><summary>${title}</summary><p>${advice}</p>${link}</details>` : ''
   }).join('')

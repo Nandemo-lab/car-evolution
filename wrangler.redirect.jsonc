@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "carvista-canonical-redirect",
+  "main": "./redirect-worker.mjs",
+  "compatibility_date": "2026-11-04",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "www.carvista.jp/*", "zone_name": "carvista.jp" },
+    { "pattern": "http://carvista.jp/*", "zone_name": "carvista.jp" }
+  ]
+}

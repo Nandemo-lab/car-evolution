@@ -1,1 +1,0 @@
-2026-11-28: OWNER approved CarVista production migration, the two canonical 308 redirects, and CarNext ad activation subject to no new charges. Protected job must wait for a dedicated CarVista-zone-only Single Redirect Edit token and OWNER environment approval. Exact DNS, Free plan, SSL and DNSSEC preflight is mandatory; abort on mismatch.

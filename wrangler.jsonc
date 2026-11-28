@@ -6,8 +6,8 @@
   "preview_urls": false,
   "routes": [
     {
-      "pattern": "carvista.jp",
-      "custom_domain": true
+      "pattern": "https://carvista.jp/*",
+      "zone_name": "carvista.jp"
     }
   ],
   "assets": {

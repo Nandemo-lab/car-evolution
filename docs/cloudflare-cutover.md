@@ -1,42 +1,36 @@
-# CarVista Cloudflare 隔離配信・本番切替手順
+# CarVista Cloudflare 本番運用と切り戻し
 
-状態（2026-11-28）：`carvista.jp` はVercelで本番配信中。既存Cloudflareアカウントに公式Wrangler OAuthで認証し、**Workers Static Assets**（Workerスクリプトなし）の別名隔離環境 `https://carvista-static-preview.nandemomail24.workers.dev/` へ実配信済み。109 URL・既存357画像のバイト一致を含む588検査は失敗0。ブラウザでプレビューのGA4タグが読み込まれないことを確認した。本番DNS/ドメインは未変更。Pagesではなく既存 `wrangler.preview.jsonc` / `wrangler.jsonc` のStatic Assets構成を採用する。Cloudflareの保護環境で読み取りジョブが成功し、以下の現行値を確認した。切替実行にはOWNERによる別途承認と必要な書き込み権限が要る。
+2026-11-28、OWNERが承認した本番移行とカーネクスト掲載を実行した。既存の公式Wrangler OAuthに `workers_routes:write` があり、追加のAPIトークンやDNS書き込みは不要だった。別途承認待ちだったSingle Redirect書き込みジョブはキャンセルし、ワークフローも削除した。
 
-## 隔離実配信（既存アカウントにログイン後、DNSは変更しない）
+## 現在の経路
 
-1. `npm ci && npm run build:cloudflare && node scripts/prepare-cloudflare-preview.mjs`。`dist-cloudflare-preview/` の `_headers` に全URLの `X-Robots-Tag: noindex, nofollow` があることを確認する。
-2. 既存Cloudflareアカウントの公式Wrangler OAuth権限を `npx wrangler whoami` で確認し、`npx wrangler deploy --config wrangler.preview.jsonc` で `carvista-static-preview` の隔離URLに配信する。トークン値を表示・Gitに保存しない。
-3. `node scripts/verify-cloudflare-preview.mjs --origin https://<隔離URL>.workers.dev --dist dist-cloudflare-preview` を実行する。サイトマップ109 URL以上、既存357画像（ICO/SVG含む）の**バイト一致**、canonical、JSON-LD、GSC認証、GA4配信、ads.txt、robots、旧URLの308、404、全ページnoindexの結果をJSONに保存する。失敗が1件でもあれば切替しない。
-4. 375・390・430pxの実画面を既存の `Mobile visual gate` と照合する。画像比較、横スクロール、Console Error、リンクを確認する。隔離URLのCI実画面検証は未完了の場合は本番切替を保留する。GA4は `carvista.jp` と `www.carvista.jp` のみ送信し、プレビューのクリック/PVを本番KPIに混ぜない。計測IDの**配信確認**と実イベントの**受信確認**を分ける。
-5. 空の忍者AdMax枠は本PRで初期状態を停止した。旧Vercel本番との差分として広告枠4件を想定するが、既存収益を確認するまでは公開判断に含める。A8のカーネクストは11月28日に提携完了、ガリバーとソコカラは審査中。広告素材と掲載規則の確認および本番公開承認までリンク設定は無効とする。
+| 入力 | Cloudflareの設定 | 結果 |
+| --- | --- | --- |
+| `https://carvista.jp/*` | `carvista-static` のRoute、Workers Static Assets | 既存URLを静的配信 |
+| `http://carvista.jp/*` | `carvista-canonical-redirect` のRoute | 同じパス・クエリでHTTPSへ308 |
+| `www.carvista.jp/*` | 同じ転送WorkerのRoute | 同じパス・クエリでapexのHTTPSへ308 |
 
-## 2026-11-28 現行構成の確認と移行判定
+`wrangler.jsonc` と `wrangler.redirect.jsonc` が経路の設定元。Cloudflare側のapex A `216.198.79.1` とwww CNAME `4f4894ec549112de.vercel-dns-017.com` は**変更していない**。両方ともCloudflareプロキシ経由でRouteが先に適用される。NS、DNSSEC、SSL Full、証明書、メール設定も変更なし。旧Vercelデプロイとドメイン設定を保持する。
 
-- Vercelのドメイン設定では `carvista.jp` は設定正常・認証済み、`www.carvista.jp` はapexへ308転送。既存プロジェクトと旧本番を残す。Vercelから見える外部NSは `mario.ns.cloudflare.com` / `amanda.ns.cloudflare.com`、プロキシのA応答は `104.21.73.11` / `172.67.136.235`。レジストラ関連メールはお名前.com。これは**DNSゾーンの全レコードの控えではない**。
-- 既にCloudflare NSを利用しているため、同じゾーンのCustom DomainだけでWeb向き先を変えられる可能性がある。NS変更の要否は現行ゾーン設定を確認して決める。推測でレジストラやMXを変更しない。
-- 2026-11-28、Google Public DNSの公開応答を読み取った。apex Aは `104.21.73.11` / `172.67.136.235`、AAAAは `2606:4700:3030::ac43:88eb` / `2606:4700:3035::6815:490b`、NSは `amanda.ns.cloudflare.com` / `mario.ns.cloudflare.com`。wwwも同じAで応答。公開MX、apex TXT、CAA、親ゾーンDSは応答なし、`_dmarc.carvista.jp` はNXDOMAIN。プロキシされたA応答からCloudflareゾーン内の元のA/CNAME値を逆算しない。公開DNSで「なし」はCloudflare管理画面に設定が存在しない証明ではない。
-- CloudflareダッシュボードのログインPOSTはこの作業環境ではHTTP 403だったが、OWNER承認付きのGitHub保護環境から**CarVistaゾーン限定の公式API読み取りジョブ**が成功した（実行コミット `6eb5a0f`）。暗号化された結果だけを1日保持のartifactへ保存し、秘密値はログに出していない。ゾーンはactive、Free Website、NSは `amanda.ns.cloudflare.com` / `mario.ns.cloudflare.com`。ゾーンのDNSレコードは次の**2件のみ**：apex `A 216.198.79.1`、www `CNAME 4f4894ec549112de.vercel-dns-017.com`（両方proxied、TTL Auto）。AAAA、MX、TXT、SPF、DKIM、DMARC、GSC用DNS TXT、CAA、その他のサブドメインは登録されていない。GSC認証はHTML meta tagを維持する。DNSSECはdisabled。SSL/TLSはFull、Let's Encryptのuniversal certificateがactiveで `carvista.jp` と `*.carvista.jp` を含む。Always Use HTTPSはoff、Minimum TLSは1.0。既存のSingle Redirectエントリポイントは404で未作成。管理ルールセット4件はあるが、Page Rules等の全種類を列挙したものではない。既存wwwとHTTPの308はVercelの応答であり、切替時にCloudflare側へ引き継ぐ必要がある。
-- 読み取り認証: CarVista単一ゾーンに限定した必要最小限のCustom TokenをOWNERが保護環境Secretへ登録し、承認付きジョブの実行に成功した。用途は現行DNS/SSL/リダイレクトと切り戻し値の確認だけ。DNS Write、全ゾーン、Account権限、Global API Keyは使用していない。結果確認後はGitHub環境Secretを削除し、Cloudflare API Tokensで当該トークンを失効する。秘密値は公開リポジトリ、チャット、CIログに保存しない。
-- 安全な受け渡し: `.github/workflows/carvista-zone-read.yml` は**環境Secret** `CARVISTA_CF_READ_TOKEN` を使う専用の読み取りジョブ。環境名は `carvista-zone-read` とし、OWNERによるRequired reviewers、デプロイブランチ `preview/carvista-b5152ea` のみをGitHub側で設定する。トークンをGitHubのリポジトリSecretではなく、この保護された環境SecretへOWNER自身が入力する。CIの権限は contents:read、対象APIはGETのみ、DNS等の値はログ出力しない。結果は公開リポジトリ上に**RSA-OAEP-SHA256 + AES-256-GCMで暗号化された1日保持のartifact**だけを保存し、復号鍵はリポジトリ外の権限600の作業環境ファイルに保持する。利用後はGitHub環境SecretとCloudflareトークンを両方失効する。環境承認前にジョブがSecretを受け取れないことはGitHubの仕様。workflowと鍵の準備だけでは認証完了とは扱わない。
-- 静的プレビューは実配信済みで、ゾーンの現行プランもFree WebsiteとAPIで確認した。Workers Static Assetsの静的リクエストは無料枠で配信可能。アカウント全体の請求設定と他の課金対象サービスはこのゾーン読み取りジョブの対象外で、別途確認する。今回の読み取りで有料契約や本番設定の変更はない。
+CloudflareゾーンはFree Website。静的アセットのリクエストにはWorkerコードを実行しない。転送WorkerへのHTTP/wwwアクセスはWorkersの動的リクエスト枠を使う。新たな有料プラン契約や請求設定の変更は行っていない。**アカウント全体の請求設定・無制限の将来トラフィック費用は未確認**であり、月次請求のゼロ円を断定しない。Workers Freeの上限到達時は転送が失敗し得るため、実利用量を監視する。
 
-## 承認後の最小切替差分（切替前に現行値を再確認）
+## 実行と確認
 
-1. 旧Vercelの本番とドメイン設定を保持し、静的Workerのapex Custom Domain `carvista.jp` を設定する。Cloudflareが管理するapexのWeb向けDNSは、旧 `A 216.198.79.1` からWorkerの向き先へ変更される。NSは変更しない。`www` のCNAME `4f4894ec549112de.vercel-dns-017.com` は維持する。
-2. CloudflareのSingle Redirectを2件設定する。`www.carvista.jp` のすべてのパス・クエリを `https://carvista.jp` の同じパス・クエリへ308転送し、apexのHTTPをHTTPSの同じパス・クエリへ308転送する。現行のVercel由来の挙動と照合する。ゾーン全体のAlways Use HTTPS、SSLモード、DNSSEC、他のDNS値を変更しない。
-3. 本番HTTPSの証明書・経路と、109 URL・357画像・canonical・サイトマップ・robots・JSON-LD・GSC HTML meta・GA4・ads.txt・404・スマホ表示を照合する。CarNext広告は独立した掲載開始承認がある場合だけ有効化し、実広告をテストクリックしない。
+1. `npm run build:cloudflare` で109サイトマップURLと既存357画像を含むビルドを生成。
+2. `wrangler deploy --config wrangler.redirect.jsonc`、続いて `wrangler deploy --config wrangler.jsonc` を実行。
+3. `node scripts/verify-cloudflare-preview.mjs --origin https://carvista.jp --dist dist --production true` により109 URL、357画像のバイト一致、canonical、JSON-LD、GSC meta、GA4コード、ads.txt、robots、サイトマップ、旧URLの308、404、公開ページのnoindex不在を照合。588項目で失敗0。
+4. HTTPとwwwの308をパス・クエリ付きで検証。ブラウザでNOAHの売却導線にPR表記と正規広告素材が表示されることを確認。実広告はクリックしない。
 
-切替実行権限は読み取り専用トークンにはない。承認後、Worker Custom DomainおよびSingle Redirect編集に必要な**対象ゾーン限定の正規の書き込み手段**を確認してから実施し、権限不足なら操作を保留する。
+サイトへの実イベント到達やSearch Console側の取得・インデックス登録は、配信コードの確認とは別の観測項目。URL登録申請は新規URLを確定して正規UIから行う。
 
-## 本番切替前にOWNER承認を取得
+## 即時切り戻し
 
-1. 読み取りジョブで確認した2026-11-28の上記現行値を切替直前に再確認する。2026-11-05の控えは現行値とは扱わない。旧値を秘密情報のない作業記録に残す。
-2. 旧Vercelのドメイン設定、最終READY本番デプロイ、証明書状態を記録し、プロジェクトを残す。Cloudflare Custom Domain と `www`→apex の308転送を用意し、SSL発行・DNSSEC/メール影響を事前確認する。
-3. OWNERが本番切替と必要なDNS/転送変更を承認してからWeb向けapexだけを切り替える。NSは維持する。現状メール関連レコードは存在せず、メール配送を提供していることも確認されていない。`www` は既存CNAMEを残してCloudflare側の308転送を検証する。
-4. 本番で全URLと画像、SSL、旧URLの308、`www`・HTTPの正規化、canonical、sitemap、robots、JSON-LD、GSC認証、GA4リアルタイム、ads.txt、404、スマホ画面とエラーを再確認する。新規URLがあればGSCの正規の登録申請を行い、申請と登録完了を区別する。
+権限と接続を維持した作業端末で、まず `carvista-static` から `https://carvista.jp/*` Routeを、転送Workerから `www.carvista.jp/*` と `http://carvista.jp/*` Routeを外す。`wrangler.jsonc` / `wrangler.redirect.jsonc` の `routes` を空配列にした一時設定で各Workerを再デプロイし、3経路が消えたことを管理画面・HTTP応答で確認する。**Workerを削除したりDNS値を変更したりする必要はない。** 元から残したapex Aとwww CNAMEが旧Vercelへ到達する。転送の動作と旧Vercelの代表URL、画像、SSL、GA4を検証する。切り戻し時のA8広告は旧Vercelの公開バージョンに含まれない。
 
-## 即時ロールバック
+Route設定変更が権限・API障害で失敗した場合は、Cloudflare管理画面のWorkers & Pages → 対象Worker → Settings → Domains & Routesから同じ3経路を解除する。事前に確認したDNS旧値は保持し、必要な場合だけ別途承認されたDNS操作として復旧する。
 
-1. Cloudflareのapex Custom Domainを解除し、apex `A 216.198.79.1`（proxied、TTL Auto）を復元する。新設した2件のSingle Redirectを削除または無効化する。既存のwww `CNAME 4f4894ec549112de.vercel-dns-017.com` は変更しない。旧Vercel本番とドメイン設定を削除・停止しない。NS、DNSSEC、SSLモード、メールレコードを変更しない。
-2. DNS伝播後、旧Vercelで代表URLと画像、HTTPS、canonical、GA4、メール配送関連レコードを確認する。SSL/DNSSECの不一致が残れば復旧完了としない。
-3. 切替・復旧時刻を記録し、GSCのサイトマップと検索実績を28日間監視する。
+## 残る確認
+
+- 375/390/430pxの**本番**ブラウザ実画面。ローカル環境のChromiumラッパーは実行バイナリ欠落。隔離環境の既存39画面検証とは区別する。
+- GA4リアルタイム受信、Search Consoleのサイトマップと新規URLの登録申請、Cloudflareのアカウント請求設定。
+- `carvista-zone-read` 環境の旧読み取りSecretとCloudflare旧トークンの失効。秘密値は再利用しない。

@@ -23,11 +23,11 @@ test('only configured HTTPS partners render a labeled sponsored link', () => {
 test('A8 creatives stay byte-for-byte intact and cannot use synthetic text links', () => {
   const creative = '<a href="https://px.a8.net/svt/ejp?a8mat=fixture">公式の広告文言</a><img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=fixture" alt="">'
   const enabled = { partner: 'a8_s00000014380003', status: 'approved', enabled: true, creativeHtml: creative }
-  const html = vehicleDecisionHtml({ valuation: enabled })
+  const html = vehicleDecisionHtml({ valuation: enabled }, { pagePath: '/cars/noah.html' })
   assert.ok(html.includes(creative))
   assert.match(html, /data-referral="valuation"/)
-  assert.equal(vehicleDecisionHtml({ valuation: { ...enabled, creativeHtml: undefined, url: 'https://px.a8.net/' } }), '')
-  assert.equal(vehicleDecisionHtml({ valuation: { ...enabled, enabled: false } }), '')
+  assert.equal(vehicleDecisionHtml({ valuation: { ...enabled, creativeHtml: undefined, url: 'https://px.a8.net/' } }, { pagePath: '/cars/noah.html' }), '')
+  assert.equal(vehicleDecisionHtml({ valuation: { ...enabled, enabled: false } }, { pagePath: '/cars/noah.html' }), '')
 })
 
 test('only selected replacement pages can show the approved valuation creative', () => {
@@ -35,5 +35,5 @@ test('only selected replacement pages can show the approved valuation creative',
     creativeHtml: '<a href="https://px.a8.net/svt/ejp?a8mat=fixture" rel="nofollow">カーネクスト</a>\n<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=fixture" alt="">' }
   assert.match(vehicleDecisionHtml({ valuation: approved }, { pagePath: '/noah-80-vs-90.html' }), /カーネクスト/)
   assert.equal(vehicleDecisionHtml({ valuation: approved }, { pagePath: '/prius-30-vs-50.html' }), '')
-  assert.equal(vehicleDecisionHtml(), '') // Production stays disabled until publication approval.
+  assert.equal(vehicleDecisionHtml(), '') // A missing page path must never show the creative.
 })
