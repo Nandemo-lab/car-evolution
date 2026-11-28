@@ -8,7 +8,14 @@
 2. 既存Cloudflareアカウントの公式Wrangler OAuth権限を `npx wrangler whoami` で確認し、`npx wrangler deploy --config wrangler.preview.jsonc` で `carvista-static-preview` の隔離URLに配信する。トークン値を表示・Gitに保存しない。
 3. `node scripts/verify-cloudflare-preview.mjs --origin https://<隔離URL>.workers.dev --dist dist-cloudflare-preview` を実行する。サイトマップ109 URL以上、既存357画像（ICO/SVG含む）の**バイト一致**、canonical、JSON-LD、GSC認証、GA4配信、ads.txt、robots、旧URLの308、404、全ページnoindexの結果をJSONに保存する。失敗が1件でもあれば切替しない。
 4. 375・390・430pxの実画面を既存の `Mobile visual gate` と照合する。画像比較、横スクロール、Console Error、リンクを確認する。隔離URLのCI実画面検証は未完了の場合は本番切替を保留する。GA4は `carvista.jp` と `www.carvista.jp` のみ送信し、プレビューのクリック/PVを本番KPIに混ぜない。計測IDの**配信確認**と実イベントの**受信確認**を分ける。
-5. 空の忍者AdMax枠は本PRで初期状態を停止した。旧Vercel本番との差分として広告枠4件を想定するが、既存収益を確認するまでは公開判断に含める。A8の承認済み一般案件は0件なので未承認リンクは出さない。
+5. 空の忍者AdMax枠は本PRで初期状態を停止した。旧Vercel本番との差分として広告枠4件を想定するが、既存収益を確認するまでは公開判断に含める。A8のカーネクストは11月28日に提携完了、ガリバーとソコカラは審査中。広告素材と掲載規則の確認および本番公開承認までリンク設定は無効とする。
+
+## 2026-11-28 現行構成の確認と移行判定
+
+- Vercelのドメイン設定では `carvista.jp` は設定正常・認証済み、`www.carvista.jp` はapexへ308転送。既存プロジェクトと旧本番を残す。Vercelから見える外部NSは `mario.ns.cloudflare.com` / `amanda.ns.cloudflare.com`、プロキシのA応答は `104.21.73.11` / `172.67.136.235`。レジストラ関連メールはお名前.com。これは**DNSゾーンの全レコードの控えではない**。
+- 既にCloudflare NSを利用しているため、同じゾーンのCustom DomainだけでWeb向き先を変えられる可能性がある。NS変更の要否は現行ゾーン設定を確認して決める。推測でレジストラやMXを変更しない。
+- Cloudflareのダッシュボードはこの作業環境で未ログイン。MX、メール認証TXT/SPF/DKIM/DMARC、GSC所有権TXT、CAA、DS/DNSSEC、SSLモード、ページルールと現在のWeb向けA/AAAA/CNAMEの全件は未取得。メール配送に影響がないと現時点では証明できないため、**本番移行はNO-GO**。ダッシュボードで現行ゾーンを読み取り、切替前の設定と復旧値を保存してから別途DNS・本番公開承認を得る。
+- 静的プレビューは実配信済みで、切替作業そのものに着手できる状態。料金プランのFree確認は2026-11-05のアクティベーションメールの時点。現時点の課金設定・超過時挙動は管理画面で最終確認する。
 
 ## 本番切替前にOWNER承認を取得
 
