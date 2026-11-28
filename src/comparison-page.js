@@ -405,7 +405,7 @@ document.querySelectorAll('[data-referral]').forEach((link) => {
   link.addEventListener('click', (clickEvent) => {
     if (link.tagName !== 'A' && !clickEvent.target.closest('a[href]')) return
     const event = link.dataset.referral === 'valuation' ? 'click_vehicle_valuation' : 'click_used_car_search'
-    trackEvent(event, { comparison: slug, partner: link.dataset.partner })
+    trackEvent(event, { comparison: slug, partner: link.dataset.partner, page_path: window.location.pathname })
   })
 })
 
