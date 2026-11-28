@@ -29,3 +29,11 @@ test('A8 creatives stay byte-for-byte intact and cannot use synthetic text links
   assert.equal(vehicleDecisionHtml({ valuation: { ...enabled, creativeHtml: undefined, url: 'https://px.a8.net/' } }), '')
   assert.equal(vehicleDecisionHtml({ valuation: { ...enabled, enabled: false } }), '')
 })
+
+test('only selected replacement pages can show the approved valuation creative', () => {
+  const approved = { partner: 'a8_s00000014380003', status: 'approved', enabled: true,
+    creativeHtml: '<a href="https://px.a8.net/svt/ejp?a8mat=fixture" rel="nofollow">カーネクスト</a>\n<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=fixture" alt="">' }
+  assert.match(vehicleDecisionHtml({ valuation: approved }, { pagePath: '/noah-80-vs-90.html' }), /カーネクスト/)
+  assert.equal(vehicleDecisionHtml({ valuation: approved }, { pagePath: '/prius-30-vs-50.html' }), '')
+  assert.equal(vehicleDecisionHtml(), '') // Production stays disabled until publication approval.
+})
