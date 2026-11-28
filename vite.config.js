@@ -566,6 +566,16 @@ function buildHomeTags(cars) {
 // no JSON-LD list to generate; just title/description/canonical/OGP
 // like any other static page.
 const EDITORIAL_GUIDES = {
+  'noah-60-vs-70.html': {
+    name: 'ノア60系・70系の違い',
+    title: `ノア60系と70系の違い｜型式・年式・中古車の確認順 | ${SITE_NAME}`,
+    description: 'ノア初代60系と2代目70系を公式資料と既存画像で比較。AZRとZRRの型式、2004年・2010年の改良、中古車購入時の確認順を解説。',
+    image: '/images/cars/noah/gen2-2007-unified.webp',
+    models: [
+      { name: 'トヨタ ノア60系', url: '/noah-60-vs-70.html#noah60' },
+      { name: 'トヨタ ノア70系', url: '/noah-60-vs-70.html#noah70' },
+    ],
+  },
   'spacia-model-code-years.html': {
     name: 'スペーシアの型式・年式一覧',
     title: `スペーシアの型式・年式一覧｜MK32S・MK42S・MK53S・MK94S | ${SITE_NAME}`,

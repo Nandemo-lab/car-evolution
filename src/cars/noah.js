@@ -222,6 +222,14 @@ export default {
   ],
   guides: [
     {
+      href: '/noah-60-vs-70.html',
+      eyebrow: '60 / 70 SERIES · MODEL CODE GUIDE',
+      title: '60系と70系の型式・年式',
+      label: '初代と2代目を見分ける',
+      description: '2001年と2007年の世代交代、2004年と2010年の改良境界を公式資料で確認。',
+      image: '/images/cars/noah/gen2-2007-unified.webp',
+    },
+    {
       href: '/noah-80-zenki-kouki.html',
       eyebrow: '80 SERIES · FACELIFT GUIDE',
       title: '80系 前期・後期の違い',

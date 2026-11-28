@@ -418,10 +418,10 @@ test('個別の配列形式出典を優先し、確認日を捏造しない',()=
   assert.ok(refs.items.some(item=>item.url.endsWith('/20151214-02.html')))
   for(const car of cars) assert.ok(resolveReferences(car)?.items.length>0,car.slug)
 })
-test('公開110 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
+test('公開111 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
   const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
-  assert.equal(urls.length,110)
+  assert.equal(urls.length,111)
   for(const url of urls){
     const pathname=new URL(url).pathname
     const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')
@@ -522,7 +522,7 @@ test('制作方針は現在の広告運用と公式出典に一致する',()=>{
 test('全公開ページは独立したスマホ用ホームヘッダー・先頭ボタンを初期HTMLに持つ',()=>{
   const sitemap=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...sitemap.matchAll(/<loc>https:\/\/carvista\.jp(.*?)<\/loc>/g)].map(match=>match[1]||'/')
-  assert.equal(urls.length,110)
+  assert.equal(urls.length,111)
   for(const url of urls){
     const file=url==='/'?'index.html':url.replace(/^\//,'')
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')

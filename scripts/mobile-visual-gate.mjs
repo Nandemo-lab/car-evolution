@@ -7,6 +7,7 @@ const pages = process.env.MOBILE_QA_PATHS?.split(',') || [
   '/n-box-jf1-zenki-kouki.html', '/cars/sienta.html',
   '/cars/spacia.html', '/cars/freed.html', '/noah-80-vs-90.html',
   '/spacia-model-code-years.html',
+  '/noah-60-vs-70.html',
   '/cars/esquire.html', '/cars/solio.html',
   '/prius-30-vs-50.html', '/prius-50-vs-60.html',
 ]
