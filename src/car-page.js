@@ -183,7 +183,8 @@ function renderVehicleDecision(config) {
     })
   })
   section.querySelectorAll('[data-referral]').forEach((link) => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (event) => {
+      if (link.tagName !== 'A' && !event.target.closest('a[href]')) return
       trackEvent(link.dataset.referral === 'valuation' ? 'click_vehicle_valuation' : 'click_used_car_search', {
         vehicle: config.vehicleName, partner: link.dataset.partner,
       })
