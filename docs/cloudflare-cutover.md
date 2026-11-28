@@ -25,11 +25,23 @@ CloudflareゾーンはFree Website。静的アセットのリクエストにはW
 
 サイトへの実イベント到達やSearch Console側の取得・インデックス登録は、配信コードの確認とは別の観測項目。URL登録申請は新規URLを確定して正規UIから行う。
 
-## 即時切り戻し
+## 旧記録：Vercelへの切り戻し（実行禁止）
 
-権限と接続を維持した作業端末で、まず `carvista-static` から `https://carvista.jp/*` Routeを、転送Workerから `www.carvista.jp/*` と `http://carvista.jp/*` Routeを外す。`wrangler.jsonc` / `wrangler.redirect.jsonc` の `routes` を空配列にした一時設定で各Workerを再デプロイし、3経路が消えたことを管理画面・HTTP応答で確認する。**Workerを削除したりDNS値を変更したりする必要はない。** 元から残したapex Aとwww CNAMEが旧Vercelへ到達する。転送の動作と旧Vercelの代表URL、画像、SSL、GA4を検証する。切り戻し時のA8広告は旧Vercelの公開バージョンに含まれない。
+旧VercelはDeployment Storage 10GB上限到達と古いデプロイの自動削除通知がある。以前のRoute解除でVercelオリジンへ到達させる手順は、商用トラフィックの安全な切り戻し先として使えない。**Route解除・DNS変更を障害時の第一手にしない。** 以下のCloudflare内復旧を使う。
 
-Route設定変更が権限・API障害で失敗した場合は、Cloudflare管理画面のWorkers & Pages → 対象Worker → Settings → Domains & Routesから同じ3経路を解除する。事前に確認したDNS旧値は保持し、必要な場合だけ別途承認されたDNS操作として復旧する。
+## Cloudflare内の復旧手順（2026-11-28）
+
+1. まず `wrangler deployments list --name carvista-static` で現行versionを再確認する。現時点での現行は `a7fa7b5f-bbaa-4286-a6be-27fff5b46522`（11:52 UTC）、直前は `f58b4724-bafe-4ae6-951b-900493bac21a`（10:51 UTC）。**この2つを実際の公開QAで照合してから**戻し先を確定する。前者は110 URL版、後者はその直前の版であり、新規スペーシアURLは戻し後404になる可能性がある。
+2. 復旧コマンドは `wrangler rollback f58b4724-bafe-4ae6-951b-900493bac21a --name carvista-static --message "Restore last verified CarVista release"`。この本番実行は障害発生時のみ。Cloudflareの旧versionへ100%を戻し、Routeはそのまま保持する。転送Workerも故障したときはそのWorkerのdeploymentを別途照合・rollbackする。
+3. `/`、主要車種、広告6ページ、`/sitemap.xml`、画像の代表サンプル、www/HTTPの308、canonical、ads.txt、GA4、Console Errorを確認する。新規URLの一時的な404とHTML/アセットのバージョンずれを記録し、必要なら次項の再ビルドで修復する。
+4. 旧versionは永続保管ではない。保持上限は直近100 versionまたは30日の制限があるため、GitHubの実装コミットと既存357画像のリポジトリを正本にする。スペーシア追加のコミット `ecfd05c`、最新PR head `081550a` は確認済み。ただしデプロイにコミットSHAは記録されておらず、**現行versionと特定SHAの1対1対応は未証明**。復旧時はGitHubで対象コミットをcheckoutし、lockfileで依存を再現して `npm run build:cloudflare` → `scripts/verify-cloudflare-preview.mjs` で照合 → 同じ `wrangler.jsonc` で再デプロイする。
+5. 配信のVercel依存を断つ設定案：Cloudflare内のapex/www DNSのVercel向けA/CNAMEをCloudflareの制御下に置く安全なオリジンに変更し、3 Routeのfail modeを**fail closed**へ設定する。変更前に現在のDNS、Route fail mode、メール関連レコード、無料枠、戻し先を読み取りで記録する。DNSとRouteの重要変更は個別承認を得てから実施する。fail closedでは無料Worker枠を使い切ったHTTP/www転送は1027エラーになり得るため、静的アセットと転送Workerの利用を分けて監視する。
+
+Cloudflareの公式資料ではStatic Assetsへの一致リクエストは無料・無制限、WorkerスクリプトはFreeで1日10万リクエスト、Routeのfail openはWorkerを迂回し、fail closedは1027を返す。公開済みの357画像と110 URLはGit管理のまま保全する。**ロールバックの本番所要時間は未測定**。CLIが正常版を列挙できるところまでは読み取りで確認したが、意図的な本番障害と切り戻しは行っていない。
+
+- [Cloudflare Rollbacks](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/)：旧version、Route、保持制限
+- [Cloudflare Workers Limits](https://developers.cloudflare.com/workers/platform/limits/)：Free上限とfail mode
+- [Static Assets Billing and Limitations](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/)：静的リクエストとWorker実行の区別
 
 ## 公開後の確認（2026-11-28）
 
