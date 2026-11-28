@@ -171,7 +171,7 @@ export function initCarPage(config) {
 // the decision block only after an actual partner has approved its link.
 function renderVehicleDecision(config) {
   if (!['NOAH', 'VOXY', 'TANTO'].includes(config.vehicleName)) return
-  const html = vehicleDecisionHtml()
+  const html = vehicleDecisionHtml(undefined, { pagePath: window.location.pathname })
   if (!html) return
   const section = document.createElement('div')
   section.className = 'vehicle-decision'
