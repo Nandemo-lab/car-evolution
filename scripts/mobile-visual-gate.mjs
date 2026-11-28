@@ -5,7 +5,7 @@ const base = process.env.MOBILE_QA_ORIGIN || 'http://127.0.0.1:4173'
 const pages = process.env.MOBILE_QA_PATHS?.split(',') || [
   '/cars/noah.html', '/cars/voxy.html', '/cars/tanto.html',
   '/n-box-jf1-zenki-kouki.html', '/cars/sienta.html',
-  '/cars/spacia.html', '/noah-80-vs-90.html',
+  '/cars/spacia.html', '/cars/freed.html', '/noah-80-vs-90.html',
 ]
 const widths = [375, 390, 430]
 const results = []
