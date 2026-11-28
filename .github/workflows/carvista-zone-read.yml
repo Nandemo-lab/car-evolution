@@ -7,17 +7,22 @@ permissions:
   contents: read
 jobs:
   encrypted-zone-snapshot:
+    if: github.repository == 'Nandemo-lab/car-evolution' && github.ref == 'refs/heads/preview/carvista-b5152ea'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     environment: carvista-zone-read
     env:
       CARVISTA_CF_READ_TOKEN: ${{ secrets.CARVISTA_CF_READ_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
+          ref: ${{ github.sha }}
           persist-credentials: false
-      - name: Require scoped secret
+      - name: Verify reviewed commit and scoped secret
+        shell: bash
         run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          echo "Reviewed commit: $GITHUB_SHA"
           if [ -z "$CARVISTA_CF_READ_TOKEN" ]; then
             echo 'Read-only token is not configured; no API call made.'
             exit 1
@@ -25,7 +30,7 @@ jobs:
       - name: Read and encrypt before upload
         run: node scripts/read-cloudflare-zone.mjs
       - name: Upload encrypted snapshot only
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: carvista-zone-encrypted
           path: carvista-zone-report.enc.json
