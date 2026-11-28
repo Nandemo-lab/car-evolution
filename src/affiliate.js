@@ -22,6 +22,14 @@ const journeys = [
 function approvedLink(destination, linkText, key) {
   if (destination?.status !== 'approved' || destination.enabled !== true ||
       !/^[a-z0-9_-]{1,40}$/.test(destination.partner ?? '')) return ''
+  // A8 requires its supplied creative code, including the 1px impression tag,
+  // to remain unmodified. Attach analytics to the surrounding container only.
+  if (destination.partner.startsWith('a8_')) {
+    const creative = destination.creativeHtml
+    if (typeof creative !== 'string' || !/^\s*<a\s/i.test(creative) ||
+        !/href=["']https:\/\//i.test(creative) || /<script|\son\w+\s*=|javascript:/i.test(creative)) return ''
+    return `<p class="comparison-referral">PR・広告。外部サービスへ移動します。入力した個人情報は提携先の方針に従って取り扱われます。</p><div data-referral="${key}" data-partner="${destination.partner}">${creative}</div>`
+  }
   let url
   try { url = new URL(destination.url) } catch { return '' }
   if (url.protocol !== 'https:' || url.username || url.password) return ''
