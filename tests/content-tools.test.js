@@ -738,7 +738,7 @@ test('全歴代ページは画像近くに短い制作画像表示を持つ',()=
 
 test('全generation比較ページは初期HTMLに3段階の現車確認フローを持つ',()=>{
   const pages=readdirSync(new URL('../dist',import.meta.url)).filter(name=>name.endsWith('.html'))
-  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').includes('comparison-notebook'))
+  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').split('</head>')[1]?.includes('class="comparison-notebook"'))
   assert.ok(targets.length>=30)
   for(const name of targets){
     const html=readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8')
@@ -758,7 +758,7 @@ test('購入確認メモは端末保存・消去・ダウンロードを選べ�
 
 test('全generation比較ページは画像ごとに固有の判別点を結び付ける',()=>{
   const pages=readdirSync(new URL('../dist',import.meta.url)).filter(name=>name.endsWith('.html'))
-  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').includes('comparison-notebook'))
+  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').split('</head>')[1]?.includes('class="comparison-notebook"'))
   for(const name of targets){
     const html=readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8')
     const imageCards=(html.match(/class="lc-car"/g)||[]).length
