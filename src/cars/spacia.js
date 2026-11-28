@@ -150,11 +150,13 @@ export default {
       { title: '購入前の照合', text: '型式、グレード、駆動方式とスライドドア・安全装備の実車作動を販売店で確認。後席のマルチユースフラップは3代目の判断材料です。' },
     ],
     links: [
+      { href: '/spacia-model-code-years.html', label: '型式と発売時期を一覧で確認' },
       { href: '/spacia-mk53s-vs-mk94s.html', label: '2代目と3代目を画像で比較' },
       { href: '/compare-n-box-spacia.html', label: '現行N-BOXとスペーシアの選び方を比較' },
     ],
   },
   guides: [
+    { href: '/spacia-model-code-years.html', label: 'スペーシアの型式・年式一覧', description: 'MK32S・MK42S・MK53S・MK94Sを世代と改良時期で整理する。', image: '/images/cars/spacia/gen2-2017.webp' },
     { href: '/spacia-mk53s-vs-mk94s.html', label: 'スペーシア MK53S・MK94Sの違い', description: '2代目と3代目の標準スペーシアを画像、型式、装備で比較する。', image: '/images/cars/spacia/gen3-2023.webp' },
   ],
   // 2026-08-04: a homeCardImage override (a very tight recrop) was tried

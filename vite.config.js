@@ -566,6 +566,18 @@ function buildHomeTags(cars) {
 // no JSON-LD list to generate; just title/description/canonical/OGP
 // like any other static page.
 const EDITORIAL_GUIDES = {
+  'spacia-model-code-years.html': {
+    name: 'スペーシアの型式・年式一覧',
+    title: `スペーシアの型式・年式一覧｜MK32S・MK42S・MK53S・MK94S | ${SITE_NAME}`,
+    description: 'スペーシアの型式を発売時期と世代で整理。MK32SとMK42Sは初代、MK53Sは2代目、MK94Sは3代目。MK54Sのターボ仕様と中古車の確認順も解説。',
+    image: '/images/cars/spacia/gen3-2023.webp',
+    models: [
+      { name: 'スズキ スペーシア MK32S', url: '/spacia-model-code-years.html#mk32s' },
+      { name: 'スズキ スペーシア MK42S', url: '/spacia-model-code-years.html#mk42s' },
+      { name: 'スズキ スペーシア MK53S', url: '/spacia-model-code-years.html#mk53s' },
+      { name: 'スズキ スペーシア MK94S', url: '/spacia-model-code-years.html#mk94s' },
+    ],
+  },
   'roomy-tank-thor-justy.html': {
     name: 'ROOMY・TANK・THOR・JUSTY 4兄弟の違い',
     title: `ルーミー・タンク・トール・ジャスティの違い｜型式と見分け方 | ${SITE_NAME}`,

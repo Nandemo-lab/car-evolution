@@ -6,6 +6,7 @@ const pages = process.env.MOBILE_QA_PATHS?.split(',') || [
   '/cars/noah.html', '/cars/voxy.html', '/cars/tanto.html',
   '/n-box-jf1-zenki-kouki.html', '/cars/sienta.html',
   '/cars/spacia.html', '/cars/freed.html', '/noah-80-vs-90.html',
+  '/spacia-model-code-years.html',
   '/cars/esquire.html', '/cars/solio.html',
   '/prius-30-vs-50.html', '/prius-50-vs-60.html',
 ]
@@ -16,7 +17,8 @@ const production = base === 'https://carvista.jp'
 // Only the approved live placement among the production smoke paths is expected to show the A8 creative.
 const liveAffiliatePaths = new Set(['/cars/noah.html'])
 await mkdir(outputDir, { recursive: true })
-const browser = await chromium.launch({ headless: true })
+const browser = await chromium.launch({ headless: true, ...(process.env.MOBILE_QA_CHROMIUM_EXECUTABLE
+  ? { executablePath: process.env.MOBILE_QA_CHROMIUM_EXECUTABLE } : {}) })
 try {
   for (const width of widths) {
     const context = await browser.newContext({ viewport: { width, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true })
