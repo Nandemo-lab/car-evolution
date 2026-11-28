@@ -1,0 +1,170 @@
+/* CarVista editorial system. Injected after the page styles on every route. */
+:root {
+  color-scheme: dark;
+  --cv-paper: #0d0e10;
+  --cv-surface: #151719;
+  --cv-ink: #f1f0eb;
+  --cv-secondary: #b7b9b6;
+  --cv-line: #343638;
+  --cv-gold: #d6bd83;
+  --cv-radius: 6px;
+  --cv-font: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, system-ui, sans-serif;
+  font-family: var(--cv-font);
+  background: var(--cv-paper);
+  color: var(--cv-ink);
+}
+body { background: var(--cv-paper); color: var(--cv-ink); font-family: var(--cv-font); font-weight: 400; }
+button, input, select, textarea { font-family: var(--cv-font); }
+main { overflow-wrap: anywhere; }
+main p, main li, main dd { line-height: 1.7; }
+main h1, main h2, main h3, main h4 { font-family: var(--cv-font); font-weight: 600; line-height: 1.35; letter-spacing: 0; text-wrap: pretty; }
+main :is(p, li, dd, figcaption, small) { letter-spacing: 0; }
+main a:focus-visible, main button:focus-visible, main input:focus-visible, main select:focus-visible,
+.mobile-site-header a:focus-visible, .mobile-scroll-top:focus-visible {
+  outline: 2px solid var(--cv-gold); outline-offset: 3px;
+}
+.mobile-site-logo, .mobile-home-link { font-family: var(--cv-font); font-weight: 600; letter-spacing: .03em; }
+.mobile-scroll-top { box-shadow: none; border-color: var(--cv-line); border-radius: var(--cv-radius); }
+
+/* Home: the cars and the search field are the entry point, without a preamble of cards. */
+#home { max-width: 1160px; }
+.home-hero { min-height: 0; padding: 78px 28px 34px; background: var(--cv-paper); }
+.home-hero-motif { display: none; }
+.home-hero-layout { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 34px; }
+.home-hero-copy { max-width: 370px; }
+.home-hero-title { font-family: var(--cv-font); font-size: clamp(32px, 4vw, 45px); font-weight: 600; letter-spacing: -.025em; }
+.home-hero-tagline { font-size: clamp(16px, 2vw, 19px); font-weight: 500; margin-top: 10px; }
+.home-hero-desc { font-size: 13px; line-height: 1.65; margin-top: 12px; opacity: 1; color: var(--cv-secondary); }
+.home-cta { min-height: 44px; margin-top: 18px; font-size: 13px; font-weight: 500; }
+.home-hero-evolution { padding: 0; border: 0; border-radius: 0; box-shadow: none; background: none; }
+.home-hero-evolution:hover, .home-hero-evolution:focus-visible { background: none; transform: none; }
+.home-hero-evolution-head { margin: 0 0 7px; }
+.home-hero-evolution-caption { margin-top: 10px; font-size: 11px; }
+.home-hero-era { border-radius: 2px; box-shadow: none; }
+.home-hero-era-label { font-family: var(--cv-font); }
+.home-hero-era-label em { font-family: var(--cv-font); }
+.all-cars { padding-top: 22px; }
+.all-cars-header { margin-bottom: 14px; }
+.all-cars-heading { font-family: var(--cv-font); font-size: 22px; }
+.all-cars-intro { margin-top: 5px; font-size: 12px; color: var(--cv-secondary); opacity: 1; }
+.all-cars-count { margin-top: 3px; font-size: 11px; opacity: .75; }
+.model-finder { margin: 14px 0 0; padding: 16px 0 12px; border: 0; border-top: 1px solid var(--cv-line); border-radius: 0; background: none; box-shadow: none; }
+.model-finder > label { font-size: 15px; font-weight: 600; margin-bottom: 9px; }
+.model-finder > div:first-of-type { display: flex; gap: 8px; }
+.model-finder input { width: 100%; min-width: 0; min-height: 44px; border: 1px solid #757779; border-radius: var(--cv-radius); background: var(--cv-surface); font-size: 16px; padding: 8px 12px; }
+.model-finder input::placeholder { color: #aeb0af; opacity: 1; }
+.model-finder button { min-width: 64px; min-height: 44px; border-radius: var(--cv-radius); padding: 8px 13px; background: var(--cv-gold); font-size: 13px; font-weight: 600; white-space: nowrap; }
+.model-finder .model-finder-help { max-width: 55ch; margin: 9px 0 0; color: var(--cv-secondary); font-size: 11px; line-height: 1.5; }
+.model-finder ul { gap: 0; margin: 12px 0 0; border-top: 1px solid var(--cv-line); }
+.model-finder li a { padding: 11px 4px; background: none; border-radius: 0; border-bottom: 1px solid var(--cv-line); }
+.model-finder li a:hover, .model-finder li a.is-active { background: #202020; }
+.model-finder li span { color: var(--cv-secondary); }
+.year-finder { margin: 0 0 18px; padding: 14px 0 12px; border: 0; border-top: 1px solid var(--cv-line); border-radius: 0; background: none; }
+.year-finder-heading h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.year-finder-heading > p:last-child { margin: 5px 0 0; color: var(--cv-secondary); font-size: 11px; line-height: 1.5; }
+.year-finder form { gap: 8px; margin-top: 12px; }
+.year-finder label { font-size: 11px; font-weight: 500; }
+.year-finder select { min-height: 44px; border: 1px solid #757779; border-radius: var(--cv-radius); background-color: var(--cv-surface); color: var(--cv-ink); font-size: 14px; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m3 6 5 5 5-5' stroke='%23f1f0eb' stroke-width='1.8' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+.year-finder button { min-height: 44px; border-radius: var(--cv-radius); background: var(--cv-gold); font-size: 13px; font-weight: 600; }
+.year-finder-result { margin-top: 9px; }
+.year-finder-result > p { margin: 0; font-size: 11px; line-height: 1.5; color: var(--cv-secondary); }
+.year-candidate { border-radius: var(--cv-radius); background: var(--cv-surface); }
+.model-directory-wrap { margin: 4px 0 26px; border: 0; border-top: 1px solid var(--cv-line); border-bottom: 1px solid var(--cv-line); border-radius: 0; padding: 0; }
+.maker-filter { margin-bottom: 18px; }
+.maker-groups { gap: 30px; }
+.maker-name { font-family: var(--cv-font); font-size: 13px; letter-spacing: .02em; margin-bottom: 12px; }
+.mini-card { border-radius: var(--cv-radius); background: var(--cv-surface); box-shadow: none; gap: 6px; }
+.mini-card::after { display: none; }
+.mini-card-name { font-family: var(--cv-font); font-size: 12px; padding: 0 9px 10px; }
+.comparison-links { padding-top: 36px; padding-bottom: 42px; }
+.comparison-links h2 { font-size: 21px; }
+.comparison-links-grid a { border-radius: 0; border-bottom: 1px solid var(--cv-line); background: none; padding: 12px 0; font-family: var(--cv-font); font-weight: 500; }
+
+/* Comparison and vehicle templates: editorial hierarchy, image first, quiet controls. */
+.comparison-hero { padding-top: 20px; padding-bottom: 25px; }
+.comparison-eyebrow { margin-top: 38px; color: var(--cv-secondary); opacity: 1; letter-spacing: .08em; }
+.comparison-hero h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.35; }
+.comparison-intro { margin-top: 10px; font-size: 13px; font-weight: 400; color: var(--cv-secondary); opacity: 1; }
+.comparison-actions { margin-top: 18px; }
+.comparison-grid { gap: 8px; }
+.comparison-card { border-radius: var(--cv-radius); background: var(--cv-surface); box-shadow: none; }
+.comparison-card:hover, .comparison-card:focus-visible { transform: none; box-shadow: 0 0 0 1px var(--cv-line); }
+.comparison-card-copy { padding: 11px 12px 13px; }
+.comparison-card-name, .comparison-card-meta, .comparison-focus figcaption strong { font-family: var(--cv-font); }
+.comparison-card-note, .comparison-reading article p { font-weight: 400; color: var(--cv-secondary); opacity: 1; }
+.comparison-answer, .comparison-decision, .comparison-specs, .comparison-sources { padding-top: 30px; padding-bottom: 30px; }
+.comparison-reading { padding-top: 36px; padding-bottom: 36px; }
+.comparison-reading h2, .comparison-focus h2, .comparison-next h2, .comparison-answer h2, .comparison-decision h2, .comparison-specs h2, .comparison-sources h2 { font-size: clamp(20px, 3.5vw, 27px); margin-bottom: 14px; }
+.comparison-decision article, .comparison-spec-list article, .verification-flow li, .comparison-focus figure { border: 0; border-top: 1px solid var(--cv-line); border-radius: 0; background: none; padding: 14px 0; box-shadow: none; }
+.comparison-next-grid a, .comparison-next-grid > div { min-height: 0; border: 0; border-top: 1px solid var(--cv-line); border-radius: 0; padding: 14px 0; }
+.comparison-next-grid .comparison-next-card { min-height: 92px; padding: 10px 0; }
+.comparison-next-card > img { border-radius: var(--cv-radius); }
+.comparison-cta a, .share-button, .copy-button { border-radius: var(--cv-radius); }
+.lc-section { padding-bottom: 36px; }
+.lc-section h2 { font-size: clamp(20px, 3.5vw, 27px); }
+.lc-lead { margin: 10px 0 20px; color: var(--cv-secondary); font-size: 13px; font-weight: 400; }
+.lc-answer { padding-top: 16px; }
+.lc-answer strong { font-size: clamp(17px, 3vw, 22px); font-weight: 600; }
+.lc-car { border: 0; border-bottom: 1px solid var(--cv-line); border-radius: 0; background: none; }
+.lc-car-copy { padding: 12px 4px 14px; }
+.lc-car-copy h3 { font-size: 17px; }
+.lc-car-copy p { margin-top: 5px; color: var(--cv-secondary); font-weight: 400; }
+.lc-image-cue { border: 0; border-top: 1px solid var(--cv-line); border-radius: 0; background: none; padding: 10px 0; }
+.lc-quick-facts article, .lc-grid article { min-height: 0; justify-content: flex-start; border: 0; border-top: 1px solid var(--cv-line); border-radius: 0; background: none; padding: 15px 0; }
+.lc-quick-facts strong { margin-top: 7px; font-size: 18px; }
+.lc-quick-facts span, .lc-grid p { margin-top: 6px; color: var(--cv-secondary); font-weight: 400; }
+.lc-table-wrap { border-color: var(--cv-line); border-radius: var(--cv-radius); }
+.lc-related-card { min-height: 92px; border: 0; border-top: 1px solid var(--cv-line); border-radius: 0; background: none; padding: 10px 0; }
+.lc-related-card > img { border-radius: var(--cv-radius); }
+.comparison-notebook { border: 1px solid var(--cv-line); border-radius: var(--cv-radius); background: none; }
+.comparison-notebook summary { font-size: 16px; }
+.hero { height: min(53vh, 480px); min-height: 300px; background: var(--cv-paper); }
+.hero-copy h1 { font-family: var(--cv-font); font-size: clamp(28px, 6vw, 39px); letter-spacing: 0; }
+.timeline-heading strong { font-size: 18px; }
+.timeline-current { color: var(--cv-gold); border-color: var(--cv-line); background: none; border-radius: var(--cv-radius); }
+.timeline-item { border-radius: var(--cv-radius); }
+.timeline-item::before { display: none; }
+.timeline-item[aria-current="true"] { border-color: var(--cv-gold); box-shadow: none; }
+.vehicle-decision .comparison-cta { border: 0; border-top: 1px solid var(--cv-line); border-radius: 0; padding: 18px 0; }
+.vehicle-decision details { border-radius: var(--cv-radius); }
+
+/* Shared editorial guides: replace cyan callouts and nested tiles with one typographic language. */
+.sibling-guide { color: var(--cv-ink); }
+.guide-nav { margin-bottom: 24px; }
+.guide-nav a, .sources a, .spacia-code-guide .source-note a, .spacia-code-guide .guide-footer a { color: var(--cv-gold); }
+.guide-hero { margin-bottom: 20px; }
+.guide-kicker, .code { color: var(--cv-gold) !important; font-weight: 600; letter-spacing: .06em; }
+.guide-hero h1, .spacia-code-guide .guide-hero h1 { font-size: clamp(27px, 4.2vw, 38px); line-height: 1.35; margin: 9px 0 14px; }
+.guide-hero p, .guide-answer p, .sibling-guide article p, .steps { color: var(--cv-secondary); }
+.guide-answer { border-left: 2px solid var(--cv-gold); border-radius: 0; background: none; padding: 6px 0 6px 16px; }
+.guide-answer h2 { color: var(--cv-gold); letter-spacing: .06em; }
+.guide-visual { margin: 24px 0; }
+.guide-visual img { border-radius: var(--cv-radius); }
+.sibling-guide section { margin: 34px 0; }
+.sibling-guide section > h2 { font-size: clamp(20px, 3vw, 26px); }
+.sibling-grid article { border: 0; border-top: 1px solid var(--cv-line); border-radius: 0; background: none; padding: 14px 0; }
+.spacia-code-guide .code-visuals figure { border: 0; border-bottom: 1px solid var(--cv-line); border-radius: 0; background: none; }
+.spacia-code-guide .code-visuals figcaption { color: var(--cv-secondary); }
+.guide-actions a { border-radius: var(--cv-radius); background: var(--cv-gold); color: #171614; font-weight: 600; }
+
+@media (max-width: 699px) {
+  .home-hero { padding: 44px 20px 16px; }
+  .home-hero-layout { grid-template-columns: 1fr; gap: 18px; }
+  .home-hero-copy { max-width: none; text-align: left; }
+  .home-hero-desc { margin-left: 0; }
+  .home-cta { margin-top: 10px; }
+  .home-hero-evolution { padding: 0; border-radius: 0; }
+  .home-hero-evolution-caption { font-size: 10px; gap: 4px; }
+  .home-hero-evolution-caption > span { display: none; }
+  .all-cars { padding-top: 12px; }
+  .all-cars-header { margin-bottom: 8px; }
+  .model-finder { padding: 12px 0; margin: 0; }
+  .model-finder > label { font-size: 15px; }
+  .model-finder > div:first-of-type { display: flex; }
+  .model-finder button { padding-inline: 12px; }
+  .year-finder { padding: 12px 0; }
+  .year-finder form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .year-finder button { grid-column: 1 / -1; }
+  .guide-hero h1, .spacia-code-guide .guide-hero h1 { font-size: clamp(26px, 7vw, 32px); }
+  .comparison-hero h1 { font-size: clamp(26px, 7vw, 32px); }
+}

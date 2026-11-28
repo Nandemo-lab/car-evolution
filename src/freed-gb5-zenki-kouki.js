@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './click-glow.js'
@@ -31,7 +32,7 @@ document.querySelector('#freed-facelift-page').innerHTML = `
   <section class="facelift-source" aria-label="公式情報源"><p>FACT CHECK</p><span>発売日、型式、仕様と変更内容は、<a href="https://global.honda/jp/news/2016/4160916-freed.html" target="_blank" rel="noopener noreferrer">Honda公式 2016年発売資料</a>、<a href="https://global.honda/jp/news/2019/4191018-freed.html" target="_blank" rel="noopener noreferrer">Honda公式 2019年マイナーモデルチェンジ資料</a>、<a href="https://www.honda.co.jp/customer/auto-archive/freed/2016/" target="_blank" rel="noopener noreferrer">Honda公式 生産終了モデル情報</a>、<a href="https://global.honda/jp/news/2024/4240627-freed.html" target="_blank" rel="noopener noreferrer">Honda公式 3代目発売資料</a>で確認しています。</span></section>
   <a class="comparison-more" href="/cars/freed.html">FREEDの歴代モデル一覧を見る</a>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
-document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'FREED', intent: 'gb5-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'FREED 2代目 前期・後期の違い', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'FREED', intent: 'gb5-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); return shareSafely(event.currentTarget, { title: document.title, text: 'FREED 2代目 前期・後期の違い', url: location.href }) })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_identification_guide_url', { vehicle: 'FREED', intent: 'gb5-zenki-kouki' }); return copyUrl(event.currentTarget, 'コピーしました') })
 document.querySelectorAll('[data-related-link]').forEach((link) => link.addEventListener('click', () => trackEvent('open_related_content', { vehicle: 'FREED', intent: 'gb5-zenki-kouki' })))

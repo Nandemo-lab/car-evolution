@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './click-glow.js'
@@ -22,7 +23,7 @@ document.querySelector('#alphard-history-page').innerHTML = `
   <section class="facelift-source" aria-label="情報源"><p>FACT CHECK</p><span>販売時期・型式はトヨタの<a href="https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ALPHARD_V/" target="_blank" rel="noopener noreferrer">認定中古車カタログ</a>および<a href="https://global.toyota/jp/newsroom/toyota/21800077.html" target="_blank" rel="noopener noreferrer">30系発売発表</a>、<a href="https://global.toyota/jp/newsroom/toyota/39287263.html" target="_blank" rel="noopener noreferrer">40系発売発表</a>を確認。個別仕様は販売店と公式資料でご確認ください。</span></section>
   <a class="comparison-more" href="/cars/alphard.html">ALPHARDの歴代モデル一覧を見る</a>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
-document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'ALPHARD', intent: 'history', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'アルファード 歴代の見分け方', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'ALPHARD', intent: 'history', method: navigator.share ? 'native' : 'copy' }); return shareSafely(event.currentTarget, { title: document.title, text: 'アルファード 歴代の見分け方', url: location.href }) })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_identification_guide_url', { vehicle: 'ALPHARD', intent: 'history' }); return copyUrl(event.currentTarget, 'コピーしました') })
 document.querySelectorAll('[data-related-link]').forEach((link) => link.addEventListener('click', () => trackEvent('open_related_content', { vehicle: 'ALPHARD', intent: 'history' })))

@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './land-cruiser-300-vs-250.css'
 import './click-glow.js'
@@ -29,6 +30,6 @@ document.querySelector('#tanto-comparison-page').innerHTML = `
   <section class="lc-section lc-source" aria-label="公式根拠"><p class="comparison-eyebrow">FACT CHECK</p><p class="lc-lead">発売時期、世代、代表仕様、型式、主要変更は、<a href="https://www.daihatsu.com/jp/news/2013/20131003-1.html" target="_blank" rel="noopener noreferrer">ダイハツ公式 2013年発売資料</a>、<a href="https://www.daihatsu.com/jp/news/2019/20190709-1.html" target="_blank" rel="noopener noreferrer">ダイハツ公式 2019年発売資料</a>、<a href="https://www.daihatsu.com/jp/design/vehicle/tanto.html" target="_blank" rel="noopener noreferrer">ダイハツ公式デザイン資料</a>で照合しています。</p></section>
   <a class="comparison-more" href="/cars/tanto.html">タント歴代モデルを見る</a>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
-document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_comparison', { vehicle: 'TANTO', intent: 'la600s-vs-la650s', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'タント LA600SとLA650Sの違い', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_comparison', { vehicle: 'TANTO', intent: 'la600s-vs-la650s', method: navigator.share ? 'native' : 'copy' }); return shareSafely(event.currentTarget, { title: document.title, text: 'タント LA600SとLA650Sの違い', url: location.href }) })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_comparison_url', { vehicle: 'TANTO', intent: 'la600s-vs-la650s' }); return copyUrl(event.currentTarget, 'コピーしました') })

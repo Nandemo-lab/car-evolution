@@ -1,3 +1,4 @@
+import { copySafely } from './safe-share.js'
 import { escapeText } from './comparison-tools.js'
 import { trackEvent } from './analytics.js'
 
@@ -65,8 +66,8 @@ export function bindYearFinder(cars) {
       <div class="year-result-actions"><a href="${escapeText(car.href || `/cars/${car.slug}.html`)}">画像と歴代を確認</a><button type="button" class="year-question-copy">販売店への質問をコピー</button></div>`
     output.querySelector('.year-question-copy').addEventListener('click', async event => {
       const button = event.currentTarget
-      await navigator.clipboard.writeText(questionText)
-      button.textContent = '質問をコピーしました'
+      const copied = await copySafely(button, questionText, '質問をコピーしました', navigator, "コピーできませんでした。候補をメモしてください")
+      if (!copied) return
       trackEvent('copy_dealer_questions', { vehicle: car.slug, candidate_count: candidates.length, boundary: isBoundary })
     })
     trackEvent('use_vehicle_year_finder', { vehicle: car.slug, result_count: candidates.length, boundary: isBoundary })

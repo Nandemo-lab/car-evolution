@@ -1,3 +1,5 @@
+import { relatedCars } from './src/discovery.js'
+import { staticQuickGuide } from './src/static-quick-guide.js'
 import { newModelPages } from './src/data/new-model-pages.js'
 import { ninjaParserPlugin } from './scripts/ninja-parser-plugin.mjs'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
@@ -11,10 +13,12 @@ import roadmap from './src/roadmap.js'
 import { generationComparisonHtml } from './src/generation-comparison-html.js'
 import { faceliftChangeMatrixHtml, faceliftDetailCompareHtml } from './src/facelift-detail-tools.js'
 import { voxy80Enhancement } from './src/facelift-enhancements.js'
+import { vehicleDecisionHtml } from './src/affiliate.js'
 
 const root = fileURLToPath(new URL('.', import.meta.url))
 const redirects = JSON.parse(readFileSync(resolve(root, 'vercel.json'), 'utf8')).redirects || []
 const mobileNavigationCss = readFileSync(resolve(root, 'src/mobile-navigation.css'), 'utf8')
+const designSystemCss = readFileSync(resolve(root, 'src/design-system.css'), 'utf8')
 const mobileNavigationJs = readFileSync(resolve(root, 'src/mobile-navigation.js'), 'utf8')
 
 // Single source of truth for the brand name -- every title/og:site_name/
@@ -43,7 +47,7 @@ const COMPARISON_PAGES = {
   'vellfire-20-vs-30.html': { name:'VELLFIRE 20系・30系の違い', title:'ヴェルファイア20系と30系の違い・見分け方 | CarVista', description:'ヴェルファイア20系と30系を画像と公式情報で比較。型式、サイズ、乗り心地、中古車の見分け方を解説します。', image:'/images/cars/vellfire/30-z-a-edition-pre-facelift-v1.png', models:[{name:'トヨタ VELLFIRE 20系',url:'/vellfire-20-vs-30.html#v20'},{name:'トヨタ VELLFIRE 30系',url:'/vellfire-20-vs-30.html#v30'}] },
   'tanto-la600s-zenki-kouki.html': { name:'標準TANTO LA600S 前期・後期', title:'標準タントLA600S前期・後期の違い｜2015年12月改良を比較 | CarVista', description:'標準タントLA600Sの前期と2015年12月改良後を比較。内装や商品構成、SAⅡだけで判別できない理由、車台番号を使った確認方法を解説します。タントカスタムは対象外です。', image:'/images/cars/tanto/la600s-2015-post-facelift-v1.png', models:[{name:'標準タントLA600S前期',url:'/tanto-la600s-zenki-kouki.html#la600pre'},{name:'標準タントLA600S後期',url:'/tanto-la600s-zenki-kouki.html#la600post'}] },
   'sienta-gen2-zenki-kouki.html': { name:'SIENTA 2代目 前期・後期', title:'シエンタ2代目前期・後期の違い・見分け方 | CarVista', description:'シエンタ2代目の前期と後期を比較。2018年改良、グリル、FUNBASE、中古車の見分け方を解説します。', image:'/images/cars/sienta/gen2-2015.png', models:[{name:'シエンタ2代目前期',url:'/sienta-gen2-zenki-kouki.html#sienta2pre'},{name:'シエンタ2代目後期',url:'/sienta-gen2-zenki-kouki.html#sienta2post'}] },
-  'n-box-jf1-zenki-kouki.html': { name:'N-BOX JF1/JF2 前期・後期', title:'N-BOX JF1前期・後期の違い｜2015年2月の見分け方 | CarVista', description:'標準N-BOX JF1/JF2の前期と後期を画像で比較。2015年2月5日の改良境界、グリル・バンパー、型式だけでは判別できない理由を解説します。', image:'/images/cars/n-box/jf1-2015-post-facelift-v1.png', models:[{name:'N-BOX JF1前期',url:'/n-box-jf1-zenki-kouki.html#jf1pre'},{name:'N-BOX JF1後期',url:'/n-box-jf1-zenki-kouki.html#jf1post'}] },
+  'n-box-jf1-zenki-kouki.html': { name:'N-BOX JF1/JF2 前期・後期', title:'N-BOX JF1前期・後期の見分け方｜2015年2月の顔・装備の違い | CarVista', description:'初代N-BOX JF1（FF）・JF2（4WD）の標準車を比較。2015年2月5日の改良境界を基に、グリル・バンパーと後席装備を画像と公式資料で確認。Custom・N-BOX+は別仕様として扱います。', image:'/images/cars/n-box/jf1-2015-post-facelift-v1.png', models:[{name:'N-BOX JF1前期',url:'/n-box-jf1-zenki-kouki.html#jf1pre'},{name:'N-BOX JF1後期',url:'/n-box-jf1-zenki-kouki.html#jf1post'}] },
   'solio-ma36s-zenki-kouki.html': { name:'SOLIO MA36S 前期・後期', title:'ソリオMA36S前期・後期の違い・見分け方 | CarVista', description:'標準ソリオMA36Sの前期と後期を比較。2018年仕様変更、安全装備、中古車の見分け方を解説します。', image:'/images/cars/solio/ma36s-2018-post-update-v1.png', models:[{name:'ソリオMA36S前期',url:'/solio-ma36s-zenki-kouki.html#ma36pre'},{name:'ソリオMA36S後期',url:'/solio-ma36s-zenki-kouki.html#ma36post'}] },
   'solio-ma15s-zenki-kouki.html': { name:'SOLIO MA15S 前期・後期', title:'ソリオMA15S前期・後期の違い｜2013年11月の見分け方 | CarVista', description:'標準ソリオMA15Sの前期と後期を画像で比較。2013年11月18日の改良境界、グリル・バンパー、DJEが全車共通ではない点を解説します。', image:'/images/cars/solio/ma15s-2013-post-update-v1.png', models:[{name:'スズキ SOLIO MA15S前期',url:'/solio-ma15s-zenki-kouki.html#ma15pre'},{name:'スズキ SOLIO MA15S後期',url:'/solio-ma15s-zenki-kouki.html#ma15post'}] },
   'stepwgn-rk-vs-rp.html': { name:'STEP WGN RK・RPの違い', title:'ステップワゴン RKとRPの違い・見分け方 | CarVista', description:'標準ステップワゴンのRK系とRP系を画像と公式情報で比較。型式、サイズ、装備、中古車の見分け方を解説します。', image:'/images/cars/stepwgn/gen5-2015.webp', models:[{name:'Honda STEP WGN RK',url:'/stepwgn-rk-vs-rp.html#rk'},{name:'Honda STEP WGN RP',url:'/stepwgn-rk-vs-rp.html#rp'}] },
@@ -298,7 +302,7 @@ function escapeHtml(value) {
 // UI. The app removes it immediately after JavaScript begins, so readers see
 // one interface while non-JS crawlers still receive the page topic, key facts,
 // and a natural internal link.
-function buildStaticVehicleFallback(car) {
+function buildStaticVehicleFallback(car, slug, cars) {
   const isSingleGeneration = car.generations.length === 1
   const yearLabel = value => /\d$/.test(String(value)) ? `${escapeHtml(value)}年` : escapeHtml(value)
   const generations = car.generations.map((generation, index) => {
@@ -329,7 +333,11 @@ function buildStaticVehicleFallback(car) {
     ? `${escapeHtml(car.vehicleName)}の掲載モデルを、型式・販売時期・外観の手がかりで確認できます。`
     : `${escapeHtml(car.vehicleName)}は${car.generations.length}つの掲載区分を、型式・販売時期・外観の手がかりで確認できます。`
   const listHeading = isSingleGeneration ? '掲載モデル・外観の手がかり' : '世代一覧・外観の手がかり'
-  return `<section class="${fallbackClass}" aria-label="${escapeHtml(car.vehicleName)}の車種概要"><div class="static-fast-answer"><p>FAST ANSWER</p><strong>${answer}</strong><span>${escapeHtml(car.seo.description)}</span></div><p class="static-image-policy">掲載画像は公開資料をもとにした制作ビジュアルです。<a href="/editorial-policy.html">画像の制作方針</a></p><h2>${listHeading}</h2><div class="static-generation-grid">${generations}</div>${guide}${evolution}${guides}<h2>公式資料・参考資料</h2><ul>${sources}</ul><p>画像だけで年式やグレードを断定せず、型式・車台番号・装備情報を販売店の車両情報と照合してください。</p><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・画像利用・訂正方針</a></p></section>`
+  const relatedLinks = (relatedCars[slug] ?? []).map(relatedSlug => {
+    const related = cars.find(candidate => candidate.slug === relatedSlug)
+    return related ? `<li><a href="/cars/${escapeHtml(related.slug)}.html">${escapeHtml(related.vehicleName)}</a></li>` : ''
+  }).join('')
+  return `<section class="${fallbackClass}" aria-label="${escapeHtml(car.vehicleName)}の車種概要"><div class="static-fast-answer"><p>FAST ANSWER</p><strong>${answer}</strong><span>${escapeHtml(car.seo.description)}</span></div><p class="static-image-policy">掲載画像は公開資料をもとにした制作ビジュアルです。<a href="/editorial-policy.html">画像の制作方針</a></p>${staticQuickGuide(car)}<h2>${listHeading}</h2><div class="static-generation-grid">${generations}</div>${guide}${evolution}${guides}${relatedLinks ? `<h2>あわせて比較する車種</h2><ul>${relatedLinks}</ul>` : ''}<h2>公式資料・参考資料</h2><ul>${sources}</ul><p>画像だけで年式やグレードを断定せず、型式・車台番号・装備情報を販売店の車両情報と照合してください。</p><p><a href="/">CarVistaの掲載車種一覧</a>｜<a href="/editorial-policy.html">制作方針・画像利用・訂正方針</a></p></section>`
 }
 
 function standaloneEntryHtml(filename, cars) {
@@ -559,6 +567,28 @@ function buildHomeTags(cars) {
 // no JSON-LD list to generate; just title/description/canonical/OGP
 // like any other static page.
 const EDITORIAL_GUIDES = {
+  'noah-60-vs-70.html': {
+    name: 'ノア60系・70系の違い',
+    title: `ノア60系と70系の違い｜型式・年式・中古車の確認順 | ${SITE_NAME}`,
+    description: 'ノア初代60系と2代目70系を公式資料と既存画像で比較。AZRとZRRの型式、2004年・2010年の改良、中古車購入時の確認順を解説。',
+    image: '/images/cars/noah/gen2-2007-unified.webp',
+    models: [
+      { name: 'トヨタ ノア60系', url: '/noah-60-vs-70.html#noah60' },
+      { name: 'トヨタ ノア70系', url: '/noah-60-vs-70.html#noah70' },
+    ],
+  },
+  'spacia-model-code-years.html': {
+    name: 'スペーシアの型式・年式一覧',
+    title: `スペーシアの型式・年式一覧｜MK32S・MK42S・MK53S・MK94S | ${SITE_NAME}`,
+    description: 'スペーシアの型式を発売時期と世代で整理。MK32SとMK42Sは初代、MK53Sは2代目、MK94Sは3代目。MK54Sのターボ仕様と中古車の確認順も解説。',
+    image: '/images/cars/spacia/gen3-2023.webp',
+    models: [
+      { name: 'スズキ スペーシア MK32S', url: '/spacia-model-code-years.html#mk32s' },
+      { name: 'スズキ スペーシア MK42S', url: '/spacia-model-code-years.html#mk42s' },
+      { name: 'スズキ スペーシア MK53S', url: '/spacia-model-code-years.html#mk53s' },
+      { name: 'スズキ スペーシア MK94S', url: '/spacia-model-code-years.html#mk94s' },
+    ],
+  },
   'roomy-tank-thor-justy.html': {
     name: 'ROOMY・TANK・THOR・JUSTY 4兄弟の違い',
     title: `ルーミー・タンク・トール・ジャスティの違い｜型式と見分け方 | ${SITE_NAME}`,
@@ -740,6 +770,11 @@ function seoInjectPlugin() {
           injectTo: 'head',
         },
         {
+          tag: 'style',
+          children: designSystemCss,
+          injectTo: 'head',
+        },
+        {
           tag: 'script',
           children: mobileNavigationJs,
           injectTo: 'head',
@@ -780,6 +815,15 @@ function seoInjectPlugin() {
         let body = comparisonData ? generationComparisonHtml(comparisonData) : standaloneEntryHtml(filename, cars)
         if (!body) body = genericComparisonHtml(genericComparisonData(filename, cars))
         if (!body) throw new Error(`Static rendering is required for published comparison page: ${filename}`)
+        // Published comparison HTML is prerendered, so its runtime renderer
+        // deliberately skips the markup insertion. Add the approved creative
+        // during build for the small, explicit valuation allowlist instead.
+        const decision = vehicleDecisionHtml(undefined, { pagePath: `/${filename}` })
+        if (decision) {
+          const marker = '<a class="comparison-more"'
+          if (!body.includes(marker) || body.includes('data-vehicle-intent="valuation"')) throw new Error(`Unexpected referral placement in ${filename}`)
+          body = body.replace(marker, `${decision}${marker}`)
+        }
         const rendered = injectStaticFallback(html, body)
         return {
           html: comparisonData ? rendered.replace(/<main id="([^"]+)">/, '<main id="$1" data-prerendered="true">') : rendered,
@@ -825,7 +869,7 @@ function seoInjectPlugin() {
         { tag: 'script', attrs: { type: 'application/ld+json' }, children: JSON.stringify(breadcrumbJsonLd), injectTo: 'head' },
       ]
       return {
-        html: condenseVehiclePolicy(html).replace(/<img[^>]*id="hero-image"[^>]*>/, tag => tag.replace(/\s*\/?>$/, ` src="${escapeHtml(car.heroImage)}" />`)).replace('<h1 id="hero-title"></h1>', `<h1 id="hero-title">${escapeHtml(car.vehicleName)}</h1>`).replace(/<\/header>/, `</header>${buildStaticVehicleFallback(car)}`),
+        html: condenseVehiclePolicy(html).replace(/<img[^>]*id="hero-image"[^>]*>/, tag => tag.replace(/\s*\/?>$/, ` src="${escapeHtml(car.heroImage)}" />`)).replace('<h1 id="hero-title"></h1>', `<h1 id="hero-title">${escapeHtml(car.vehicleName)}</h1>`).replace(/<\/header>/, `</header>${buildStaticVehicleFallback(car, slug, relatedCars[slug] ? await loadAllCars() : [])}`),
         tags: withAdSenseVerification(tags),
       }
     },
@@ -861,6 +905,7 @@ function sitemapPlugin() {
 }
 
 export default defineConfig({
+  appType: 'mpa',
   plugins: [ninjaParserPlugin(root),seoInjectPlugin(), sitemapPlugin()],
   build: {
     rollupOptions: {

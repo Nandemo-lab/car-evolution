@@ -11,7 +11,7 @@ test('Cloudflare production remains static-only and does not expose a workers.de
   assert.equal(config.preview_urls, false)
   assert.equal(config.assets.directory, './dist')
   assert.equal(config.assets.html_handling, 'none')
-  assert.equal(config.assets.not_found_handling, 'none')
+  assert.equal(config.assets.not_found_handling, '404-page')
   assert.equal(config.main, undefined)
 })
 
@@ -36,6 +36,7 @@ test('Cloudflare build embeds the existing public GA4 measurement ID determinist
 test('Cloudflare preview is isolated and prepared with noindex', async () => {
   const [config, prepare] = await Promise.all([read('wrangler.preview.jsonc'), read('scripts/prepare-cloudflare-preview.mjs')])
   assert.match(config, /"name": "carvista-static-preview"/)
+  assert.equal(JSON.parse(config).assets.not_found_handling, '404-page')
   assert.match(config, /"directory": "\.\/dist-cloudflare-preview"/)
   assert.match(prepare, /X-Robots-Tag: noindex, nofollow/)
 })

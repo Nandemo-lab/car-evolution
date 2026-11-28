@@ -36,3 +36,6 @@ outputs/cloudflare-migration/
 
 # Local Trend Radar run output (GitHub Actions stores candidate reports as artifacts)
 outputs/trend-radar/
+
+# Local non-publishable image-rights review packages
+outputs/rights-review-*/

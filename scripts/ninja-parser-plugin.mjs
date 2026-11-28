@@ -2,7 +2,9 @@ import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {runInNewContext} from 'node:vm';
-export const NINJA_RELEASE_ENABLED = true;
+// Keep the slot off until a real creative and its mobile layout are verified.
+// An empty 300x250 frame hid useful comparison content on narrow screens.
+export const NINJA_RELEASE_ENABLED = process.env.CARVISTA_NINJA_AD_ENABLED === 'true';
 export const TARGET = 'compare-voxy-noah.html';
 export const TARGETS = Object.freeze({
  'compare-voxy-noah.html': 'comparison',
@@ -14,9 +16,8 @@ export const TARGETS = Object.freeze({
 // Evaluates only our local comparison rendering code. No third-party code executes.
 export async function renderComparison(root) {
  let source=readFileSync(resolve(root,'src/comparison-page.js'),'utf8');
- const affiliate=structuredClone((await import(pathToFileURL(resolve(root,'src/affiliate.js')).href)).affiliateDestinations);
- if(affiliate.usedCarSearch?.url||affiliate.usedCarSearch?.label)throw Error('Existing affiliate CTA requires placement review');
- const context={affiliateDestinations:affiliate,document:null};
+ const { vehicleDecisionHtml } = await import(pathToFileURL(resolve(root,'src/affiliate.js')).href);
+ const context={vehicleDecisionHtml,document:null};
  for(const match of source.matchAll(/^import (\w+) from '(\.\/cars\/[^']+)'/gm)) {
   context[match[1]]=structuredClone((await import(pathToFileURL(resolve(root,'src',match[2])).href)).default);
  }

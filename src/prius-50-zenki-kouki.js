@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './click-glow.js'
@@ -31,7 +32,7 @@ document.querySelector('#prius-facelift-page').innerHTML = `
   <section class="facelift-source" aria-label="公式情報源"><p>FACT CHECK</p><span>年式、型式、グレードと変更内容は、<a href="https://global.toyota/jp/newsroom/toyota/21810973.html" target="_blank" rel="noopener noreferrer">Toyota公式 2015年発売資料</a>、<a href="https://global.toyota/jp/newsroom/toyota/25674138.html" target="_blank" rel="noopener noreferrer">Toyota公式 2018年マイナーチェンジ資料</a>で確認しています。</span></section>
   <a class="comparison-more" href="/cars/prius.html">PRIUSの歴代モデル一覧を見る</a>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
-document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'PRIUS', intent: '50-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'PRIUS 50系 前期・後期の違い', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'PRIUS', intent: '50-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); return shareSafely(event.currentTarget, { title: document.title, text: 'PRIUS 50系 前期・後期の違い', url: location.href }) })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_identification_guide_url', { vehicle: 'PRIUS', intent: '50-zenki-kouki' }); return copyUrl(event.currentTarget, 'コピーしました') })
 document.querySelectorAll('[data-related-link]').forEach((link) => link.addEventListener('click', () => trackEvent('open_related_content', { vehicle: 'PRIUS', intent: '50-zenki-kouki' })))

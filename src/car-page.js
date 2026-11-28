@@ -1,7 +1,9 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './car-page.css'
 import './click-glow.js'
 import { getDiscoveryImage, getDiscoveryStyle, getSlugFromPath, relatedCars } from './discovery.js'
 import { trackEvent } from './analytics.js'
+import { vehicleDecisionHtml } from './affiliate.js'
 import { assignAnnotationLanes } from './annotation-layout.js'
 
 // vite.config.js supplies a compact, data-derived HTML fallback for
@@ -160,8 +162,34 @@ export function initCarPage(config) {
   renderEvolutionNotes(config)
   renderNextDiscovery(config)
   renderGuideLinks(config)
+  renderVehicleDecision(config)
   renderReferences(config)
   renderTrustNav()
+}
+
+// These three model pages receive relevant vehicle discovery traffic. Show
+// the decision block only after an actual partner has approved its link.
+function renderVehicleDecision(config) {
+  if (!['NOAH', 'VOXY', 'TANTO'].includes(config.vehicleName)) return
+  const html = vehicleDecisionHtml(undefined, { pagePath: window.location.pathname })
+  if (!html) return
+  const section = document.createElement('div')
+  section.className = 'vehicle-decision'
+  section.innerHTML = html
+  document.querySelector('.back-home').before(section)
+  section.querySelectorAll('[data-vehicle-intent]').forEach((disclosure) => {
+    disclosure.addEventListener('toggle', () => {
+      if (disclosure.open) trackEvent('open_vehicle_intent', { vehicle: config.vehicleName, intent: disclosure.dataset.vehicleIntent })
+    })
+  })
+  section.querySelectorAll('[data-referral]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (link.tagName !== 'A' && !event.target.closest('a[href]')) return
+      trackEvent(link.dataset.referral === 'valuation' ? 'click_vehicle_valuation' : 'click_used_car_search', {
+        vehicle: config.vehicleName, partner: link.dataset.partner, page_path: window.location.pathname,
+      })
+    })
+  })
 }
 
 // A short, opt-in bridge from the selected generation image to the most
@@ -171,6 +199,7 @@ function renderQuickGuide(config) {
   if (!config.quickGuide?.items?.length) return
   const section = document.createElement('section')
   section.className = 'generation-quick-guide'
+  if (['NOAH', 'VOXY', 'TANTO'].includes(config.vehicleName)) section.classList.add('search-priority-guide')
   section.setAttribute('aria-labelledby', 'generation-quick-guide-title')
   section.innerHTML = `
     <div class="generation-quick-guide-heading">
@@ -248,14 +277,11 @@ function renderShare(config, isSingleGeneration = false) {
   }
   buttons[0].addEventListener('click', async () => {
     trackEvent('share_vehicle', { vehicle: config.vehicleName, method: navigator.share ? 'native' : 'copy' })
-    if (navigator.share) return navigator.share(shareData)
-    await navigator.clipboard.writeText(location.href)
-    buttons[0].textContent = 'URLをコピーしました'
+    return shareSafely(buttons[0], shareData)
   })
   buttons[1].addEventListener('click', async () => {
     trackEvent('copy_vehicle_url', { vehicle: config.vehicleName })
-    await navigator.clipboard.writeText(location.href)
-    buttons[1].textContent = 'コピーしました'
+    await copySafely(buttons[1], location.href, 'コピーしました')
   })
 }
 
@@ -309,7 +335,7 @@ function renderGuideLinks(config) {
     <div class="vehicle-guides-grid">${config.guides.map((guide) => {
       const alt = guide.alt ?? guide.title ?? guide.label ?? ''
       const label = guide.label ?? guide.title ?? ''
-      return `<a href="${guide.href}" data-vehicle-guide>${guide.image ? `<img src="${guide.image}" alt="${alt}" loading="lazy" decoding="async" />` : ''}<span class="vehicle-guides-copy"><strong>${label}</strong><span>${guide.description}</span><b>見る →</b></span></a>`
+      return `<a href="${guide.href}" class="${guide.image ? '' : 'vehicle-guide-text-only'}" data-vehicle-guide>${guide.image ? `<img src="${guide.image}" alt="${alt}" loading="lazy" decoding="async" />` : ''}<span class="vehicle-guides-copy"><strong>${label}</strong><span>${guide.description}</span><b>見る →</b></span></a>`
     }).join('')}</div>`
 
   section.querySelectorAll('[data-vehicle-guide]').forEach((link) => link.addEventListener('click', () => {

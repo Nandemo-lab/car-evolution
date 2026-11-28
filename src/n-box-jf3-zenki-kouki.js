@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './click-glow.js'
@@ -31,7 +32,7 @@ document.querySelector('#nbox-facelift-page').innerHTML = `
   <section class="facelift-source" aria-label="公式情報源"><p>FACT CHECK</p><span>年式・型式関係・2020年の変更内容は、<a href="https://global.honda/jp/news/2017/4170831-n-box.html" target="_blank" rel="noopener noreferrer">Honda公式 2017年発売資料</a>、<a href="https://global.honda/jp/news/2020/4201224-n-box.html" target="_blank" rel="noopener noreferrer">Honda公式 2020年マイナーモデルチェンジ資料</a>、<a href="https://global.honda/jp/news/2023/4231005-n-box.html" target="_blank" rel="noopener noreferrer">Honda公式 2023年3代目発売資料</a>で確認しています。</span></section>
   <a class="comparison-more" href="/cars/n-box.html">N-BOXの歴代モデル一覧を見る</a>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
-document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'N-BOX', intent: 'jf3-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'N-BOX 2代目 JF3/JF4 前期・後期の違い', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'N-BOX', intent: 'jf3-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); return shareSafely(event.currentTarget, { title: document.title, text: 'N-BOX 2代目 JF3/JF4 前期・後期の違い', url: location.href }) })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_identification_guide_url', { vehicle: 'N-BOX', intent: 'jf3-zenki-kouki' }); return copyUrl(event.currentTarget, 'コピーしました') })
 document.querySelectorAll('[data-related-link]').forEach((link) => link.addEventListener('click', () => trackEvent('open_related_content', { vehicle: 'N-BOX', intent: 'jf3-zenki-kouki' })))

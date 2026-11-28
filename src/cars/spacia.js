@@ -141,7 +141,22 @@ export default {
       { title: '3代目・MK54S/MK94S', description: 'シャープなランプと大きな中央エンブレムで表情を刷新。後席の使い方を広げるマルチユースフラップも、この世代の実用面の転換点です。', meta: '2023年〜現在 · MK54S / MK94S' },
     ],
   },
+  quickGuide: {
+    title: '中古スペーシアは型式と標準車・カスタムを先に確認',
+    intro: '画像は各世代の代表車です。顔つきだけで装備や安全機能を断定せず、車両ごとの仕様を照合してください。',
+    items: [
+      { title: '2015年の境界', text: '初代のMK32SとS-エネチャージ採用後のMK42Sは同じ初代。2015年5月の改良はNA車が先行し、ターボ車は同年8月から搭載されました。型式だけでなくエンジンと初度登録時期を照合し、2017年のMK53Sへの世代交代と分けて確認します。' },
+      { title: '写真の見分け方', text: '2代目MK53Sは太いクロームと四角い車体、3代目はランプと中央の大きなエンブレムを確認。カスタムの専用グリルを標準車の前後差と混同しません。' },
+      { title: '購入前の照合', text: '型式、グレード、駆動方式とスライドドア・安全装備の実車作動を販売店で確認。後席のマルチユースフラップは3代目の判断材料です。' },
+    ],
+    links: [
+      { href: '/spacia-model-code-years.html', label: '型式と発売時期を一覧で確認' },
+      { href: '/spacia-mk53s-vs-mk94s.html', label: '2代目と3代目を画像で比較' },
+      { href: '/compare-n-box-spacia.html', label: '現行N-BOXとスペーシアの選び方を比較' },
+    ],
+  },
   guides: [
+    { href: '/spacia-model-code-years.html', label: 'スペーシアの型式・年式一覧', description: 'MK32S・MK42S・MK53S・MK94Sを世代と改良時期で整理する。', image: '/images/cars/spacia/gen2-2017.webp' },
     { href: '/spacia-mk53s-vs-mk94s.html', label: 'スペーシア MK53S・MK94Sの違い', description: '2代目と3代目の標準スペーシアを画像、型式、装備で比較する。', image: '/images/cars/spacia/gen3-2023.webp' },
   ],
   // 2026-08-04: a homeCardImage override (a very tight recrop) was tried
@@ -152,8 +167,8 @@ export default {
   // worse than the original mismatch). Removed so Home's mini-card falls
   // back to heroImage like SOLIO's own card does.
   seo: {
-    title: 'SPACIA 歴代モデル一覧 — CarVista',
-    description: 'スズキ スペーシア全3世代を画像で比較。軽スーパーハイトワゴンとしてのデザインの進化が一目でわかる。',
+    title: 'スペーシア歴代の違い｜MK32S・MK53S・MK94Sの見分け方 | CarVista',
+    description: 'スペーシア歴代3世代を画像・型式で比較。2015年のMK42S、2017年のMK53S、現行MK94Sを見分け、購入時の仕様確認とN-BOX比較へ進めます。',
   },
   defaultIndex: 2,
   generations,

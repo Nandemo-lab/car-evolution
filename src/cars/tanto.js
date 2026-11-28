@@ -52,6 +52,19 @@ export default {
   referenceLengthMm: 3395,
   tagline: '広さと使いやすさは、家族の日常を変えていく。',
   heroImage: '/images/cars/tanto/gen4-2019-la650s.png',
+  quickGuide: {
+    title: 'タントは型式を先に確認すると比較を選びやすい',
+    intro: '掲載対象は標準タントです。カスタムの外装とは分けて確認してください。',
+    items: [
+      { title: 'LA600系の前期・後期', text: '2015年5月にSAⅡ、同年12月に標準車の内装色改良。SAⅡの表示だけで12月改良後とは断定できません。' },
+      { title: 'LA600系とLA650系', text: '3代目と4代目の世代交代を比べる場合は、LA600S・LA650S比較へ。' },
+      { title: '写真だけで断定しない', text: '車検証の型式と年式を確認し、装備は販売店の車両情報と照合します。' },
+    ],
+    links: [
+      { href: '/tanto-la600s-zenki-kouki.html', label: 'LA600Sの前期・後期を確認' },
+      { href: '/tanto-la600s-vs-la650s.html', label: 'LA600SとLA650Sを比較' },
+    ],
+  },
   generationGuide: {
     title: 'L350・L375・LA600・LA650系を見分ける代表ポイント',
     intro: '国内の標準タントを対象に、初代L350系から現行LA650系までを同一条件の画像で比較します。カスタム固有のグリルやエアロは混ぜず、フロントマスク、キャビン、スライドドアの進化を整理しました。',
@@ -63,7 +76,7 @@ export default {
     ],
   },
   guides: [
-    { eyebrow: 'FACELIFT GUIDE', title: 'LA600S 前期・後期の違い', description: '2015年12月改良前後を標準タント同士で比較します。', href: '/tanto-la600s-zenki-kouki.html', image: '/images/cars/tanto/la600s-2015-post-facelift-v1.png' },
+    { eyebrow: 'FACELIFT GUIDE', title: 'LA600S 前期・後期の違い', description: '2015年12月改良前後の標準車。外観写真とSAⅡ表記だけでは判断できない理由、内装と車両情報の確認点を比較します。', href: '/tanto-la600s-zenki-kouki.html', image: '/images/cars/tanto/la600s-2015-post-facelift-v1.png' },
     {
       eyebrow: 'GENERATION COMPARE', title: 'L375SとLA600Sの違いを見る',
       description: '2代目と3代目の標準タントを画像で比較。型式、顔つき、装備の違いを整理します。',
@@ -91,6 +104,8 @@ export default {
     { label: 'ダイハツ「Tanto（タント）」新発売（2003年）', href: 'https://www.daihatsu.com/jp/news/2003/20031127-01.html' },
     { label: '新型タントを発売（2007年）', href: 'https://www.daihatsu.com/jp/news/2007/20071217-02.html' },
     { label: '新型タントを発売（2013年）', href: 'https://www.daihatsu.com/jp/news/2013/20131003-1.html' },
+    { label: 'スマートアシストⅡ採用（2015年5月発売）', href: 'https://www.daihatsu.com/jp/news/2015/20150427-01.html' },
+    { label: '標準タントの内装色改良（2015年12月発売）', href: 'https://www.daihatsu.com/jp/news/2015/20151214-02.html' },
     { label: '新型タントを発売（2019年）', href: 'https://www.daihatsu.com/jp/news/2019/20190709-1.html' },
     { label: 'ダイハツ タント デザイン', href: 'https://www.daihatsu.com/jp/design/vehicle/tanto.html' },
   ],

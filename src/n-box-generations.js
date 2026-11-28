@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './click-glow.js'
@@ -21,7 +22,7 @@ document.querySelector('#nbox-generation-page').innerHTML = `
   <section class="facelift-source" aria-label="情報源"><p>FACT CHECK</p><span>販売時期・型式・主要な安全装備は、<a href="https://global.honda/jp/news/2011/4111130-nbox.html" target="_blank" rel="noopener noreferrer">Hondaの初代発売情報</a>、<a href="https://global.honda/jp/news/2017/4170831-n-box.html" target="_blank" rel="noopener noreferrer">2017年の2代目発売発表</a>、<a href="https://global.honda/jp/news/2023/4231005-n-box.html" target="_blank" rel="noopener noreferrer">2023年の3代目発売発表</a>を確認。個別仕様は販売店と公式資料でご確認ください。</span></section>
   <a class="comparison-more" href="/cars/n-box.html">N-BOXの歴代モデル一覧を見る</a>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
-document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_generation_guide', { vehicle: 'N-BOX', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'N-BOX 初代・2代目・3代目の違い', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_generation_guide', { vehicle: 'N-BOX', method: navigator.share ? 'native' : 'copy' }); return shareSafely(event.currentTarget, { title: document.title, text: 'N-BOX 初代・2代目・3代目の違い', url: location.href }) })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_generation_guide_url', { vehicle: 'N-BOX' }); return copyUrl(event.currentTarget, 'コピーしました') })
 document.querySelectorAll('[data-related-link]').forEach((link) => link.addEventListener('click', () => trackEvent('open_related_content', { vehicle: 'N-BOX', intent: 'generations' })))

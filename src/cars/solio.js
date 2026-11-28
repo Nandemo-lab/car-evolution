@@ -100,6 +100,7 @@ export default {
     { generations: 'MA15S', label: 'スズキ 2010年ソリオ発売資料', url: 'https://www.suzuki.co.jp/release/a/2010/1224/' },
     { generations: 'MA36S/MA46S', label: 'スズキ 2015年ソリオ発売資料', url: 'https://www.suzuki.co.jp/release/a/2015/0826/index.html' },
     { generations: 'MA27S/MA37S', label: 'スズキ 2020年ソリオ発売資料', url: 'https://www.suzuki.co.jp/release/a/2020/1125/' },
+    { generations: 'MA27S/MA37S', label: 'スズキ 2025年1月の外観・装備変更', url: 'https://www.suzuki.co.jp/release/a/2025/0116/' },
     { generations: '初期モデル', label: 'スズキデジタルライブラリー ワゴンRソリオ／ソリオ', url: 'https://www.suzuki.co.jp/suzuki_digital_library/1_auto/wagonrsolio.html' },
   ] },
   brand: 'スズキ', // used only for JSON-LD ("スズキ ソリオ MA37S型" etc.)
@@ -140,7 +141,7 @@ export default {
   heroImage: '/images/cars/solio/hero-ma37s-3q.webp',
   generationGuide: {
     title: 'MA34SからMA37Sまで、標準ソリオの進化',
-    intro: 'BANDITの専用フェイスを混ぜず、標準ソリオ4世代を比較します。背高ボディは共通でも、スライドドアとハイブリッドの採用が大きな境目です。',
+    intro: 'BANDITの専用フェイスを混ぜず、標準ソリオ4世代を比較します。掲載する4代目の画像は2020年発売時の代表。2025年1月には同じ世代のフロントマスクも変わったため、現在販売中の顔と同一視しません。',
     items: [
       { title: '初代・MA34S', description: '細いクロームバーと直立した小柄なボディが目印。ワゴンRソリオから車名を改めた時代の、シンプルな5ドア車です。', meta: '2005年〜2010年 · MA34S' },
       { title: '2代目・MA15S', description: '水平グリルと両側スライドドアで、現在につながる小型ハイトワゴン像を確立。初代との違いはドア構成を見ると明快です。', meta: '2011年〜2015年 · MA15S' },
@@ -154,7 +155,7 @@ export default {
     items: [
       { title: 'MA15S｜水平グリル', text: '2011〜2015年。横基調のグリルと両側スライドドアが目印です。' },
       { title: 'MA36S｜メッシュの顔', text: '2015〜2020年。シャープなランプとメッシュ基調グリルへ変わります。' },
-      { title: 'MA37S｜横につながる顔', text: '2020年〜。ランプとグリルが横方向につながり、MA27Sとは動力系も確認します。' },
+      { title: 'MA37S｜2020年発売時の顔', text: 'この画像は2020年発売時。2025年1月に標準ソリオのフロントマスクが変更されたため、現車の登録時期と装備表を確認します。' },
     ],
     links: [
       { href: '/solio-ma15s-zenki-kouki.html', label: 'MA15Sの前期・後期を見る' },
@@ -167,6 +168,9 @@ export default {
     { href:'/solio-ma15s-vs-ma36s.html', label:'ソリオ MA15S・MA36Sの違い', description:'2代目と3代目の標準ソリオを画像、型式、装備で比較する。', image:'/images/cars/solio/gen3-2015.webp' },
     { href: '/solio-ma36s-vs-ma37s.html', label: 'MA36SとMA37Sの違い', description: '3代目と4代目を外観・サイズ・荷室で比較する。', image: '/images/cars/solio/gen4-2020.webp' },
   ],
+  evolutionNotes: [
+    { title: '2025年1月：同じ4代目の顔を一新', text: '標準ソリオもBANDITもフロントマスクが変更されました。掲載のMA37S写真は発売時の顔なので、2025年以降の在庫車と写真だけで同じ外観と判断しないでください。', meta: '電動パーキングブレーキ等はグレード条件があるため、車両の装備表で確認。' },
+  ],
   // gen1's supplied photo originally depicted a beige/champagne example
   // -- recolored (hue/saturation remapped, original lightness/shading
   // preserved) to ピュアホワイトパール to match Hero/gen2-4, per
@@ -174,7 +178,7 @@ export default {
   // are" in design-identity.md.
   seo: {
     title: 'ソリオ歴代・型式｜MA15S・MA36S・MA37Sの違い | CarVista',
-    description: 'スズキ ソリオ歴代を統一画像で比較。MA15S・MA36S・MA37Sの年式、型式、ライトとグリルの見分け方、前期・後期比較への導線を整理。',
+    description: 'ソリオ歴代を画像で比較。MA15S・MA36S・MA37Sの年式・型式、前後期の違いを整理。掲載の4代目画像は2020年発売時で、2025年改良後の顔と区別。',
   },
   defaultIndex: 3,
   generations,

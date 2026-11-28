@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './click-glow.js'
 import voxy from './cars/voxy.js'
@@ -75,14 +76,12 @@ document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
   </section>`)
 
 async function copyUrl(button, message) {
-  await navigator.clipboard.writeText(location.href)
-  button.textContent = message
+  return copySafely(button, location.href, message)
 }
 
 document.querySelector('.share-button').addEventListener('click', async (event) => {
   trackEvent('share_identification_guide', { vehicle: 'VOXY', method: navigator.share ? 'native' : 'copy' })
-  if (navigator.share) return navigator.share({ title: document.title, text: 'VOXY 70・80・90系の見分け方', url: location.href })
-  await copyUrl(event.currentTarget, 'URLをコピーしました')
+  return shareSafely(event.currentTarget, { title: document.title, text: 'VOXY 70・80・90系の見分け方', url: location.href })
 })
 
 document.querySelector('.copy-button').addEventListener('click', (event) => {

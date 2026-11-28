@@ -53,6 +53,12 @@ const generations = [
 export default {
   eyebrow: 'CARVISTA',
   vehicleName: 'PRIUS',
+  references: { checkedAt: '2026年11月28日', items: [
+    { generations: '歴代10〜60系', label: 'Toyota公式 プリウス車種ギャラリー', url: 'https://global.toyota/jp/mobility/toyota-brand/gallery/prius.html' },
+    { generations: '50系・2015年発売', label: 'Toyota公式 50系発売資料', url: 'https://global.toyota/jp/detail/10418906' },
+    { generations: '50系・2018年改良', label: 'Toyota公式 2018年マイナーチェンジ資料', url: 'https://global.toyota/jp/newsroom/toyota/25674138.html' },
+    { generations: '60系・2023年発売', label: 'Toyota公式 60系HEV発売資料', url: 'https://global.toyota/jp/newsroom/toyota/38482486.html' },
+  ] },
   brand: 'トヨタ',
   maker: 'Toyota',
   order: 5,
@@ -75,6 +81,20 @@ export default {
       { title: '30系', description: '先代の輪郭を鋭く整え、台形の大きな下部開口を採用。', meta: '2009年〜2015年 · ZVW30' },
       { title: '50系', description: 'TNGAによる低重心ボディ。前期は縦へ伸びる稲妻形ランプで判別。', meta: '2015年〜2023年 · ZVW50 / ZVW51 / ZVW55' },
       { title: '60系', description: '低く長いモノフォルムと、薄いハンマーヘッドランプを採用。', meta: '2023年〜現在 · MXWH60 / MXWH65 / ZVW60 / ZVW65' },
+    ],
+  },
+  quickGuide: {
+    title: '30系・50系・60系の違いを見落とさない',
+    intro: '写真で世代を絞り、車検証の型式と改良時期で確定します。',
+    items: [
+      { title: '30系', text: 'ZVW30。2011年12月の改良で前後ランプとバンパーが変化。前後期は同じ世代です。' },
+      { title: '50系｜2018年12月の境界', text: 'ZVW50／51／55。改良でランプ・グリル・バンパーの意匠が変わり、Toyota Safety Senseが全車標準になりました。同じ50系でも登録時期と装備を照合し、写真の型式だけで前後期を断定しません。' },
+      { title: '60系｜HEVとPHEVを分ける', text: 'MXWH60／65やZVW60／65。薄いハンマーヘッドランプで世代を絞り、HEV・PHEV、グレード、駆動方式を車検証と装備表で確認します。' },
+    ],
+    links: [
+      { href: '/prius-50-zenki-kouki.html', label: '50系の改良前後を画像比較' },
+      { href: '/prius-30-vs-50.html', label: '30系と50系の世代比較' },
+      { href: '/prius-50-vs-60.html', label: '50系と60系の世代比較' },
     ],
   },
   evolutionNotes: [
@@ -101,8 +121,8 @@ export default {
     },
   ],
   seo: {
-    title: 'PRIUS 歴代モデル・10系/20系/30系/50系/60系の違い — CarVista',
-    description: 'トヨタ プリウス歴代5世代を統一画像で比較。初代から30系・50系・60系まで、販売期間、代表型式、見分け方とデザイン進化が一目でわかる。',
+    title: 'プリウス歴代の違い｜30系・50系・60系と2018年改良の見分け方 | CarVista',
+    description: 'プリウス10〜60系を画像と型式で比較。50系の2018年改良前後、60系のHEVとPHEVを区別し、中古車で確認する年式・装備と公式出典を整理。',
   },
   defaultIndex: 4,
   generations,

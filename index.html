@@ -10,10 +10,6 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" /></noscript>
     <!-- title/description/canonical/OGP/Twitter/JSON-LD are injected at
          build+dev time by the seo-inject Vite plugin (see vite.config.js),
          which aggregates every src/cars/*.js file for the JSON-LD list of
@@ -43,9 +39,9 @@
                .line span is nowrap so it can never internally re-wrap;
                the <br> is what forces the break, at the same phrase
                boundary regardless of viewport. -->
-          <p class="home-hero-desc"><span class="line">同じ視点・同じ条件で、</span><br /><span class="line">歴代モデルの進化を比較できる</span><br /><span class="line">ビジュアル図鑑。</span></p>
-          <a class="home-cta" href="#all-cars" id="home-cta">
-            <span>&#12377;&#12409;&#12390;&#12398;&#36554;&#31278;&#12434;&#35211;&#12427;</span>
+          <p class="home-hero-desc">歴代モデルを同じ視点で比較。<br />年式・型式や外観の違いも確認できます。</p>
+          <a class="home-cta" href="#model-finder" id="home-cta">
+            <span>車名から探す</span>
             <span class="home-cta-arrow" aria-hidden="true">↓</span>
           </a>
         </div>
@@ -72,17 +68,6 @@
         </div>
       </header>
 
-      <nav class="task-paths" aria-label="目的から探す">
-        <p class="section-eyebrow">START HERE</p>
-        <h2>分かっている情報から探す。</h2>
-        <p class="task-paths-intro">迷ったら、まず車名検索。初度登録年まで分かる場合は世代候補を絞れます。</p>
-        <div class="task-paths-grid">
-          <a class="task-paths-primary" href="#model-finder"><strong>車名・型式から探す</strong><span>車名だけでOK。歴代・前後期・比較をまとめて検索</span></a>
-          <a href="#year-finder"><strong>車名＋初度登録年から探す</strong><span>境界年は複数候補と確認方法を表示</span></a>
-          <a href="#comparison-links-title"><strong>画像で違いを見る</strong><span>前期・後期、世代、兄弟車を見比べる</span></a>
-        </div>
-      </nav>
-
       <!-- CarVista is "pick a car, see its evolution," not a
            recommendation feed -- All Cars is the page's main content,
            directly after Hero. The former Featured Cars spotlight
@@ -94,14 +79,14 @@
           <h2 class="all-cars-heading">車種から探す</h2>
           <!-- The Japanese helper copy explains how to choose between search
                and the maker groups; the English eyebrow remains branding. -->
-          <p class="all-cars-intro">車名が分かる場合は検索、迷っている場合はメーカー別の一覧から選べます。</p>
+          <p class="all-cars-intro">車名を入力するか、メーカー一覧から選んでください。</p>
           <p class="all-cars-count" id="all-cars-count"></p>
         </div>
-        <form id="model-finder" class="model-finder" role="search"><p class="model-finder-kicker">車名が分かる方はこちら</p><label for="model-query">まずは車名で探す</label><p>車名だけで歴代・前後期・比較を探せます。ひらがな・カタカナ・英字・型式の一部に対応。例：エヌボックス、VOXY、JF1。完全な車台番号や個人情報は入力しないでください。</p><div><input id="model-query" type="search" role="combobox" maxlength="60" placeholder="車名・型式（例：エヌボックス、JF1）" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="model-results"><button type="submit">候補を探す</button></div><div id="model-results" data-model-results aria-live="polite"></div></form>
+        <form id="model-finder" class="model-finder" role="search"><label for="model-query">車名・型式で検索</label><div><input id="model-query" type="search" role="combobox" maxlength="60" placeholder="例：N-BOX、JF1" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="model-results"><button type="submit">検索</button></div><p class="model-finder-help">ひらがなにも対応。車台番号など個人情報は入力しないでください。</p><div id="model-results" data-model-results aria-live="polite"></div></form>
         <section id="year-finder" class="year-finder" aria-labelledby="year-finder-title">
-          <div class="year-finder-heading"><p class="section-eyebrow">初度登録年も分かる方はこちら</p><h3 id="year-finder-title">車名と初度登録年から、世代候補を絞る</h3><p>中古車サイトの「年式」は原則として初度登録年です。製造時期や改良日とは一致しないため、境界年は複数候補を表示します。</p></div>
+          <div class="year-finder-heading"><h3 id="year-finder-title">初度登録年から探す</h3><p>境界年には複数の世代候補を表示します。</p></div>
           <form data-year-finder-form><label>車種<select data-year-car required><option value="">車種を選ぶ</option></select></label><label>初度登録年<select data-year-value required><option value="">年を選ぶ</option></select></label><button type="submit">候補を確認</button></form>
-          <div class="year-finder-result" data-year-result aria-live="polite"><p>車種と初度登録年を選ぶと、該当し得る世代・型式と、販売店への確認項目を表示します。</p></div>
+          <div class="year-finder-result" data-year-result aria-live="polite"><p>車種と年を選ぶと、世代・型式の候補を表示します。初度登録年は製造時期と異なる場合があります。</p></div>
           <noscript><p class="year-finder-noscript">JavaScriptを使わない場合は、下の「掲載中の型式を一覧から探す」から各車種の販売期間と型式を確認できます。</p></noscript>
         </section>
         <details class="model-directory-wrap"><summary>掲載中の型式を一覧から探す</summary><p>JavaScriptを使わずに、掲載している代表型式と世代を確認できます。型式はグレードや駆動方式で枝番が異なるため、最終確認は車検証と販売店で行ってください。</p><div class="model-directory" id="model-directory"></div></details>

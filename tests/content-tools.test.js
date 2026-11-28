@@ -46,12 +46,11 @@ test('TOP全車種カードは軽量WebP派生画像を使いMaster Assetを直�
     assert.ok(statSync(file).size<250_000,`${image} is too large`)
   }
 })
-test('TOPの外部Webフォントは描画をブロックせず最終書体を維持する', () => {
+test('TOPは外部Webフォントを読み込まずシステム書体を使う', () => {
   const html=readFileSync(new URL('../index.html',import.meta.url),'utf8')
-  const css=readFileSync(new URL('../src/home.css',import.meta.url),'utf8')
-  assert.ok(!css.includes('@import url('))
-  assert.match(html,/fonts\.googleapis\.com[^>]+media="print"[^>]+onload="this\.media='all'"/)
-  assert.match(html,/<noscript><link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com/)
+  const css=readFileSync(new URL('../src/design-system.css',import.meta.url),'utf8')
+  assert.ok(!html.includes('fonts.googleapis.com'))
+  assert.match(css,/--cv-font:.*system-ui/)
 })
 test('TOPの43車種は初期HTMLで到達可能なままメーカー絞り込みを提供する', () => {
   const html=readFileSync(new URL('../index.html',import.meta.url),'utf8')
@@ -411,15 +410,17 @@ test('TOP車種カードは全車フロント右向き・フロント優勢3/4�
 })
 test('個別の配列形式出典を優先し、確認日を捏造しない',()=>{
   const refs=resolveReferences(cars.find(car=>car.slug==='tanto'))
-  assert.equal(refs.items.length,5)
+  assert.equal(refs.items.length,7)
   assert.equal(refs.checkedAt,undefined)
   assert.ok(refs.items.every(item=>item.url.startsWith('https://www.daihatsu.com/')))
+  assert.ok(refs.items.some(item=>item.url.endsWith('/20150427-01.html')))
+  assert.ok(refs.items.some(item=>item.url.endsWith('/20151214-02.html')))
   for(const car of cars) assert.ok(resolveReferences(car)?.items.length>0,car.slug)
 })
-test('公開109 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
+test('公開111 URLの初期HTMLとサイトマップに欠落・重複見出しがない',()=>{
   const xml=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1])
-  assert.equal(urls.length,109)
+  assert.equal(urls.length,111)
   for(const url of urls){
     const pathname=new URL(url).pathname
     const html=readFileSync(new URL(`../dist${pathname==='/'?'/index.html':pathname}`,import.meta.url),'utf8')
@@ -492,8 +493,7 @@ test('本番は低リスク防御ヘッダーを強制しCSPだけReport-Onlyで
   assert.equal(ninjaTag,'<!-- admax -->\n<script src="https://adm.shinobi.jp/o/7715cbec85d744324b7fe2302020e023"></script>\n<!-- admax -->\n')
 })
 
-test('忍者AdMaxは承認済み4ページだけに公式タグを1枠ずつ配置する',()=>{
-  const approved=['compare-voxy-noah.html','tanto-la600s-zenki-kouki.html','cars/noah.html','cars/voxy.html']
+test('未検証の広告クリエイティブは全ページで表示しない',()=>{
   const htmlFiles=[]
   const walk=(dir)=>readdirSync(dir,{withFileTypes:true}).forEach(entry=>{
     const path=join(dir,entry.name)
@@ -504,19 +504,15 @@ test('忍者AdMaxは承認済み4ページだけに公式タグを1枠ずつ配�
   walk(distRoot)
   const tagged=htmlFiles.filter(path=>readFileSync(path,'utf8').includes('data-commercial-slot="ninja-carvista"'))
     .map(path=>relative(distRoot,path).replaceAll('\\','/')).sort()
-  assert.deepEqual(tagged,approved.sort())
-  tagged.forEach(filename=>{
-    const html=readFileSync(new URL(`../dist/${filename}`,import.meta.url),'utf8')
-    assert.equal((html.match(/adm\.shinobi\.jp\/o\/7715cbec85d744324b7fe2302020e023/g)||[]).length,1,filename)
-    assert.ok(html.includes(`data-ad-placement="${filename}"`),filename)
-  })
+  assert.deepEqual(tagged,[])
+  assert.ok(htmlFiles.every(path=>!readFileSync(path,'utf8').includes('adm.shinobi.jp')))
 })
 
 test('制作方針は現在の広告運用と公式出典に一致する',()=>{
   const policy=readFileSync(new URL('../dist/editorial-policy.html',import.meta.url),'utf8')
-  assert.ok(policy.includes('忍者AdMaxを、NOAH歴代、VOXY歴代、標準タントLA600S前期・後期、VOXY・NOAH比較の4ページに限って掲載'))
+  assert.ok(policy.includes('忍者AdMaxの広告枠も停止'))
   assert.ok(policy.includes('AdSense広告スクリプトの読み込みは停止'))
-  assert.ok(policy.includes('最終更新：2026年11月9日'))
+  assert.ok(policy.includes('最終更新：2026年11月27日'))
   const aqua=readFileSync(new URL('../src/cars/aqua.js',import.meta.url),'utf8')
   assert.ok(aqua.includes('https://toyota.jp/pages/contents/aqua/002_p_010/pdf/aqua_spec_202509.pdf'))
   assert.ok(!aqua.includes('/request/webcatalog/aqua/aqua_main_202509.pdf'))
@@ -525,7 +521,7 @@ test('制作方針は現在の広告運用と公式出典に一致する',()=>{
 test('全公開ページは独立したスマホ用ホームヘッダー・先頭ボタンを初期HTMLに持つ',()=>{
   const sitemap=readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8')
   const urls=[...sitemap.matchAll(/<loc>https:\/\/carvista\.jp(.*?)<\/loc>/g)].map(match=>match[1]||'/')
-  assert.equal(urls.length,109)
+  assert.equal(urls.length,111)
   for(const url of urls){
     const file=url==='/'?'index.html':url.replace(/^\//,'')
     const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
@@ -673,12 +669,12 @@ test('Phase 3重点3ページは仕様の異なる軸を混同しない',()=>{
   assert.ok(delica.includes('型式と燃料を別に確認'))
 })
 
-test('ホームは迷いを減らす3つの入口とno-JS型式一覧を持つ',()=>{
+test('ホームは入力欄を先に示しno-JS型式一覧も持つ',()=>{
   const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
-  for(const label of ['車名・型式から探す','車名＋初度登録年から探す','画像で違いを見る']) assert.ok(html.includes(label),label)
-  assert.equal((html.match(/class="task-paths-primary"/g)||[]).length,1)
-  assert.ok(html.includes('まずは車名で探す'))
-  assert.ok(html.includes('車名と初度登録年から、世代候補を絞る'))
+  assert.ok(html.includes('車名・型式で検索'))
+  assert.ok(html.includes('初度登録年から探す'))
+  assert.ok(html.indexOf('id="model-finder"') < html.indexOf('id="maker-groups"'))
+  assert.ok(html.indexOf('id="model-finder"') < html.indexOf('class="comparison-links"'))
   assert.ok(html.includes('最近の更新'))
   assert.ok(html.includes('2026年11月7日'))
   assert.ok(html.includes('KICKS・CR-V・INSIGHT・SUPER-ONEを追加'))
@@ -699,7 +695,7 @@ test('TOPの信頼情報は読めるコントラストと一致するアクセ�
 })
 
 test('世代比較ページは説明・共有操作より先に車両画像を表示する',()=>{
-  const generation=readFileSync(new URL('../dist/alphard-30-vs-40.html',import.meta.url),'utf8')
+  const generation=readFileSync(new URL('../dist/alphard-30-vs-40.html',import.meta.url),'utf8').split('</head>')[1]
   assert.ok(generation.indexOf('class="lc-cars"') < generation.indexOf('比較条件と画像について'))
   assert.ok(generation.indexOf('class="lc-cars"') < generation.indexOf('share-button'))
 })
@@ -718,7 +714,7 @@ test('兄弟車比較は生成済み初期HTMLでも説明と共有より画像�
   const files=readdirSync(new URL('../dist',import.meta.url)).filter(file=>file.startsWith('compare-')&&file.endsWith('.html'))
   assert.ok(files.length>=6,'公開中の兄弟車比較ページを全件検査する')
   for(const file of files){
-    const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8')
+    const html=readFileSync(new URL(`../dist/${file}`,import.meta.url),'utf8').split('</head>')[1]
     const answer=html.indexOf('class="comparison-answer"')
     const image=html.indexOf('class="comparison-grid"')
     assert.ok(answer>0,file)
@@ -742,7 +738,7 @@ test('全歴代ページは画像近くに短い制作画像表示を持つ',()=
 
 test('全generation比較ページは初期HTMLに3段階の現車確認フローを持つ',()=>{
   const pages=readdirSync(new URL('../dist',import.meta.url)).filter(name=>name.endsWith('.html'))
-  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').includes('comparison-notebook'))
+  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').split('</head>')[1]?.includes('class="comparison-notebook"'))
   assert.ok(targets.length>=30)
   for(const name of targets){
     const html=readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8')
@@ -762,7 +758,7 @@ test('購入確認メモは端末保存・消去・ダウンロードを選べ�
 
 test('全generation比較ページは画像ごとに固有の判別点を結び付ける',()=>{
   const pages=readdirSync(new URL('../dist',import.meta.url)).filter(name=>name.endsWith('.html'))
-  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').includes('comparison-notebook'))
+  const targets=pages.filter(name=>readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8').split('</head>')[1]?.includes('class="comparison-notebook"'))
   for(const name of targets){
     const html=readFileSync(new URL(`../dist/${name}`,import.meta.url),'utf8')
     const imageCards=(html.match(/class="lc-car"/g)||[]).length

@@ -122,6 +122,20 @@ export default {
       { title: '3代目・10系', description: '「シカクマル」の面構成と低いベルトラインで、道具感のある姿へ転換。TNGA化と低床化により、外観だけでなく乗降性も進化しました。', meta: '2022年〜現在 · MXPL10G / MXPC10G ほか' },
     ],
   },
+  quickGuide: {
+    title: '中古シエンタは型式・改良時期・座席数を分けて選ぶ',
+    intro: '顔で世代を絞ったあと、車検証の型式と車両情報の定員を照合します。2018年9月改良後の170系には2列5人乗りFUNBASEもあり、3列6〜7人乗りと荷室・乗車用途が違います。',
+    items: [
+      { title: '170系の前後期', text: '2代目は2018年9月の改良を境に標準車の顔と選択肢が変わります。FUNBASEは2列仕様なので、3列車の代替として誤認しないよう定員欄を見ます。' },
+      { title: '10系との比較', text: '2022年の3代目は丸みのある「シカクマル」の顔。画像の違いに加え、乗降性やシート配置を実車で確かめます。' },
+      { title: '購入前の照合', text: '車検証の型式、登録時期、グレードと定員を照合。2018年改良車の安全装備はグレード・オプション差があるため装備表で確認します。スライドドアの作動、3列目の収納方法、荷室の実寸も実車で確認します。' },
+    ],
+    links: [
+      { href: '/sienta-gen2-zenki-kouki.html', label: '170系の前期・後期を比較' },
+      { href: '/sienta-gen2-vs-gen3.html', label: '170系と10系を比較' },
+      { href: '/compare-freed-sienta.html', label: 'フリードとシエンタを比較' },
+    ],
+  },
   guides: [
     { href: '/sienta-gen2-zenki-kouki.html', label: '2代目 前期・後期の違い', description: '2018年9月改良前後を標準3列仕様で比較する。', image: '/images/cars/sienta/gen2-2015.png' },
     { href:'/sienta-gen1-vs-gen2.html', label:'シエンタ 初代・2代目の違い', description:'丸目の初代と2代目を画像、型式、装備で比較する。', image:'/images/cars/sienta/gen2-2015.webp' },
@@ -150,8 +164,8 @@ export default {
   // real original saturation). Minor remaining difference from gen3's
   // solid single-tone body; not a full match.
   seo: {
-    title: 'SIENTA 歴代モデル一覧 — CarVista',
-    description: 'トヨタ シエンタ全3世代を画像で比較。コンパクトミニバンとしてのデザインの進化が一目でわかる。',
+    title: 'シエンタ歴代の見分け方｜80系・170系・10系と年式 | CarVista',
+    description: 'シエンタ全3世代を画像で比較。丸目の80系、黒いガーニッシュの170系、シカクマルの10系を見分け、2018年改良・FUNBASEの座席数と中古車の確認点を整理。',
   },
   defaultIndex: 2,
   generations,

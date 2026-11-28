@@ -5,6 +5,7 @@ import './facelift-detail-tools.css'
 import './facelift-detail-crop.css'
 import './comparison-visual-first.css'
 import { trackEvent } from './analytics.js'
+import { copySafely, shareSafely } from './safe-share.js'
 
 import { bindComparisonTools } from './comparison-tools.js'
 import { generationComparisonHtml } from './generation-comparison-html.js'
@@ -27,25 +28,21 @@ export function renderGenerationComparison(data) {
   })
   trackEvent('view_generation_comparison', { vehicle: data.vehicle, comparison: data.intent })
 
-  root.querySelectorAll('.related-links a').forEach(link => {
+  root.querySelectorAll('.lc-related-card, .comparison-next-links a').forEach(link => {
     link.addEventListener('click', () => trackEvent('open_related_generation_comparison', {
       comparison: data.intent,
       destination: new URL(link.href).pathname,
     }))
   })
 
-  const copy = async (button, label) => {
-    try { await navigator.clipboard.writeText(location.href); button.textContent = label }
-    catch { button.textContent = 'アドレスバーからURLをコピーしてください' }
-  }
   document.querySelector('.share-button').addEventListener('click', async (event) => {
-    const button = event.currentTarget
     trackEvent('share_generation_comparison', { vehicle: data.vehicle, intent: data.intent })
-    if (!navigator.share) return copy(button, 'URLをコピーしました')
-    try { await navigator.share({ title: document.title, text: data.shareText, url: location.href }) }
-    catch (error) { if (error.name !== 'AbortError') button.textContent = 'URLをコピーして共有してください' }
+    return shareSafely(event.currentTarget, { title: document.title, text: data.shareText, url: location.href })
   })
-  document.querySelector('.copy-button').addEventListener('click', (event) => copy(event.currentTarget, 'コピーしました'))
+  document.querySelector('.copy-button').addEventListener('click', (event) => {
+    trackEvent('copy_generation_comparison_url', { vehicle: data.vehicle, intent: data.intent })
+    return copySafely(event.currentTarget, location.href, 'コピーしました')
+  })
 }
 
 export function bindComparisonViewToggle(root, data = {}) {

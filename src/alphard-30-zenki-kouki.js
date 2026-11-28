@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './click-glow.js'
@@ -41,11 +42,10 @@ document.querySelector('#alphard-facelift-page').innerHTML = `
   <section class="facelift-source" aria-label="情報源"><p>FACT CHECK</p><span>販売時期・マイナーチェンジ・安全装備は<a href="https://global.toyota/jp/newsroom/toyota/21800077.html" target="_blank" rel="noopener noreferrer">トヨタ公式の2015年発売発表</a>と<a href="https://global.toyota/jp/newsroom/toyota/20433735.html" target="_blank" rel="noopener noreferrer">2017年マイナーチェンジ発表</a>を確認。型式・個別装備・仕様は車両ごとに販売店と公式資料でご確認ください。</span></section>
   <a class="comparison-more" href="/cars/alphard.html">ALPHARDの歴代モデル一覧を見る</a>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
 document.querySelector('.share-button').addEventListener('click', async (event) => {
   trackEvent('share_identification_guide', { vehicle: 'ALPHARD', intent: '30-zenki-kouki', method: navigator.share ? 'native' : 'copy' })
-  if (navigator.share) return navigator.share({ title: document.title, text: 'アルファード30系 前期・後期の違い', url: location.href })
-  await copyUrl(event.currentTarget, 'URLをコピーしました')
+  return shareSafely(event.currentTarget, { title: document.title, text: 'アルファード30系 前期・後期の違い', url: location.href })
 })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_identification_guide_url', { vehicle: 'ALPHARD', intent: '30-zenki-kouki' }); return copyUrl(event.currentTarget, 'コピーしました') })
 document.querySelectorAll('[data-related-link]').forEach((link) => link.addEventListener('click', () => trackEvent('open_related_content', { vehicle: 'ALPHARD', intent: '30-zenki-kouki' })))

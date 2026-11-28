@@ -1,3 +1,4 @@
+import { copySafely, shareSafely } from './safe-share.js'
 import './comparison-page.css'
 import './alphard-30-zenki-kouki.css'
 import './click-glow.js'
@@ -31,7 +32,7 @@ document.querySelector('#serena-facelift-page').innerHTML = `
   <section class="facelift-source" aria-label="公式情報源"><p>FACT CHECK</p><span>年式・グレード・造形は<a href="https://global.nissannews.com/ja-JP/releases/160824-01-j" target="_blank" rel="noopener noreferrer">日産公式 2016年発売資料</a>、<a href="https://history.nissan.co.jp/SERENA/C27/1608/exterior_interior.html" target="_blank" rel="noopener noreferrer">日産公式 前期型アーカイブ</a>、<a href="https://history.nissan.co.jp/SERENA/C27/1908/exterior.html" target="_blank" rel="noopener noreferrer">日産公式 後期型アーカイブ</a>、<a href="https://history.nissan.co.jp/ARCHIVES/PDF/SERENA/C27/20190801/serena_specsheet.pdf" target="_blank" rel="noopener noreferrer">2019年8月 主要諸元</a>で確認しています。</span><small>編集：CarVista編集部 · 確認日：2026年9月3日 · <a href="/editorial-policy.html">制作方針</a></small></section>
   <a class="comparison-more" href="/cars/serena.html">SERENAの歴代モデル一覧を見る</a><footer class="comparison-trust"><nav><a href="/#all-cars">車種一覧</a><a href="/#comparison-links-title">比較ガイド</a><a href="/about.html">運営情報</a><a href="/editorial-policy.html">制作方針</a><a href="/privacy.html">プライバシー</a><a href="/contact.html">お問い合わせ</a></nav></footer>`
 
-async function copyUrl(button, message) { await navigator.clipboard.writeText(location.href); button.textContent = message }
-document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'SERENA', intent: 'c27-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); if (navigator.share) return navigator.share({ title: document.title, text: 'SERENA C27 前期・後期の違い', url: location.href }); await copyUrl(event.currentTarget, 'URLをコピーしました') })
+async function copyUrl(button, message) { return copySafely(button, location.href, message) }
+document.querySelector('.share-button').addEventListener('click', async (event) => { trackEvent('share_identification_guide', { vehicle: 'SERENA', intent: 'c27-zenki-kouki', method: navigator.share ? 'native' : 'copy' }); return shareSafely(event.currentTarget, { title: document.title, text: 'SERENA C27 前期・後期の違い', url: location.href }) })
 document.querySelector('.copy-button').addEventListener('click', (event) => { trackEvent('copy_identification_guide_url', { vehicle: 'SERENA', intent: 'c27-zenki-kouki' }); return copyUrl(event.currentTarget, 'コピーしました') })
 document.querySelectorAll('[data-related-link]').forEach((link) => link.addEventListener('click', () => trackEvent('open_related_content', { vehicle: 'SERENA', intent: 'c27-zenki-kouki' })))

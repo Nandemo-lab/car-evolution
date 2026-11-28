@@ -12,7 +12,7 @@ import sienta from './cars/sienta.js'
 import nBox from './cars/n-box.js'
 import spacia from './cars/spacia.js'
 import { trackEvent } from './analytics.js'
-import { affiliateDestinations } from './affiliate.js'
+import { vehicleDecisionHtml } from './affiliate.js'
 
 const pages = {
   'noah-serena-stepwgn': {
@@ -348,28 +348,14 @@ if (page.focus) {
     </section>`)
 }
 
+document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', vehicleDecisionHtml(undefined, { pagePath: window.location.pathname }))
+
 if (page.related) {
   document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
     <section class="comparison-next" aria-label="次に見比べる"><p class="comparison-eyebrow">KEEP EXPLORING</p><h2>次に見比べる</h2><div class="comparison-next-grid">${page.related.map((item, index) => `<a class="comparison-next-card" href="${item.href}" data-related-link><img src="${item.image || page.images?.[page.cars[index % page.cars.length]?.vehicleName]?.standard || page.cars[index % page.cars.length]?.generations.at(-1)?.image}" alt="" loading="lazy" decoding="async" /><span><strong>${item.label}</strong><small>${item.description}</small><b>見る →</b></span></a>`).join('')}</div></section>`)
 }
 
-function renderUsedCarCta() {
-  const destination = affiliateDestinations.usedCarSearch
-  if (!destination?.url || !destination?.label) return
 
-  document.querySelector('.comparison-more').insertAdjacentHTML('beforebegin', `
-    <aside class="comparison-cta" aria-label="中古車検索のご案内">
-      <p>PR</p><h2>見比べて気になるモデルが見つかったら、中古車を探す</h2>
-      <span>年式や条件を指定して、在庫を確認できます。外部の中古車検索サービスへ移動します。</span>
-      <a href="${destination.url}" target="_blank" rel="sponsored noopener noreferrer" data-used-car-cta>${destination.label}<b aria-hidden="true">↗</b></a>
-    </aside>`)
-
-  document.querySelector('[data-used-car-cta]').addEventListener('click', () => {
-    trackEvent('click_used_car_search', { comparison: slug, partner: destination.partner || 'unknown' })
-  })
-}
-
-renderUsedCarCta()
 
 } // end optional comparison render
 
@@ -409,6 +395,19 @@ async function copyUrl(button, message) {
     }, 2400)
   }
 }
+
+document.querySelectorAll('[data-vehicle-intent]').forEach((disclosure) => {
+  disclosure.addEventListener('toggle', () => {
+    if (disclosure.open) trackEvent('open_vehicle_intent', { comparison: slug, intent: disclosure.dataset.vehicleIntent })
+  })
+})
+document.querySelectorAll('[data-referral]').forEach((link) => {
+  link.addEventListener('click', (clickEvent) => {
+    if (link.tagName !== 'A' && !clickEvent.target.closest('a[href]')) return
+    const event = link.dataset.referral === 'valuation' ? 'click_vehicle_valuation' : 'click_used_car_search'
+    trackEvent(event, { comparison: slug, partner: link.dataset.partner, page_path: window.location.pathname })
+  })
+})
 
 document.querySelector('.share-button').addEventListener('click', async (event) => {
   const button = event.currentTarget

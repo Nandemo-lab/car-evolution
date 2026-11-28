@@ -70,7 +70,7 @@ export function bindComparisonTools(root, data) {
     } catch { announce('このブラウザでは保存できませんでした。') }
   })
   root.querySelector('[data-clear-inspection]')?.addEventListener('click', () => {
-    localStorage.removeItem(storageKey)
+    try { localStorage.removeItem(storageKey) } catch { announce('このブラウザでは消去できませんでした。入力は保持しています。'); return }
     root.querySelectorAll('[data-inspection-check]').forEach(input => { input.checked = false })
     notes.value = ''
     announce('保存内容を消去しました。')

@@ -1,4 +1,6 @@
-# CarVista Cloudflare migration runbook
+# CarVista Cloudflare migration (historical draft, superseded)
+
+**Do not execute the DNS steps in this file.** The 2026-11-05 baseline is stale: on 2026-11-28 the public authoritative nameservers were already `amanda.ns.cloudflare.com` and `mario.ns.cloudflare.com`. The current safety gate and rollback procedure are in [cloudflare-cutover.md](cloudflare-cutover.md). Cloudflare's current zone records, SSL mode and redirect rules still need an authenticated read before a production cutover can be approved. Retain this file only as a historical record of the earlier plan.
 
 Scope: `carvista.jp` only. Do not change other projects or delete the Vercel project.
 
@@ -20,7 +22,7 @@ Scope: `carvista.jp` only. Do not change other projects or delete the Vercel pro
 - Public MX/TXT/AAAA: none detected
 - Cloudflare-assigned nameservers: `amanda.ns.cloudflare.com`, `mario.ns.cloudflare.com`
 
-## Cutover sequence
+## Superseded cutover sequence (do not execute)
 
 1. Confirm Cloudflare has the imported apex A and `www` CNAME records before changing nameservers.
 2. Replace only the four authoritative nameservers at the registrar with the two assigned Cloudflare nameservers.
@@ -29,6 +31,6 @@ Scope: `carvista.jp` only. Do not change other projects or delete the Vercel pro
 5. Add a proxied placeholder record for `www` and a zone-level Single Redirect from `www` to apex using HTTP 308 and preserving path/query.
 6. Re-run full HTTP, redirect, SEO, visual, GA4, ads.txt, SSL, and Lighthouse checks.
 
-## Rollback
+## Superseded rollback (do not execute)
 
 If production QA finds a material failure, remove the Worker custom-domain route and restore the authoritative nameservers to `01.dnsv.jp` through `04.dnsv.jp`. The apex A and `www` CNAME in the original DNS continue to point at the retained Vercel production. Do not delete Vercel until a separate approval after a stability period.
