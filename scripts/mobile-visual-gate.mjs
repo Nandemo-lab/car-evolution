@@ -1,15 +1,16 @@
 import { chromium } from 'playwright'
 import { mkdir, writeFile } from 'node:fs/promises'
 
-const base = 'http://127.0.0.1:4173'
-const pages = [
+const base = process.env.MOBILE_QA_ORIGIN || 'http://127.0.0.1:4173'
+const pages = process.env.MOBILE_QA_PATHS?.split(',') || [
   '/cars/noah.html', '/cars/voxy.html', '/cars/tanto.html',
   '/n-box-jf1-zenki-kouki.html', '/cars/sienta.html',
   '/cars/spacia.html', '/noah-80-vs-90.html',
 ]
 const widths = [375, 390, 430]
 const results = []
-await mkdir('mobile-evidence', { recursive: true })
+const outputDir = process.env.MOBILE_QA_OUTPUT_DIR || 'mobile-evidence'
+await mkdir(outputDir, { recursive: true })
 const browser = await chromium.launch({ headless: true })
 try {
   for (const width of widths) {
@@ -48,13 +49,13 @@ try {
         buttons: [...document.querySelectorAll('a, button')].filter(element => element.getBoundingClientRect().width > 0).length,
       }))
       const slug = path.replace(/\W+/g, '-').replace(/^-|-$/g, '')
-      await page.screenshot({ path: `mobile-evidence/${slug}-${width}.png`, fullPage: true })
+      await page.screenshot({ path: `${outputDir}/${slug}-${width}.png`, fullPage: true })
       results.push({ path, width, status: response?.status(), ...layout, errors })
       await page.close()
     }
     await context.close()
   }
 } finally { await browser.close() }
-await writeFile('mobile-evidence/results.json', JSON.stringify(results, null, 2))
+await writeFile(`${outputDir}/results.json`, JSON.stringify(results, null, 2))
 console.log(JSON.stringify(results, null, 2))
 if (results.some(result => result.status !== 200 || result.documentWidth > result.viewport + 1 || result.brokenImages.length || result.errors.length)) process.exitCode = 1
