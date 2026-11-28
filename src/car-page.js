@@ -334,7 +334,7 @@ function renderGuideLinks(config) {
     <div class="vehicle-guides-grid">${config.guides.map((guide) => {
       const alt = guide.alt ?? guide.title ?? guide.label ?? ''
       const label = guide.label ?? guide.title ?? ''
-      return `<a href="${guide.href}" data-vehicle-guide>${guide.image ? `<img src="${guide.image}" alt="${alt}" loading="lazy" decoding="async" />` : ''}<span class="vehicle-guides-copy"><strong>${label}</strong><span>${guide.description}</span><b>見る →</b></span></a>`
+      return `<a href="${guide.href}" class="${guide.image ? '' : 'vehicle-guide-text-only'}" data-vehicle-guide>${guide.image ? `<img src="${guide.image}" alt="${alt}" loading="lazy" decoding="async" />` : ''}<span class="vehicle-guides-copy"><strong>${label}</strong><span>${guide.description}</span><b>見る →</b></span></a>`
     }).join('')}</div>`
 
   section.querySelectorAll('[data-vehicle-guide]').forEach((link) => link.addEventListener('click', () => {
