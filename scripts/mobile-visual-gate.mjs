@@ -14,8 +14,12 @@ const widths = [375, 390, 430]
 const results = []
 const outputDir = process.env.MOBILE_QA_OUTPUT_DIR || 'mobile-evidence'
 const production = base === 'https://carvista.jp'
-// Only the approved live placement among the production smoke paths is expected to show the A8 creative.
-const liveAffiliatePaths = new Set(['/cars/noah.html'])
+// Match the six approved placement paths; the production smoke covers a subset.
+const liveAffiliatePaths = new Set([
+  '/cars/noah.html', '/cars/voxy.html', '/cars/tanto.html',
+  '/noah-80-vs-90.html', '/voxy-80-zenki-kouki.html',
+  '/tanto-la600s-vs-la650s.html',
+])
 await mkdir(outputDir, { recursive: true })
 const browser = await chromium.launch({ headless: true, ...(process.env.MOBILE_QA_CHROMIUM_EXECUTABLE
   ? { executablePath: process.env.MOBILE_QA_CHROMIUM_EXECUTABLE } : {}) })
