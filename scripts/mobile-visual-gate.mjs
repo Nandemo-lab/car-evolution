@@ -61,9 +61,38 @@ try {
           prLabel: !!document.querySelector('details[data-vehicle-intent="valuation"] .comparison-referral')?.textContent.includes('PR・広告'),
         } : null,
       }), production)
+      // Exercise the existing delegated handler with a disposable local link.
+      // Never click the A8 creative or send a test conversion to GA4.
+      const analyticsProbe = production && path === '/cars/noah.html' ? await page.evaluate(() => {
+        const wrapper = document.querySelector('details[data-vehicle-intent="valuation"] [data-referral="valuation"]')
+        if (!wrapper) return { passed: false, reason: 'approved placement missing' }
+        const mock = document.createElement('a')
+        mock.href = '#qa-only'
+        mock.textContent = 'QA mock link'
+        mock.addEventListener('click', event => event.preventDefault())
+        const events = []
+        const handler = event => events.push(event.detail)
+        window.addEventListener('carvista:analytics', handler)
+        const originalGtag = window.gtag
+        const calls = []
+        window.gtag = (...args) => calls.push(args)
+        wrapper.append(mock)
+        try { mock.click() } finally {
+          mock.remove()
+          window.gtag = originalGtag
+          window.removeEventListener('carvista:analytics', handler)
+        }
+        return {
+          passed: events.length === 1 && events[0].name === 'click_vehicle_valuation' &&
+            events[0].parameters.partner === 'a8_s00000014380003' &&
+            calls.length === 1 && calls[0][0] === 'event' && calls[0][1] === 'click_vehicle_valuation',
+          eventCount: events.length,
+          gtagCallCount: calls.length,
+        }
+      }) : null
       const slug = path.replace(/\W+/g, '-').replace(/^-|-$/g, '')
       await page.screenshot({ path: `${outputDir}/${slug}-${width}.png`, fullPage: true })
-      results.push({ path, width, status: response?.status(), ...layout, errors })
+      results.push({ path, width, status: response?.status(), ...layout, analyticsProbe, errors })
       await page.close()
     }
     await context.close()
@@ -72,6 +101,6 @@ try {
 await writeFile(`${outputDir}/results.json`, JSON.stringify(results, null, 2))
 console.log(JSON.stringify(results, null, 2))
 if (results.some(result => result.status !== 200 || result.documentWidth > result.viewport + 1 || result.brokenImages.length || result.errors.length ||
-  (production && (liveAffiliatePaths.has(result.path)
+  (production && (result.analyticsProbe?.passed === false || (liveAffiliatePaths.has(result.path)
     ? !result.affiliate.visible || !result.affiliate.prLabel
-    : result.affiliate.visible)))) process.exitCode = 1
+    : result.affiliate.visible))))) process.exitCode = 1
