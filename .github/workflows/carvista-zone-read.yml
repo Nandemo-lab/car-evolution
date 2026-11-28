@@ -1,0 +1,33 @@
+name: CarVista scoped zone read
+on:
+  push:
+    branches: [preview/carvista-b5152ea]
+    paths: [docs/carvista-zone-audit-request.txt]
+permissions:
+  contents: read
+jobs:
+  encrypted-zone-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: carvista-zone-read
+    env:
+      CARVISTA_CF_READ_TOKEN: ${{ secrets.CARVISTA_CF_READ_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Require scoped secret
+        run: |
+          if [ -z "$CARVISTA_CF_READ_TOKEN" ]; then
+            echo 'Read-only token is not configured; no API call made.'
+            exit 1
+          fi
+      - name: Read and encrypt before upload
+        run: node scripts/read-cloudflare-zone.mjs
+      - name: Upload encrypted snapshot only
+        uses: actions/upload-artifact@v4
+        with:
+          name: carvista-zone-encrypted
+          path: carvista-zone-report.enc.json
+          if-no-files-found: error
+          retention-days: 1
